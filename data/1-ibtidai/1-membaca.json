@@ -1,0 +1,113 @@
+{
+  "title": "Membaca",
+  "titleArabic": "القراءة",
+  "level": "Ibtida’i",
+  "textData": [
+    {
+      "gundul": "ذهب",
+      "berharakat": "ذَهَبَ",
+      "terjemahan": "(Telah) pergi",
+      "irab": "Jenis: Fi'il Māḍī (kata kerja lampau). Status: Mabnī 'alal-fatḥi (tetap berharakat akhir fathah)."
+    },
+    {
+      "gundul": "الطالب",
+      "berharakat": "الطَّالِبُ",
+      "terjemahan": "Siswa (laki-laki)",
+      "irab": "Jenis: Isim Mufrad (kata benda tunggal). Fungsi: Fā'il (subjek/pelaku). Tanda I'rab: Marfū' dengan ḍammah."
+    },
+    {
+      "gundul": "إلى",
+      "berharakat": "إِلَى",
+      "terjemahan": "Ke",
+      "irab": "Jenis: Ḥarf Jar (kata depan). Status: Mabnī (bentuknya tetap)."
+    },
+    {
+      "gundul": "المكتبة.",
+      "berharakat": "الْمَكْتَبَةِ.",
+      "terjemahan": "Perpustakaan",
+      "irab": "Jenis: Isim Mufrad. Fungsi: Isim Majrūr (objek dari kata depan). Tanda I'rab: Majrūr dengan kasrah."
+    },
+    {
+      "gundul": "يقرأ",
+      "berharakat": "يَقْرَأُ",
+      "terjemahan": "(Sedang) membaca",
+      "irab": "Jenis: Fi'il Muḍāri' (kata kerja sekarang/akan datang). Fungsi: Fi'il. Fā'il (subjek)-nya adalah ḍamīr mustatir (kata ganti tersembunyi) yang merujuk kembali ke الطَّالِبُ. Tanda I'rab: Marfū' dengan ḍammah."
+    },
+    {
+      "gundul": "كتابا",
+      "berharakat": "كِتَابًا",
+      "terjemahan": "Sebuah buku",
+      "irab": "Jenis: Isim Mufrad. Fungsi: Maf'ūl Bih (objek penderita). Tanda I'rab: Manṣūb dengan fatḥatain (tanwin fathah)."
+    },
+    {
+      "gundul": "مفيدا.",
+      "berharakat": "مُفِيْدًا.",
+      "terjemahan": "Yang bermanfaat",
+      "irab": "Jenis: Isim Mufrad. Fungsi: Na'at (kata sifat) untuk كِتَابًا. Tanda I'rab: Manṣūb dengan fatḥatain (mengikuti kata yang disifati)."
+    },
+    {
+      "gundul": "القراءة",
+      "berharakat": "الْقِرَاءَةُ",
+      "terjemahan": "Membaca",
+      "irab": "Jenis: Maṣdar (kata dasar) / Isim Mufrad. Fungsi: Mubtada' (subjek pada kalimat nominal). Tanda I'rab: Marfū' dengan ḍammah."
+    },
+    {
+      "gundul": "هواية",
+      "berharakat": "هِوَايَةٌ",
+      "terjemahan": "Hobi",
+      "irab": "Jenis: Isim Mufrad. Fungsi: Khabar (predikat pada kalimat nominal). Tanda I'rab: Marfū' dengan ḍammatain (tanwin dammah)."
+    },
+    {
+      "gundul": "نافعة.",
+      "berharakat": "نَافِعَةٌ.",
+      "terjemahan": "Yang bermanfaat",
+      "irab": "Jenis: Isim Mufrad. Fungsi: Na'at (kata sifat) untuk هِوَايَةٌ. Tanda I'rab: Marfū' dengan ḍammatain (mengikuti kata yang disifati)."
+    }
+  ],
+  "quizData": [
+    {
+      "question": " Dalam kalimat ذَهَبَ الطَّالِبُ إِلَى الْمَكْتَبَةِ, apa kedudukan i'rab dari kata الطَّالِبُ?",
+      "context": "",
+      "options": [
+        "Maf'ūl Bih (Objek)",
+        "Fā'il (Subjek)",
+        "Mubtada' (Subjek Awal)",
+        "Isim Majrūr (Objek Kata Depan)"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Apa terjemahan yang paling tepat untuk kata مُفِيْدًا dalam konteks kalimat berikut ini",
+      "context": "يَقْرَأُ كِتَابًا مُفِيْدًا",
+      "options": [
+        "baru",
+        "besar",
+        "bermanfaat",
+        "tebal"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Apa tanda i'rab (harakat akhir) yang benar untuk kata كِتَابًا karena kedudukannya sebagai objek dalam kalimat?",
+      "context": "",
+      "options": [
+        "Ḍammah (ـُ)",
+        "Kasrah (ـِ)",
+        "Sukūn (ـْ)",
+        "Fatḥatain (ـً)"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "question": "Pada kalimat الْقِرَاءَةُ هِوَايَةٌ نَافِعَةٌ, kata الْقِرَاءَةُ berfungsi sebagai apa?",
+      "context": "",
+      "options": [
+        "Khabar (Predikat)",
+        "Fā'il (Subjek dari kata kerja)",
+        "Mubtada' (Subjek dari kalimat nominal)",
+        "Na'at (Sifat)"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}

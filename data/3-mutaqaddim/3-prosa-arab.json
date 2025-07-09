@@ -1,0 +1,215 @@
+{
+  "title": "Prosa Arab",
+  "titleArabic": "إعراب قطعة نثرية",
+  "level": "Mutaqaddim",
+  "textData": [
+    {
+      "berharakat": "إِنَّ",
+      "gundul": "إنّ",
+      "terjemahan": "sesungguhnya",
+      "irab": "حرف توكيد ونصب (إحرف ناسخ)"
+    },
+    {
+      "berharakat": "قِيَادَةَ",
+      "gundul": "قيادة",
+      "terjemahan": "kepemimpinan",
+      "irab": "اسم إنّ منصوب بالفتحة"
+    },
+    {
+      "berharakat": "الْـمَشْرُوْعَاتِ",
+      "gundul": "الـمشروعات",
+      "terjemahan": "proyek-proyek",
+      "irab": "مضاف إليه مجرور بالكسرة"
+    },
+    {
+      "berharakat": "الْكُبْرَى",
+      "gundul": "الكبرى",
+      "terjemahan": "yang besar",
+      "irab": "نعت مجرور بالكسرة المقدرة على الألف للتعذُّر"
+    },
+    {
+      "berharakat": "قِيَادَةً",
+      "gundul": "قيادة",
+      "terjemahan": "kepemimpinan",
+      "irab": "مفعول مطلق منصوب بالفتحة (مبين النوع)"
+    },
+    {
+      "berharakat": "نَاجِحَةً",
+      "gundul": "ناجحة",
+      "terjemahan": "yang sukses",
+      "irab": "نعت منصوب بالفتحة"
+    },
+    {
+      "berharakat": "فِي",
+      "gundul": "في",
+      "terjemahan": "dalam ",
+      "irab": "حرف جر"
+    },
+    {
+      "berharakat": "مُجْتَمِعٍ",
+      "gundul": "مجتمع",
+      "terjemahan": "masyarakat",
+      "irab": "اسم مجرور بفي وعلامة الجر الكسرة"
+    },
+    {
+      "berharakat": "يُنَاصِلُ",
+      "gundul": "يناصل",
+      "terjemahan": "(ia) berjuang",
+      "irab": "فعل مضار ع مرفوع بالضمة .والفاعل ضمير مستتر تقديره هو . والجملة من الفعل والفاعل فى محل جر نعت جتمع ."
+    },
+    {
+      "berharakat": "وَيُجَدِّدُ",
+      "gundul": "ويجدّد",
+      "terjemahan": "dan (ia) memperbarui",
+      "irab": "الواو حرف عطف . يجددُ فعل مضارع مرفوع بالضمة معطوف ، والفاعل ضمير مستتر تقديره هو"
+    },
+    {
+      "berharakat": "نَسِيْجَ",
+      "gundul": "نسيج",
+      "terjemahan": "tatanan/jaringan",
+      "irab": "مفعول به منصوب بالفتحة"
+    },
+    {
+      "berharakat": "حَيَاتِهِ",
+      "gundul": "حياته",
+      "terjemahan": "hidupnya",
+      "irab": "حياة مضاف إليه مجرور بالكسرة والحاء ضمير مبنى على الكسر فى محل جر مضاف إليه"
+    },
+    {
+      "berharakat": "مُحْتَاجَةٌ",
+      "gundul": "محتاجة",
+      "terjemahan": "membutuhkan",
+      "irab": "خبر إن مرفوع بالضمة"
+    },
+    {
+      "berharakat": "أنْ",
+      "gundul": "أن",
+      "terjemahan": "untuk ",
+      "irab": "حرف مصدريّ ونصب"
+    },
+    {
+      "berharakat": "يَرْعَى",
+      "gundul": "يرعى",
+      "terjemahan": "menjaga",
+      "irab": "فعل مضارع منصوب بأن وعلامة النصب الفتحة المقدّرة الألف على للتعذّر"
+    },
+    {
+      "berharakat": "أَبْنَاءُ",
+      "gundul": "أبناء",
+      "terjemahan": "putra-putri",
+      "irab": "فاعل مرفوع بالضمة"
+    },
+    {
+      "berharakat": "الْشَّعْبِ",
+      "gundul": "الشّعب",
+      "terjemahan": "bangsa",
+      "irab": "مضاف إليه مجرور بالكسرة"
+    },
+    {
+      "berharakat": "مَنْفَعَةَ",
+      "gundul": "منفعة",
+      "terjemahan": "kemaslahatan",
+      "irab": "مفعول به منصوب بالفتحة"
+    },
+    {
+      "berharakat": "الْوَطَنِ",
+      "gundul": "الوطن",
+      "terjemahan": "negara",
+      "irab": "مضاف إليه مجرور بالكسرة"
+    },
+    {
+      "berharakat": "وَأَنْ",
+      "gundul": "وأن",
+      "terjemahan": "dan agar ",
+      "irab": "الواو حرف عطف - أن حرف مصدريّ ونصب"
+    },
+    {
+      "berharakat": "يُؤْمِنُوْا",
+      "gundul": "يؤمنوا",
+      "terjemahan": "mereka yakin",
+      "irab": "فعل مضارع منصوب بحدف النون وواو الجماعة فاعل"
+    },
+    {
+      "berharakat": "بِأَنَّ",
+      "gundul": "بأنّ",
+      "terjemahan": "bahwa",
+      "irab": "الباء حرف جار - أنّ حرف ناسخ"
+    },
+    {
+      "berharakat": "فِي الْإِسْرَافِ",
+      "gundul": "في الإسراف",
+      "terjemahan": "dalam pemborosan",
+      "irab": "جار ومجرور خبر أنّ مقدم "
+    },
+    {
+      "berharakat": "إِهْدَارً",
+      "gundul": "إهدار",
+      "terjemahan": "penyia-nyiaan",
+      "irab": "اسم أنّ مؤخر منصوب بالفتحة "
+    },
+    {
+      "berharakat": "لِثَرْوَتِهِ",
+      "gundul": "لثروته",
+      "terjemahan": "terhadap kekayaannya",
+      "irab": "اللام حرف جر -ثروة مجرور باللام وعلامة الجر الكسرة والهاء ضمير مبنى على الكسر فى محل جر مضاف إليه ."
+    }
+  ],
+  "quizData": [
+    {
+      "question": "Apa kedudukan i'rab dari kata مُحْتَاجَةٌ ?",
+      "context": "إن قيادة المشروعات الكبرى قيادة ناجحة في مجتمع يناضل ويجدّد نسيج حياته محتجة أن يرعى أبناء الشعب منفعة الوطن وأن يومنوا بأنّ في الإسراف إهدارًا لثروته",
+      "options": [
+        "Na'at (Sifat)",
+        "Isim Inna (Subjek Inna)",
+        "Ḥāl (Keterangan Keadaan)",
+        "Khabar Inna (Predikat Inna)"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "question": "Frasa أَنْ يَرْعَى أَبْنَاءُ الشَّعْبِ secara keseluruhan berfungsi sebagai apa untuk kata مُحْتَاجَةٌ?",
+      "context": "إن قيادة المشروعات الكبرى قيادة ناجحة في مجتمع يناضل ويجدّد نسيج حياته محتجة أن يرعى أبناء الشعب منفعة الوطن وأن يومنوا بأنّ في الإسراف إهدارًا لثروته",
+      "options": [
+        "Fā'il (Subjek)",
+        "Maf'ūl Bih (Objek)",
+        "Nā'ib Fā'il",
+        "Mubtada' "
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Mengapa kata إِهْدَارًا berharakat akhir fathatain (manṣūb)?",
+      "context": "إن قيادة المشروعات الكبرى قيادة ناجحة في مجتمع يناضل ويجدّد نسيج حياته محتجة أن يرعى أبناء الشعب منفعة الوطن وأن يومنوا بأنّ في الإسراف إهدارًا لثروته",
+      "options": [
+        "Karena ia adalah Khabar Anna",
+        "Karena ia adalah Ḥāl",
+        "Karena ia adalah Isim Anna Mu'akhkhar",
+        "Karena ia adalah Maf'ūl Bih"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Kalimat يُنَاضِلُ وَيُجَدِّدُ نَسِيْجَ حَيَاتِهِ merupakan deskripsi atau sifat untuk kata apa?",
+      "context": "إن قيادة المشروعات الكبرى قيادة ناجحة في مجتمع يناضل ويجدّد نسيج حياته محتجة أن يرعى أبناء الشعب منفعة الوطن وأن يومنوا بأنّ في الإسراف إهدارًا لثروته",
+      "options": [
+        "الْمَشْرُوْعَاتِ",
+        "قِيَادَةً",
+        "مُجْتَمَعٍ",
+        "الشَّعْبِ"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Berdasarkan teks, apa yang menjadi konsekuensi dari الْإِسْرَافِ (pemborosan)?",
+      "context": "إن قيادة المشروعات الكبرى قيادة ناجحة في مجتمع يناضل ويجدّد نسيج حياته محتجة أن يرعى أبناء الشعب منفعة الوطن وأن يومنوا بأنّ في الإسراف إهدارًا لثروته",
+      "options": [
+        "Memperbarui tatanan hidup",
+        "Menjaga kemaslahatan negara",
+        "Menyia-nyiakan kekayaan negara",
+        "Memimpin proyek besar"
+      ],
+      "correctAnswer": 2
+    }
+  ],
+  "fullTranslation": ""
+}

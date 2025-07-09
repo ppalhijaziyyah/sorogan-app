@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Teks Arab Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .arabic-text, .arabic-font {
+            font-family: 'Noto Naskh Arabic', serif;
+            line-height: 2.5;
+            touch-action: manipulation;
+        }
+        .transition-all { transition: all 0.3s ease-in-out; }
+        .translation-tooltip { pointer-events: none; transform: translate(-50%, 5px); opacity: 0; animation: fadeIn 0.3s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .filter-btn.active {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .filter-btn.inactive { filter: grayscale(90%); opacity: 0.6; }
+        
+        #bottom-slider-backdrop { transition: opacity 0.3s ease-in-out; }
+        #bottom-slider { transition: transform 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 overflow-x-hidden">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <!-- Halaman Beranda (Home Page) -->
+        <div id="home-page">
+            <header class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-400 arabic-font">تَعَلُّمُ الْقِرَاءَةِ وَالْإِعْرَابِ</h1>
+                <p class="text-lg mt-2">Pilih Teks untuk Memulai Belajar</p>
+            </header>
+            <div id="filter-container" class="flex justify-center flex-wrap gap-3 mb-8">
+                <button data-level="All" class="filter-btn active bg-gray-700 text-white py-2 px-5 rounded-full shadow-md">Semua</button>
+                <button data-level="Ibtida’i" class="filter-btn bg-green-600 text-white py-2 px-5 rounded-full shadow-md">Ibtida’i</button>
+                <button data-level="Mutawassit" class="filter-btn bg-blue-600 text-white py-2 px-5 rounded-full shadow-md">Mutawassit</button>
+                <button data-level="Mutaqaddim" class="filter-btn bg-purple-600 text-white py-2 px-5 rounded-full shadow-md">Mutaqaddim</button>
+            </div>
+            <div id="lesson-groups-container" class="space-y-12"></div>
+        </div>
+
+        <!-- Halaman Belajar (Learning Page) -->
+        <div id="learning-page" class="hidden">
+            <header class="flex justify-between items-center mb-8">
+                <button id="back-to-home-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all">&larr; Kembali</button>
+                <h1 id="lesson-title" class="text-2xl md:text-3xl font-bold text-teal-600 dark:text-teal-400 arabic-font text-right truncate"></h1>
+            </header>
+            <main id="main-content">
+                <div class="flex justify-center items-center flex-wrap gap-4 md:gap-6 mb-6">
+                    <button id="toggle-all-harakat-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg shadow-md">Tampilkan Semua Harakat</button>
+                    <div class="flex items-center">
+                        <label for="translation-toggle" class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Terjemahan</label>
+                        <label class="relative inline-flex items-center cursor-pointer mr-3"><input type="checkbox" id="translation-toggle" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-teal-300 dark:peer-focus:ring-teal-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600"></div></label>
+                    </div>
+                </div>
+                <div id="text-container" class="relative arabic-text bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg text-3xl text-right leading-loose" dir="rtl"></div>
+                
+                <div id="reference-container" class="mt-6 hidden">
+                    <p id="reference-text" class="text-sm italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 p-3 rounded-md border-l-4 border-teal-500"></p>
+                </div>
+
+                <div class="text-center mt-6 text-gray-600 dark:text-gray-400">
+                    <p><span class="font-semibold">Klik sekali</span> untuk harakat/terjemahan. <span class="font-semibold">Klik dua kali</span> untuk i'rab.</p>
+                </div>
+                <div id="full-translation-btn-container" class="text-center mt-4 hidden">
+                    <button id="show-full-translation-btn" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg shadow-md">Lihat Terjemahan Lengkap</button>
+                </div>
+                <!-- PERBAIKAN: Menambahkan ID ke kontainer tombol kuis -->
+                <div id="start-quiz-btn-container" class="flex justify-center mt-10"><button id="start-quiz-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-md">Mulai Kuis</button></div>
+            </main>
+            <div id="quiz-container" class="hidden mt-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                    <p id="quiz-progress" class="text-center font-semibold mb-4 text-lg text-gray-700 dark:text-gray-300"></p>
+                    <h2 id="quiz-question" class="text-2xl font-bold mb-4 text-center"></h2>
+                    <p id="quiz-context" class="arabic-text text-3xl text-center mb-6" dir="rtl"></p>
+                    <div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    <div id="quiz-feedback" class="mt-6 text-center font-bold"></div>
+                    <div class="flex justify-center mt-6"><button id="back-to-text-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Kembali ke Teks</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel Slider I'rab & Terjemahan -->
+    <div id="bottom-slider-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden opacity-0 z-40"></div>
+    <div id="bottom-slider" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-2xl shadow-2xl p-6 transform translate-y-full z-50 max-h-[80vh] flex flex-col">
+        <div class="flex-shrink-0 flex justify-between items-center mb-4">
+            <h3 id="slider-title" class="text-xl font-bold text-teal-600 dark:text-teal-400 arabic-font"></h3>
+            <button id="close-slider-btn" class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 text-2xl">&times;</button>
+        </div>
+        <div id="slider-content" class="flex-grow overflow-y-auto" dir="ltr"></div>
+    </div>
+
+    <script>
+        let masterIndex = [], currentLesson = {}, shuffledQuiz = [], currentQuestionIndex = 0, isHarakatShownGlobally = false;
+        
+        const homePage = document.getElementById('home-page'), learningPage = document.getElementById('learning-page'),
+              lessonGroupsContainer = document.getElementById('lesson-groups-container'), filterContainer = document.getElementById('filter-container'),
+              backToHomeBtn = document.getElementById('back-to-home-btn'), lessonTitle = document.getElementById('lesson-title'),
+              textContainer = document.getElementById('text-container'), mainContent = document.getElementById('main-content'),
+              quizContainer = document.getElementById('quiz-container'), startQuizBtn = document.getElementById('start-quiz-btn'),
+              startQuizBtnContainer = document.getElementById('start-quiz-btn-container'), // Selector baru
+              backToTextBtn = document.getElementById('back-to-text-btn'), toggleAllBtn = document.getElementById('toggle-all-harakat-btn'),
+              translationToggle = document.getElementById('translation-toggle'), sliderBackdrop = document.getElementById('bottom-slider-backdrop'),
+              sliderPanel = document.getElementById('bottom-slider'), sliderTitle = document.getElementById('slider-title'),
+              sliderContent = document.getElementById('slider-content'), closeSliderBtn = document.getElementById('close-slider-btn'),
+              fullTranslationBtnContainer = document.getElementById('full-translation-btn-container'),
+              showFullTranslationBtn = document.getElementById('show-full-translation-btn'),
+              referenceContainer = document.getElementById('reference-container'),
+              referenceText = document.getElementById('reference-text');
+
+        function renderHomePage(filter = 'All') {
+            lessonGroupsContainer.innerHTML = '';
+            const levelsInOrder = ['Ibtida’i', 'Mutawassit', 'Mutaqaddim'];
+            const levelDetails = {
+                'Ibtida’i': { title: 'Tingkat Ibtida’i (Pemula)', color: 'green' },
+                'Mutawassit': { title: 'Tingkat Mutawassit (Menengah)', color: 'blue' },
+                'Mutaqaddim': { title: 'Tingkat Mutaqaddim (Mahir)', color: 'purple' }
+            };
+            let lessonsFound = false;
+            levelsInOrder.forEach(level => {
+                if (filter !== 'All' && filter !== level) return;
+                const lessonsForLevel = masterIndex.filter(lesson => lesson.level === level);
+                if (lessonsForLevel.length > 0) {
+                    lessonsFound = true;
+                    const section = document.createElement('div');
+                    const heading = document.createElement('h2');
+                    heading.textContent = levelDetails[level].title;
+                    heading.className = `text-2xl font-bold mb-4 pb-2 border-b-2 text-${levelDetails[level].color}-700 dark:text-${levelDetails[level].color}-400 border-${levelDetails[level].color}-500`;
+                    const gridContainer = document.createElement('div');
+                    gridContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+                    lessonsForLevel.forEach((lessonInfo) => {
+                        const card = document.createElement('div');
+                        card.className = 'p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer transition-all relative overflow-hidden flex flex-col';
+                        card.onclick = () => startLesson(lessonInfo.path);
+                        const levelColors = {
+                            'Ibtida’i': `bg-green-100 dark:bg-green-900/50 border-green-500`,
+                            'Mutawassit': `bg-blue-100 dark:bg-blue-900/50 border-blue-500`,
+                            'Mutaqaddim': `bg-purple-100 dark:bg-purple-900/50 border-purple-500`,
+                        };
+                        card.classList.add(...(levelColors[lessonInfo.level] || 'bg-white dark:bg-gray-800').split(' '));
+                        card.style.borderTop = `4px solid`;
+                        card.innerHTML = `<span class="absolute top-0 right-0 px-3 py-1 text-xs font-bold text-white rounded-bl-lg ${levelColors[lessonInfo.level].replace('border', 'bg').replace('-100', '-600').replace('-900/50', '-600')}">${lessonInfo.level}</span><div class="flex-grow"><h3 class="text-xl font-bold arabic-font text-right mt-4 text-gray-800 dark:text-gray-200">${lessonInfo.titleArabic || ''}</h3><p class="text-md font-semibold text-gray-700 dark:text-gray-300 mt-1">${lessonInfo.title}</p><p class="text-sm italic text-gray-500 dark:text-gray-400 mt-3">"${lessonInfo.preview || ''}"</p></div>`;
+                        gridContainer.appendChild(card);
+                    });
+                    section.appendChild(heading);
+                    section.appendChild(gridContainer);
+                    lessonGroupsContainer.appendChild(section);
+                }
+            });
+            if (!lessonsFound && filter !== 'All') {
+                lessonGroupsContainer.innerHTML = `<p class="text-gray-500 text-center col-span-full">Tidak ada pelajaran untuk tingkatan ini.</p>`;
+            }
+        }
+
+        async function startLesson(filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) throw new Error(`Gagal memuat ${filePath}`);
+                currentLesson = await response.json();
+                lessonTitle.textContent = currentLesson.titleArabic || currentLesson.title;
+                renderText(currentLesson.textData);
+                homePage.classList.add('hidden');
+                learningPage.classList.remove('hidden');
+                mainContent.classList.remove('hidden');
+                quizContainer.classList.add('hidden');
+                isHarakatShownGlobally = false;
+                toggleAllBtn.textContent = 'Tampilkan Semua Harakat';
+                translationToggle.checked = false;
+                
+                if (currentLesson.reference && currentLesson.reference.trim() !== "") {
+                    referenceText.innerHTML = `<strong>Sumber:</strong> ${currentLesson.reference}`;
+                    referenceContainer.classList.remove('hidden');
+                } else {
+                    referenceContainer.classList.add('hidden');
+                }
+
+                if (currentLesson.fullTranslation && currentLesson.fullTranslation.trim() !== "") {
+                    fullTranslationBtnContainer.classList.remove('hidden');
+                } else {
+                    fullTranslationBtnContainer.classList.add('hidden');
+                }
+                
+                // PERBAIKAN: Logika untuk menampilkan/menyembunyikan tombol kuis
+                if (currentLesson.quizData && currentLesson.quizData.length > 0) {
+                    startQuizBtnContainer.classList.remove('hidden');
+                } else {
+                    startQuizBtnContainer.classList.add('hidden');
+                }
+
+            } catch (error) {
+                console.error("Gagal memulai pelajaran:", error);
+                alert("Tidak dapat memuat materi pelajaran. Pastikan path file benar.");
+            }
+        }
+        
+        function renderText(textData) {
+            textContainer.innerHTML = '';
+            textData.forEach((wordData, index) => {
+                const isPunctuation = /[.،؟:!()"«»]/.test(wordData.berharakat) && wordData.berharakat.length === 1;
+                const wordWrapper = document.createElement('span');
+                wordWrapper.className = 'relative inline-block';
+                const wordSpan = document.createElement('span');
+                wordSpan.id = `word-${index}`;
+                wordSpan.textContent = wordData.gundul;
+                if (!isPunctuation) {
+                    wordSpan.className = 'arabic-text cursor-pointer hover:bg-teal-100 dark:hover:bg-teal-900 p-1 rounded transition-all';
+                    wordSpan.addEventListener('click', handleWordClick);
+                    wordSpan.addEventListener('dblclick', handleWordDoubleClick);
+                } else {
+                    wordSpan.className = 'arabic-text';
+                }
+                wordSpan.dataset.gundul = wordData.gundul;
+                wordSpan.dataset.berharakat = wordData.berharakat;
+                wordSpan.dataset.irab = wordData.irab;
+                wordSpan.dataset.terjemahan = wordData.terjemahan;
+                wordWrapper.appendChild(wordSpan);
+                textContainer.appendChild(wordWrapper);
+                if (!isPunctuation && index < textData.length - 1 && !(/[.،؟:!()"«»]/.test(textData[index + 1].berharakat) && textData[index + 1].berharakat.length === 1)) {
+                    textContainer.appendChild(document.createTextNode(' '));
+                }
+            });
+        }
+
+        function handleWordClick(event) {
+            const span = event.currentTarget;
+            if (span.textContent === span.dataset.gundul) { span.textContent = span.dataset.berharakat; } 
+            else { span.textContent = span.dataset.gundul; }
+            if (translationToggle.checked) { toggleTranslation(span); }
+        }
+
+        function handleWordDoubleClick(event) {
+            const span = event.currentTarget;
+            showSlider(span.dataset.berharakat, span.dataset.irab, 'ltr');
+        }
+
+        function toggleTranslation(wordSpan) {
+            const wordIndex = wordSpan.id.split('-')[1];
+            const tooltipId = `tooltip-${wordIndex}`;
+            const existingTooltip = document.getElementById(tooltipId);
+            if (existingTooltip) {
+                existingTooltip.remove();
+            } else {
+                const tooltip = document.createElement('div');
+                tooltip.id = tooltipId;
+                tooltip.textContent = wordSpan.dataset.terjemahan;
+                tooltip.className = 'translation-tooltip absolute bg-gray-800 text-white text-sm rounded py-1 px-3 z-10';
+                const wordWrapper = wordSpan.parentElement;
+                wordWrapper.appendChild(tooltip);
+                const wordRect = wordSpan.getBoundingClientRect();
+                tooltip.style.left = `${wordRect.width / 2}px`;
+                tooltip.style.top = `${wordRect.height - 10}px`;
+            }
+        }
+
+        function hideAllTooltips() {
+            document.querySelectorAll('.translation-tooltip').forEach(tip => tip.remove());
+        }
+
+        function toggleAllHarakat() {
+            hideAllTooltips();
+            const wordSpans = textContainer.querySelectorAll('span[id^="word-"]');
+            isHarakatShownGlobally = !isHarakatShownGlobally;
+            wordSpans.forEach(span => {
+                span.textContent = isHarakatShownGlobally ? span.dataset.berharakat : span.dataset.gundul;
+            });
+            toggleAllBtn.textContent = isHarakatShownGlobally ? 'Sembunyikan Semua Harakat' : 'Tampilkan Semua Harakat';
+        }
+
+        function shuffleArray(array) { return [...array].sort(() => Math.random() - 0.5); }
+
+        function displayQuizQuestion(index) {
+            const quiz = shuffledQuiz[index];
+            document.getElementById('quiz-progress').textContent = `Pertanyaan ${index + 1} dari ${shuffledQuiz.length}`;
+            document.getElementById('quiz-question').textContent = quiz.question;
+            document.getElementById('quiz-context').innerHTML = quiz.context || '';
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            const optionsToShuffle = quiz.options.map((text, i) => ({ text, isCorrect: i === quiz.correctAnswer }));
+            shuffleArray(optionsToShuffle).forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option.text;
+                button.className = 'w-full p-3 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all text-left';
+                button.dataset.isCorrect = option.isCorrect;
+                button.onclick = (e) => checkAnswer(e.currentTarget);
+                optionsContainer.appendChild(button);
+            });
+            document.getElementById('quiz-feedback').textContent = '';
+        }
+
+        function checkAnswer(clickedButton) {
+            const allButtons = clickedButton.parentElement.querySelectorAll('button');
+            const feedback = document.getElementById('quiz-feedback');
+            allButtons.forEach(button => button.disabled = true);
+            if (clickedButton.dataset.isCorrect === 'true') {
+                clickedButton.className = 'w-full p-3 bg-green-500 text-white rounded-lg text-left';
+                feedback.textContent = 'Jawaban Benar!';
+                feedback.className = 'mt-6 text-center font-bold text-green-500';
+            } else {
+                clickedButton.className = 'w-full p-3 bg-red-500 text-white rounded-lg text-left';
+                feedback.textContent = 'Jawaban Kurang Tepat.';
+                feedback.className = 'mt-6 text-center font-bold text-red-500';
+                allButtons.forEach(button => {
+                    if (button.dataset.isCorrect === 'true') button.className = 'w-full p-3 bg-green-500 text-white rounded-lg text-left';
+                });
+            }
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < shuffledQuiz.length) {
+                    displayQuizQuestion(currentQuestionIndex);
+                } else {
+                    feedback.textContent = 'Kuis Selesai!';
+                    feedback.className = 'mt-6 text-center font-bold text-blue-500';
+                }
+            }, 2000);
+        }
+
+        function showSlider(title, contentHTML, direction = 'ltr') {
+            sliderTitle.textContent = title;
+            sliderContent.innerHTML = contentHTML;
+            sliderContent.dir = direction;
+            sliderBackdrop.classList.remove('hidden');
+            setTimeout(() => {
+                sliderBackdrop.classList.remove('opacity-0');
+                sliderPanel.classList.remove('translate-y-full');
+            }, 10);
+        }
+
+        function hideSlider() {
+            sliderBackdrop.classList.add('opacity-0');
+            sliderPanel.classList.add('translate-y-full');
+            setTimeout(() => sliderBackdrop.classList.add('hidden'), 300);
+        }
+
+        backToHomeBtn.addEventListener('click', () => { learningPage.classList.add('hidden'); homePage.classList.remove('hidden'); });
+        filterContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.filter-btn');
+            if (btn) {
+                filterContainer.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active', 'inactive'); });
+                btn.classList.add('active');
+                if (btn.dataset.level !== 'All') {
+                    filterContainer.querySelectorAll('.filter-btn').forEach(b => { if (b !== btn) b.classList.add('inactive'); });
+                }
+                renderHomePage(btn.dataset.level);
+            }
+        });
+        toggleAllBtn.addEventListener('click', toggleAllHarakat);
+        translationToggle.addEventListener('change', (e) => { if (!e.target.checked) hideAllTooltips(); });
+        closeSliderBtn.addEventListener('click', hideSlider);
+        sliderBackdrop.addEventListener('click', hideSlider);
+        startQuizBtn.addEventListener('click', () => {
+            if (!currentLesson.quizData || currentLesson.quizData.length === 0) { alert("Tidak ada kuis untuk pelajaran ini."); return; }
+            shuffledQuiz = shuffleArray(currentLesson.quizData);
+            mainContent.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            currentQuestionIndex = 0;
+            displayQuizQuestion(currentQuestionIndex);
+        });
+        backToTextBtn.addEventListener('click', () => { mainContent.classList.remove('hidden'); quizContainer.classList.add('hidden'); });
+        showFullTranslationBtn.addEventListener('click', () => {
+            showSlider('Terjemahan Keseluruhan', `<p class="text-lg leading-relaxed">${currentLesson.fullTranslation}</p>`, 'ltr');
+        });
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('master-index.json');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                masterIndex = await response.json();
+                renderHomePage();
+            } catch (error) {
+                console.error("Gagal memuat indeks pelajaran:", error);
+                lessonGroupsContainer.innerHTML = `<p class="text-red-500 text-center col-span-full">Gagal memuat daftar pelajaran. Pastikan berkas 'master-index.json' ada di direktori utama.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
