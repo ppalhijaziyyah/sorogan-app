@@ -18,13 +18,13 @@
     "lastModified": "2025-07-08T13:47:15.358Z"
   },
   {
-    "id": "muq-001",
-    "title": "Ilmu",
+    "id": "mut-1752069065350",
+    "title": "Ilmu 02",
     "titleArabic": "العلم",
-    "level": "Mutaqaddim",
-    "path": "data/3-mutaqaddim/3-ilmu.json",
-    "preview": "لَوْ تَأَمَّلَ الْإِ...",
-    "lastModified": "2025-07-08T13:47:56.042Z"
+    "level": "Mutawassit",
+    "path": "data/2-mutawassit/2-ilmu-02.json",
+    "preview": "لو تأمل الإنسان في تاريخ العلوم لوجد أن كل اكتشاف ...",
+    "lastModified": "2025-07-09T13:51:05.350Z"
   },
   {
     "id": "mut-1751993758161",
@@ -34,5 +34,14 @@
     "path": "data/3-mutaqaddim/3-prosa-arab.json",
     "preview": "إِنَّ قِيَادَةَ الْـ...",
     "lastModified": "2025-07-08T16:55:58.161Z"
+  },
+  {
+    "id": "muq-001",
+    "title": "Ilmu",
+    "titleArabic": "العلم",
+    "level": "Mutaqaddim",
+    "path": "data/3-mutaqaddim/3-ilmu.json",
+    "preview": "لَوْ تَأَمَّلَ الْإِ...",
+    "lastModified": "2025-07-08T13:47:56.042Z"
   }
 ]

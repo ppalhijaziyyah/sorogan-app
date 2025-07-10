@@ -13,7 +13,7 @@ Prosedur untuk mengaktifkan server lokal adalah sebagai berikut:
 1.  **Buka Antarmuka Baris Perintah**: Akses aplikasi Terminal pada macOS atau Linux, atau Command Prompt/PowerShell pada sistem operasi Windows.
 2.  **Navigasi ke Direktori Proyek**: Gunakan perintah `cd` untuk berpindah ke direktori utama tempat Anda menyimpan semua berkas aplikasi. Contohnya: `cd Lokasi/Folder/PROYEK_PEMBELAJARAN`.
 3.  **Jalankan Perintah Server**: Ketikkan perintah di bawah ini pada terminal, lalu tekan Enter.
-    ```
+    ```bash
     python -m http.server
     ```
 4.  **Akses Aplikasi**: Buka peramban web (misalnya Chrome atau Firefox) dan kunjungi alamat `http://localhost:8000`. Anda akan melihat daftar berkas proyek. Klik pada `index.html` untuk memulai Aplikasi Pembelajaran.
@@ -38,20 +38,24 @@ Setelah aplikasi berhasil dimuat, Anda akan disambut oleh halaman utama yang ber
 
 Dengan mengklik salah satu kartu pelajaran, Anda akan diarahkan ke halaman belajar.
 
+* **Antarmuka yang Ramah Gawai (Mobile-Friendly)**
+    Tata letak pada halaman ini telah disesuaikan untuk kenyamanan pengguna perangkat seluler. Tombol "Kembali" dan judul pelajaran ditata berdampingan agar tidak saling menghalangi.
+
 * **Interaksi Kata per Kata**
     Ini adalah fitur inti dari aplikasi.
-    1.  **Klik Tunggal (Harakat & Terjemahan)**: Melakukan satu kali klik pada sebuah kata akan menampilkan atau menyembunyikan harakatnya. Jika mode terjemahan diaktifkan melalui tombol *toggle*, klik tunggal juga akan menampilkan terjemahan kata tersebut dalam sebuah *tooltip*.
+    1.  **Klik Tunggal (Harakat & Terjemahan)**: Melakukan satu kali klik pada sebuah kata akan menampilkan atau menyembunyikan harakatnya (tasydid tetap dipertahankan). Jika mode terjemahan diaktifkan melalui tombol *toggle*, klik tunggal juga akan menampilkan terjemahan kata tersebut dalam sebuah *tooltip*.
     2.  **Klik Ganda (Analisis I'rab)**: Melakukan dua kali klik pada sebuah kata akan memunculkan sebuah panel *slider* dari bawah layar. Panel ini berisi analisis i'rab lengkap dari kata tersebut. Keunggulan antarmuka ini adalah teks pelajaran utama tetap terlihat di bagian atas, memungkinkan Anda untuk memahami analisis gramatikal tanpa kehilangan konteks kalimat.
 
-* **Fitur Tambahan**
-    1.  **Terjemahan Keseluruhan**: Apabila sebuah pelajaran memiliki data terjemahan lengkap, sebuah tombol **"Lihat Terjemahan Lengkap"** akan muncul. Mengklik tombol ini akan membuka panel *slider* yang menampilkan terjemahan utuh dari wacana.
-    2.  **Tampilkan Semua Harakat**: Tombol ini berfungsi sebagai saklar global untuk menampilkan atau menyembunyikan harakat pada seluruh kata dalam wacana secara serentak.
+* **Fitur Tambahan (Opsional)**
+    1.  **Referensi Teks**: Apabila pelajaran memiliki sumber referensi, informasi tersebut akan ditampilkan secara otomatis di bawah kotak teks utama dengan gaya kutipan yang jelas.
+    2.  **Terjemahan Keseluruhan**: Apabila sebuah pelajaran memiliki data terjemahan lengkap, sebuah tombol **"Lihat Terjemahan Lengkap"** akan muncul. Mengklik tombol ini akan membuka panel *slider* yang menampilkan terjemahan utuh dari wacana.
+    3.  **Tampilkan Semua Harakat**: Tombol ini berfungsi sebagai saklar global untuk menampilkan atau menyembunyikan harakat pada seluruh kata dalam wacana secara serentak.
 
 ### Fitur Kuis: Menguji Pemahaman
 
 Setiap pelajaran dilengkapi dengan sesi kuis untuk mengevaluasi pemahaman Anda.
 
-* **Memulai Kuis**: Klik tombol **"Mulai Kuis"** di bagian bawah halaman belajar.
+* **Memulai Kuis**: Tombol **"Mulai Kuis"** hanya akan muncul jika pelajaran tersebut memiliki data kuis.
 * **Sesi Kuis Dinamis**: Untuk memberikan tantangan yang bervariasi, urutan pertanyaan serta posisi pilihan jawaban akan diacak setiap kali Anda memulai kuis.
 * **Indikator Progres**: Di bagian atas halaman kuis, terdapat penanda yang menunjukkan kemajuan Anda, misalnya "Pertanyaan 1 dari 5".
 * **Umpan Balik Instan**: Setelah Anda memilih sebuah jawaban, aplikasi akan segera memberikan umpan balik visual, menandai jawaban yang benar dengan warna hijau dan jawaban yang salah dengan warna merah. Aplikasi kemudian akan secara otomatis beralih ke pertanyaan berikutnya.
