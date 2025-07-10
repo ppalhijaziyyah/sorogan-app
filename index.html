@@ -11,7 +11,7 @@
     <style>
         :root {
             --arabic-font-size: 1.875rem; /* Default 3xl */
-            --tooltip-font-size: 0.875rem; /* Default sm */
+            --tooltip-font-size: 0.675rem; /* Default sm */
             --arabic-line-height: 2.5;    /* Default line-height */
         }
         body { font-family: 'Inter', sans-serif; }
@@ -98,11 +98,11 @@
                                 </div>
                                 <div>
                                     <label for="tooltip-font-slider" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Ukuran Teks Terjemahan</label>
-                                    <input id="tooltip-font-slider" type="range" min="0.75" max="1.25" value="0.875" step="0.0625" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600">
+                                    <input id="tooltip-font-slider" type="range" min="0.5" max="1.25" value="0.675" step="0.0625" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600">
                                 </div>
                                 <div>
                                     <label for="line-height-slider" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Jarak Antar Baris</label>
-                                    <input id="line-height-slider" type="range" min="1.5" max="3.5" value="2.5" step="0.01" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600">
+                                    <input id="line-height-slider" type="range" min="1.5" max="4.5" value="2.5" step="0.05" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600">
                                 </div>
                             </div>
                         </div>
@@ -364,21 +364,23 @@
             if (existingTooltip) {
                 existingTooltip.remove();
             } else {
+                // hideAllTooltips();
                 const tooltip = document.createElement('div');
                 tooltip.id = tooltipId;
                 tooltip.textContent = wordSpan.dataset.terjemahan;
                 tooltip.className = 'translation-tooltip absolute bg-gray-800 text-white rounded py-1 px-3 z-10';
                 
-                const containerRect = textContainer.getBoundingClientRect();
-                const wordRect = wordSpan.getBoundingClientRect();
+                const wordWrapper = wordSpan.parentElement;
+                wordWrapper.appendChild(tooltip);
                 
-                const topPosition = wordRect.bottom - containerRect.top + window.scrollY + 2;
-                const leftPosition = wordRect.left - containerRect.left + wordRect.width / 2;
+                const computedStyle = getComputedStyle(wordSpan);
+                const lineHeight = parseFloat(computedStyle.lineHeight);
+                const fontSize = parseFloat(computedStyle.fontSize);
+                const spaceAbove = (lineHeight - fontSize) / 2;
+                const textBottomPosition = spaceAbove + fontSize;
 
-                tooltip.style.top = `${topPosition}px`;
-                tooltip.style.left = `${leftPosition}px`;
-                
-                textContainer.appendChild(tooltip);
+                tooltip.style.top = `${textBottomPosition + 6}px`;
+                tooltip.style.left = '50%';
             }
         }
 
