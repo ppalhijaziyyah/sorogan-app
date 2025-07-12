@@ -1,47 +1,29 @@
 [
   {
-    "id": "ibt-001",
-    "title": "Membaca",
-    "titleArabic": "القراءة",
+    "id": "ibt-1752317470709",
+    "title": "Materi 01",
+    "titleArabic": "العلم نور",
     "level": "Ibtida’i",
-    "path": "data/1-ibtidai/1-membaca.json",
-    "preview": "ذَهَبَ الطَّالِبُ إِ...",
-    "lastModified": "2025-07-08T13:46:21.520Z"
+    "path": "data/1-ibtidai/materi-01.json",
+    "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
+    "lastModified": "2025-07-12T10:51:10.709Z"
   },
   {
-    "id": "mut-001",
-    "title": "Teknologi",
-    "titleArabic": "التّكنولوجي",
+    "id": "mut-1752317499381",
+    "title": "materi 02",
+    "titleArabic": "العلم نور",
     "level": "Mutawassit",
-    "path": "data/2-mutawassit/2-teknologi.json",
-    "preview": "إِنَّ التِّكْنُولُوج...",
-    "lastModified": "2025-07-08T13:47:15.358Z"
+    "path": "data/2-mutawassit/materi-02.json",
+    "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
+    "lastModified": "2025-07-12T10:51:39.381Z"
   },
   {
-    "id": "mut-1752069065350",
-    "title": "Ilmu 02",
-    "titleArabic": "العلم",
-    "level": "Mutawassit",
-    "path": "data/2-mutawassit/2-ilmu-02.json",
-    "preview": "لو تأمل الإنسان في تاريخ العلوم لوجد أن كل اكتشاف ...",
-    "lastModified": "2025-07-09T13:51:05.350Z"
-  },
-  {
-    "id": "mut-1751993758161",
-    "title": "Prosa Arab",
-    "titleArabic": "إعراب قطعة نثرية",
+    "id": "mut-1752317543429",
+    "title": "Materi 03",
+    "titleArabic": "العلم نور",
     "level": "Mutaqaddim",
-    "path": "data/3-mutaqaddim/3-prosa-arab.json",
-    "preview": "إِنَّ قِيَادَةَ الْـ...",
-    "lastModified": "2025-07-08T16:55:58.161Z"
-  },
-  {
-    "id": "muq-001",
-    "title": "Ilmu",
-    "titleArabic": "العلم",
-    "level": "Mutaqaddim",
-    "path": "data/3-mutaqaddim/3-ilmu.json",
-    "preview": "لَوْ تَأَمَّلَ الْإِ...",
-    "lastModified": "2025-07-08T13:47:56.042Z"
+    "path": "data/3-mutaqaddim/materi-03.json",
+    "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
+    "lastModified": "2025-07-12T10:52:23.429Z"
   }
 ]
