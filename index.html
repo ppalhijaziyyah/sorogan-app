@@ -262,9 +262,15 @@
             };
 
             const state = {
-                masterIndex: [], currentLesson: null, completedLessons: [], activeFilter: 'All',
-                isHarakatShownGlobally: false, isTranslationShown: false, isFocusMode: false, currentFocusParagraph: 0,
-                quiz: { isActive: false, shuffledQuestions: [], currentIndex: 0, score: 0, isFinished: false, }
+                masterIndex: [],
+                currentLesson: null,
+                completedLessons: [],
+                activeFilter: 'All',
+                isHarakatShown: true, // Mengganti isHarakatShownGlobally untuk konsistensi
+                isTranslationShown: false,
+                isFocusMode: false,
+                currentFocusParagraph: 0,
+                quiz: { /* ... */ }
             };
 
             const levelDetails = {
@@ -335,7 +341,7 @@
 
             function updateActiveFilterButton() {
                 DOM.filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
-                    const isActive = btn.dataset.level === state.activeFilter;
+                    const isActive = (btn.dataset.level === state.activeFilter) || (state.activeFilter === 'All');
                     btn.classList.toggle('active', isActive);
                     btn.classList.toggle('bg-gray-400', !isActive);
                     btn.classList.toggle('dark:bg-gray-600', !isActive);
@@ -401,7 +407,13 @@
                 </header>
                 <main>
                     <div class="flex justify-center items-center flex-wrap gap-4 md:gap-6 mb-6">
-                        <button id="toggle-all-harakat-btn" class="text-white font-bold py-2 px-4 rounded-lg shadow-md" style="background-image: var(--accent-gradient)">Tampilkan Harakat</button>
+                        <button id="toggle-all-harakat-btn" class="text-white font-bold py-2 px-4 rounded-lg shadow-md" style="background-image: var(--accent-gradient)">Tampilkan Semua Harakat</button>
+                        
+                        <div class="flex items-center">
+                            <label for="harakat-toggle" class="ml-3 text-sm font-medium">Harakat</label>
+                            <label class="relative inline-flex items-center cursor-pointer mr-3"><input type="checkbox" id="harakat-toggle" class="sr-only peer" checked><div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600"></div></label>
+                        </div>
+                        
                         <div class="flex items-center">
                             <label for="translation-toggle" class="ml-3 text-sm font-medium">Terjemahan</label>
                             <label class="relative inline-flex items-center cursor-pointer mr-3"><input type="checkbox" id="translation-toggle" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600"></div></label>
@@ -558,6 +570,7 @@
             function setupLearningPageEventListeners() {
                 document.getElementById('back-to-home-btn')?.addEventListener('click', () => switchView('home'));
                 document.getElementById('toggle-all-harakat-btn')?.addEventListener('click', handleToggleAllHarakat);
+                document.getElementById('harakat-toggle')?.addEventListener('change', handleHarakatToggle);
                 document.getElementById('translation-toggle')?.addEventListener('change', handleTranslationToggle);
                 document.getElementById('text-container')?.addEventListener('click', handleWordClick);
                 document.getElementById('text-container')?.addEventListener('dblclick', handleWordDoubleClick);
@@ -581,6 +594,8 @@
                         popover.classList.add('hidden');
                     }
                 });
+                updateHarakatButtonState();
+
             }
 
             function setupQuizEventListeners() {
@@ -600,12 +615,52 @@
                 }
             }
 
+            // Fungsi ini untuk TOMBOL AKSI GLOBAL
             function handleToggleAllHarakat(e) {
-                state.isHarakatShownGlobally = !state.isHarakatShownGlobally;
-                e.target.textContent = state.isHarakatShownGlobally ? 'Sembunyikan Harakat' : 'Tampilkan Harakat';
+                // Tentukan apakah kita akan menampilkan atau menyembunyikan harakat
+                // berdasarkan teks tombol saat ini.
+                const shouldShow = e.target.textContent.includes('Tampilkan');
+
+                // Perbarui teks pada tombol
+                e.target.textContent = shouldShow ? 'Sembunyikan Semua Harakat' : 'Tampilkan Semua Harakat';
+
+                // Terapkan perubahan ke semua kata di dalam teks
                 document.querySelectorAll('#text-container span[data-gundul]').forEach(span => {
-                    span.textContent = state.isHarakatShownGlobally ? span.dataset.berharakat : span.dataset.gundul;
+                    span.textContent = shouldShow ? span.dataset.berharakat : span.dataset.gundul;
                 });
+            }
+
+            // Fungsi ini untuk SAKLAR MODE
+            function handleHarakatToggle(e) {
+                state.isHarakatShown = e.target.checked;
+                updateHarakatButtonState(); // Panggil fungsi untuk update tombol
+
+                if (!state.isHarakatShown) {
+                    // Jika saklar dimatikan, sembunyikan semua harakat
+                    document.querySelectorAll('#text-container span[data-gundul]').forEach(span => {
+                        span.textContent = span.dataset.gundul;
+                    });
+                    // Update teks tombol ke keadaan default
+                    const toggleAllBtn = document.getElementById('toggle-all-harakat-btn');
+                    if (toggleAllBtn) toggleAllBtn.textContent = 'Tampilkan Semua Harakat';
+                }
+            }
+
+            function updateHarakatButtonState() {
+                const harakatBtn = document.getElementById('toggle-all-harakat-btn');
+                if (!harakatBtn) return;
+
+                if (state.isHarakatShown) {
+                    // Tombol AKTIF
+                    harakatBtn.disabled = false;
+                    harakatBtn.classList.remove('bg-gray-400', 'dark:bg-gray-600', 'cursor-not-allowed');
+                    harakatBtn.style.backgroundImage = 'var(--accent-gradient)';
+                } else {
+                    // Tombol NONAKTIF
+                    harakatBtn.disabled = true;
+                    harakatBtn.classList.add('bg-gray-400', 'dark:bg-gray-600', 'cursor-not-allowed');
+                    harakatBtn.style.backgroundImage = 'none';
+                }
             }
 
             function handleTranslationToggle(e) {
@@ -622,18 +677,19 @@
                 const spanWrapper = span.parentElement;
                 const hasTranslationData = span.dataset.terjemahan && span.dataset.terjemahan.trim() !== '';
 
-                // Menentukan keadaan kata SAAT INI, sebelum ada perubahan.
                 const isBerharakat = span.textContent === span.dataset.berharakat;
                 const currentTooltip = spanWrapper.querySelector('.translation-tooltip');
                 const hasTooltip = currentTooltip !== null;
 
-                // Fungsi bantuan untuk mengelola tooltip.
-                const showTooltip = () => {
-                    if (hasTranslationData) {
+                const showTooltip = () => { /* ... (fungsi sama seperti sebelumnya) ... */ };
+                const removeTooltip = () => { /* ... (fungsi sama seperti sebelumnya) ... */ };
+
+                // Fungsi bantuan agar tidak duplikasi kode
+                const doShowTooltip = () => {
+                    if (!hasTooltip && hasTranslationData) {
                         const tooltip = document.createElement('div');
                         tooltip.className = 'translation-tooltip bg-gray-800 text-white rounded py-1 px-3 z-10';
                         tooltip.textContent = span.dataset.terjemahan;
-                        // ... (kode posisi tooltip tidak berubah)
                         const computedStyle = getComputedStyle(span);
                         const lineHeight = parseFloat(computedStyle.lineHeight);
                         const fontSize = parseFloat(computedStyle.fontSize);
@@ -644,34 +700,44 @@
                         spanWrapper.appendChild(tooltip);
                     }
                 };
-                const removeTooltip = () => {
-                    if (currentTooltip) {
-                        currentTooltip.remove();
-                    }
+                const doRemoveTooltip = () => {
+                    if (currentTooltip) currentTooltip.remove();
                 };
 
-                // LOGIKA UTAMA: Memilih alur berdasarkan saklar terjemahan.
-                if (state.isTranslationShown && hasTranslationData) {
-                    // --- Alur Spesifik Permintaan Anda ---
 
-                    // Langkah 1: Selalu balik status harakat teks.
+                // --- LOGIKA UTAMA BERDASARKAN KOMBINASI SAKLAR ---
+
+                if (state.isHarakatShown && state.isTranslationShown) {
+                    // KASUS 1: Kedua saklar AKTIF
+                    // Perilaku: Membalik harakat DAN tooltip secara bersamaan.
                     span.textContent = isBerharakat ? span.dataset.gundul : span.dataset.berharakat;
-
-                    // Langkah 2: Selalu balik visibilitas tooltip.
                     if (hasTooltip) {
-                        removeTooltip();
+                        doRemoveTooltip();
                     } else {
-                        showTooltip();
+                        doShowTooltip();
                     }
-
-                } else {
-                    // --- Alur Normal (jika terjemahan nonaktif) ---
-                    // Hanya membalik harakat, dan pastikan tooltip selalu hilang.
+                } else if (state.isHarakatShown) {
+                    // KASUS 2: Hanya saklar Harakat yang AKTIF
+                    // Perilaku: Hanya membalik status harakat.
                     span.textContent = isBerharakat ? span.dataset.gundul : span.dataset.berharakat;
-                    removeTooltip();
+                    doRemoveTooltip(); // Pastikan tooltip selalu hilang
+                } else if (state.isTranslationShown) {
+                    // KASUS 3: Hanya saklar Terjemahan yang AKTIF
+                    // Perilaku: Hanya membalik visibilitas tooltip, teks tetap gundul.
+                    span.textContent = span.dataset.gundul; // Pastikan teks selalu gundul
+                    if (hasTooltip) {
+                        doRemoveTooltip();
+                    } else {
+                        doShowTooltip();
+                    }
+                } else {
+                    // KASUS 4: Kedua saklar NONAKTIF
+                    // Perilaku: Tidak melakukan apa-apa, atau mengembalikan ke dasar.
+                    span.textContent = span.dataset.gundul;
+                    doRemoveTooltip();
                 }
 
-                // Perbarui mode fokus jika aktif.
+                // Perbarui mode fokus (tidak berubah)
                 const paragraph = e.target.closest('.paragraph-container');
                 if (paragraph) {
                     state.currentFocusParagraph = parseInt(paragraph.dataset.pIndex);
