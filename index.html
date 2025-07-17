@@ -153,20 +153,6 @@
             background: var(--card-bg-dark);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .popover-mobile-center {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            /* Menghilangkan posisi 'top-full' dan 'right-0' yang ada sebelumnya */
-            top: 50% !important;
-            right: auto !important;
-            left: 50% !important;
-            /* Memberi lebar agar tidak terlalu besar di mobile */
-            width: 90%;
-            max-width: 320px;
-        }
     </style>
 </head>
 
@@ -579,9 +565,6 @@
                     showConfirmationModal('Anda yakin ingin mereset semua progres belajar Anda? Tindakan ini tidak dapat dibatalkan.', resetProgress);
                 });
                 DOM.modal.cancelBtn.addEventListener('click', hideConfirmationModal);
-
-                window.addEventListener('resize', managePopoverPosition);
-
             }
 
             function setupLearningPageEventListeners() {
@@ -612,13 +595,6 @@
                     }
                 });
                 updateHarakatButtonState();
-
-                document.getElementById('display-settings-btn')?.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    // Panggil fungsi ini sebelum menampilkan pop-over
-                    managePopoverPosition();
-                    document.getElementById('display-settings-popover').classList.toggle('hidden');
-                });
 
             }
 
@@ -772,18 +748,6 @@
             function handleWordDoubleClick(e) {
                 const span = e.target.closest('span[data-gundul]');
                 if (span && span.dataset.irab) showSlider(span.dataset.berharakat, span.dataset.irab, 'irab');
-            }
-
-            function managePopoverPosition() {
-                const popover = document.getElementById('display-settings-popover');
-                if (!popover) return;
-
-                // Anggap lebar di bawah 768px sebagai mobile
-                if (window.innerWidth < 768) {
-                    popover.classList.add('popover-mobile-center');
-                } else {
-                    popover.classList.remove('popover-mobile-center');
-                }
             }
 
             function handleMarkComplete(e) {
