@@ -21,7 +21,7 @@
             --tooltip-font-size: 0.875rem;
             --arabic-line-height: 2.5;
             /* **FITUR BARU: Variabel untuk ukuran font I'rab** */
-            --irab-font-size: 1rem;
+            --irab-font-size: 1.5rem;
             /* default 16px */
             --bg-gradient-light: linear-gradient(120deg, #f3e8ff 0%, #e0f2fe 100%);
             --bg-gradient-dark: linear-gradient(120deg, #38235D 0%, #111827 100%);
@@ -428,7 +428,7 @@
                                     <div><label for="tooltip-font-slider" class="block text-sm font-medium">Ukuran Teks Terjemahan</label><input id="tooltip-font-slider" type="range" min="0.6" max="1.25" value="0.875" step="0.0625" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
                                     <div><label for="line-height-slider" class="block text-sm font-medium">Jarak Antar Baris</label><input id="line-height-slider" type="range" min="1.5" max="4.5" value="2.5" step="0.05" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
                                     <!-- **FITUR BARU: Slider untuk ukuran font I'rab** -->
-                                    <div><label for="irab-font-slider" class="block text-sm font-medium">Ukuran Teks I'rab</label><input id="irab-font-slider" type="range" min="0.75" max="1.5" value="1" step="0.0625" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
+                                    <div><label for="irab-font-slider" class="block text-sm font-medium">Ukuran Teks I'rab</label><input id="irab-font-slider" type="range" min="0.75" max="3" value="1.5" step="0.0625" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
                                     <div class="border-t border-gray-300 dark:border-gray-600 pt-4"><div class="flex items-center"><label for="focus-mode-toggle" class="text-sm font-medium">Mode Fokus</label><label class="relative inline-flex items-center cursor-pointer ml-auto"><input type="checkbox" id="focus-mode-toggle" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600"></div></label></div></div>
                                     <div class="mt-4 pt-4 border-t border-gray-300 dark:border-gray-600"><button id="reset-display-settings-btn" class="w-full text-sm bg-gray-500 hover:bg-gray-600 text-white py-1 px-3 rounded">Reset ke Default</button></div>
                                 </div>
@@ -822,13 +822,13 @@
                     '--arabic-font-size': '1.875rem',
                     '--tooltip-font-size': '0.875rem',
                     '--arabic-line-height': '2.5',
-                    '--irab-font-size': '1rem'
+                    '--irab-font-size': '1.5rem'
                 };
                 const sliderDefaults = {
                     'arabic-font-slider': '1.875',
                     'tooltip-font-slider': '0.875',
                     'line-height-slider': '2.5',
-                    'irab-font-slider': '1'
+                    'irab-font-slider': '1.5'
                 };
                 for (const [prop, value] of Object.entries(defaults)) {
                     DOM.html.style.setProperty(prop, value);
