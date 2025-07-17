@@ -8,25 +8,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hurricane&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
             --arabic-font-size: 1.875rem;
             --tooltip-font-size: 0.875rem;
             --arabic-line-height: 2.5;
+            /* **FITUR BARU: Variabel untuk ukuran font I'rab** */
+            --irab-font-size: 1rem;
+            /* default 16px */
+            --bg-gradient-light: linear-gradient(120deg, #f3e8ff 0%, #e0f2fe 100%);
+            --bg-gradient-dark: linear-gradient(120deg, #38235D 0%, #111827 100%);
+            --accent-gradient: linear-gradient(90deg, #2dd4bf, #38bdf8);
+            --card-bg-light: rgba(255, 255, 255, 0.7);
+            --card-bg-dark: rgba(30, 41, 59, 0.7);
         }
+
         html {
             scroll-behavior: smooth;
         }
-        body { font-family: 'Inter', sans-serif; }
-        .title-font { font-family: 'Hurricane', cursive; }
-        .arabic-text, .arabic-font {
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient-light);
+            transition: background 0.5s ease;
+            color: #1f2937;
+        }
+
+        .dark body {
+            background: var(--bg-gradient-dark);
+            color: #e2e8f0;
+        }
+
+        .title-font {
+            font-family: 'Roboto', 'Hurricane', cursive;
+        }
+
+        .arabic-text,
+        .arabic-font {
             font-family: 'Noto Naskh Arabic', serif;
             font-size: var(--arabic-font-size);
             line-height: var(--arabic-line-height);
         }
+
+        /* **FITUR BARU: Kelas untuk menargetkan konten I'rab** */
+        .irab-content {
+            font-size: var(--irab-font-size);
+        }
+
         .translation-tooltip {
             font-size: var(--tooltip-font-size);
             transform: translateX(-50%);
@@ -36,62 +71,110 @@
             position: absolute;
             top: 1.4em;
             left: 50%;
-            /* **PERBAIKAN: Memungkinkan teks untuk wrap dan mengatur lebar** */
-            white-space: normal; /* Mengizinkan teks untuk wrap */
-            width: max-content; /* Lebar tooltip menyesuaikan konten */
-            max-width: 200px; /* Batas lebar maksimal tooltip */
-            text-align: center; /* Pusatkan teks jika terjadi wrap */
-            line-height: 1.4; /* Atur line-height khusus untuk tooltip */
+            white-space: normal;
+            text-align: center;
+            line-height: 1.4;
+            width: max-content;
+            /* min-width: 80px; */
+            max-width: 250px;
         }
-        @keyframes fadeIn { to { opacity: 1; } }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
         .filter-btn.active {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-image: var(--accent-gradient);
         }
-        #bottom-slider, #bottom-slider-backdrop { transition: all 0.3s ease-in-out; }
-        #loader-overlay { transition: opacity 0.3s ease-in-out; }
+
+        #bottom-slider,
+        #bottom-slider-backdrop {
+            transition: all 0.3s ease-in-out;
+        }
+
+        #loader-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+
         .spinner {
             border-top-color: #3498db;
             animation: spin 1s ease-in-out infinite;
         }
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
+
         .paragraph-container {
             transition: opacity 0.4s ease-in-out;
             margin-bottom: 1.5em;
         }
+
         .paragraph-unfocused {
             opacity: 0.4;
         }
+
         input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none; appearance: none;
-            width: 16px; height: 16px;
-            background: #14b8a6; cursor: pointer; border-radius: 50%;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background-image: var(--accent-gradient);
+            cursor: pointer;
+            border-radius: 50%;
         }
+
         input[type=range]::-moz-range-thumb {
-            width: 16px; height: 16px;
-            background: #14b8a6; cursor: pointer; border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            background-image: var(--accent-gradient);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .card-glass {
+            background: var(--card-bg-light);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dark .card-glass {
+            background: var(--card-bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-    <div id="loader-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden">
+    <div id="loader-overlay"
+        class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden">
         <div class="spinner h-16 w-16 border-4 border-gray-300 rounded-full"></div>
     </div>
 
-    <div id="error-container" class="hidden fixed top-5 left-1/2 -translate-x-1/2 bg-red-500 text-white py-3 px-6 rounded-lg shadow-lg z-50">
+    <div id="error-container"
+        class="hidden fixed top-5 left-1/2 -translate-x-1/2 bg-red-500 text-white py-3 px-6 rounded-lg shadow-lg z-50">
         <p id="error-message"></p>
     </div>
 
     <div class="container mx-auto p-4 md:p-8 max-w-5xl flex-grow">
         <div id="home-page">
             <header class="text-center mb-4">
-                <h1 class="text-8xl text-teal-600 dark:text-teal-400 title-font mb-2 pb-4">Sorogan</h1>
+                <h1 class="text-6xl font-semibold bg-clip-text text-transparent title-font mb-2 pb-4"
+                    style="background-image: var(--accent-gradient)">Sorogan</h1>
                 <p class="text-lg mb-2">Belajar Membaca dan Memahami Teks Arab Gundul</p>
-                <hr class="dark:border-gray-700">
+                <hr class="border-gray-300 dark:border-gray-700">
                 <p class="text-sm mt-4">Pilih Teks untuk Mulai Belajar</p>
             </header>
             <div id="filter-container" class="flex justify-center flex-wrap gap-3 mb-8"></div>
@@ -102,41 +185,57 @@
     </div>
 
     <div id="bottom-slider-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden opacity-0 z-40"></div>
-    <div id="bottom-slider" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-2xl shadow-2xl p-6 transform translate-y-full z-50 max-h-[80vh] flex flex-col">
+    <div id="bottom-slider"
+        class="fixed bottom-0 left-0 right-0 card-glass rounded-t-2xl shadow-2xl p-6 transform translate-y-full z-50 max-h-[80vh] flex flex-col">
         <div class="flex-shrink-0 flex justify-between items-center mb-4">
             <h3 id="slider-title" class="text-xl font-bold text-teal-600 dark:text-teal-400 arabic-font"></h3>
-            <button id="close-slider-btn" class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 text-2xl">&times;</button>
+            <button id="close-slider-btn"
+                class="text-gray-500 hover:text-gray-800 dark:hover:text-gray-200 text-2xl">&times;</button>
         </div>
         <div id="slider-content" class="flex-grow overflow-y-auto" dir="ltr"></div>
     </div>
-    
-    <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden z-50">
+
+    <div id="confirmation-modal"
+        class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden z-50">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-sm w-full p-6 text-center">
             <h3 class="text-xl font-bold mb-4">Konfirmasi</h3>
             <p id="modal-message" class="text-gray-700 dark:text-gray-300 mb-6">Apakah Anda yakin?</p>
             <div class="flex justify-center gap-4">
-                <button id="modal-cancel-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg">Batal</button>
-                <button id="modal-confirm-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg">Yakin</button>
+                <button id="modal-cancel-btn"
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg">Batal</button>
+                <button id="modal-confirm-btn"
+                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg">Yakin</button>
             </div>
         </div>
     </div>
 
-    <footer class="bg-white dark:bg-gray-800 mt-12 shadow-inner">
+    <footer class="bg-white/50 dark:bg-slate-900/50 mt-12 shadow-inner backdrop-blur-sm">
         <div class="container mx-auto py-8 px-4">
             <div class="flex justify-between items-center">
                 <div>
-                    <h3 class="text-4xl text-teal-600 dark:text-teal-400 title-font">Sorogan</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm">Platform interaktif untuk belajar teks Arab.</p>
+                    <h3 class="text-4xl bg-clip-text text-transparent title-font"
+                        style="background-image: var(--accent-gradient)">Sorogan</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400 text-sm">Platform interaktif untuk belajar teks
+                        Arab.</p>
                 </div>
                 <div class="flex items-center gap-4">
-                    <button id="reset-progress-btn" class="text-sm text-gray-500 hover:text-red-500 dark:hover:text-red-400">Reset Progres</button>
+                    <button id="reset-progress-btn"
+                        class="text-sm text-gray-500 hover:text-red-500 dark:hover:text-red-400">Reset Progres</button>
                     <button id="theme-toggle-btn" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-                        <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-                        <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                        <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
                     </button>
                 </div>
             </div>
-            <div class="border-t border-gray-200 dark:border-gray-700 mt-4 pt-4 text-center text-gray-500 text-sm">
+            <div class="border-t border-gray-300 dark:border-gray-700 mt-4 pt-4 text-center text-gray-500 text-sm">
                 &copy; 2025 Sorogan App. Dibuat dengan cinta.
             </div>
         </div>
@@ -144,156 +243,165 @@
 
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
 
-        const DOM = {
-            html: document.documentElement,
-            loader: document.getElementById('loader-overlay'),
-            errorContainer: document.getElementById('error-container'),
-            errorMessage: document.getElementById('error-message'),
-            homePage: document.getElementById('home-page'),
-            learningPage: document.getElementById('learning-page'),
-            lessonGroupsContainer: document.getElementById('lesson-groups-container'),
-            filterContainer: document.getElementById('filter-container'),
-            slider: { backdrop: document.getElementById('bottom-slider-backdrop'), panel: document.getElementById('bottom-slider'), title: document.getElementById('slider-title'), content: document.getElementById('slider-content'), closeBtn: document.getElementById('close-slider-btn') },
-            modal: { container: document.getElementById('confirmation-modal'), message: document.getElementById('modal-message'), cancelBtn: document.getElementById('modal-cancel-btn'), confirmBtn: document.getElementById('modal-confirm-btn') },
-            theme: { toggleBtn: document.getElementById('theme-toggle-btn'), lightIcon: document.getElementById('theme-icon-light'), darkIcon: document.getElementById('theme-icon-dark') },
-            resetProgressBtn: document.getElementById('reset-progress-btn'),
-        };
+            const DOM = {
+                html: document.documentElement,
+                body: document.body,
+                loader: document.getElementById('loader-overlay'),
+                errorContainer: document.getElementById('error-container'),
+                errorMessage: document.getElementById('error-message'),
+                homePage: document.getElementById('home-page'),
+                learningPage: document.getElementById('learning-page'),
+                lessonGroupsContainer: document.getElementById('lesson-groups-container'),
+                filterContainer: document.getElementById('filter-container'),
+                slider: { backdrop: document.getElementById('bottom-slider-backdrop'), panel: document.getElementById('bottom-slider'), title: document.getElementById('slider-title'), content: document.getElementById('slider-content'), closeBtn: document.getElementById('close-slider-btn') },
+                modal: { container: document.getElementById('confirmation-modal'), message: document.getElementById('modal-message'), cancelBtn: document.getElementById('modal-cancel-btn'), confirmBtn: document.getElementById('modal-confirm-btn') },
+                theme: { toggleBtn: document.getElementById('theme-toggle-btn'), lightIcon: document.getElementById('theme-icon-light'), darkIcon: document.getElementById('theme-icon-dark') },
+                resetProgressBtn: document.getElementById('reset-progress-btn'),
+            };
 
-        const state = {
-            masterIndex: [], currentLesson: null, completedLessons: [], activeFilter: 'All',
-            isHarakatShownGlobally: false, isTranslationShown: false, isFocusMode: false, currentFocusParagraph: 0,
-            quiz: { isActive: false, shuffledQuestions: [], currentIndex: 0, score: 0, isFinished: false, }
-        };
+            const state = {
+                masterIndex: [], currentLesson: null, completedLessons: [], activeFilter: 'All',
+                isHarakatShownGlobally: false, isTranslationShown: false, isFocusMode: false, currentFocusParagraph: 0,
+                quiz: { isActive: false, shuffledQuestions: [], currentIndex: 0, score: 0, isFinished: false, }
+            };
 
-        const levelDetails = {
-            'Ibtida’i': { title: 'Tingkat Ibtida’i (Pemula)', color: 'green' },
-            'Mutawassit': { title: 'Tingkat Mutawassit (Menengah)', color: 'blue' },
-            'Mutaqaddim': { title: 'Tingkat Mutaqaddim (Mahir)', color: 'purple' }
-        };
-        const levelsInOrder = ['Ibtida’i', 'Mutawassit', 'Mutaqaddim'];
-        
-        async function init() {
-            setupEventListeners();
-            loadTheme();
-            loadCompletedLessons();
-            renderFilterButtons();
-            await fetchMasterIndex();
-        }
+            const levelDetails = {
+                'Ibtida’i': { title: 'Tingkat Ibtida’i (Pemula)', color: 'green' },
+                'Mutawassit': { title: 'Tingkat Mutawassit (Menengah)', color: 'blue' },
+                'Mutaqaddim': { title: 'Tingkat Mutaqaddim (Mahir)', color: 'purple' }
+            };
+            const levelsInOrder = ['Ibtida’i', 'Mutawassit', 'Mutaqaddim'];
 
-        async function fetchMasterIndex() {
-            showLoader();
-            try {
-                const response = await fetch('master-index.json');
-                if (!response.ok) throw new Error(`Gagal memuat indeks: ${response.statusText}`);
-                state.masterIndex = await response.json();
-                renderHomePage();
-            } catch (error) {
-                console.error("Error fetching master index:", error);
-                showError(error.message);
-            } finally {
-                hideLoader();
+            async function init() {
+                setupEventListeners();
+                loadTheme();
+                loadCompletedLessons();
+                renderFilterButtons();
+                await fetchMasterIndex();
             }
-        }
 
-        async function fetchLessonData(lessonInfo) {
-            showLoader();
-            try {
-                const response = await fetch(lessonInfo.path);
-                if (!response.ok) throw new Error(`Gagal memuat materi: ${lessonInfo.path}`);
-                state.currentLesson = await response.json();
-                if (state.currentLesson.textData.length > 0 && !Array.isArray(state.currentLesson.textData[0])) {
-                    state.currentLesson.textData = [state.currentLesson.textData];
+            async function fetchMasterIndex() {
+                showLoader();
+                try {
+                    const response = await fetch('master-index.json');
+                    if (!response.ok) throw new Error(`Gagal memuat indeks: ${response.statusText}`);
+                    state.masterIndex = await response.json();
+                    renderHomePage();
+                } catch (error) {
+                    console.error("Error fetching master index:", error);
+                    showError(error.message);
+                } finally {
+                    hideLoader();
                 }
-                state.currentLesson.id = lessonInfo.id;
-                renderLearningPage();
-                switchView('learning');
-            } catch (error) {
-                console.error("Error fetching lesson data:", error);
-                showError(error.message);
-            } finally {
-                hideLoader();
             }
-        }
 
-        function switchView(viewName) {
-            DOM.homePage.classList.toggle('hidden', viewName !== 'home');
-            DOM.learningPage.classList.toggle('hidden', viewName !== 'learning');
-            if (viewName === 'home') {
-                state.currentLesson = null;
-                state.quiz.isActive = false;
-                renderHomePage();
+            async function fetchLessonData(lessonInfo) {
+                showLoader();
+                try {
+                    const response = await fetch(lessonInfo.path);
+                    if (!response.ok) throw new Error(`Gagal memuat materi: ${lessonInfo.path}`);
+                    state.currentLesson = await response.json();
+                    if (state.currentLesson.textData.length > 0 && !Array.isArray(state.currentLesson.textData[0])) {
+                        state.currentLesson.textData = [state.currentLesson.textData];
+                    }
+                    state.currentLesson.id = lessonInfo.id;
+                    renderLearningPage();
+                    switchView('learning');
+                } catch (error) {
+                    console.error("Error fetching lesson data:", error);
+                    showError(error.message);
+                } finally {
+                    hideLoader();
+                }
             }
-        }
-        
-        function renderFilterButtons() {
-            const buttons = [ { level: 'All', color: 'gray-700', text: 'Semua' }, ...levelsInOrder.map(l => ({ level: l, color: `${levelDetails[l].color}-600`, text: l })) ];
-            DOM.filterContainer.innerHTML = buttons.map(btn => `<button data-level="${btn.level}" class="filter-btn bg-${btn.color} text-white py-2 px-5 rounded-full shadow-md transition-transform">${btn.text}</button>`).join('');
-            updateActiveFilterButton();
-        }
-        
-        function updateActiveFilterButton() {
-            DOM.filterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.level === state.activeFilter));
-        }
 
-        function renderHomePage() {
-            DOM.lessonGroupsContainer.innerHTML = '';
-            const levelsToRender = state.activeFilter === 'All' ? levelsInOrder : [state.activeFilter];
-            let lessonsFound = false;
+            function switchView(viewName) {
+                DOM.homePage.classList.toggle('hidden', viewName !== 'home');
+                DOM.learningPage.classList.toggle('hidden', viewName !== 'learning');
+                if (viewName === 'home') {
+                    state.currentLesson = null;
+                    state.quiz.isActive = false;
+                    renderHomePage();
+                }
+            }
 
-            levelsToRender.forEach(level => {
-                const lessonsForLevel = state.masterIndex.filter(lesson => lesson.level === level);
-                if (lessonsForLevel.length === 0) return;
-                
-                lessonsFound = true;
-                const section = document.createElement('div');
-                section.innerHTML = `<h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 text-${levelDetails[level].color}-700 dark:text-${levelDetails[level].color}-400 border-${levelDetails[level].color}-500">${levelDetails[level].title}</h2>`;
-                const gridContainer = document.createElement('div');
-                gridContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
-                
-                lessonsForLevel.forEach(lessonInfo => {
-                    const isCompleted = state.completedLessons.includes(lessonInfo.id);
-                    const card = document.createElement('div');
-                    card.className = `p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer transition-all relative overflow-hidden flex flex-col ${isCompleted ? 'opacity-70' : ''}`;
-                    card.classList.add(`bg-${levelDetails[lessonInfo.level].color}-100`, `dark:bg-${levelDetails[lessonInfo.level].color}-900/50`, `border-${levelDetails[lessonInfo.level].color}-500`);
-                    card.onclick = () => fetchLessonData(lessonInfo);
-                    card.innerHTML = `
-                        ${isCompleted ? `<div class="absolute top-2 left-2 bg-emerald-500 text-white rounded-full w-7 h-7 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg></div>` : ''}
-                        <span class="absolute top-0 right-0 px-3 py-1 text-xs font-bold text-white rounded-bl-lg bg-${levelDetails[lessonInfo.level].color}-600">${lessonInfo.level}</span>
-                        <div class="flex-grow mt-4">
-                            <h3 class="text-xl font-bold arabic-font text-right text-gray-800 dark:text-gray-200">${lessonInfo.titleArabic || ''}</h3>
-                            <p class="text-md font-semibold text-gray-700 dark:text-gray-300 mt-1">${lessonInfo.title}</p>
-                            <p class="text-sm italic text-gray-500 dark:text-gray-400 mt-3">"${lessonInfo.preview || ''}"</p>
-                        </div>
-                    `;
-                    gridContainer.appendChild(card);
+            function renderFilterButtons() {
+                const buttons = [{ level: 'All', text: 'Semua' }, ...levelsInOrder.map(l => ({ level: l, text: l }))];
+                DOM.filterContainer.innerHTML = buttons.map(btn => `<button data-level="${btn.level}" class="filter-btn text-white py-2 px-5 rounded-full shadow-md">${btn.text}</button>`).join('');
+                updateActiveFilterButton();
+            }
+
+            function updateActiveFilterButton() {
+                DOM.filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
+                    const isActive = btn.dataset.level === state.activeFilter;
+                    btn.classList.toggle('active', isActive);
+                    btn.classList.toggle('bg-gray-400', !isActive);
+                    btn.classList.toggle('dark:bg-gray-600', !isActive);
+                    btn.classList.toggle('text-gray-800', !isActive);
+                    btn.classList.toggle('dark:text-gray-300', !isActive);
+                    if (isActive) {
+                        btn.style.backgroundImage = 'var(--accent-gradient)';
+                        btn.classList.remove('text-gray-800', 'dark:text-gray-300');
+                        btn.classList.add('text-white');
+                    } else {
+                        btn.style.backgroundImage = 'none';
+                    }
                 });
-                section.appendChild(gridContainer);
-                DOM.lessonGroupsContainer.appendChild(section);
-            });
+            }
 
-            if (!lessonsFound && state.activeFilter !== 'All') {
-                DOM.lessonGroupsContainer.innerHTML = `<p class="text-gray-500 text-center col-span-full">Tidak ada pelajaran untuk tingkatan ini.</p>`;
+            function renderHomePage() {
+                DOM.lessonGroupsContainer.innerHTML = '';
+                const levelsToRender = state.activeFilter === 'All' ? levelsInOrder : [state.activeFilter];
+                let lessonsFound = false;
+
+                levelsToRender.forEach(level => {
+                    const lessonsForLevel = state.masterIndex.filter(lesson => lesson.level === level);
+                    if (lessonsForLevel.length === 0) return;
+
+                    lessonsFound = true;
+                    const section = document.createElement('div');
+                    section.innerHTML = `<h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 text-teal-600 dark:text-teal-400 border-teal-500/50">${levelDetails[level].title}</h2>`;
+                    const gridContainer = document.createElement('div');
+                    gridContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+
+                    lessonsForLevel.forEach(lessonInfo => {
+                        const isCompleted = state.completedLessons.includes(lessonInfo.id);
+                        const card = document.createElement('div');
+                        card.className = `card-glass p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer transition-all relative overflow-hidden flex flex-col ${isCompleted ? 'opacity-70' : ''}`;
+                        card.onclick = () => fetchLessonData(lessonInfo);
+                        card.innerHTML = `
+                        ${isCompleted ? `<div class="absolute top-2 left-2 bg-emerald-500 text-white rounded-full w-7 h-7 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg></div>` : ''}
+                        <div class="flex-grow"><h3 class="text-xl font-bold arabic-font text-right">${lessonInfo.titleArabic || ''}</h3><p class="text-md font-semibold mt-1">${lessonInfo.title}</p><p class="text-sm italic text-gray-500 dark:text-gray-400 mt-3">"${lessonInfo.preview || ''}"</p></div>
+                    `;
+                        gridContainer.appendChild(card);
+                    });
+                    section.appendChild(gridContainer);
+                    DOM.lessonGroupsContainer.appendChild(section);
+                });
+
+                if (!lessonsFound && state.activeFilter !== 'All') {
+                    DOM.lessonGroupsContainer.innerHTML = `<p class="text-center col-span-full">Tidak ada pelajaran untuk tingkatan ini.</p>`;
+                }
             }
-        }
-        
-        function renderLearningPage() {
-            if (state.quiz.isActive) {
-                renderQuizPage();
-                return;
-            }
-            
-            const lesson = state.currentLesson;
-            const isCompleted = state.completedLessons.includes(lesson.id);
-            DOM.learningPage.innerHTML = `
+
+            function renderLearningPage() {
+                if (state.quiz.isActive) {
+                    renderQuizPage();
+                    return;
+                }
+
+                const lesson = state.currentLesson;
+                const isCompleted = state.completedLessons.includes(lesson.id);
+                DOM.learningPage.innerHTML = `
                 <header class="flex justify-between items-center mb-8">
                     <button id="back-to-home-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all">&larr; Kembali</button>
-                    <h1 class="text-2xl md:text-3xl font-bold text-teal-600 dark:text-teal-400 arabic-font text-right truncate">${lesson.titleArabic || lesson.title}</h1>
+                    <h1 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent arabic-font text-right truncate" style="background-image: var(--accent-gradient)">${lesson.titleArabic || lesson.title}</h1>
                 </header>
                 <main>
                     <div class="flex justify-center items-center flex-wrap gap-4 md:gap-6 mb-6">
-                        <button id="toggle-all-harakat-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg shadow-md">Tampilkan Harakat</button>
+                        <button id="toggle-all-harakat-btn" class="text-white font-bold py-2 px-4 rounded-lg shadow-md" style="background-image: var(--accent-gradient)">Tampilkan Harakat</button>
                         <div class="flex items-center">
                             <label for="translation-toggle" class="ml-3 text-sm font-medium">Terjemahan</label>
                             <label class="relative inline-flex items-center cursor-pointer mr-3"><input type="checkbox" id="translation-toggle" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600"></div></label>
@@ -302,337 +410,372 @@
                             <button id="display-settings-btn" class="p-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg shadow-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
                             </button>
-                            <div id="display-settings-popover" class="hidden absolute top-full right-0 mt-2 w-64 bg-white dark:bg-gray-700 rounded-lg shadow-xl p-4 z-20">
+                            <div id="display-settings-popover" class="hidden absolute top-full right-0 mt-2 w-64 card-glass rounded-lg shadow-xl p-4 z-20">
                                 <div class="space-y-4">
                                     <div><label for="arabic-font-slider" class="block text-sm font-medium">Ukuran Teks Arab</label><input id="arabic-font-slider" type="range" min="1.25" max="3" value="1.875" step="0.125" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
                                     <div><label for="tooltip-font-slider" class="block text-sm font-medium">Ukuran Teks Terjemahan</label><input id="tooltip-font-slider" type="range" min="0.6" max="1.25" value="0.875" step="0.0625" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
                                     <div><label for="line-height-slider" class="block text-sm font-medium">Jarak Antar Baris</label><input id="line-height-slider" type="range" min="1.5" max="4.5" value="2.5" step="0.05" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
+                                    <!-- **FITUR BARU: Slider untuk ukuran font I'rab** -->
+                                    <div><label for="irab-font-slider" class="block text-sm font-medium">Ukuran Teks I'rab</label><input id="irab-font-slider" type="range" min="0.75" max="1.5" value="1" step="0.0625" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"></div>
                                     <div class="border-t border-gray-300 dark:border-gray-600 pt-4"><div class="flex items-center"><label for="focus-mode-toggle" class="text-sm font-medium">Mode Fokus</label><label class="relative inline-flex items-center cursor-pointer ml-auto"><input type="checkbox" id="focus-mode-toggle" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600"></div></label></div></div>
                                     <div class="mt-4 pt-4 border-t border-gray-300 dark:border-gray-600"><button id="reset-display-settings-btn" class="w-full text-sm bg-gray-500 hover:bg-gray-600 text-white py-1 px-3 rounded">Reset ke Default</button></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="text-container" class="relative arabic-text bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg text-right leading-loose" dir="rtl"></div>
+                    <div id="text-container" class="relative arabic-text card-glass p-6 rounded-xl shadow-lg text-right leading-loose" dir="rtl"></div>
                     ${lesson.reference ? `<div class="mt-6"><p class="text-sm italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 p-3 rounded-md border-l-4 border-teal-500"><strong>Sumber:</strong> ${lesson.reference}</p></div>` : ''}
                     <div class="text-center mt-6 text-gray-600 dark:text-gray-400"><p><span class="font-semibold">Klik sekali</span> untuk harakat/terjemahan. <span class="font-semibold">Klik dua kali</span> untuk i'rab.</p></div>
                     <div class="text-center mt-4 space-x-4">
                         ${lesson.fullTranslation ? `<button id="show-full-translation-btn" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg shadow-md">Lihat Terjemahan Lengkap</button>` : ''}
                         ${(lesson.quizData && lesson.quizData.length > 0) ? `<button id="start-quiz-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-md">Mulai Kuis</button>` : ''}
                     </div>
-                    <div class="text-center mt-8 pt-6 border-t dark:border-gray-700"><button id="mark-complete-btn" class="font-semibold py-2 px-5 rounded-lg shadow-md transition-all ${isCompleted ? 'bg-green-500 text-white' : 'bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500'}">${isCompleted ? '✓ Selesai Dipelajari' : 'Tandai sebagai Selesai'}</button></div>
+                    <div class="text-center mt-8 pt-6 border-t border-gray-300 dark:border-gray-700"><button id="mark-complete-btn" class="font-semibold py-2 px-5 rounded-lg shadow-md transition-all ${isCompleted ? 'bg-green-500 text-white' : 'bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500'}">${isCompleted ? '✓ Selesai Dipelajari' : 'Tandai sebagai Selesai'}</button></div>
                 </main>
             `;
-            renderTextWithParagraphs(lesson.textData);
-            setupLearningPageEventListeners();
-        }
-        
-        function renderTextWithParagraphs(textData) {
-            const textContainer = document.getElementById('text-container');
-            textContainer.innerHTML = '';
-            textData.forEach((paragraph, pIndex) => {
-                const p = document.createElement('p');
-                p.className = 'paragraph-container';
-                p.dataset.pIndex = pIndex;
-                paragraph.forEach((wordData, wIndex) => {
-                    const isPunctuation = /[.،؟:!()"«»]/.test(wordData.berharakat) && wordData.berharakat.length === 1;
-                    const wordWrapper = document.createElement('span');
-                    wordWrapper.className = 'relative inline-block';
-                    const wordSpan = document.createElement('span');
-                    wordSpan.id = `word-${pIndex}-${wIndex}`;
-                    wordSpan.textContent = wordData.gundul;
-                    wordSpan.className = isPunctuation ? 'arabic-text' : 'arabic-text cursor-pointer hover:bg-teal-100 dark:hover:bg-teal-900 p-1 rounded transition-all';
-                    wordSpan.dataset.gundul = wordData.gundul;
-                    wordSpan.dataset.berharakat = wordData.berharakat;
-                    wordSpan.dataset.irab = wordData.irab || '';
-                    wordSpan.dataset.terjemahan = wordData.terjemahan || '';
-                    wordWrapper.appendChild(wordSpan);
-                    p.appendChild(wordWrapper);
-                    if (!isPunctuation && wIndex < paragraph.length - 1) {
-                        p.appendChild(document.createTextNode(' '));
-                    }
+                renderTextWithParagraphs(lesson.textData);
+                setupLearningPageEventListeners();
+            }
+
+            function renderTextWithParagraphs(textData) {
+                const textContainer = document.getElementById('text-container');
+                textContainer.innerHTML = '';
+                textData.forEach((paragraph, pIndex) => {
+                    const p = document.createElement('p');
+                    p.className = 'paragraph-container';
+                    p.dataset.pIndex = pIndex;
+                    paragraph.forEach((wordData, wIndex) => {
+                        const isPunctuation = /[.،؟:!()"«»]/.test(wordData.berharakat) && wordData.berharakat.length === 1;
+                        const wordWrapper = document.createElement('span');
+                        wordWrapper.className = 'relative inline-block';
+                        const wordSpan = document.createElement('span');
+                        wordSpan.id = `word-${pIndex}-${wIndex}`;
+                        wordSpan.textContent = wordData.gundul;
+                        wordSpan.className = isPunctuation ? 'arabic-text' : 'arabic-text cursor-pointer hover:bg-teal-500/10 dark:hover:bg-teal-400/10 p-1 rounded transition-all';
+                        wordSpan.dataset.gundul = wordData.gundul;
+                        wordSpan.dataset.berharakat = wordData.berharakat;
+                        wordSpan.dataset.irab = wordData.irab || '';
+                        wordSpan.dataset.terjemahan = wordData.terjemahan || '';
+                        wordWrapper.appendChild(wordSpan);
+                        p.appendChild(wordWrapper);
+                        if (!isPunctuation && wIndex < paragraph.length - 1) {
+                            p.appendChild(document.createTextNode(' '));
+                        }
+                    });
+                    textContainer.appendChild(p);
                 });
-                textContainer.appendChild(p);
-            });
-        }
-        
-        function renderQuizPage() {
-            const q = state.quiz;
-            let content;
-            if (q.isFinished) {
-                content = `<div class="text-center"><h2 class="text-3xl font-bold mb-4">Kuis Selesai!</h2><p class="text-xl mb-6">Skor Anda: <span class="font-bold text-teal-500">${q.score}</span> dari ${q.shuffledQuestions.length}</p><button id="back-to-text-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Kembali ke Teks</button></div>`;
-            } else {
-                const currentQuestion = q.shuffledQuestions[q.currentIndex];
-                content = `<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"><p class="text-center font-semibold mb-4 text-lg">Pertanyaan ${q.currentIndex + 1} dari ${q.shuffledQuestions.length}</p><h2 class="text-2xl font-bold mb-4 text-center">${currentQuestion.question}</h2>${currentQuestion.context ? `<p class="arabic-text text-3xl text-center mb-6" dir="rtl">${currentQuestion.context}</p>` : ''}<div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-4">${currentQuestion.options.map(option => `<button class="quiz-option w-full p-3 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all text-left">${option}</button>`).join('')}</div><div id="quiz-feedback" class="mt-6 text-center font-bold h-6"></div></div>`;
             }
-            DOM.learningPage.innerHTML = `<header class="flex justify-between items-center mb-8"><h1 class="text-2xl md:text-3xl font-bold text-teal-600 dark:text-teal-400">Kuis: ${state.currentLesson.title}</h1></header>${content}`;
-            setupQuizEventListeners();
-        }
 
-        function showLoader() { DOM.loader.classList.remove('hidden'); }
-        function hideLoader() { DOM.loader.classList.add('hidden'); }
-        function showError(message) {
-            DOM.errorMessage.textContent = message;
-            DOM.errorContainer.classList.remove('hidden');
-            setTimeout(() => DOM.errorContainer.classList.add('hidden'), 5000);
-        }
-        function showSlider(title, contentHTML, direction = 'ltr') {
-            DOM.slider.title.textContent = title;
-            DOM.slider.content.innerHTML = `<div class="prose dark:prose-invert max-w-none">${contentHTML}</div>`;
-            DOM.slider.content.dir = direction;
-            DOM.slider.backdrop.classList.remove('hidden');
-            setTimeout(() => {
-                DOM.slider.backdrop.classList.remove('opacity-0');
-                DOM.slider.panel.classList.remove('translate-y-full');
-            }, 10);
-        }
-        function hideSlider() {
-            DOM.slider.backdrop.classList.add('opacity-0');
-            DOM.slider.panel.classList.add('translate-y-full');
-            setTimeout(() => DOM.slider.backdrop.classList.add('hidden'), 300);
-        }
-        function showConfirmationModal(message, onConfirm) {
-            DOM.modal.message.textContent = message;
-            const newConfirmBtn = DOM.modal.confirmBtn.cloneNode(true);
-            DOM.modal.confirmBtn.parentNode.replaceChild(newConfirmBtn, DOM.modal.confirmBtn);
-            DOM.modal.confirmBtn = newConfirmBtn;
-            DOM.modal.confirmBtn.onclick = () => { onConfirm(); hideConfirmationModal(); };
-            DOM.modal.container.classList.remove('hidden');
-        }
-        function hideConfirmationModal() { DOM.modal.container.classList.add('hidden'); }
-
-        function loadCompletedLessons() { state.completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || []; }
-        function saveCompletedLessons() { localStorage.setItem('completedLessons', JSON.stringify(state.completedLessons)); }
-        function toggleLessonCompletion(lessonId) {
-            const index = state.completedLessons.indexOf(lessonId);
-            if (index > -1) state.completedLessons.splice(index, 1);
-            else state.completedLessons.push(lessonId);
-            saveCompletedLessons();
-        }
-        function resetProgress() {
-            state.completedLessons = [];
-            saveCompletedLessons();
-            renderHomePage();
-        }
-
-        function loadTheme() {
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                DOM.html.classList.add('dark');
-                DOM.theme.lightIcon.classList.add('hidden');
-                DOM.theme.darkIcon.classList.remove('hidden');
-            } else {
-                DOM.html.classList.remove('dark');
-                DOM.theme.lightIcon.classList.remove('hidden');
-                DOM.theme.darkIcon.classList.add('hidden');
-            }
-        }
-        function toggleTheme() {
-            DOM.html.classList.toggle('dark');
-            localStorage.theme = DOM.html.classList.contains('dark') ? 'dark' : 'light';
-            loadTheme();
-        }
-        
-        function setupEventListeners() {
-            DOM.filterContainer.addEventListener('click', handleFilterClick);
-            DOM.slider.closeBtn.addEventListener('click', hideSlider);
-            DOM.slider.backdrop.addEventListener('click', hideSlider);
-            DOM.theme.toggleBtn.addEventListener('click', toggleTheme);
-            DOM.resetProgressBtn.addEventListener('click', () => {
-                showConfirmationModal('Anda yakin ingin mereset semua progres belajar Anda? Tindakan ini tidak dapat dibatalkan.', resetProgress);
-            });
-            DOM.modal.cancelBtn.addEventListener('click', hideConfirmationModal);
-        }
-
-        function setupLearningPageEventListeners() {
-            document.getElementById('back-to-home-btn')?.addEventListener('click', () => switchView('home'));
-            document.getElementById('toggle-all-harakat-btn')?.addEventListener('click', handleToggleAllHarakat);
-            document.getElementById('translation-toggle')?.addEventListener('change', handleTranslationToggle);
-            document.getElementById('text-container')?.addEventListener('click', handleWordClick);
-            document.getElementById('text-container')?.addEventListener('dblclick', handleWordDoubleClick);
-            document.getElementById('mark-complete-btn')?.addEventListener('click', handleMarkComplete);
-            document.getElementById('display-settings-btn')?.addEventListener('click', (e) => {
-                e.stopPropagation();
-                document.getElementById('display-settings-popover').classList.toggle('hidden');
-            });
-            document.getElementById('arabic-font-slider')?.addEventListener('input', (e) => DOM.html.style.setProperty('--arabic-font-size', `${e.target.value}rem`));
-            document.getElementById('tooltip-font-slider')?.addEventListener('input', (e) => DOM.html.style.setProperty('--tooltip-font-size', `${e.target.value}rem`));
-            document.getElementById('line-height-slider')?.addEventListener('input', (e) => DOM.html.style.setProperty('--arabic-line-height', e.target.value));
-            document.getElementById('focus-mode-toggle')?.addEventListener('change', handleFocusModeToggle);
-            document.getElementById('show-full-translation-btn')?.addEventListener('click', () => showSlider('Terjemahan Lengkap', `<p>${state.currentLesson.fullTranslation}</p>`, 'ltr'));
-            document.getElementById('start-quiz-btn')?.addEventListener('click', handleStartQuiz);
-            document.getElementById('reset-display-settings-btn')?.addEventListener('click', handleResetDisplaySettings);
-            document.addEventListener('click', (e) => {
-                const popover = document.getElementById('display-settings-popover');
-                const btn = document.getElementById('display-settings-btn');
-                if (popover && !popover.classList.contains('hidden') && !popover.contains(e.target) && !btn.contains(e.target)) {
-                    popover.classList.add('hidden');
+            function renderQuizPage() {
+                const q = state.quiz;
+                let content;
+                if (q.isFinished) {
+                    content = `<div class="text-center"><h2 class="text-3xl font-bold mb-4">Kuis Selesai!</h2><p class="text-xl mb-6">Skor Anda: <span class="font-bold text-teal-500">${q.score}</span> dari ${q.shuffledQuestions.length}</p><button id="back-to-text-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Kembali ke Teks</button></div>`;
+                } else {
+                    const currentQuestion = q.shuffledQuestions[q.currentIndex];
+                    content = `<div class="card-glass p-6 rounded-xl shadow-lg"><p class="text-center font-semibold mb-4 text-lg">Pertanyaan ${q.currentIndex + 1} dari ${q.shuffledQuestions.length}</p><h2 class="text-2xl font-bold mb-4 text-center">${currentQuestion.question}</h2>${currentQuestion.context ? `<p class="arabic-text text-3xl text-center mb-6" dir="rtl">${currentQuestion.context}</p>` : ''}<div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-4">${currentQuestion.options.map(option => `<button class="quiz-option w-full p-3 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all text-left">${option}</button>`).join('')}</div><div id="quiz-feedback" class="mt-6 text-center font-bold h-6"></div></div>`;
                 }
-            });
-        }
-        
-        function setupQuizEventListeners() {
-            document.getElementById('back-to-text-btn')?.addEventListener('click', () => {
-                state.quiz.isActive = false;
-                renderLearningPage();
-            });
-            document.querySelectorAll('.quiz-option').forEach(btn => btn.addEventListener('click', handleAnswerClick));
-        }
-        
-        function handleFilterClick(e) {
-            const btn = e.target.closest('.filter-btn');
-            if (btn) {
-                state.activeFilter = btn.dataset.level;
-                updateActiveFilterButton();
+                DOM.learningPage.innerHTML = `<header class="flex justify-between items-center mb-8"><h1 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent" style="background-image: var(--accent-gradient)">Kuis: ${state.currentLesson.title}</h1></header>${content}`;
+                setupQuizEventListeners();
+            }
+
+            function showLoader() { DOM.loader.classList.remove('hidden'); }
+            function hideLoader() { DOM.loader.classList.add('hidden'); }
+            function showError(message) {
+                DOM.errorMessage.textContent = message;
+                DOM.errorContainer.classList.remove('hidden');
+                setTimeout(() => DOM.errorContainer.classList.add('hidden'), 5000);
+            }
+            function showSlider(title, contentHTML, type = 'default') {
+                const direction = type === 'irab' ? 'rtl' : 'ltr';
+                const contentClass = type === 'irab' ? 'irab-content' : '';
+                DOM.slider.title.textContent = title;
+                DOM.slider.content.innerHTML = `<div class="prose dark:prose-invert max-w-none ${contentClass}">${contentHTML}</div>`;
+                DOM.slider.content.dir = direction;
+                DOM.slider.backdrop.classList.remove('hidden');
+                setTimeout(() => {
+                    DOM.slider.backdrop.classList.remove('opacity-0');
+                    DOM.slider.panel.classList.remove('translate-y-full');
+                }, 10);
+            }
+            function hideSlider() {
+                DOM.slider.backdrop.classList.add('opacity-0');
+                DOM.slider.panel.classList.add('translate-y-full');
+                setTimeout(() => DOM.slider.backdrop.classList.add('hidden'), 300);
+            }
+            function showConfirmationModal(message, onConfirm) {
+                DOM.modal.message.textContent = message;
+                const newConfirmBtn = DOM.modal.confirmBtn.cloneNode(true);
+                DOM.modal.confirmBtn.parentNode.replaceChild(newConfirmBtn, DOM.modal.confirmBtn);
+                DOM.modal.confirmBtn = newConfirmBtn;
+                DOM.modal.confirmBtn.onclick = () => { onConfirm(); hideConfirmationModal(); };
+                DOM.modal.container.classList.remove('hidden');
+            }
+            function hideConfirmationModal() { DOM.modal.container.classList.add('hidden'); }
+
+            function loadCompletedLessons() { state.completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || []; }
+            function saveCompletedLessons() { localStorage.setItem('completedLessons', JSON.stringify(state.completedLessons)); }
+            function toggleLessonCompletion(lessonId) {
+                const index = state.completedLessons.indexOf(lessonId);
+                if (index > -1) state.completedLessons.splice(index, 1);
+                else state.completedLessons.push(lessonId);
+                saveCompletedLessons();
+            }
+            function resetProgress() {
+                state.completedLessons = [];
+                saveCompletedLessons();
                 renderHomePage();
             }
-        }
-        
-        function handleToggleAllHarakat(e) {
-            state.isHarakatShownGlobally = !state.isHarakatShownGlobally;
-            e.target.textContent = state.isHarakatShownGlobally ? 'Sembunyikan Harakat' : 'Tampilkan Harakat';
-            document.querySelectorAll('#text-container span[data-gundul]').forEach(span => {
-                span.textContent = state.isHarakatShownGlobally ? span.dataset.berharakat : span.dataset.gundul;
-            });
-        }
-        
-        function handleTranslationToggle(e) {
-            state.isTranslationShown = e.target.checked;
-            if (!state.isTranslationShown) {
-                document.querySelectorAll('.translation-tooltip').forEach(tip => tip.remove());
-            }
-        }
-        
-        function handleWordClick(e) {
-            const span = e.target.closest('span[data-gundul]');
-            if (!span) return;
-            const spanWrapper = span.parentElement;
 
-            if (span.textContent === span.dataset.gundul) {
-                span.textContent = span.dataset.berharakat;
-            } else {
-                span.textContent = span.dataset.gundul;
+            function loadTheme() {
+                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    DOM.html.classList.add('dark');
+                    DOM.theme.lightIcon.classList.add('hidden');
+                    DOM.theme.darkIcon.classList.remove('hidden');
+                } else {
+                    DOM.html.classList.remove('dark');
+                    DOM.theme.lightIcon.classList.remove('hidden');
+                    DOM.theme.darkIcon.classList.add('hidden');
+                }
+            }
+            function toggleTheme() {
+                DOM.html.classList.toggle('dark');
+                localStorage.theme = DOM.html.classList.contains('dark') ? 'dark' : 'light';
+                loadTheme();
             }
 
-            const existingTooltip = spanWrapper.querySelector('.translation-tooltip');
-            if (existingTooltip) existingTooltip.remove();
+            function setupEventListeners() {
+                DOM.filterContainer.addEventListener('click', handleFilterClick);
+                DOM.slider.closeBtn.addEventListener('click', hideSlider);
+                DOM.slider.backdrop.addEventListener('click', hideSlider);
+                DOM.theme.toggleBtn.addEventListener('click', toggleTheme);
+                DOM.resetProgressBtn.addEventListener('click', () => {
+                    showConfirmationModal('Anda yakin ingin mereset semua progres belajar Anda? Tindakan ini tidak dapat dibatalkan.', resetProgress);
+                });
+                DOM.modal.cancelBtn.addEventListener('click', hideConfirmationModal);
+            }
 
-            if (state.isTranslationShown && span.textContent === span.dataset.berharakat && span.dataset.terjemahan) {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'translation-tooltip bg-gray-800 text-white rounded py-1 px-3 z-10';
-                tooltip.textContent = span.dataset.terjemahan;
-                
-                const computedStyle = getComputedStyle(span);
-                const lineHeight = parseFloat(computedStyle.lineHeight);
-                const fontSize = parseFloat(computedStyle.fontSize);
-                const spaceAbove = (lineHeight - fontSize) / 2;
-                const textBottomPosition = spaceAbove + fontSize;
-                tooltip.style.top = `${textBottomPosition + 2}px`;
-                tooltip.style.left = '50%';
-                
-                spanWrapper.appendChild(tooltip);
-            }
-            
-            const paragraph = e.target.closest('.paragraph-container');
-            if (paragraph) {
-                state.currentFocusParagraph = parseInt(paragraph.dataset.pIndex);
-                updateFocusMode();
-            }
-        }
-        
-        function handleWordDoubleClick(e) {
-            const span = e.target.closest('span[data-gundul]');
-            if (span && span.dataset.irab) showSlider(span.dataset.berharakat, span.dataset.irab, 'rtl');
-        }
-        
-        function handleMarkComplete(e) {
-            toggleLessonCompletion(state.currentLesson.id);
-            e.target.textContent = state.completedLessons.includes(state.currentLesson.id) ? '✓ Selesai Dipelajari' : 'Tandai sebagai Selesai';
-            e.target.classList.toggle('bg-green-500', state.completedLessons.includes(state.currentLesson.id));
-            e.target.classList.toggle('text-white', state.completedLessons.includes(state.currentLesson.id));
-            e.target.classList.toggle('bg-gray-200', !state.completedLessons.includes(state.currentLesson.id));
-            e.target.classList.toggle('dark:bg-gray-600', !state.completedLessons.includes(state.currentLesson.id));
-        }
-        
-        function handleStartQuiz() {
-            const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
-            state.quiz.isActive = true;
-            state.quiz.shuffledQuestions = shuffle(state.currentLesson.quizData);
-            state.quiz.currentIndex = 0;
-            state.quiz.score = 0;
-            state.quiz.isFinished = false;
-            renderLearningPage();
-        }
-        
-        function handleAnswerClick(e) {
-            const selectedButton = e.target;
-            const optionsContainer = selectedButton.parentElement;
-            if (optionsContainer.dataset.answered) return;
-            optionsContainer.dataset.answered = 'true';
-            const selectedAnswer = selectedButton.textContent;
-            const currentQuestion = state.quiz.shuffledQuestions[state.quiz.currentIndex];
-            const correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
-            const feedbackEl = document.getElementById('quiz-feedback');
-            if (selectedAnswer === correctAnswer) {
-                selectedButton.className = 'quiz-option w-full p-3 bg-green-500 text-white rounded-lg text-left';
-                feedbackEl.textContent = 'Jawaban Benar!';
-                feedbackEl.className = 'mt-6 text-center font-bold h-6 text-green-500';
-                state.quiz.score++;
-            } else {
-                selectedButton.className = 'quiz-option w-full p-3 bg-red-500 text-white rounded-lg text-left';
-                feedbackEl.textContent = 'Jawaban Kurang Tepat.';
-                feedbackEl.className = 'mt-6 text-center font-bold h-6 text-red-500';
-                Array.from(optionsContainer.children).forEach(button => {
-                    if (button.textContent === correctAnswer) button.className = 'quiz-option w-full p-3 bg-green-500 text-white rounded-lg text-left';
+            function setupLearningPageEventListeners() {
+                document.getElementById('back-to-home-btn')?.addEventListener('click', () => switchView('home'));
+                document.getElementById('toggle-all-harakat-btn')?.addEventListener('click', handleToggleAllHarakat);
+                document.getElementById('translation-toggle')?.addEventListener('change', handleTranslationToggle);
+                document.getElementById('text-container')?.addEventListener('click', handleWordClick);
+                document.getElementById('text-container')?.addEventListener('dblclick', handleWordDoubleClick);
+                document.getElementById('mark-complete-btn')?.addEventListener('click', handleMarkComplete);
+                document.getElementById('display-settings-btn')?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    document.getElementById('display-settings-popover').classList.toggle('hidden');
+                });
+                document.getElementById('arabic-font-slider')?.addEventListener('input', (e) => DOM.html.style.setProperty('--arabic-font-size', `${e.target.value}rem`));
+                document.getElementById('tooltip-font-slider')?.addEventListener('input', (e) => DOM.html.style.setProperty('--tooltip-font-size', `${e.target.value}rem`));
+                document.getElementById('line-height-slider')?.addEventListener('input', (e) => DOM.html.style.setProperty('--arabic-line-height', e.target.value));
+                document.getElementById('irab-font-slider')?.addEventListener('input', (e) => DOM.html.style.setProperty('--irab-font-size', `${e.target.value}rem`));
+                document.getElementById('focus-mode-toggle')?.addEventListener('change', handleFocusModeToggle);
+                document.getElementById('show-full-translation-btn')?.addEventListener('click', () => showSlider('Terjemahan Lengkap', `<p>${state.currentLesson.fullTranslation}</p>`, 'translation'));
+                document.getElementById('start-quiz-btn')?.addEventListener('click', handleStartQuiz);
+                document.getElementById('reset-display-settings-btn')?.addEventListener('click', handleResetDisplaySettings);
+                document.addEventListener('click', (e) => {
+                    const popover = document.getElementById('display-settings-popover');
+                    const btn = document.getElementById('display-settings-btn');
+                    if (popover && !popover.classList.contains('hidden') && !popover.contains(e.target) && !btn.contains(e.target)) {
+                        popover.classList.add('hidden');
+                    }
                 });
             }
-            setTimeout(() => {
-                if (state.quiz.currentIndex < state.quiz.shuffledQuestions.length - 1) {
-                    state.quiz.currentIndex++;
-                    renderQuizPage();
-                } else {
-                    state.quiz.isFinished = true;
-                    renderQuizPage();
+
+            function setupQuizEventListeners() {
+                document.getElementById('back-to-text-btn')?.addEventListener('click', () => {
+                    state.quiz.isActive = false;
+                    renderLearningPage();
+                });
+                document.querySelectorAll('.quiz-option').forEach(btn => btn.addEventListener('click', handleAnswerClick));
+            }
+
+            function handleFilterClick(e) {
+                const btn = e.target.closest('.filter-btn');
+                if (btn) {
+                    state.activeFilter = btn.dataset.level;
+                    updateActiveFilterButton();
+                    renderHomePage();
                 }
-            }, 2000);
-        }
-
-        function handleFocusModeToggle(e) {
-            state.isFocusMode = e.target.checked;
-            updateFocusMode();
-        }
-
-        function updateFocusMode() {
-            if (!state.isFocusMode) {
-                document.querySelectorAll('.paragraph-container').forEach(p => p.classList.remove('paragraph-unfocused'));
-                return;
             }
-            document.querySelectorAll('.paragraph-container').forEach((p, index) => {
-                p.classList.toggle('paragraph-unfocused', index !== state.currentFocusParagraph);
-            });
-        }
-        
-        function handleResetDisplaySettings() {
-            const defaults = {
-                '--arabic-font-size': '1.875rem',
-                '--tooltip-font-size': '0.875rem',
-                '--arabic-line-height': '2.5'
-            };
-            const sliderDefaults = {
-                'arabic-font-slider': '1.875',
-                'tooltip-font-slider': '0.875',
-                'line-height-slider': '2.5'
-            };
-            for (const [prop, value] of Object.entries(defaults)) {
-                DOM.html.style.setProperty(prop, value);
-            }
-            for (const [id, value] of Object.entries(sliderDefaults)) {
-                const slider = document.getElementById(id);
-                if (slider) slider.value = value;
-            }
-        }
 
-        init();
-    });
+            function handleToggleAllHarakat(e) {
+                state.isHarakatShownGlobally = !state.isHarakatShownGlobally;
+                e.target.textContent = state.isHarakatShownGlobally ? 'Sembunyikan Harakat' : 'Tampilkan Harakat';
+                document.querySelectorAll('#text-container span[data-gundul]').forEach(span => {
+                    span.textContent = state.isHarakatShownGlobally ? span.dataset.berharakat : span.dataset.gundul;
+                });
+            }
+
+            function handleTranslationToggle(e) {
+                state.isTranslationShown = e.target.checked;
+                if (!state.isTranslationShown) {
+                    document.querySelectorAll('.translation-tooltip').forEach(tip => tip.remove());
+                }
+            }
+
+            function handleWordClick(e) {
+                const span = e.target.closest('span[data-gundul]');
+                if (!span) return;
+
+                const spanWrapper = span.parentElement;
+                const hasTranslationData = span.dataset.terjemahan && span.dataset.terjemahan.trim() !== '';
+
+                // Menentukan keadaan kata SAAT INI, sebelum ada perubahan.
+                const isBerharakat = span.textContent === span.dataset.berharakat;
+                const currentTooltip = spanWrapper.querySelector('.translation-tooltip');
+                const hasTooltip = currentTooltip !== null;
+
+                // Fungsi bantuan untuk mengelola tooltip.
+                const showTooltip = () => {
+                    if (hasTranslationData) {
+                        const tooltip = document.createElement('div');
+                        tooltip.className = 'translation-tooltip bg-gray-800 text-white rounded py-1 px-3 z-10';
+                        tooltip.textContent = span.dataset.terjemahan;
+                        // ... (kode posisi tooltip tidak berubah)
+                        const computedStyle = getComputedStyle(span);
+                        const lineHeight = parseFloat(computedStyle.lineHeight);
+                        const fontSize = parseFloat(computedStyle.fontSize);
+                        const spaceAbove = (lineHeight - fontSize) / 2;
+                        const textBottomPosition = spaceAbove + fontSize;
+                        tooltip.style.top = `${textBottomPosition + 2}px`;
+                        tooltip.style.left = '50%';
+                        spanWrapper.appendChild(tooltip);
+                    }
+                };
+                const removeTooltip = () => {
+                    if (currentTooltip) {
+                        currentTooltip.remove();
+                    }
+                };
+
+                // LOGIKA UTAMA: Memilih alur berdasarkan saklar terjemahan.
+                if (state.isTranslationShown && hasTranslationData) {
+                    // --- Alur Spesifik Permintaan Anda ---
+
+                    // Langkah 1: Selalu balik status harakat teks.
+                    span.textContent = isBerharakat ? span.dataset.gundul : span.dataset.berharakat;
+
+                    // Langkah 2: Selalu balik visibilitas tooltip.
+                    if (hasTooltip) {
+                        removeTooltip();
+                    } else {
+                        showTooltip();
+                    }
+
+                } else {
+                    // --- Alur Normal (jika terjemahan nonaktif) ---
+                    // Hanya membalik harakat, dan pastikan tooltip selalu hilang.
+                    span.textContent = isBerharakat ? span.dataset.gundul : span.dataset.berharakat;
+                    removeTooltip();
+                }
+
+                // Perbarui mode fokus jika aktif.
+                const paragraph = e.target.closest('.paragraph-container');
+                if (paragraph) {
+                    state.currentFocusParagraph = parseInt(paragraph.dataset.pIndex);
+                    updateFocusMode();
+                }
+            }
+
+            function handleWordDoubleClick(e) {
+                const span = e.target.closest('span[data-gundul]');
+                if (span && span.dataset.irab) showSlider(span.dataset.berharakat, span.dataset.irab, 'irab');
+            }
+
+            function handleMarkComplete(e) {
+                toggleLessonCompletion(state.currentLesson.id);
+                e.target.textContent = state.completedLessons.includes(state.currentLesson.id) ? '✓ Selesai Dipelajari' : 'Tandai sebagai Selesai';
+                e.target.classList.toggle('bg-green-500', state.completedLessons.includes(state.currentLesson.id));
+                e.target.classList.toggle('text-white', state.completedLessons.includes(state.currentLesson.id));
+                e.target.classList.toggle('bg-gray-200', !state.completedLessons.includes(state.currentLesson.id));
+                e.target.classList.toggle('dark:bg-gray-600', !state.completedLessons.includes(state.currentLesson.id));
+            }
+
+            function handleStartQuiz() {
+                const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+                state.quiz.isActive = true;
+                state.quiz.shuffledQuestions = shuffle(state.currentLesson.quizData);
+                state.quiz.currentIndex = 0;
+                state.quiz.score = 0;
+                state.quiz.isFinished = false;
+                renderLearningPage();
+            }
+
+            function handleAnswerClick(e) {
+                const selectedButton = e.target;
+                const optionsContainer = selectedButton.parentElement;
+                if (optionsContainer.dataset.answered) return;
+                optionsContainer.dataset.answered = 'true';
+                const selectedAnswer = selectedButton.textContent;
+                const currentQuestion = state.quiz.shuffledQuestions[state.quiz.currentIndex];
+                const correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
+                const feedbackEl = document.getElementById('quiz-feedback');
+                if (selectedAnswer === correctAnswer) {
+                    selectedButton.className = 'quiz-option w-full p-3 bg-green-500 text-white rounded-lg text-left';
+                    feedbackEl.textContent = 'Jawaban Benar!';
+                    feedbackEl.className = 'mt-6 text-center font-bold h-6 text-green-500';
+                    state.quiz.score++;
+                } else {
+                    selectedButton.className = 'quiz-option w-full p-3 bg-red-500 text-white rounded-lg text-left';
+                    feedbackEl.textContent = 'Jawaban Kurang Tepat.';
+                    feedbackEl.className = 'mt-6 text-center font-bold h-6 text-red-500';
+                    Array.from(optionsContainer.children).forEach(button => {
+                        if (button.textContent === correctAnswer) button.className = 'quiz-option w-full p-3 bg-green-500 text-white rounded-lg text-left';
+                    });
+                }
+                setTimeout(() => {
+                    if (state.quiz.currentIndex < state.quiz.shuffledQuestions.length - 1) {
+                        state.quiz.currentIndex++;
+                        renderQuizPage();
+                    } else {
+                        state.quiz.isFinished = true;
+                        renderQuizPage();
+                    }
+                }, 2000);
+            }
+
+            function handleFocusModeToggle(e) {
+                state.isFocusMode = e.target.checked;
+                updateFocusMode();
+            }
+
+            function updateFocusMode() {
+                if (!state.isFocusMode) {
+                    document.querySelectorAll('.paragraph-container').forEach(p => p.classList.remove('paragraph-unfocused'));
+                    return;
+                }
+                document.querySelectorAll('.paragraph-container').forEach((p, index) => {
+                    p.classList.toggle('paragraph-unfocused', index !== state.currentFocusParagraph);
+                });
+            }
+
+            function handleResetDisplaySettings() {
+                const defaults = {
+                    '--arabic-font-size': '1.875rem',
+                    '--tooltip-font-size': '0.875rem',
+                    '--arabic-line-height': '2.5',
+                    '--irab-font-size': '1rem'
+                };
+                const sliderDefaults = {
+                    'arabic-font-slider': '1.875',
+                    'tooltip-font-slider': '0.875',
+                    'line-height-slider': '2.5',
+                    'irab-font-slider': '1'
+                };
+                for (const [prop, value] of Object.entries(defaults)) {
+                    DOM.html.style.setProperty(prop, value);
+                }
+                for (const [id, value] of Object.entries(sliderDefaults)) {
+                    const slider = document.getElementById(id);
+                    if (slider) slider.value = value;
+                }
+            }
+
+            init();
+        });
     </script>
 </body>
+
 </html>
