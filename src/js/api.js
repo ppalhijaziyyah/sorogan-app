@@ -15,7 +15,7 @@ import { renderHomePage, renderLearningPage, switchView, showError, showLoader, 
 export async function fetchMasterIndex() {
     showLoader(); // Tampilkan indikator loading
     try {
-        const response = await fetch('/master-index.json');
+        const response = await fetch(`${import.meta.env.BASE_URL}master-index.json`);
         if (!response.ok) {
             // Jika respons tidak berhasil (misal: 404 Not Found), lempar error
             throw new Error(`Gagal memuat indeks: ${response.statusText}`);
@@ -38,7 +38,7 @@ export async function fetchMasterIndex() {
 export async function fetchLessonData(lessonInfo) {
     showLoader(); // Tampilkan indikator loading
     try {
-        const response = await fetch(`/${lessonInfo.path}`);
+        const response = await fetch(`${import.meta.env.BASE_URL}${lessonInfo.path}`);
         if (!response.ok) {
             throw new Error(`Gagal memuat materi: ${lessonInfo.path}`);
         }
