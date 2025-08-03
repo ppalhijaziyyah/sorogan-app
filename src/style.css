@@ -1,0 +1,154 @@
+:root {
+  --arabic-font-size: 1.875rem;
+  --tooltip-font-size: 0.875rem;
+  --arabic-line-height: 2.5;
+  /* **FITUR BARU: Variabel untuk ukuran font I'rab** */
+  --irab-font-size: 1.5rem;
+  /* default 16px */
+  --bg-gradient-light: linear-gradient(120deg, #f3e8ff 0%, #e0f2fe 100%);
+  --bg-gradient-dark: linear-gradient(120deg, #38235d 0%, #111827 100%);
+  --accent-gradient: linear-gradient(90deg, #2dd4bf, #38bdf8);
+  --card-bg-light: rgba(255, 255, 255, 0.7);
+  --card-bg-dark: rgba(30, 41, 59, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-gradient-light);
+  transition: background 0.5s ease;
+  color: #1f2937;
+}
+
+.dark body {
+  background: var(--bg-gradient-dark);
+  color: #e2e8f0;
+}
+
+.title-font {
+  font-family: "Roboto", "Hurricane", cursive;
+}
+
+.arabic-text,
+.arabic-font {
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: var(--arabic-font-size);
+  line-height: var(--arabic-line-height);
+}
+.arabic-icon {
+  /* font-family: ; */
+}
+
+/* **FITUR BARU: Kelas untuk menargetkan konten I'rab** */
+.irab-content {
+  font-size: var(--irab-font-size);
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.translation-tooltip {
+  font-size: var(--tooltip-font-size);
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+  position: absolute;
+  top: 1.4em;
+  left: 50%;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
+  width: max-content;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.filter-btn {
+  transition: all 0.3s ease-in-out;
+
+}
+
+.filter-btn.active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-image: var(--accent-gradient);
+}
+
+#bottom-slider,
+#bottom-slider-backdrop {
+  transition: all 0.3s ease-in-out;
+}
+
+#loader-overlay {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.spinner {
+  border-top-color: #3498db;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.paragraph-container {
+  transition: opacity 0.4s ease-in-out;
+  margin-bottom: 1.5em;
+}
+
+.paragraph-unfocused {
+  opacity: 0.4;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-image: var(--accent-gradient);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-image: var(--accent-gradient);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.card-glass {
+  background: var(--card-bg-light);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .card-glass {
+  background: var(--card-bg-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.popover-mobile-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Menghilangkan posisi 'top-full' dan 'right-0' yang ada sebelumnya */
+  top: 50% !important;
+  right: auto !important;
+  left: 50% !important;
+  /* Memberi lebar agar tidak terlalu besar di mobile */
+  width: 90%;
+  max-width: 320px;
+}
