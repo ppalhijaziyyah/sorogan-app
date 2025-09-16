@@ -249,6 +249,15 @@ export function renderHomePage() {
 
     levelsToRender.forEach(level => {
         const lessonsForLevel = state.masterIndex.filter(lesson => lesson.level === level);
+
+        // Urutkan pelajaran berdasarkan nama file secara descending.
+        // Untuk mengubah ke ascending, ganti `fileNameB.localeCompare(fileNameA)`
+        // menjadi `fileNameA.localeCompare(fileNameB)`.
+        lessonsForLevel.sort((a, b) => {
+            const fileNameA = a.path.split('/').pop();
+            const fileNameB = b.path.split('/').pop();
+            return fileNameB.localeCompare(fileNameA);
+        });
         if (lessonsForLevel.length === 0) return; // Lewati jika tidak ada pelajaran untuk level ini
 
         lessonsFound = true;
