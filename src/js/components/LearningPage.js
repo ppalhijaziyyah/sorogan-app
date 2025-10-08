@@ -1,4 +1,3 @@
-
 /**
  * @file LearningPage.js
  * @description Komponen untuk merender dan mengelola halaman belajar interaktif dan kuis.
@@ -112,6 +111,11 @@ function renderQuizPage() {
                         return `<button class="${buttonClass}" disabled>${option}</button>`;
                     }).join('')}
                 </div>
+                ${reviewItem.explanation ? `
+                <div class="mt-6 p-4 bg-yellow-100 dark:bg-yellow-800/30 border-l-4 border-yellow-500 rounded-r-lg">
+                    <h4 class="font-bold text-lg mb-2 text-yellow-800 dark:text-yellow-300">Penjelasan</h4>
+                    <p class="text-yellow-900 dark:text-yellow-200">${reviewItem.explanation}</p>
+                </div>` : ''}
                 <div class="flex justify-between mt-6">
                     <button id="review-prev-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" ${q.currentIndex === 0 ? 'disabled' : ''}>Sebelumnya</button>
                     <button id="review-next-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" ${q.currentIndex === q.userAnswers.length - 1 ? 'disabled' : ''}>Berikutnya</button>

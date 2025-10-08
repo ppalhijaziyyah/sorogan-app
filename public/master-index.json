@@ -1,5 +1,14 @@
 [
   {
+    "id": "dummy-12345",
+    "title": "Dummy Kuis Penjelasan",
+    "titleArabic": "مثال مع الشرح",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/dummy-penjelasan.json",
+    "preview": "Contoh soal kuis yang memiliki penjelasan tambahan.",
+    "lastModified": "2025-10-08T10:00:00.000Z"
+  },
+  {
     "id": "ibt-1752317470709",
     "title": "Materi 01",
     "titleArabic": "العلم نور",
