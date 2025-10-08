@@ -1,4 +1,3 @@
-
 /**
  * @file main.js
  * @description Titik masuk utama (entry point) untuk aplikasi JavaScript.
@@ -8,7 +7,7 @@
 import '../style.css'; // Impor file CSS utama untuk dibundel oleh Vite
 import { initEventListeners } from './events.js';
 import { loadTheme, loadCompletedLessons } from './utils.js';
-import { renderFilterButtons } from './ui.js';
+import { renderFilterButtons } from './components/HomePage.js';
 import { fetchMasterIndex } from './api.js';
 
 /**

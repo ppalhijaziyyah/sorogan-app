@@ -1,4 +1,3 @@
-
 /**
  * @file api.js
  * @description Modul untuk menangani semua interaksi dengan API atau file data (JSON).
@@ -6,7 +5,9 @@
  */
 
 import { state } from './state.js';
-import { renderHomePage, renderLearningPage, switchView, showError, showLoader, hideLoader } from './ui.js';
+import { renderHomePage } from './components/HomePage.js';
+import { renderLearningPage } from './components/LearningPage.js';
+import { switchView, showError, showLoader, hideLoader } from './ui.js';
 
 /**
  * Mengambil file indeks utama (master-index.json) yang berisi daftar semua pelajaran.
