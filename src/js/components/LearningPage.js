@@ -50,31 +50,18 @@ function renderLessonTextPage() {
                 <div class="flex items-center justify-center p-2 bg-white/50 dark:bg-gray-800/50 rounded-xl shadow-inner">
                     <div class="flex items-center gap-4">
                         <div class="flex items-center gap-3">
-                            <!-- Tombol Mode Harakat -->
                             <button id="harakat-toggle-btn" type="button" title="Mode Harakat (Klik per kata)" class="toggle-btn p-3 rounded-lg shadow-md transition-all duration-200 ease-in-out">
-                                <svg id="icon-harakat-on" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none">
-                                    <text x="50%" y="17" text-anchor="middle" class="arabic-icon" font-size="1.5rem" fill="currentColor">حَ</text>
-                                </svg>
-                                <svg id="icon-harakat-off" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none hidden">
-                                    <text x="50%" y="17" text-anchor="middle" class="arabic-icon" font-size="1.5rem" fill="currentColor">ح</text>
-                                </svg>
+                                <svg id="icon-harakat-on" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none"><text x="50%" y="17" text-anchor="middle" class="arabic-icon" font-size="1.5rem" fill="currentColor">حَ</text></svg>
+                                <svg id="icon-harakat-off" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none hidden"><text x="50%" y="17" text-anchor="middle" class="arabic-icon" font-size="1.5rem" fill="currentColor">ح</text></svg>
                             </button>
-                            <!-- Tombol Mode Terjemahan -->
                             <button id="translation-toggle-btn" type="button" title="Mode Terjemahan (Klik per kata)" class="toggle-btn p-3 rounded-lg shadow-md transition-all duration-200 ease-in-out">
                                 <svg id="icon-translation-on" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none"><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-weight="bold" font-size="16" fill="currentColor">T</text></svg>
                                 <svg id="icon-translation-off" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none hidden"><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-weight="bold" font-size="16" fill="currentColor">T</text><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
                             </button>
-                            <!-- Tombol Aksi Global -->
                             <div class="flex">
                                 <button id="toggle-all-harakat-btn" type="button" title="Tampilkan/Sembunyikan Semua Harakat" class="toggle-btn p-3 rounded-lg shadow-md transition-all duration-200 ease-in-out">
-                                    <svg id="icon-all-harakat-on" width="24" height="24" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="pointer-events-none">
-                                        <path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 8a6 6 0 0 0-12 0c0 1 .3 2.2 1.5 3.5.7.7 1.2 1.5 1.5 2.5M9 18h6m-5 4h4" />
-                                        <path d="M 12 -1 V -3 M 21 8 H 23 M 1 8 H 3 M 19 2 L 21 0 M 3 16 L 5 14 M 19 14 L 21 16 M 3 0 L 5 2" />
-                                    </svg>
-                                    <svg id="icon-all-harakat-off" width="24" height="24" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="pointer-events-none hidden">
-                                        <path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 8a6 6 0 0 0-12 0c0 1 .3 2.2 1.5 3.5.7.7 1.2 1.5 1.5 2.5M9 18h6m-5 4h4" />
-                                        <path d="M12 0V-2M20 8H22M2 8H4M18.5 2.5L19.91 1.09M4.09 19.91L5.5 18.5M18.5 18.5L19.91 19.91M4.09 1.09L5.5 2.5" stroke-opacity="0" />
-                                    </svg>
+                                    <svg id="icon-all-harakat-on" width="24" height="24" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="pointer-events-none"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 8a6 6 0 0 0-12 0c0 1 .3 2.2 1.5 3.5.7.7 1.2 1.5 1.5 2.5M9 18h6m-5 4h4" /><path d="M 12 -1 V -3 M 21 8 H 23 M 1 8 H 3 M 19 2 L 21 0 M 3 16 L 5 14 M 19 14 L 21 16 M 3 0 L 5 2" /></svg>
+                                    <svg id="icon-all-harakat-off" width="24" height="24" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" class="pointer-events-none hidden"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 8a6 6 0 0 0-12 0c0 1 .3 2.2 1.5 3.5.7.7 1.2 1.5 1.5 2.5M9 18h6m-5 4h4" /><path d="M12 0V-2M20 8H22M2 8H4M18.5 2.5L19.91 1.09M4.09 19.91L5.5 18.5M18.5 18.5L19.91 19.91M4.09 1.09L5.5 2.5" stroke-opacity="0" /></svg>
                                 </button>
                             </div>
                         </div>
@@ -98,21 +85,50 @@ function renderLessonTextPage() {
     updateButtonStates();
 }
 
-/** Merender halaman kuis. */
+/** Merender halaman kuis, baik mode aktif, review, atau selesai. */
 function renderQuizPage() {
     const q = state.quiz;
-    let content;
+    let headerContent = `<h1 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent" style="background-image: var(--accent-gradient)">Kuis: ${state.currentLesson.title}</h1>`;
+    let mainContent;
 
-    if (q.isFinished) {
-        content = `
+    if (q.isReviewing) {
+        const reviewItem = q.userAnswers[q.currentIndex];
+        headerContent += `<button id="back-to-score-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Kembali ke Skor</button>`;
+        mainContent = `
+            <div class="card-glass p-6 rounded-xl shadow-lg">
+                <p class="text-center font-semibold mb-4 text-lg">Meninjau Pertanyaan ${q.currentIndex + 1} dari ${q.shuffledQuestions.length}</p>
+                <h2 class="text-2xl font-bold mb-4 text-center">${reviewItem.question}</h2>
+                ${reviewItem.context ? `<p class="arabic-text text-3xl text-center mb-6" dir="rtl">${reviewItem.context}</p>` : ''}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    ${reviewItem.options.map(option => {
+                        let buttonClass = 'p-3 rounded-lg text-left';
+                        if (option === reviewItem.correctAnswer) {
+                            buttonClass += ' bg-green-500 text-white'; // Jawaban benar
+                        } else if (option === reviewItem.selectedAnswer) {
+                            buttonClass += ' bg-red-500 text-white'; // Jawaban pengguna yang salah
+                        } else {
+                            buttonClass += ' bg-gray-200 dark:bg-gray-700 opacity-70'; // Opsi lain
+                        }
+                        return `<button class="${buttonClass}" disabled>${option}</button>`;
+                    }).join('')}
+                </div>
+                <div class="flex justify-between mt-6">
+                    <button id="review-prev-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" ${q.currentIndex === 0 ? 'disabled' : ''}>Sebelumnya</button>
+                    <button id="review-next-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" ${q.currentIndex === q.userAnswers.length - 1 ? 'disabled' : ''}>Berikutnya</button>
+                </div>
+            </div>`;
+    } else if (q.isFinished) {
+        headerContent += `<button id="back-to-text-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Kembali ke Teks</button>`;
+        mainContent = `
             <div class="text-center">
                 <h2 class="text-3xl font-bold mb-4">Kuis Selesai!</h2>
                 <p class="text-xl mb-6">Skor Anda: <span class="font-bold text-teal-500">${q.score}</span> dari ${q.shuffledQuestions.length}</p>
-                <button id="back-to-text-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Kembali ke Teks</button>
+                <button id="review-quiz-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Tinjau Kuis</button>
             </div>`;
     } else {
+        headerContent += `<button id="exit-quiz-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all text-sm">&times; Keluar</button>`;
         const currentQuestion = q.shuffledQuestions[q.currentIndex];
-        content = `
+        mainContent = `
             <div class="card-glass p-6 rounded-xl shadow-lg">
                 <p class="text-center font-semibold mb-4 text-lg">Pertanyaan ${q.currentIndex + 1} dari ${q.shuffledQuestions.length}</p>
                 <h2 class="text-2xl font-bold mb-4 text-center">${currentQuestion.question}</h2>
@@ -125,11 +141,8 @@ function renderQuizPage() {
     }
 
     DOM.learningPage.innerHTML = `
-        <header class="flex justify-between items-center mb-8">
-            <h1 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent" style="background-image: var(--accent-gradient)">Kuis: ${state.currentLesson.title}</h1>
-            <button id="exit-quiz-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all text-sm">&times; Keluar</button>
-        </header>
-        ${content}`;
+        <header class="flex justify-between items-center mb-8">${headerContent}</header>
+        <main>${mainContent}</main>`;
 
     setupQuizEventListeners();
 }
@@ -302,10 +315,19 @@ function setupLearningPageEventListeners() {
 }
 
 function setupQuizEventListeners() {
+    // Tombol di halaman skor
     document.getElementById('back-to-text-btn')?.addEventListener('click', () => {
         state.quiz.isActive = false;
+        state.quiz.isFinished = false;
         renderLearningPage();
     });
+    document.getElementById('review-quiz-btn')?.addEventListener('click', () => {
+        state.quiz.isReviewing = true;
+        state.quiz.currentIndex = 0;
+        renderLearningPage();
+    });
+
+    // Tombol di mode kuis aktif
     document.querySelectorAll('.quiz-option').forEach(btn => btn.addEventListener('click', handleAnswerClick));
     document.getElementById('exit-quiz-btn')?.addEventListener('click', () => {
         showConfirmationModal('Apakah Anda yakin ingin keluar dari kuis? Progres kuis ini akan hilang.', () => {
@@ -313,6 +335,24 @@ function setupQuizEventListeners() {
             state.quiz.isFinished = false;
             renderLearningPage();
         });
+    });
+
+    // Tombol di mode review
+    document.getElementById('back-to-score-btn')?.addEventListener('click', () => {
+        state.quiz.isReviewing = false;
+        renderLearningPage();
+    });
+    document.getElementById('review-next-btn')?.addEventListener('click', () => {
+        if (state.quiz.currentIndex < state.quiz.userAnswers.length - 1) {
+            state.quiz.currentIndex++;
+            renderLearningPage();
+        }
+    });
+    document.getElementById('review-prev-btn')?.addEventListener('click', () => {
+        if (state.quiz.currentIndex > 0) {
+            state.quiz.currentIndex--;
+            renderLearningPage();
+        }
     });
 }
 
@@ -445,10 +485,12 @@ function handleMarkComplete(e) {
 function handleStartQuiz() {
     const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
     state.quiz.isActive = true;
+    state.quiz.isFinished = false;
+    state.quiz.isReviewing = false;
+    state.quiz.userAnswers = [];
     state.quiz.shuffledQuestions = shuffle(state.currentLesson.quizData);
     state.quiz.currentIndex = 0;
     state.quiz.score = 0;
-    state.quiz.isFinished = false;
     renderLearningPage();
     window.scrollTo(0, 0);
 }
@@ -480,6 +522,13 @@ function handleAnswerClick(e) {
     const currentQuestion = state.quiz.shuffledQuestions[state.quiz.currentIndex];
     const correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
     const feedbackEl = document.getElementById('quiz-feedback');
+
+    // Simpan jawaban pengguna
+    state.quiz.userAnswers.push({
+        ...currentQuestion,
+        selectedAnswer: selectedAnswer,
+        correctAnswer: correctAnswer
+    });
 
     if (selectedAnswer === correctAnswer) {
         selectedButton.className = 'quiz-option w-full p-3 bg-green-500 text-white rounded-lg text-left';

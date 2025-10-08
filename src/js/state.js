@@ -1,4 +1,3 @@
-
 /**
  * @file state.js
  * @description Mengelola semua data dan status aplikasi secara terpusat.
@@ -17,10 +16,12 @@ export const state = {
     currentFocusParagraph: 0, // Indeks paragraf yang sedang menjadi fokus
     quiz: {
         isActive: false,          // Apakah kuis sedang berjalan
+        isFinished: false,        // Apakah kuis telah selesai
+        isReviewing: false,       // Apakah pengguna sedang dalam mode meninjau kuis
         shuffledQuestions: [],  // Daftar pertanyaan kuis yang sudah diacak
+        userAnswers: [],        // Menyimpan jawaban yang diberikan pengguna
         currentIndex: 0,        // Indeks pertanyaan yang sedang ditampilkan
         score: 0,               // Skor kuis pengguna
-        isFinished: false,        // Apakah kuis telah selesai
     }, // Menyimpan state yang berhubungan dengan kuis
 };
 // tombol UP
