@@ -46,6 +46,42 @@ export function initEventListeners() {
         );
     });
 
+    // Listener untuk tombol "Tentang Kami"
+    DOM.aboutUsBtn.addEventListener('click', () => {
+        const title = 'Tentang Sorogan App';
+        const content = `
+            <div class="space-y-4 text-left">
+                <p><strong>Sorogan App</strong> adalah platform modern untuk memfasilitasi pembelajaran membaca teks Arab klasik (kitab kuning) secara interaktif.</p>
+                <p>Aplikasi ini dibuat untuk membantu para santri dan pelajar di seluruh dunia agar dapat belajar dengan lebih mudah, di mana saja dan kapan saja.</p>
+                <p>Proyek ini adalah eksperimen open-source yang dikembangkan dengan bantuan model bahasa Gemini dari Google.</p>
+            </div>
+        `;
+        showSlider(title, content);
+    });
+
+    // Listener untuk tombol "Dukung Kami"
+    DOM.supportUsBtn.addEventListener('click', () => {
+        const title = 'Dukung Pengembangan Aplikasi';
+        const content = `
+            <div class="space-y-4 text-left">
+                <p>Aplikasi ini gratis dan akan selalu gratis. Jika Anda merasa aplikasi ini bermanfaat dan ingin mendukung pengembangan materi pelajaran dan fitur-fitur baru di masa depan, Anda bisa memberikan donasi melalui tautan di bawah:</p>
+                <div class="text-center">
+                    <a href="https://saweria.co/example" target="_blank" rel="noopener noreferrer" class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">Donasi via Saweria</a>
+                </div>
+                
+                <hr class="border-gray-300 dark:border-gray-600">
+                <p><strong>Kontribusi Materi Pelajaran:</strong> Kami menerima kontribusi dalam bentuk materi pelajaran (teks Arab, terjemahan, i'rab) yang relevan. Jika Anda berminat, silakan hubungi kami melalui email di <a href="mailto:ppalhijaziyyah@gmail.com" class="text-teal-500 hover:underline">ppalhijaziyyah@gmail.com</a>.</p>
+
+                <hr class="border-gray-300 dark:border-gray-600">
+                <p><strong>Kontribusi Kode:</strong> Kami sangat terbuka bagi para developer yang ingin berkontribusi. Anda bisa melihat repositori kami di GitHub untuk melihat isu yang ada atau mengajukan <em>pull request</em>.</p>
+                <div class="text-center">
+                     <a href="https://github.com/ppalhijaziyyah/sorogan-app" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-6 rounded-lg transition-colors">Lihat di GitHub</a>
+                </div>
+            </div>
+        `;
+        showSlider(title, content);
+    });
+
     // Listener untuk tombol batal di modal konfirmasi
     DOM.modal.cancelBtn.addEventListener('click', hideConfirmationModal);
 

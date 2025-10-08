@@ -47,6 +47,8 @@ export const DOM = {
 
     // Tombol Lainnya
     resetProgressBtn: document.getElementById('reset-progress-btn'),
+    aboutUsBtn: document.getElementById('about-us-btn'),
+    supportUsBtn: document.getElementById('support-us-btn'),
 
     scrollToTopBtn: document.getElementById('scroll-to-top-btn'),
 };
