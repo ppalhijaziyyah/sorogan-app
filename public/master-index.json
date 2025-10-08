@@ -9,15 +9,6 @@
     "lastModified": "2025-08-14T02:08:50.949Z"
   },
   {
-    "id": "mut-1752317499381",
-    "title": "materi 02",
-    "titleArabic": "العلم نور",
-    "level": "Mutawassit",
-    "path": "data/2-mutawassit/materi-02.json",
-    "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
-    "lastModified": "2025-07-12T10:51:39.381Z"
-  },
-  {
     "id": "mut-1752317543429",
     "title": "Materi 03",
     "titleArabic": "العلم نور",
@@ -27,12 +18,12 @@
     "lastModified": "2025-07-12T10:52:23.429Z"
   },
   {
-    "id": "mut-1753977045952",
-    "title": "Ilmu 03",
-    "titleArabic": "العلم نور",
+    "id": "ibt-1759829127440",
+    "title": "Rukun Islam",
+    "titleArabic": "اركان الإسلام",
     "level": "Mutawassit",
-    "path": "data/2-mutawassit/2-ilmu-03.json",
-    "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
-    "lastModified": "2025-07-31T15:50:45.952Z"
+    "path": "data/2-mutawassit/2-rukun-islam.json",
+    "preview": "(فصل) أركان الإسلام خمسة شهادة أن لا إلٰه إلا الله...",
+    "lastModified": "2025-10-07T09:26:12.951Z"
   }
 ]
