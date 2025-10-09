@@ -65,8 +65,8 @@
         "irab": "(و) حرف العطف؛ و(إقام) مرفوع بالضمة في الاسم المفرد وهو معطوف ومضاف"
       },
       {
-        "berharakat": "الصَّلّاةِ",
-        "gundul": "الصّلّاة",
+        "berharakat": "الصَّلَاةِ",
+        "gundul": "الصّلاة",
         "terjemahan": "salat",
         "irab": "مضاف إليه مجرور بالكسرة في الاسم المفرد"
       },
@@ -134,16 +134,40 @@
   ],
   "quizData": [
     {
-      "question": "Apa i'rab dari (سَبِيْلًا) pada kutipan berikut ini:",
-      "context": "وَحِجُّ الْبَيْتِ مَنْ اسْتَطَاعَ إِلَيْهِ سَبِيْلًا",
+      "question": "Apa i'rab (kedudukan) kata \"خَمْسَةٌ\" dalam kalimat \"أَرْكَانُ الْإِسْلَامِ خَمْسَةٌ\"?",
+      "context": "",
       "options": [
-        "A. Maf'ul mutlaq",
-        "B. Hal",
-        "C. Jawāb al-Sharṭ (Hasil dari syarat)",
-        "D. Tamyiz"
+        "Mubtada'",
+        "Khabar",
+        "Maf'ul bih",
+        "Mudlaf ilaih"
       ],
-      "correctAnswer": 3,
-      "explanation": "Tamyiz adalah bla bla bla"
+      "correctAnswer": 1,
+      "explanation": "Kata \"خَمْسَةٌ\" (lima) berkedudukan sebagai khabar (predikat) dari mubtada' \"أَرْكَانُ\". Kalimat ini berbentuk jumlah ismiyyah (kalimat nominal) dengan struktur: أَرْكَانُ (mubtada'/subjek) + خَمْسَةٌ (khabar/predikat), yang berarti \"Rukun Islam (itu) lima.\""
+    },
+    {
+      "question": "Apa fungsi huruf \"أَنْ\" dalam frasa",
+      "context": "شَهَادَةُ أَنْ لَا إِلٰهَ إِلّا اللّهُ",
+      "options": [
+        "Huruf masdariyyah",
+        "Huruf nafi",
+        "Huruf jar",
+        "Huruf athaf"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Huruf \"أَنْ\" di sini adalah \"an masdariyyah\" yang berfungsi untuk mem-masdar-kan (membentuk kata benda abstrak dari) kalimat setelahnya. Bersama dengan kalimat \"لَا إِلٰهَ إِلّا اللّهُ\", ia membentuk makna masdar yang setara dengan \"bahwa tiada Tuhan selain Allah.\""
+    },
+    {
+      "question": "Apa i'rab kata \"شَهَادَةُ\" dalam frasa:",
+      "context": "شَهَادَةُ أَنْ لَا إِلٰهَ إِلّا اللّهُ",
+      "options": [
+        "Khabar dari mubtada' yang dibuang (mahdzuf)",
+        "Fa'il",
+        "Mubtada' yang khabar-nya dibuang",
+        "Badal"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Kata \"شَهَادَةُ\" (persaksian) berkedudukan sebagai khabar (predikat), sedangkan mubtada'-nya dibuang/dihilangkan (mahdzuf) yang takdirannya adalah \"هي\" (rukun-rukun yang lima tersebut yaitu). Struktur lengkapnya: [هي] شَهَادَةُ. Pola ini umum dalam bahasa Arab ketika menjelaskan rincian sesuatu yang telah disebutkan sebelumnya."
     }
   ],
   "fullTranslation": "",
