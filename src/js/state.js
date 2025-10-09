@@ -6,6 +6,7 @@
 
 // Ekspor state agar bisa diimpor dan dimodifikasi oleh modul lain
 export const state = {
+    hasSeenTutorial: false,   // Status apakah pengguna sudah melihat tutorial
     masterIndex: [],          // Menyimpan daftar semua pelajaran dari master-index.json
     currentLesson: null,      // Menyimpan data pelajaran yang sedang aktif
     completedLessons: [],     // Menyimpan ID pelajaran yang telah diselesaikan oleh pengguna

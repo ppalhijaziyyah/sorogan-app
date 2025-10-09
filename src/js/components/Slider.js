@@ -12,7 +12,7 @@ import { DOM } from '../dom.js';
  * @param {string} contentHTML - Konten HTML yang akan dimasukkan ke dalam slider.
  * @param {string} [type='default'] - Tipe konten ('irab' atau 'default') untuk styling.
  */
-export function showSlider(title, contentHTML, type = 'default') {
+export function showSlider(title, contentHTML, type = 'default', onClose = null) {
     const direction = type === 'irab' ? 'rtl' : 'ltr';
     const contentClass = type === 'irab' ? 'irab-content' : '';
 
@@ -23,6 +23,9 @@ export function showSlider(title, contentHTML, type = 'default') {
     DOM.slider.title.textContent = title;
     DOM.slider.content.innerHTML = `<div class="prose dark:prose-invert max-w-none ${contentClass}">${contentHTML}</div>`;
     DOM.slider.content.dir = direction;
+
+    // Simpan callback untuk dieksekusi saat ditutup
+    DOM.slider.panel.onCloseCallback = onClose;
 
     // Tampilkan backdrop terlebih dahulu
     DOM.slider.backdrop.classList.remove('hidden');
@@ -79,6 +82,12 @@ export function hideSlider() {
         DOM.slider.panel.style.maxHeight = '';
         // Kembalikan kelas overflow untuk penggunaan berikutnya
         DOM.slider.content.classList.add('overflow-y-auto');
+
+        // Jalankan callback jika ada, lalu bersihkan
+        if (DOM.slider.panel.onCloseCallback) {
+            DOM.slider.panel.onCloseCallback();
+            DOM.slider.panel.onCloseCallback = null;
+        }
     }, 300);
 }
 

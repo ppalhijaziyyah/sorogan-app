@@ -6,7 +6,7 @@
 
 import '../style.css'; // Impor file CSS utama untuk dibundel oleh Vite
 import { initEventListeners } from './events.js';
-import { loadTheme, loadCompletedLessons } from './utils.js';
+import { loadTheme, loadCompletedLessons, loadHasSeenTutorial } from './utils.js';
 import { renderFilterButtons } from './components/HomePage.js';
 import { fetchMasterIndex } from './api.js';
 
@@ -20,6 +20,9 @@ function initApp() {
 
     // Memuat tema (dark/light) dari localStorage atau preferensi sistem
     loadTheme();
+
+    // Memuat status tutorial
+    loadHasSeenTutorial();
 
     // Memuat progres belajar pengguna (pelajaran yang sudah selesai)
     loadCompletedLessons();

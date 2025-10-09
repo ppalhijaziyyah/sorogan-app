@@ -25,11 +25,8 @@ export function initEventListeners() {
     // Listener untuk tombol reset progres
     DOM.resetProgressBtn.addEventListener('click', () => {
         showConfirmationModal(
-            'Anda yakin ingin mereset semua progres belajar Anda? Tindakan ini tidak dapat dibatalkan.',
-            () => {
-                resetProgress();
-                renderHomePage(); // Render ulang halaman utama setelah progres direset
-            }
+            'Anda yakin ingin mereset seluruh data aplikasi? Tindakan ini akan menghapus progres belajar, pengaturan tema, dan status tutorial. Aplikasi akan dimuat ulang.',
+            resetProgress // Langsung panggil fungsi reset yang akan me-reload halaman
         );
     });
 

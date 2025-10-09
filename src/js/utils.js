@@ -10,6 +10,18 @@ import { state } from './state.js';
 
 // --- Manajemen Progres Belajar ---
 
+/** Memuat status tutorial dari localStorage. */
+export function loadHasSeenTutorial() {
+    state.hasSeenTutorial = localStorage.getItem('hasSeenTutorial') === 'true';
+}
+
+/** Menandai bahwa tutorial telah dilihat dan menyimpannya ke localStorage. */
+export function markTutorialAsSeen() {
+    state.hasSeenTutorial = true;
+    localStorage.setItem('hasSeenTutorial', 'true');
+}
+
+
 /** Memuat daftar pelajaran yang telah selesai dari localStorage. */
 export function loadCompletedLessons() {
     state.completedLessons = JSON.parse(localStorage.getItem('completedLessons')) || [];
@@ -20,11 +32,14 @@ export function saveCompletedLessons() {
     localStorage.setItem('completedLessons', JSON.stringify(state.completedLessons));
 }
 
-/** Mereset semua progres belajar pengguna. */
+/** Mereset semua data aplikasi. */
 export function resetProgress() {
-    state.completedLessons = [];
-    saveCompletedLessons(); // Hapus data dari localStorage
-    // Tidak perlu render di sini, biarkan pemanggil yang memutuskan
+    // Hapus semua data yang disimpan oleh aplikasi ini
+    localStorage.removeItem('completedLessons');
+    localStorage.removeItem('hasSeenTutorial');
+    localStorage.removeItem('theme');
+    // Muat ulang halaman untuk menerapkan reset secara penuh
+    window.location.reload();
 }
 
 

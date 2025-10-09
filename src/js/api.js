@@ -8,6 +8,7 @@ import { state } from './state.js';
 import { renderHomePage } from './components/HomePage.js';
 import { renderLearningPage } from './components/LearningPage.js';
 import { switchView, showError, showLoader, hideLoader } from './ui.js';
+import { showLearningPageTutorial } from './components/Tutorial.js';
 
 /**
  * Mengambil file indeks utama (master-index.json) yang berisi daftar semua pelajaran.
@@ -56,6 +57,11 @@ export async function fetchLessonData(lessonInfo) {
         renderLearningPage(); // Render halaman belajar dengan data pelajaran
         switchView('learning'); // Pindah tampilan ke halaman belajar
         window.scrollTo(0, 0); // layar ke posisi top
+
+        // Tampilkan tutorial HANYA setelah halaman belajar aktif dan di-scroll ke atas.
+        if (!state.hasSeenTutorial) {
+            showLearningPageTutorial();
+        }
     } catch (error) {
         console.error("Error fetching lesson data:", error);
         showError(error.message);
