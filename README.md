@@ -1,85 +1,114 @@
-# Sorogan App v1.0
+# Sorogan App
 
-A simple web application for reading and studying classical texts, designed for "sorogan" style learning.
+Aplikasi web sederhana untuk membaca dan mempelajari kitab kuning dengan metode sorogan.
 
-## Features
+## Tentang Aplikasi
 
-*   **Master Index:** Displays a list of available texts from a central `master-index.json`.
-*   **Learning View:** Provides a dedicated view for reading and interacting with a selected text.
-*   **Dynamic Data Loading:** Fetches lesson data dynamically from JSON files.
-*   **Responsive Design:** The application is designed to work on various screen sizes.
-*   **Vite-powered:** Built with Vite for a fast development experience.
-*   **Deployment:** Configured for easy deployment to GitHub Pages.
+**Sorogan App** adalah platform pembelajaran interaktif yang dirancang untuk membantu para santri dan peminat bahasa Arab untuk belajar membaca dan memahami teks Arab gundul (tanpa harakat). Aplikasi ini mensimulasikan metode pembelajaran "sorogan", di mana pengguna dapat melihat teks asli, terjemahan per kata, analisis gramatikal (i'rab), dan menguji pemahaman mereka melalui kuis interaktif.
 
-## Project Structure
+## Fitur Utama
 
-```
-sorogan-app/
-├── .github/workflows/deploy.yml  # GitHub Actions workflow for deployment
-├── public/                       # Static assets that are copied to the build directory
-│   ├── data/                     # Lesson data files
-│   └── master-index.json         # Main index of all lessons
-├── src/
-│   ├── js/                       # JavaScript modules
-│   │   ├── api.js                # Handles data fetching
-│   │   ├── dom.js                # DOM element selections
-│   │   ├── events.js             # Event listeners
-│   │   ├── main.js               # Main application entry point
-│   │   ├── state.js              # Application state management
-│   │   ├── ui.js                 # UI rendering and manipulation
-│   │   └── utils.js              # Utility functions
-│   └── style.css                 # Main stylesheet
-├── .gitignore
-├── index.html
-├── package.json
-├── README.md                     # This file
-└── vite.config.js
-```
+*   **Teks Interaktif:** Tampilkan teks dengan atau tanpa harakat, lengkap dengan terjemahan dan penjelasan i'rab per kata.
+*   **Mode Latihan:** Uji pemahaman Anda dengan menyembunyikan harakat atau terjemahan.
+*   **Kuis Pemahaman:** Setiap pelajaran dilengkapi dengan kuis untuk mengukur sejauh mana pemahaman Anda terhadap materi.
+*   **Beragam Tingkatan:** Materi pelajaran dikelompokkan ke dalam beberapa tingkatan, mulai dari Ibtida'i (pemula) hingga Mutaqaddim (lanjutan).
+*   **Pelacakan Progres:** Aplikasi secara otomatis menyimpan pelajaran yang telah Anda selesaikan.
+*   **Desain Responsif & Mode Gelap:** Belajar dengan nyaman di berbagai perangkat (desktop maupun mobile) dan kondisi pencahayaan.
 
-## Getting Started
+## Kontribusi
 
-### Prerequisites
+Aplikasi ini bersifat sumber terbuka (open source) dan kami sangat mengapresiasi segala bentuk kontribusi dari komunitas, baik dalam bentuk materi pelajaran maupun pengembangan kode.
 
-*   [Node.js](https://nodejs.org/) (version 18 or higher)
+### Kontribusi Materi Pelajaran
+
+Jika Anda ingin menyumbangkan materi pelajaran baru, Anda dapat mengikuti langkah-langkah berikut:
+
+1.  **Fork** repositori ini.
+2.  Buat file JSON baru di dalam direktori `public/data/` sesuai dengan tingkatan yang sesuai (misalnya, `public/data/1-ibtidai/nama-kitab.json`).
+3.  Isi file JSON tersebut dengan struktur berikut:
+
+    ```json
+    {
+      "title": "Judul Pelajaran",
+      "titleArabic": "عنوان الدرس",
+      "level": "Ibtida’i", // atau "Mutawassit", "Mutaqaddim"
+      "textData": [
+        [
+          {
+            "berharakat": "الْكَلِمَةُ",
+            "gundul": "الكلمة",
+            "terjemahan": "Kata",
+            "irab": "Penjelasan i'rab"
+          }
+        ]
+      ],
+      "quizData": [
+        {
+          "question": "Apa i'rab dari kata 'الْكَلِمَةُ'?",
+          "context": "...",
+          "options": ["A. Pilihan A", "B. Pilihan B"],
+          "correctAnswer": 0, // Indeks jawaban yang benar
+          "explanation": "Penjelasan mengapa jawaban tersebut benar."
+        }
+      ],
+      "fullTranslation": "Terjemahan lengkap dari teks.",
+      "reference": "Nama Kitab/Sumber"
+    }
+    ```
+
+4.  Perbarui file `public/master-index.json` untuk menambahkan entri baru untuk materi Anda.
+5.  Buat **Pull Request** agar kami dapat meninjau kontribusi Anda.
+
+### Kontribusi Kode
+
+Kami juga menyambut kontribusi untuk meningkatkan fungsionalitas dan memperbaiki bug pada aplikasi. Jika Anda tertarik, silakan:
+
+1.  **Fork** repositori ini.
+2.  Buat *branch* baru untuk fitur atau perbaikan yang Anda kerjakan.
+3.  Lakukan perubahan pada kode.
+4.  Pastikan kode Anda berjalan dengan baik secara lokal.
+5.  Buat **Pull Request** dengan penjelasan yang jelas tentang perubahan yang Anda buat.
+
+## Panduan untuk Developer
+
+### Prasyarat
+
+*   [Node.js](https://nodejs.org/) (versi 18 atau lebih tinggi)
 *   [npm](https://www.npmjs.com/)
 
-### Installation
+### Instalasi
 
-1.  Clone the repository:
+1.  Clone repositori ini:
     ```bash
     git clone https://github.com/ppalhijaziyyah/sorogan-app.git
     ```
-2.  Navigate to the project directory:
+2.  Masuk ke direktori proyek:
     ```bash
     cd sorogan-app
     ```
-3.  Install the dependencies:
+3.  Instal dependensi:
     ```bash
     npm install
     ```
 
-### Development
+### Pengembangan
 
-To run the application in development mode with hot-reloading, use the following command:
+Untuk menjalankan aplikasi dalam mode pengembangan dengan *hot-reloading*:
 
 ```bash
 npm run dev
 ```
 
-This will start a local development server, and you can view the application in your browser at the URL provided.
+### Build untuk Produksi
 
-### Building for Production
-
-To build the application for production, use the following command:
+Untuk membuat versi produksi dari aplikasi:
 
 ```bash
 npm run build
 ```
 
-This will create a `dist` directory with the optimized and bundled application files.
+Perintah ini akan menghasilkan direktori `dist` yang berisi file-file aplikasi yang sudah dioptimalkan.
 
-## Deployment
+## Lisensi
 
-This project is configured to deploy to GitHub Pages automatically whenever changes are pushed to the `main` branch. The deployment is handled by the GitHub Actions workflow defined in `.github/workflows/deploy.yml`.
-
-The `homepage` field in `package.json` and the `base` property in `vite.config.js` are configured for deployment to the correct repository URL.
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).

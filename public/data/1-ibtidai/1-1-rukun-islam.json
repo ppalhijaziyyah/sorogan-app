@@ -1,7 +1,7 @@
 {
   "title": "Rukun Islam",
   "titleArabic": "اركان الإسلام",
-  "level": "Mutawassit",
+  "level": "Ibtida’i",
   "textData": [
     [
       {
@@ -143,7 +143,19 @@
         "D. Tamyiz"
       ],
       "correctAnswer": 3,
-      "explanation": "Tamyiz adalah bla bla bla"
+      "explanation": "tamyiz adalah adalah adalah"
+    },
+    {
+      "question": "222 Apa i'rab dari (سَبِيْلًا) pada kutipan berikut ini:",
+      "context": "وَحِجُّ الْبَيْتِ مَنْ اسْتَطَاعَ إِلَيْهِ سَبِيْلًا",
+      "options": [
+        "A. Maf'ul mutlaq",
+        "B. Hal",
+        "C. Jawāb al-Sharṭ (Hasil dari syarat)",
+        "D. Tamyiz"
+      ],
+      "correctAnswer": 3,
+      "explanation": ""
     }
   ],
   "fullTranslation": "",
