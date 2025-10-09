@@ -21,43 +21,12 @@ Aplikasi ini bersifat sumber terbuka (open source) dan kami sangat mengapresiasi
 
 ### Kontribusi Materi Pelajaran
 
-Jika Anda ingin menyumbangkan materi pelajaran baru, Anda dapat mengikuti langkah-langkah berikut:
+Kami sangat terbuka untuk menerima materi pelajaran baru dari para kontributor. Mengingat proses teknis seperti Git dan JSON mungkin tidak familiar bagi semua orang, kami menyediakan cara yang lebih mudah.
 
-1.  **Fork** repositori ini.
-2.  Buat file JSON baru di dalam direktori `public/data/` sesuai dengan tingkatan yang sesuai (misalnya, `public/data/1-ibtidai/nama-kitab.json`).
-3.  Isi file JSON tersebut dengan struktur berikut:
+Jika Anda memiliki materi (misalnya dari kitab, catatan, atau modul) yang ingin Anda sumbangkan, silakan hubungi kami melalui email di **ppalhijaziyyah@gmail.com**.
 
-    ```json
-    {
-      "title": "Judul Pelajaran",
-      "titleArabic": "عنوان الدرس",
-      "level": "Ibtida’i", // atau "Mutawassit", "Mutaqaddim"
-      "textData": [
-        [
-          {
-            "berharakat": "الْكَلِمَةُ",
-            "gundul": "الكلمة",
-            "terjemahan": "Kata",
-            "irab": "Penjelasan i'rab"
-          }
-        ]
-      ],
-      "quizData": [
-        {
-          "question": "Apa i'rab dari kata 'الْكَلِمَةُ'?",
-          "context": "...",
-          "options": ["A. Pilihan A", "B. Pilihan B"],
-          "correctAnswer": 0, // Indeks jawaban yang benar
-          "explanation": "Penjelasan mengapa jawaban tersebut benar."
-        }
-      ],
-      "fullTranslation": "Terjemahan lengkap dari teks.",
-      "reference": "Nama Kitab/Sumber"
-    }
-    ```
+Tim kami akan membantu Anda untuk memformat dan mengintegrasikan materi tersebut ke dalam aplikasi.
 
-4.  Perbarui file `public/master-index.json` untuk menambahkan entri baru untuk materi Anda.
-5.  Buat **Pull Request** agar kami dapat meninjau kontribusi Anda.
 
 ### Kontribusi Kode
 
