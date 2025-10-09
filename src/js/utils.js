@@ -70,3 +70,12 @@ export function toggleTheme() {
     // Perbarui ikon tema yang ditampilkan
     loadTheme();
 }
+
+/**
+ * Mengacak urutan elemen dalam sebuah array.
+ * @param {Array} array - Array yang akan diacak.
+ * @returns {Array} Array baru dengan urutan acak.
+ */
+export function shuffleArray(array) {
+    return [...array].sort(() => Math.random() - 0.5);
+}

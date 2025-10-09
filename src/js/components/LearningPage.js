@@ -6,7 +6,7 @@
 import { DOM } from '../dom.js';
 import { state } from '../state.js';
 import { showSlider } from './Slider.js';
-import { saveCompletedLessons } from '../utils.js';
+import { saveCompletedLessons, shuffleArray } from '../utils.js';
 import { switchView } from '../ui.js';
 import { showConfirmationModal } from './Modal.js';
 
@@ -92,23 +92,41 @@ function renderQuizPage() {
 
     if (q.isReviewing) {
         const reviewItem = q.userAnswers[q.currentIndex];
+        const kahootStyles = [
+            { color: 'bg-red-600', shape: '▲' },
+            { color: 'bg-blue-600', shape: '◆' },
+            { color: 'bg-yellow-500', shape: '●' },
+            { color: 'bg-green-600', shape: '■' }
+        ];
+
         headerContent += `<button id="back-to-score-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Kembali ke Skor</button>`;
         mainContent = `
-            <div class="card-glass p-6 rounded-xl shadow-lg">
+            <div class="card-glass p-4 md:p-6 rounded-xl shadow-lg">
                 <p class="text-center font-semibold mb-4 text-lg">Meninjau Pertanyaan ${q.currentIndex + 1} dari ${q.shuffledQuestions.length}</p>
-                <h2 class="text-2xl font-bold mb-4 text-center">${reviewItem.question}</h2>
+                <h2 class="text-xl md:text-2xl font-bold mb-4 text-center min-h-[6rem] flex items-center justify-center">${reviewItem.question}</h2>
                 ${reviewItem.context ? `<p class="arabic-text text-3xl text-center mb-6" dir="rtl">${reviewItem.context}</p>` : ''}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    ${reviewItem.options.map(option => {
-                        let buttonClass = 'p-3 rounded-lg text-left';
+                <div class="grid grid-cols-2 gap-3 md:gap-4">
+                    ${reviewItem.options.map((option, index) => {
+                        const style = kahootStyles[index % 4];
+                        let buttonClass = `w-full p-4 rounded-lg text-white font-bold flex items-center justify-start text-left min-h-[5rem] transition-all ${style.color}`;
+                        let feedbackIcon = `<span class="text-3xl opacity-70">${style.shape}</span>`;
+
                         if (option === reviewItem.correctAnswer) {
-                            buttonClass += ' bg-green-500 text-white'; // Jawaban benar
+                            buttonClass += ' opacity-100 border-4 border-white'; // Jawaban benar
+                            feedbackIcon = `<span class="text-3xl">✓</span>`;
                         } else if (option === reviewItem.selectedAnswer) {
-                            buttonClass += ' bg-red-500 text-white'; // Jawaban pengguna yang salah
+                            buttonClass += ' opacity-70 grayscale'; // Jawaban pengguna yang salah
+                            feedbackIcon = `<span class="text-3xl">✗</span>`;
                         } else {
-                            buttonClass += ' bg-gray-200 dark:bg-gray-700 opacity-70'; // Opsi lain
+                            buttonClass += ' opacity-30 grayscale'; // Opsi lain
                         }
-                        return `<button class="${buttonClass}" disabled>${option}</button>`;
+                        
+                        return `
+                            <button class="${buttonClass}" disabled>
+                                <span class="flex-grow text-base md:text-lg">${option}</span>
+                                ${feedbackIcon}
+                            </button>
+                        `;
                     }).join('')}
                 </div>
                 ${reviewItem.explanation ? `
@@ -132,15 +150,35 @@ function renderQuizPage() {
     } else {
         headerContent += `<button id="exit-quiz-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all text-sm">&times; Keluar</button>`;
         const currentQuestion = q.shuffledQuestions[q.currentIndex];
+
+        // Logika baru untuk gaya Kahoot
+        const correctAnswerText = currentQuestion.options[currentQuestion.correctAnswer];
+        const shuffledOptions = shuffleArray(currentQuestion.options);
+
+        const kahootStyles = [
+            { color: 'bg-red-600', shape: '▲' },
+            { color: 'bg-blue-600', shape: '◆' },
+            { color: 'bg-yellow-500', shape: '●' },
+            { color: 'bg-green-600', shape: '■' }
+        ];
+
         mainContent = `
-            <div class="card-glass p-6 rounded-xl shadow-lg">
+            <div class="card-glass p-4 md:p-6 rounded-xl shadow-lg">
                 <p class="text-center font-semibold mb-4 text-lg">Pertanyaan ${q.currentIndex + 1} dari ${q.shuffledQuestions.length}</p>
-                <h2 class="text-2xl font-bold mb-4 text-center">${currentQuestion.question}</h2>
+                <h2 class="text-xl md:text-2xl font-bold mb-4 text-center min-h-[6rem] flex items-center justify-center">${currentQuestion.question}</h2>
                 ${currentQuestion.context ? `<p class="arabic-text text-3xl text-center mb-6" dir="rtl">${currentQuestion.context}</p>` : ''}
-                <div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    ${currentQuestion.options.map(option => `<button class="quiz-option w-full p-3 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all text-left">${option}</button>`).join('')}
+                <div id="quiz-options" class="grid grid-cols-2 gap-3 md:gap-4" data-correct-answer="${correctAnswerText}">
+                    ${shuffledOptions.map((option, index) => {
+                        const style = kahootStyles[index % 4];
+                        return `
+                            <button class="quiz-option w-full p-4 rounded-lg text-white font-bold flex items-center justify-start text-left min-h-[5rem] transition-all duration-300 hover:scale-105 ${style.color}">
+                                <span class="flex-grow text-base md:text-lg">${option}</span>
+                                <span class="text-3xl opacity-70">${style.shape}</span>
+                            </button>
+                        `;
+                    }).join('')}
                 </div>
-                <div id="quiz-feedback" class="mt-6 text-center font-bold h-6"></div>
+                <div id="quiz-feedback" class="mt-6 text-center font-bold h-8 text-2xl transition-all duration-300"></div>
             </div>`;
     }
 
@@ -492,7 +530,7 @@ function handleStartQuiz() {
     state.quiz.isFinished = false;
     state.quiz.isReviewing = false;
     state.quiz.userAnswers = [];
-    state.quiz.shuffledQuestions = shuffle(state.currentLesson.quizData);
+    state.quiz.shuffledQuestions = shuffleArray(state.currentLesson.quizData);
     state.quiz.currentIndex = 0;
     state.quiz.score = 0;
     renderLearningPage();
@@ -517,39 +555,53 @@ function handleFocusModeToggle(e) {
 }
 
 function handleAnswerClick(e) {
-    const selectedButton = e.target;
+    const selectedButton = e.target.closest('.quiz-option');
+    if (!selectedButton) return;
+
     const optionsContainer = selectedButton.parentElement;
     if (optionsContainer.dataset.answered) return;
-    optionsContainer.dataset.answered = 'true';
+    optionsContainer.dataset.answered = 'true'; // Mencegah klik ganda
 
-    const selectedAnswer = selectedButton.textContent;
-    const currentQuestion = state.quiz.shuffledQuestions[state.quiz.currentIndex];
-    const correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
+    const selectedAnswer = selectedButton.querySelector('span.flex-grow').textContent;
+    const correctAnswer = optionsContainer.dataset.correctAnswer;
     const feedbackEl = document.getElementById('quiz-feedback');
 
-    // Simpan jawaban pengguna
+    // Simpan jawaban pengguna untuk ditinjau nanti
     state.quiz.userAnswers.push({
-        ...currentQuestion,
+        ...state.quiz.shuffledQuestions[state.quiz.currentIndex],
         selectedAnswer: selectedAnswer,
         correctAnswer: correctAnswer
     });
 
-    if (selectedAnswer === correctAnswer) {
-        selectedButton.className = 'quiz-option w-full p-3 bg-green-500 text-white rounded-lg text-left';
-        feedbackEl.textContent = 'Jawaban Benar!';
-        feedbackEl.className = 'mt-6 text-center font-bold h-6 text-green-500';
+    const isCorrect = selectedAnswer === correctAnswer;
+
+    if (isCorrect) {
         state.quiz.score++;
+        feedbackEl.textContent = 'Jawaban Benar!';
+        feedbackEl.className = 'mt-6 text-center font-bold h-8 text-2xl text-green-500 scale-125';
     } else {
-        selectedButton.className = 'quiz-option w-full p-3 bg-red-500 text-white rounded-lg text-left';
         feedbackEl.textContent = 'Jawaban Kurang Tepat.';
-        feedbackEl.className = 'mt-6 text-center font-bold h-6 text-red-500';
-        Array.from(optionsContainer.children).forEach(button => {
-            if (button.textContent === correctAnswer) {
-                button.className = 'quiz-option w-full p-3 bg-green-500 text-white rounded-lg text-left';
-            }
-        });
+        feedbackEl.className = 'mt-6 text-center font-bold h-8 text-2xl text-red-500';
     }
 
+    // Terapkan gaya umpan balik ke semua tombol
+    Array.from(optionsContainer.children).forEach(button => {
+        const buttonText = button.querySelector('span.flex-grow').textContent;
+        button.disabled = true;
+
+        if (buttonText === correctAnswer) {
+            // Jawaban yang benar selalu ditandai
+            button.classList.add('scale-105', 'border-4', 'border-white');
+        } else if (button === selectedButton) {
+            // Jawaban yang dipilih pengguna tetapi salah
+            button.classList.add('opacity-50', 'grayscale');
+        } else {
+            // Pilihan lain yang salah
+            button.classList.add('opacity-30', 'grayscale');
+        }
+    });
+
+    // Lanjut ke pertanyaan berikutnya atau selesaikan kuis
     setTimeout(() => {
         if (state.quiz.currentIndex < state.quiz.shuffledQuestions.length - 1) {
             state.quiz.currentIndex++;
@@ -558,5 +610,5 @@ function handleAnswerClick(e) {
             state.quiz.isFinished = true;
             renderLearningPage();
         }
-    }, 2000);
+    }, 2500); // Beri waktu lebih lama untuk melihat umpan balik
 }
