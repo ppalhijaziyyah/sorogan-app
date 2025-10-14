@@ -1,0 +1,48 @@
+:root {
+  --arabic-font-size: 1.875rem;
+  --tooltip-font-size: 0.875rem;
+  --arabic-line-height: 2.5;
+  --word-spacing: 0.25rem;
+  --irab-font-size: 1.5rem;
+}
+
+/* 1. Arahan dasar Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Gaya kustom untuk komponen, ditulis sebagai CSS biasa */
+.translation-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem; /* 8px */
+  width: max-content;
+  max-width: 224px; /* max-w-xs */
+  background-color: #1f2937; /* bg-gray-800 */
+  color: #ffffff;
+  font-size: 0.875rem; /* text-sm */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 0.25rem 0.75rem; /* py-1 px-3 */
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.paragraph-unfocused {
+  opacity: 0.4;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* 3. Animasi Keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

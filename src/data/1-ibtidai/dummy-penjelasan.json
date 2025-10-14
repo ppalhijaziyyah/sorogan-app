@@ -1,0 +1,54 @@
+{
+  "title": "Dummy Kuis dengan Penjelasan",
+  "titleArabic": "مثال اختبار مع الشرح",
+  "level": "Ibtida’i",
+  "preview": "Contoh soal kuis yang memiliki penjelasan tambahan.",
+  "reference": "Dibuat oleh Gemini",
+  "textData": [
+    [
+      {
+        "gundul": "اذهب",
+        "berharakat": "اِذْهَبْ",
+        "terjemahan": "Pergilah",
+        "irab": "فعل أمر مبني على السكون"
+      },
+      {
+        "gundul": "الى",
+        "berharakat": "إِلَى",
+        "terjemahan": "ke",
+        "irab": "حرف جر"
+      },
+      {
+        "gundul": "المدرسة",
+        "berharakat": "الْمَدْرَسَةِ",
+        "terjemahan": "sekolah",
+        "irab": "اسم مجرور وعلامة جره الكسرة"
+      }
+    ]
+  ],
+  "fullTranslation": "Pergilah ke sekolah.",
+  "quizData": [
+    {
+      "question": "Apa jenis kata (kalimah) dari 'اِذْهَبْ'?",
+      "options": [
+        "Isim (Kata Benda)",
+        "Fi'il (Kata Kerja)",
+        "Huruf (Partikel)",
+        "Jumlah (Kalimat)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "'اِذْهَبْ' adalah Fi'il Amr (kata kerja perintah) yang menyuruh seseorang untuk melakukan suatu perbuatan, yaitu 'pergi'."
+    },
+    {
+      "question": "Mengapa kata 'الْمَدْرَسَةِ' berharakat akhir kasrah?",
+      "options": [
+        "Karena merupakan subjek",
+        "Karena merupakan objek",
+        "Karena didahului Huruf Jar (kata depan)",
+        "Karena merupakan kata sifat"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Kata 'الْمَدْرَسَةِ' menjadi majrur (berharakat kasrah) karena didahului oleh huruf jar 'إِلَى'. Setiap Isim yang terletak setelah huruf jar harus majrur."
+    }
+  ]
+}
