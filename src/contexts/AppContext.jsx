@@ -52,7 +52,14 @@ export const AppProvider = ({ children }) => {
   };
 
   const resetProgress = () => {
-    setCompletedLessons([]);
+    // Clear all relevant local storage items to ensure a full reset
+    localStorage.removeItem('theme');
+    localStorage.removeItem('completedLessons');
+    localStorage.removeItem('soroganAppSettings');
+    localStorage.removeItem('hasSeenTutorial'); // Also clear tutorial status
+
+    // Reload the page to apply changes from a clean slate, mimicking vanilla app behavior
+    window.location.reload();
   };
 
   const updateSettings = (newSettings) => {

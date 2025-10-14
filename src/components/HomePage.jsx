@@ -50,7 +50,7 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
 };
 
 
-const HomePage = ({ onSelectLesson }) => {
+const HomePage = ({ onSelectLesson, setSliderState }) => {
   const { completedLessons } = useContext(AppContext);
   const [selectedLevel, setSelectedLevel] = useState('Semua');
 

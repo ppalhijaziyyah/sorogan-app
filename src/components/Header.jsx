@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="p-4 shadow-md bg-white dark:bg-gray-800">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold text-teal-accent">Sorogan</h1>
+        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500">Sorogan</h1>
         <button onClick={toggleTheme} className="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
           {theme === 'light' ? (
             // Moon Icon
