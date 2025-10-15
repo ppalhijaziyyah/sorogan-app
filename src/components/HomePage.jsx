@@ -11,18 +11,27 @@ const levelDetails = {
 const levelsInOrder = ['Ibtida’i', 'Mutawassit', 'Mutaqaddim'];
 
 const FilterButtons = ({ selectedLevel, setSelectedLevel }) => {
+  const getButtonClass = (level) => {
+    const isActive = selectedLevel === level;
+    return `px-5 py-2 rounded-full text-sm font-medium transition-all transform ${
+      isActive 
+        ? 'text-white shadow-lg bg-gradient-to-r from-teal-400 to-sky-500 -translate-y-0.5' 
+        : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
+    }`;
+  };
+
   return (
-    <div className="flex flex-wrap justify-center gap-2 mb-8">
+    <div className="flex flex-wrap justify-center gap-3 mb-8">
       <button 
         onClick={() => setSelectedLevel('Semua')} 
-        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedLevel === 'Semua' ? 'bg-teal-accent text-white shadow-lg' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
+        className={getButtonClass('Semua')}>
           Semua
       </button>
       {levelsInOrder.map(level => (
         <button 
           key={level}
           onClick={() => setSelectedLevel(level)}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedLevel === level ? 'bg-teal-accent text-white shadow-lg' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'}`}>
+          className={getButtonClass(level)}>
           {level}
         </button>
       ))}
@@ -36,7 +45,7 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
       onClick={() => onSelect(lesson.id)}
       className={`bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/20 rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-1 cursor-pointer transition-all relative overflow-hidden flex flex-col ${isCompleted ? 'opacity-70' : ''}`}>
       {isCompleted && (
-        <div className="absolute top-3 right-3 bg-emerald-500 text-white rounded-full w-7 h-7 flex items-center justify-center" title="Selesai">
+        <div className="absolute top-2 left-2 bg-emerald-500 text-white rounded-full w-7 h-7 flex items-center justify-center" title="Selesai">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
         </div>
       )}
@@ -73,10 +82,12 @@ const HomePage = ({ onSelectLesson, setSliderState }) => {
   const renderedLevels = levelsInOrder.filter(level => lessonsByLevel[level] && lessonsByLevel[level].length > 0);
 
   return (
-    <div className="container mx-auto">
-      <header className="text-center mb-10">
-        <h1 className="text-5xl md:text-6xl font-bold text-teal-accent mb-2">Sorogan</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300">Belajar Membaca dan Memahami Teks Arab Gundul</p>
+    <div className="container mx-auto max-w-5xl">
+      <header className="text-center mb-8">
+        <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500 mb-2 pb-2">Sorogan</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">Belajar Membaca dan Memahami Teks Arab Gundul</p>
+        <hr className="border-gray-300 dark:border-gray-700 max-w-md mx-auto" />
+        <p className="text-sm mt-4 text-gray-500 dark:text-gray-400">Pilih Teks untuk Mulai Belajar</p>
       </header>
 
       <FilterButtons selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} />

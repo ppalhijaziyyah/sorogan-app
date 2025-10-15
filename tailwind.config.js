@@ -9,10 +9,12 @@ module.exports = {
     extend: {
       colors: {
         'teal-accent': 'teal',
-        'light-bg': '#FFFFFF',
-        'dark-bg': '#1a202c', // A very dark gray
         'light-text': '#2d3748', // A dark gray
         'dark-text': '#f7fafc',  // A soft white
+      },
+      backgroundImage: {
+        'gradient-light': 'linear-gradient(120deg, #f3e8ff 0%, #e0f2fe 100%)',
+        'gradient-dark': 'linear-gradient(120deg, #38235d 0%, #111827 100%)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
