@@ -1,6 +1,6 @@
 import React, { useState, useContext, Suspense } from 'react';
 import { AppContext } from './contexts/AppContext';
-import Header from './components/Header';
+
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
 import LearningPage from './components/LearningPage';
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className={`font-sans`}>
       <div className="min-h-screen bg-gradient-light dark:bg-gradient-dark text-light-text dark:text-dark-text transition-colors duration-500">
-        {currentPage !== 'home' && <Header />}
+        
         <main className="px-4 py-8">
           <Suspense fallback={<div className="text-center">Memuat...</div>}>
             {currentPage === 'home' && <HomePage onSelectLesson={navigateToLearningPage} />}
@@ -36,7 +36,15 @@ function App() {
           </Suspense>
         </main>
         <Footer setSliderState={setSliderState} />
-        <BottomSlider sliderState={sliderState} onClose={() => setSliderState({ isOpen: false })} />
+                <BottomSlider 
+          sliderState={sliderState} 
+          onClose={() => {
+            if (sliderState.onClose) {
+              sliderState.onClose();
+            }
+            setSliderState({ isOpen: false });
+          }} 
+        />
         <ScrollToTopButton />
         {currentPage === 'learning' && <Tutorial setSliderState={setSliderState} />}
       </div>

@@ -17,22 +17,18 @@ const getButtonClass = (isActive, isDisabled = false) => {
 const LearningToolbar = () => {
   const { settings, updateSettings } = useContext(AppContext);
 
-  // Toggle harakat display mode. It's mutually exclusive with translation mode.
   const handleHarakatModeToggle = () => {
     const newIsHarakatMode = !settings.isHarakatMode;
+    // If we are turning the main harakat mode OFF, we must also force the 'showAllHarakat' sub-feature to be off.
     updateSettings({ 
-      isHarakatMode: newIsHarakatMode, 
-      isTranslationMode: newIsHarakatMode ? false : settings.isTranslationMode 
+        isHarakatMode: newIsHarakatMode,
+        showAllHarakat: newIsHarakatMode ? settings.showAllHarakat : false
     });
   };
 
-  // Toggle translation display mode. It's mutually exclusive with harakat mode.
+  // Toggle translation display mode.
   const handleTranslationModeToggle = () => {
-    const newIsTranslationMode = !settings.isTranslationMode;
-    updateSettings({ 
-      isTranslationMode: newIsTranslationMode, 
-      isHarakatMode: newIsTranslationMode ? false : settings.isHarakatMode 
-    });
+    updateSettings({ isTranslationMode: !settings.isTranslationMode });
   };
   
   // Toggle visibility of all harakats at once, only available in harakat mode.

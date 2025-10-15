@@ -11,37 +11,95 @@ const LearningPage = ({ lessonId, onBack, setSliderState }) => {
   const { lessonData, loading, error } = useLesson(lessonId);
   const { completedLessons, toggleLessonComplete, settings, updateSettings, resetSettings } = useContext(AppContext);
 
-  const [wordStates, setWordStates] = useState({});
+      const [harakatStates, setHarakatStates] = useState({});
+
+      const [translationStates, setTranslationStates] = useState({});
+
+      const [isQuizMode, setQuizMode] = useState(false);
+
+      const [isSettingsOpen, setSettingsOpen] = useState(false);
+
+      const [currentFocusParagraph, setCurrentFocusParagraph] = useState(0);
+
+    
+
+      // Reset all local states when the lesson changes.
+
+      useEffect(() => {
+
+        setHarakatStates({});
+
+        setTranslationStates({});
+
+        setCurrentFocusParagraph(0);
+
+      }, [lessonId]);
+
+    
+
+      // Reset individual states when their corresponding mode is toggled.
+
+      // This mimics the vanilla app's behavior where toggling a mode off and on starts you fresh.
+
+      useEffect(() => {
+
+        setHarakatStates({});
+
+      }, [settings.isHarakatMode]);
+
+    
+
+      useEffect(() => {
+
+        setTranslationStates({});
+
+      }, [settings.isTranslationMode]);
+
+    
+
+      const handleWordClick = (pIndex, wIndex) => {
+
+        const wordId = `${pIndex}-${wIndex}`;
+
+        setCurrentFocusParagraph(pIndex);
+
+    
+
+        // If the mode is active, toggle the visibility state for that specific word.
+
+        if (settings.isHarakatMode) {
+
+          setHarakatStates(prev => ({ ...prev, [wordId]: !prev[wordId] }));
+
+        }
+
+        if (settings.isTranslationMode) {
+
+          setTranslationStates(prev => ({ ...prev, [wordId]: !prev[wordId] }));
+
+        }
+
+      };
+
   
-  const [isQuizMode, setQuizMode] = useState(false);
-  const [isSettingsOpen, setSettingsOpen] = useState(false);
-  const [currentFocusParagraph, setCurrentFocusParagraph] = useState(0);
 
-  // Reset word states when the lesson changes
-  useEffect(() => {
-    setWordStates({});
-    setCurrentFocusParagraph(0);
-  }, [lessonId]);
+    const handleWordDoubleClick = (wordData) => {
 
-  const handleWordClick = (pIndex, wIndex) => {
-    const wordId = `${pIndex}-${wIndex}`;
-    setCurrentFocusParagraph(pIndex);
-    // A single click just toggles the "revealed" state for that word
-    setWordStates(prev => ({
-      ...prev,
-      [wordId]: { revealed: !prev[wordId]?.revealed }
-    }));
-  };
+      if (wordData.irab) {
 
-  const handleWordDoubleClick = (wordData) => {
-    if (wordData.irab) {
-      setSliderState({ isOpen: true, title: wordData.berharakat, content: <p className="text-right" dir="rtl">{wordData.irab}</p>, type: 'irab' });
-    }
-  };
+        setSliderState({ isOpen: true, title: wordData.berharakat, content: <p className="text-right" dir="rtl">{wordData.irab}</p>, type: 'irab' });
 
-  const showFullTranslation = () => {
-    setSliderState({ isOpen: true, title: 'Terjemahan Lengkap', content: <p>{lessonData.fullTranslation}</p>, type: 'translation' });
-  };
+      }
+
+    };
+
+  
+
+    const showFullTranslation = () => {
+
+      setSliderState({ isOpen: true, title: 'Terjemahan Lengkap', content: <p>{lessonData.fullTranslation}</p>, type: 'translation' });
+
+    };
 
   if (loading) return <div className="text-center p-8">Memuat pelajaran...</div>;
   if (error) return <div className="text-center p-8 text-red-500"><strong>Error:</strong> {error}</div>;
@@ -78,10 +136,10 @@ const LearningPage = ({ lessonId, onBack, setSliderState }) => {
             <p key={pIndex} className={`mb-6 transition-opacity duration-300 ${settings.isFocusMode && pIndex !== currentFocusParagraph ? 'paragraph-unfocused' : ''}`}>
               {paragraph.map((wordData, wIndex) => {
                 const wordId = `${pIndex}-${wIndex}`;
-                const isRevealed = !!wordStates[wordId]?.revealed;
-                
-                const isHarakatVisible = settings.showAllHarakat || (settings.isHarakatMode && isRevealed);
-                const isTranslationVisible = settings.isTranslationMode && isRevealed;
+
+                // Visibility is determined by the combination of global settings and local, per-word state.
+                const isHarakatVisible = settings.showAllHarakat || (settings.isHarakatMode && harakatStates[wordId]);
+                const isTranslationVisible = settings.isTranslationMode && translationStates[wordId];
 
                 return (
                   <Word 
