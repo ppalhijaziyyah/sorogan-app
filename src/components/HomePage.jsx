@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
 import masterIndex from '../data/master-index.json';
+import { generateSlug } from '../lib/utils';
 
 const levelDetails = {
     'Ibtida’i': { title: 'Tingkat Ibtida’i (Pemula)', color: 'green' },
@@ -42,7 +44,7 @@ const FilterButtons = ({ selectedLevel, setSelectedLevel }) => {
 const LessonCard = ({ lesson, isCompleted, onSelect }) => {
   return (
     <div 
-      onClick={() => onSelect(lesson.id)}
+      onClick={() => onSelect(lesson.slug)} // Use lesson.slug for navigation
       className={`bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/20 rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-1 cursor-pointer transition-all relative overflow-hidden flex flex-col ${isCompleted ? 'opacity-70' : ''}`}>
       {isCompleted && (
         <div className="absolute top-2 left-2 bg-emerald-500 text-white rounded-full w-7 h-7 flex items-center justify-center" title="Selesai">
@@ -59,14 +61,26 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
 };
 
 
-const HomePage = ({ onSelectLesson, setSliderState }) => {
+const HomePage = () => {
   const { completedLessons } = useContext(AppContext);
   const [selectedLevel, setSelectedLevel] = useState('Semua');
+  const navigate = useNavigate();
+
+  const handleSelectLesson = (lessonSlug) => {
+    navigate(`/belajar/${lessonSlug}`);
+  };
+
+  const lessonsWithSlugs = useMemo(() => {
+    return masterIndex.map(lesson => ({
+      ...lesson,
+      slug: generateSlug(lesson.title) // Generate slug from title
+    }));
+  }, []);
 
   const lessonsByLevel = useMemo(() => {
     const filtered = selectedLevel === 'Semua' 
-      ? masterIndex 
-      : masterIndex.filter(item => item.level === selectedLevel);
+      ? lessonsWithSlugs 
+      : lessonsWithSlugs.filter(item => item.level === selectedLevel);
 
     // Group by level
     return filtered.reduce((acc, lesson) => {
@@ -77,7 +91,7 @@ const HomePage = ({ onSelectLesson, setSliderState }) => {
         acc[level].push(lesson);
         return acc;
       }, {});
-  }, [selectedLevel]);
+  }, [selectedLevel, lessonsWithSlugs]);
 
   const renderedLevels = levelsInOrder.filter(level => lessonsByLevel[level] && lessonsByLevel[level].length > 0);
 
@@ -104,7 +118,7 @@ const HomePage = ({ onSelectLesson, setSliderState }) => {
                   key={lesson.id} 
                   lesson={lesson} 
                   isCompleted={completedLessons.includes(lesson.id)}
-                  onSelect={onSelectLesson}
+                  onSelect={handleSelectLesson}
                 />
               ))}
             </div>

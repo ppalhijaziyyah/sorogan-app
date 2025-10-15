@@ -40,8 +40,17 @@ const BottomSlider = ({ sliderState, onClose }) => {
         className={`w-full max-w-4xl bg-white dark:bg-gray-800 rounded-t-2xl shadow-2xl p-6 transform transition-transform duration-300 ease-in-out ${isShowing ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 dir={direction} className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500 ${fontClass}`}>{title}</h2>
-          <button onClick={handleClose} className="text-2xl text-gray-500 hover:text-gray-800 dark:hover:text-gray-200">&times;</button>
+          {type === 'irab' ? (
+            <>
+              <button onClick={handleClose} className="text-2xl text-gray-500 hover:text-gray-800 dark:hover:text-gray-200">&times;</button>
+              <h2 dir={direction} className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500 ${fontClass} ${type === 'irab' ? 'text-right' : ''} flex-grow`} style={type === 'irab' ? { ...sizeStyle, textAlign: 'right' } : {}}>{title}</h2>
+            </>
+          ) : (
+            <>
+              <h2 dir={direction} className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500 ${fontClass}`}>{title}</h2>
+              <button onClick={handleClose} className="text-2xl text-gray-500 hover:text-gray-800 dark:hover:text-gray-200">&times;</button>
+            </>
+          )}
         </div>
         <div className={`prose dark:prose-invert max-w-none ${fontClass}`} style={sizeStyle}>
           {content}
