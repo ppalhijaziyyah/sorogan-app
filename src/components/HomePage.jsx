@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
 import masterIndex from '../data/master-index.json';
@@ -100,7 +100,7 @@ const HomePage = () => {
   return (
     <div className="container mx-auto max-w-5xl">
       <header className="text-center mb-8">
-        <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500 mb-2 pb-2">Sorogan</h1>
+        <h1 className="text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500 mb-2 pb-2">Sorogan</h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">Belajar Membaca dan Memahami Teks Arab Gundul</p>
         <hr className="border-gray-300 dark:border-gray-700 max-w-md mx-auto" />
         <p className="text-sm mt-4 text-gray-500 dark:text-gray-400">Pilih Teks untuk Mulai Belajar</p>
@@ -140,7 +140,7 @@ const HomePage = () => {
                 <UserBadge key={user.id} user={user} />
               ))}
             </div>
-            <Link to="/sponsors" className="block text-center mt-4 text-teal-500 dark:text-teal-400 hover:underline">Lihat semua sponsor</Link>
+            <Link to="/dukung-kami#sponsors" className="block text-center mt-4 text-teal-500 dark:text-teal-400 hover:underline">Lihat semua sponsor</Link>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-4 text-center md:text-left">Kontributor</h3>
@@ -149,7 +149,7 @@ const HomePage = () => {
                 <UserBadge key={user.id} user={user} />
               ))}
             </div>
-            <Link to="/contributors" className="block text-center mt-4 text-teal-500 dark:text-teal-400 hover:underline">Lihat semua kontributor</Link>
+            <Link to="/dukung-kami#contributors" className="block text-center mt-4 text-teal-500 dark:text-teal-400 hover:underline">Lihat semua kontributor</Link>
           </div>
         </div>
       </div>

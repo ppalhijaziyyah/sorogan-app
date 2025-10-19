@@ -3,22 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
 import ConfirmationModal from './ui/ConfirmationModal';
 
-const AboutUsContent = () => (
-    <div className="space-y-4 text-left">
-        <p><strong>Sorogan App</strong> adalah platform modern untuk memfasilitasi pembelajaran membaca teks Arab klasik (kitab kuning) secara interaktif.</p>
-        <p>Aplikasi ini dibuat untuk membantu para santri dan pelajar di seluruh dunia agar dapat belajar dengan lebih mudah, di mana saja dan kapan saja.</p>
-        <p>Proyek ini adalah eksperimen open-source yang dikembangkan dengan bantuan model bahasa Gemini dari Google.</p>
-    </div>
-);
 
-const SupportUsContent = () => (
-    <div className="space-y-4 text-left">
-        <p>Aplikasi ini gratis dan akan selalu gratis. Jika Anda merasa aplikasi ini bermanfaat, Anda bisa mendukung kami dengan memberikan donasi atau berkontribusi pada proyek.</p>
-        <div className="text-center mt-4">
-            <a href="https://github.com/ppalhijaziyyah/sorogan-app" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-6 rounded-lg transition-colors">Lihat di GitHub</a>
-        </div>
-    </div>
-);
 
 const ThemeToggle = () => {
     const { theme, toggleTheme } = useContext(AppContext);
@@ -50,9 +35,6 @@ const Footer = ({ setSliderState }) => {
     setIsModalOpen(false);
   };
 
-  const openSlider = (title, content) => {
-      setSliderState({ isOpen: true, title, content });
-  };
 
   return (
     <>
@@ -65,10 +47,8 @@ const Footer = ({ setSliderState }) => {
                 </div>
                 <div className="flex flex-col items-center gap-4">
                     <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-gray-600 dark:text-gray-300">
-                        <button onClick={() => openSlider('Tentang Kami', <AboutUsContent />)} className="hover:text-teal-500 dark:hover:text-teal-400">Tentang Kami</button>
-                        <Link to="/sponsors" className="hover:text-teal-500 dark:hover:text-teal-400">Sponsor</Link>
-                        <Link to="/contributors" className="hover:text-teal-500 dark:hover:text-teal-400">Kontributor</Link>
-                        <button onClick={() => openSlider('Dukung Kami', <SupportUsContent />)} className="hover:text-teal-500 dark:hover:text-teal-400">Dukung Kami</button>
+                        <Link to="/tentang-kami" className="hover:text-teal-500 dark:hover:text-teal-400">Tentang Kami</Link>
+                        <Link to="/dukung-kami" className="hover:text-teal-500 dark:hover:text-teal-400">Dukung Kami</Link>
                         <button onClick={handleResetClick} className="hover:text-red-500 dark:hover:text-red-400">Reset Progres</button>
                     </div>
                     <ThemeToggle />
