@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Footer from './components/Footer';
+import Header from './components/Header';
 import HomePage from './components/HomePage';
 import LearningPage from './components/LearningPage';
 import AboutUsPage from './components/AboutUsPage';
@@ -16,7 +17,7 @@ function App() {
   return (
     <div className={`font-sans`}>
       <div className="min-h-screen bg-gradient-light dark:bg-gradient-dark text-light-text dark:text-dark-text transition-colors duration-500">
-        
+        <Header />
         <main className="px-4 py-8">
           <Suspense fallback={<div className="text-center">Memuat...</div>}>
             <ScrollToTop>

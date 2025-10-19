@@ -9,11 +9,6 @@ const SupportUsPage = () => {
 
   return (
     <div className="container mx-auto max-w-5xl py-8 px-4">
-      <header className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-gray-800 dark:text-gray-100">Dukung Proyek Sorogan</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mt-3">Bantu kami untuk terus berkembang dan memberikan manfaat.</p>
-      </header>
-
       {/* Bagian Ajakan Kontribusi */}
       <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/20 rounded-lg shadow-md p-8 mb-12 space-y-6">
         <p className="text-lg leading-relaxed">Aplikasi ini gratis dan akan selalu gratis. Kami percaya bahwa akses terhadap pendidikan harus terbuka untuk semua.</p>
