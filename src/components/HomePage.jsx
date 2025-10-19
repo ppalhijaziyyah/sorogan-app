@@ -66,6 +66,7 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
 const HomePage = () => {
   const { completedLessons } = useContext(AppContext);
   const [selectedLevel, setSelectedLevel] = useState('Semua');
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   const handleSelectLesson = (lessonSlug) => {
@@ -80,12 +81,24 @@ const HomePage = () => {
   }, []);
 
   const lessonsByLevel = useMemo(() => {
-    const filtered = selectedLevel === 'Semua' 
-      ? lessonsWithSlugs 
-      : lessonsWithSlugs.filter(item => item.level === selectedLevel);
+    let filteredLessons = lessonsWithSlugs;
 
-    // Group by level
-    return filtered.reduce((acc, lesson) => {
+    // 1. Terapkan filter pencarian jika ada query
+    if (searchQuery) {
+      const lowercasedQuery = searchQuery.toLowerCase();
+      filteredLessons = lessonsWithSlugs.filter(lesson => 
+        lesson.title.toLowerCase().includes(lowercasedQuery) ||
+        (lesson.titleArabic && lesson.titleArabic.toLowerCase().includes(lowercasedQuery))
+      );
+    }
+
+    // 2. Terapkan filter level pada hasil pencarian
+    if (selectedLevel !== 'Semua') {
+      filteredLessons = filteredLessons.filter(item => item.level === selectedLevel);
+    }
+
+    // 3. Kelompokkan hasil akhir berdasarkan level
+    return filteredLessons.reduce((acc, lesson) => {
         const level = lesson.level;
         if (!acc[level]) {
           acc[level] = [];
@@ -93,7 +106,7 @@ const HomePage = () => {
         acc[level].push(lesson);
         return acc;
       }, {});
-  }, [selectedLevel, lessonsWithSlugs]);
+  }, [selectedLevel, lessonsWithSlugs, searchQuery]);
 
   const renderedLevels = levelsInOrder.filter(level => lessonsByLevel[level] && lessonsByLevel[level].length > 0);
 
@@ -104,6 +117,21 @@ const HomePage = () => {
         <hr className="border-gray-300 dark:border-gray-700 max-w-md mx-auto" />
         <p className="text-sm mt-4 text-gray-500 dark:text-gray-400">Pilih Teks untuk Mulai Belajar</p>
       </header>
+
+      <div className="mb-8 max-w-lg mx-auto relative">
+        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
+          <svg className="h-5 w-5 text-gray-500 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+          </svg>
+        </div>
+        <input 
+          type="text"
+          placeholder="Cari pelajaran (cth: Rukun Islam)..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full pl-11 pr-5 py-3 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 shadow-md focus:ring-2 focus:ring-teal-400 focus:outline-none transition-all"
+        />
+      </div>
 
       <FilterButtons selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} />
       
