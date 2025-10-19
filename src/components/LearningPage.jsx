@@ -26,6 +26,10 @@ const LearningPage = ({ setSliderState }) => {
   const [isQuizMode, setQuizMode] = useState(false);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [lessonSlug]);
+
   if (!lessonId) return <div className="text-center p-8 text-red-500">Pelajaran tidak ditemukan.</div>;
   if (loading) return <div className="text-center p-8">Memuat pelajaran...</div>;
   if (error) return <div className="text-center p-8 text-red-500"><strong>Error:</strong> {error}</div>;

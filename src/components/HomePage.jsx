@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
 import masterIndex from '../data/master-index.json';
+import sponsorsAndContributors from '../data/sponsors-contributors.json';
+import UserBadge from './ui/UserBadge';
 import { generateSlug } from '../lib/utils';
 
 const levelDetails = {
@@ -126,6 +128,30 @@ const HomePage = () => {
         )) : (
           <p className="text-center text-gray-500 dark:text-gray-400 mt-8">Tidak ada pelajaran yang ditemukan untuk filter yang dipilih.</p>
         )}
+      </div>
+
+      <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-4 pb-2 border-b-2 text-teal-600 dark:text-teal-400 border-teal-500/50">Sponsor & Kontributor</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-center md:text-left">Sponsor</h3>
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              {sponsorsAndContributors.filter(u => u.type === 'sponsor').slice(0, 2).map(user => (
+                <UserBadge key={user.id} user={user} />
+              ))}
+            </div>
+            <Link to="/sponsors" className="block text-center mt-4 text-teal-500 dark:text-teal-400 hover:underline">Lihat semua sponsor</Link>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-center md:text-left">Kontributor</h3>
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              {sponsorsAndContributors.filter(u => u.type === 'contributor').slice(0, 2).map(user => (
+                <UserBadge key={user.id} user={user} />
+              ))}
+            </div>
+            <Link to="/contributors" className="block text-center mt-4 text-teal-500 dark:text-teal-400 hover:underline">Lihat semua kontributor</Link>
+          </div>
+        </div>
       </div>
     </div>
   );
