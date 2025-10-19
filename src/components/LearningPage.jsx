@@ -10,6 +10,7 @@ import { generateSlug } from '../lib/utils';
 import LessonHeader from './learning/LessonHeader';
 import LessonContent from './learning/LessonContent';
 import LessonActions from './learning/LessonActions'; // Import the new LessonActions
+import LessonSkeleton from './skeletons/LessonSkeleton';
 
 const LearningPage = ({ setSliderState }) => {
   const { lessonSlug } = useParams();
@@ -31,7 +32,7 @@ const LearningPage = ({ setSliderState }) => {
   }, [lessonSlug]);
 
   if (!lessonId) return <div className="text-center p-8 text-red-500">Pelajaran tidak ditemukan.</div>;
-  if (loading) return <div className="text-center p-8">Memuat pelajaran...</div>;
+  if (loading) return <LessonSkeleton />;
   if (error) return <div className="text-center p-8 text-red-500"><strong>Error:</strong> {error}</div>;
   if (!lessonData) return null;
 

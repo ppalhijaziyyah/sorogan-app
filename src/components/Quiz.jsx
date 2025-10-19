@@ -138,8 +138,7 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
               key={index}
               onClick={() => handleAnswer(option)}
               disabled={!!selectedAnswer}
-              className={`w-full p-4 rounded-lg text-white font-bold flex items-center justify-start text-left min-h-[5rem] transition-all duration-300 ${kahootStyles[index].color} ${selectedAnswer ? (option === correctAnswerText ? 'scale-105 border-4 border-white' : 'opacity-30 grayscale') : 'hover:scale-105'}`}
-            >
+              className={`w-full p-4 rounded-lg text-white font-bold flex items-center justify-start text-left min-h-[5rem] transition-all duration-300 ${kahootStyles[index].color} ${selectedAnswer ? (option === correctAnswerText ? 'scale-105 border-4 border-white' : 'opacity-30 grayscale') : 'hover:scale-105'}`}>
               <span className="flex-grow text-base md:text-lg">{option}</span>
               <span className="text-3xl opacity-70">{kahootStyles[index].shape}</span>
             </button>
