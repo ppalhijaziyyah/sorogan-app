@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import ThemeToggle from './ui/ThemeToggle';
 
@@ -10,30 +10,9 @@ const navLinks = [
 ];
 
 const Header = () => {
-  const [indicatorStyle, setIndicatorStyle] = useState({ opacity: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navLinkRefs = useRef([]);
   const location = useLocation();
   const isOnLearningPage = location.pathname.startsWith('/belajar');
-
-  // Efek untuk menggerakkan indikator di desktop
-  useEffect(() => {
-    // Sembunyikan indikator jika di halaman belajar
-    if (isOnLearningPage) {
-      setIndicatorStyle({ opacity: 0 });
-      return;
-    }
-
-    const activeIndex = navLinks.findIndex(link => link.path === location.pathname);
-    if (activeIndex !== -1 && navLinkRefs.current[activeIndex]) {
-      const activeLinkEl = navLinkRefs.current[activeIndex];
-      const { offsetLeft, offsetWidth } = activeLinkEl;
-      setIndicatorStyle({ left: offsetLeft, width: offsetWidth, opacity: 1 });
-    } else {
-      // Sembunyikan jika tidak ada link yang aktif
-      setIndicatorStyle({ opacity: 0 });
-    }
-  }, [location.pathname, isOnLearningPage]);
 
   // Efek untuk menutup menu mobile saat navigasi
   useEffect(() => {
@@ -42,57 +21,70 @@ const Header = () => {
     }
   }, [location.pathname]);
 
-  const navLinkClasses = ({ isActive }) =>
-    `relative z-10 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-      isActive && !isOnLearningPage ? 'text-white' : 'text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
-    }`;
+  // Kelas untuk link navigasi (Desktop & Mobile)
+  const getNavLinkClasses = (isActive, isMobile = false) => {
+    const baseClasses = isMobile 
+      ? 'block py-4 text-center text-xl transition-colors' 
+      : 'px-4 py-2 text-sm font-medium transition-colors duration-300';
 
-  const mobileNavLinkClasses = ({ isActive }) => 
-    `block py-4 text-center text-xl transition-colors ${
-      isActive ? 'text-teal-300 font-bold' : 'text-white hover:text-teal-300'
-    }`;
+    const activeClasses = isMobile
+      ? 'font-bold text-teal-300'
+      : 'font-semibold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500';
+
+    const inactiveClasses = isMobile
+      ? 'text-white hover:text-teal-300'
+      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white';
+
+    // Di halaman belajar, semua link dianggap tidak aktif
+    if (isOnLearningPage) return `${baseClasses} ${inactiveClasses}`;
+
+    return `${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
+  };
+
+  // Kelas untuk kontainer header
+  const headerContainerClasses = `
+    backdrop-blur-lg 
+    ${!isOnLearningPage ? 'sticky top-0 z-40' : ''}
+  `;
 
   return (
     <>
-      <header className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-lg sticky top-0 z-40 border-b border-white/20 dark:border-slate-700/50">
+      <header className={headerContainerClasses}>
         <nav className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center relative">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
             <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500">
               Sorogan
             </Link>
 
-            {/* Navigasi Desktop */}
-            <div className="hidden md:absolute md:left-1/2 md:-translate-x-1/2 md:flex items-center p-1">
-              <div
-                className="absolute h-full rounded-full bg-gradient-to-r from-teal-400 to-sky-500 shadow-lg transition-all duration-350 ease-in-out"
-                style={indicatorStyle}
-              />
-              {navLinks.map((link, index) => (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={navLinkClasses}
-                  ref={el => (navLinkRefs.current[index] = el)}
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+            {/* Kontrol Sisi Kanan (Desktop) */}
+            <div className="hidden md:flex items-center gap-2">
+              {/* Navigasi Desktop */}
+              <div className="flex items-center">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    className={({ isActive }) => getNavLinkClasses(isActive)}
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
+              </div>
+
+              <ThemeToggle />
             </div>
 
-            {/* Kontrol Sisi Kanan */}
-            <div className="flex items-center">
-              <ThemeToggle />
-              {/* Tombol Menu Mobile */}
-              <button 
-                className="md:hidden ml-2 p-2" 
-                onClick={() => setIsMobileMenuOpen(true)}
-                aria-label="Buka menu"
-              >
-                <svg className="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              </button>
-            </div>
+            {/* Tombol Menu Mobile */}
+            <button 
+              className="md:hidden ml-2 p-2" 
+              onClick={() => setIsMobileMenuOpen(true)}
+              aria-label="Buka menu"
+            >
+              <svg className="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
           </div>
         </nav>
       </header>
@@ -101,11 +93,11 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-lg animate-fade-in"
-          onClick={() => setIsMobileMenuOpen(false)} // Tutup saat klik di luar area menu
+          onClick={() => setIsMobileMenuOpen(false)}
         >
           <div 
             className="absolute top-0 right-0 bottom-0 w-64 bg-slate-800/90 shadow-xl p-6"
-            onClick={e => e.stopPropagation()} // Cegah penutupan saat klik di dalam menu
+            onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-end mb-8">
               <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Tutup menu">
@@ -119,7 +111,7 @@ const Header = () => {
                 <NavLink
                   key={link.path}
                   to={link.path}
-                  className={mobileNavLinkClasses}
+                  className={({ isActive }) => getNavLinkClasses(isActive, true)}
                 >
                   {link.label}
                 </NavLink>

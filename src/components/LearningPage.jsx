@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useMemo } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useLesson } from '../hooks/useLesson';
 import { AppContext } from '../contexts/AppContext';
 import Quiz from './Quiz';
@@ -15,7 +15,6 @@ import FullTranslation from './learning/FullTranslation';
 
 const LearningPage = ({ setSliderState }) => {
   const { lessonSlug } = useParams();
-  const navigate = useNavigate();
 
   const lessonId = useMemo(() => {
     const foundLesson = masterIndex.find(lesson => generateSlug(lesson.title) === lessonSlug);
@@ -68,7 +67,7 @@ const LearningPage = ({ setSliderState }) => {
             <div className="mt-6"><p className="text-sm italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 p-3 rounded-md border-l-4 border-teal-500"><strong>Sumber:</strong> {lessonData.reference}</p></div>
         )}
         
-        <div className="text-center mt-4 text-gray-600 dark:text-gray-400"><p><span className="font-semibold">Klik sekali</span> untuk mode aktif. <span className="font-semibold">Klik dua kali</span> untuk i'rab.</p></div>
+        {/* <div className="text-center mt-4 text-gray-600 dark:text-gray-400"><p><span className="font-semibold">Klik sekali</span> untuk mode aktif. <span className="font-semibold">Klik dua kali</span> untuk i'rab.</p></div> */}
 
         <LessonActions 
           lessonData={lessonData}
