@@ -6,7 +6,10 @@ const LearningToolbar = ({
   updateSettings, 
   onReset, 
   isSettingsOpen, 
-  setSettingsOpen 
+  setSettingsOpen,
+  lessonData,
+  showFullTranslation,
+  setShowFullTranslation
 }) => {
 
   const handleHarakatModeToggle = () => {
@@ -30,7 +33,7 @@ const LearningToolbar = ({
   const getButtonClass = (isActive, isDisabled = false) => {
     const base = 'px-4 py-2 text-sm font-medium transition-colors focus:z-10 focus:outline-none';
     if (isDisabled) {
-      return `${base} bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed`;
+      return `${base} bg-white dark:bg-slate-800 text-gray-400 dark:text-gray-600 cursor-not-allowed`;
     }
     if (isActive) {
       return `${base} bg-teal-500 text-white hover:bg-teal-600`;
@@ -79,6 +82,21 @@ const LearningToolbar = ({
               {settings.showAllHarakat && <path d="M 12 -1 V -3 M 21 8 H 23 M 1 8 H 3 M 19 2 L 21 0 M 3 16 L 5 14 M 19 14 L 21 16 M 3 0 L 5 2" />}
           </svg>
         </button>
+
+        {/* Full Translation Toggle */}
+        {lessonData.fullTranslation && (
+          <button 
+            onClick={() => setShowFullTranslation(s => !s)}
+            type="button" 
+            title="Tampilkan Terjemahan Lengkap"
+            className={`${getButtonClass(showFullTranslation)} border-r border-gray-200 dark:border-slate-700`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M2.5 0A2.5 2.5 0 0 0 0 2.5v11A2.5 2.5 0 0 0 2.5 16h11a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 13.5 0zM1 2.5A1.5 1.5 0 0 1 2.5 1h11A1.5 1.5 0 0 1 15 2.5v11a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 13.5z"/>
+              <path d="M2 12h12v1h-12zm2-3h8v1h-8zm-2-3h12v1h-12zm2-3h8v1h-8z"/>
+            </svg>
+          </button>
+        )}
 
         {/* Display Settings Toggle */}
         <div className="relative">

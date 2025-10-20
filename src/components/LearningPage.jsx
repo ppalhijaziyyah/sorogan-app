@@ -11,6 +11,7 @@ import LessonHeader from './learning/LessonHeader';
 import LessonContent from './learning/LessonContent';
 import LessonActions from './learning/LessonActions'; // Import the new LessonActions
 import LessonSkeleton from './skeletons/LessonSkeleton';
+import FullTranslation from './learning/FullTranslation';
 
 const LearningPage = ({ setSliderState }) => {
   const { lessonSlug } = useParams();
@@ -26,6 +27,7 @@ const LearningPage = ({ setSliderState }) => {
 
   const [isQuizMode, setQuizMode] = useState(false);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
+  const [showFullTranslation, setShowFullTranslation] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,9 +56,14 @@ const LearningPage = ({ setSliderState }) => {
           onReset={resetSettings}
           isSettingsOpen={isSettingsOpen}
           setSettingsOpen={setSettingsOpen}
+          lessonData={lessonData}
+          showFullTranslation={showFullTranslation}
+          setShowFullTranslation={setShowFullTranslation}
         />
         <LessonContent lessonData={lessonData} setSliderState={setSliderState} />
         
+        <FullTranslation text={lessonData.fullTranslation} isVisible={showFullTranslation} />
+
         {lessonData.reference && (
             <div className="mt-6"><p className="text-sm italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 p-3 rounded-md border-l-4 border-teal-500"><strong>Sumber:</strong> {lessonData.reference}</p></div>
         )}
