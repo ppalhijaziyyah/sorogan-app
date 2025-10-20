@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import LearningPage from './components/LearningPage';
 import AboutUsPage from './components/AboutUsPage';
 import SupportUsPage from './components/SupportUsPage';
+import HowToUsePage from './components/HowToUsePage';
 import BottomSlider from './components/ui/BottomSlider';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
 import ScrollToTop from './components/ui/ScrollToTop';
@@ -24,6 +25,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/belajar/:lessonSlug" element={<LearningPage setSliderState={setSliderState} />} />
+                <Route path="/panduan-penggunaan" element={<HowToUsePage />} />
                 <Route path="/tentang-kami" element={<AboutUsPage />} />
                 <Route path="/dukung-kami" element={<SupportUsPage />} />
               </Routes>
