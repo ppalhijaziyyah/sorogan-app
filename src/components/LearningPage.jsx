@@ -45,15 +45,16 @@ const LearningPage = ({ setSliderState }) => {
       <LessonHeader 
         titleArabic={lessonData.titleArabic}
         title={lessonData.title}
-        setSettingsOpen={setSettingsOpen}
-        isSettingsOpen={isSettingsOpen}
-        settings={settings}
-        updateSettings={updateSettings}
-        onReset={resetSettings}
       />
 
       <main>
-        <LearningToolbar />
+        <LearningToolbar 
+          settings={settings}
+          updateSettings={updateSettings}
+          onReset={resetSettings}
+          isSettingsOpen={isSettingsOpen}
+          setSettingsOpen={setSettingsOpen}
+        />
         <LessonContent lessonData={lessonData} setSliderState={setSliderState} />
         
         {lessonData.reference && (

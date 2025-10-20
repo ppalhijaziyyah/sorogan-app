@@ -13,16 +13,26 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navLinkRefs = useRef([]);
   const location = useLocation();
+  const isOnLearningPage = location.pathname.startsWith('/belajar');
 
   // Efek untuk menggerakkan indikator di desktop
   useEffect(() => {
+    // Sembunyikan indikator jika di halaman belajar
+    if (isOnLearningPage) {
+      setIndicatorStyle({ opacity: 0 });
+      return;
+    }
+
     const activeIndex = navLinks.findIndex(link => link.path === location.pathname);
     if (activeIndex !== -1 && navLinkRefs.current[activeIndex]) {
       const activeLinkEl = navLinkRefs.current[activeIndex];
       const { offsetLeft, offsetWidth } = activeLinkEl;
       setIndicatorStyle({ left: offsetLeft, width: offsetWidth, opacity: 1 });
+    } else {
+      // Sembunyikan jika tidak ada link yang aktif
+      setIndicatorStyle({ opacity: 0 });
     }
-  }, [location.pathname]);
+  }, [location.pathname, isOnLearningPage]);
 
   // Efek untuk menutup menu mobile saat navigasi
   useEffect(() => {
@@ -33,7 +43,7 @@ const Header = () => {
 
   const navLinkClasses = ({ isActive }) =>
     `relative z-10 px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-      isActive ? 'text-white' : 'text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
+      isActive && !isOnLearningPage ? 'text-white' : 'text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
     }`;
 
   const mobileNavLinkClasses = ({ isActive }) => 
@@ -45,13 +55,13 @@ const Header = () => {
     <>
       <header className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-lg sticky top-0 z-40 border-b border-white/20 dark:border-slate-700/50">
         <nav className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center relative">
             <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500">
               Sorogan
             </Link>
 
             {/* Navigasi Desktop */}
-            <div className="hidden md:flex items-center relative p-1">
+            <div className="hidden md:absolute md:left-1/2 md:-translate-x-1/2 md:flex items-center p-1">
               <div
                 className="absolute h-full rounded-full bg-gradient-to-r from-teal-400 to-sky-500 shadow-lg transition-all duration-350 ease-in-out"
                 style={indicatorStyle}
