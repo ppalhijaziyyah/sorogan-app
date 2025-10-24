@@ -7,22 +7,26 @@ function ScrollToTop({ children }) {
   useEffect(() => {
     // Jika ada hash, coba scroll ke elemen tersebut
     if (hash) {
-      // Timeout diperlukan untuk memastikan DOM sudah di-render sebelum mencari elemen
       const timer = setTimeout(() => {
         const element = document.querySelector(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const headerOffset = 90; // Perkiraan tinggi header
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         } else {
-          // Fallback jika elemen tidak ditemukan, scroll ke atas
           window.scrollTo(0, 0);
         }
       }, 100);
-      return () => clearTimeout(timer); // Cleanup timeout
+      return () => clearTimeout(timer);
     } else {
-      // Jika tidak ada hash, scroll ke atas halaman
       window.scrollTo(0, 0);
     }
-  }, [pathname, hash]); // Jalankan efek jika pathname atau hash berubah
+  }, [pathname, hash]);
 
   return children || null;
 }

@@ -144,7 +144,7 @@ const HomePage = () => {
     <div className="container mx-auto max-w-5xl">
       <header className="text-center mb-8">
         <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-sky-500 mb-6 mt-3 max-w-4xl mx-auto">Belajar Membaca dan Memahami Teks Arab Gundul</h1>
-        <hr className="border-gray-300 dark:border-gray-700 max-w-md mx-auto" />
+        <hr id="lessons-anchor" className="border-gray-300 dark:border-gray-700 max-w-md mx-auto" />
         <p className="text-sm mt-4 text-gray-500 dark:text-gray-400">
           Pilih Teks untuk Mulai Belajar
         </p>
