@@ -1,0 +1,31 @@
+{
+  "title": "Dummy Pelajaran dengan Link",
+  "titleArabic": "درس تجريبي مع رابط",
+  "level": "Ibtida’i",
+  "preview": "Contoh soal kuis yang memiliki penjelasan tambahan.",
+  "reference": "Dibuat oleh Gemini",
+  "textData": [
+    [
+      {
+        "berharakat": "هَذَا",
+        "gundul": "هذا",
+        "terjemahan": "Ini",
+        "irab": "اسم إشارة مبني على السكون في محل رفع مبتدأ",
+        "link": "https://example.com/dummy-irab-haza"
+      },
+      {
+        "berharakat": "دَرْسٌ",
+        "gundul": "درس",
+        "terjemahan": "pelajaran",
+        "irab": "خبر مرفوع بالضمة الظاهرة على آخره"
+      },
+      {
+        "berharakat": "جَدِيدٌ",
+        "gundul": "جديد",
+        "terjemahan": "baru",
+        "irab": "نعت مرفوع بالضمة الظاهرة على آخره"
+      }
+    ]
+  ],
+  "quizData": []
+}

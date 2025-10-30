@@ -34,5 +34,14 @@
     "path": "data/1-ibtidai/1-1-rukun-islam.json",
     "preview": "(فصل) أركان الإسلام خمسة شهادة أن لا إله إلّا اللّ...",
     "lastModified": "2025-10-09T11:30:40.164Z"
+  },
+  {
+    "id": "ibt-dummy-link-123",
+    "title": "Dummy Pelajaran dengan Link",
+    "titleArabic": "درس تجريبي مع رابط",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/dummy-lesson-with-link.json",
+    "preview": "Ini adalah pelajaran dummy untuk menguji fitur link.",
+    "lastModified": "2025-10-29T12:00:00.000Z"
   }
 ]

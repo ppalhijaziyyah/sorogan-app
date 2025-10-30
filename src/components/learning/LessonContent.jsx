@@ -38,7 +38,7 @@ const LessonContent = ({ lessonData, setSliderState }) => {
 
   const handleWordDoubleClick = (wordData) => {
     if (wordData.irab) {
-      setSliderState({ isOpen: true, title: wordData.berharakat, content: <p className="text-right" dir="rtl">{wordData.irab}</p>, type: 'irab' });
+      setSliderState({ isOpen: true, title: wordData.berharakat, content: <p className="text-right" dir="rtl">{wordData.irab}</p>, type: 'irab', link: wordData.link });
     }
   };
 

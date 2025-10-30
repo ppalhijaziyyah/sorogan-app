@@ -8,25 +8,29 @@
         "berharakat": "(فَصْلٌ)",
         "gundul": "(فصل)",
         "terjemahan": "Pasal",
-        "irab": "خبر من مبتدإ محذوف تقديره (هذا فصل)"
+        "irab": "خبر من مبتدإ محذوف تقديره (هذا فصل)",
+        "link": "#"
       },
       {
         "berharakat": "أَرْكَانُ",
         "gundul": "أركان",
         "terjemahan": "(Adapun) rukun",
-        "irab": "مبتدأ مرفوع بالضمة في جمع التكسير وهي مضاف"
+        "irab": "مبتدأ مرفوع بالضمة في جمع التكسير وهي مضاف",
+        "link": "#"
       },
       {
         "berharakat": "الْإِسْلَامِ",
         "gundul": "الإسلام",
         "terjemahan": "Islam",
-        "irab": "مضاف إليه مجرور بالكسرة في الاسم المفرد"
+        "irab": "مضاف إليه مجرور بالكسرة في الاسم المفرد",
+        "link": "#"
       },
       {
         "berharakat": "خَمْسَةٌ",
         "gundul": "خمسة",
         "terjemahan": " (itu ada) lima ",
-        "irab": "خبر مرفوع بالضمة في الاسم المفرد"
+        "irab": "خبر مرفوع بالضمة في الاسم المفرد",
+        "link": "#"
       },
       {
         "berharakat": "شَهَادَةُ",
@@ -38,7 +42,7 @@
         "berharakat": "أَنْ لَا إِلٰهَ إِلّا اللّهُ",
         "gundul": "أن لا إله إلّا اللّه",
         "terjemahan": "bahwa tiada Tuhan selain Allah",
-        "irab": "مضاف إليه في محل الجر وهو معطوف\r\nعليه؛ و(أن) مصدرية، (لا) نافية للجنس، (إله) اسم (لا) منصوب بالفتحة في الاسم المفرد\r\nوخبره محذوف تقديره (معبود بحق)؛ و(إلّا الله) بدل مرفوع من خبر محذوف (إلا) أداة االستثناء؛\r\nو(الله) مستثنى."
+        "irab": "مضاف إليه في محل الجر وهو معطوف\nعليه؛ و(أن) مصدرية، (لا) نافية للجنس، (إله) اسم (لا) منصوب بالفتحة في الاسم المفرد\nوخبره محذوف تقديره (معبود بحق)؛ و(إلّا الله) بدل مرفوع من خبر محذوف (إلا) أداة االستثناء؛\nو(الله) مستثنى."
       },
       {
         "berharakat": "وَأَنَّ مُحَمَّدًا",
@@ -65,8 +69,8 @@
         "irab": "(و) حرف العطف؛ و(إقام) مرفوع بالضمة في الاسم المفرد وهو معطوف ومضاف"
       },
       {
-        "berharakat": "الصَّلّاةِ",
-        "gundul": "الصّلّاة",
+        "berharakat": "الصَّلَاةِ",
+        "gundul": "الصّلاة",
         "terjemahan": "salat",
         "irab": "مضاف إليه مجرور بالكسرة في الاسم المفرد"
       },
@@ -134,28 +138,40 @@
   ],
   "quizData": [
     {
-      "question": "Apa i'rab dari (سَبِيْلًا) pada kutipan berikut ini:",
-      "context": "وَحِجُّ الْبَيْتِ مَنْ اسْتَطَاعَ إِلَيْهِ سَبِيْلًا",
+      "question": "Apa i'rab (kedudukan) kata \"خَمْسَةٌ\" dalam kalimat \"أَرْكَانُ الْإِسْلَامِ خَمْسَةٌ\"?",
+      "context": "",
       "options": [
-        "A. Maf'ul mutlaq",
-        "B. Hal",
-        "C. Jawāb al-Sharṭ (Hasil dari syarat)",
-        "D. Tamyiz"
+        "Mubtada'",
+        "Khabar",
+        "Maf'ul bih",
+        "Mudlaf ilaih"
       ],
-      "correctAnswer": 3,
-      "explanation": "tamyiz adalah adalah adalah"
+      "correctAnswer": 1,
+      "explanation": "Kata \"خَمْسَةٌ\" (lima) berkedudukan sebagai khabar (predikat) dari mubtada' \"أَرْكَانُ\". Kalimat ini berbentuk jumlah ismiyyah (kalimat nominal) dengan struktur: أَرْكَانُ (mubtada'/subjek) + خَمْسَةٌ (khabar/predikat), yang berarti \"Rukun Islam (itu) lima.\""
     },
     {
-      "question": "222 Apa i'rab dari (سَبِيْلًا) pada kutipan berikut ini:",
-      "context": "وَحِجُّ الْبَيْتِ مَنْ اسْتَطَاعَ إِلَيْهِ سَبِيْلًا",
+      "question": "Apa fungsi huruf \"أَنْ\" dalam frasa",
+      "context": "شَهَادَةُ أَنْ لَا إِلٰهَ إِلّا اللّهُ",
       "options": [
-        "A. Maf'ul mutlaq",
-        "B. Hal",
-        "C. Jawāb al-Sharṭ (Hasil dari syarat)",
-        "D. Tamyiz"
+        "Huruf masdariyyah",
+        "Huruf nafi",
+        "Huruf jar",
+        "Huruf athaf"
       ],
-      "correctAnswer": 3,
-      "explanation": ""
+      "correctAnswer": 0,
+      "explanation": "Huruf \"أَنْ\" di sini adalah \"an masdariyyah\" yang berfungsi untuk mem-masdar-kan (membentuk kata benda abstrak dari) kalimat setelahnya. Bersama dengan kalimat \"لَا إِلٰهَ إِلّا اللّهُ\", ia membentuk makna masdar yang setara dengan \"bahwa tiada Tuhan selain Allah.\""
+    },
+    {
+      "question": "Apa i'rab kata \"شَهَادَةُ\" dalam frasa:",
+      "context": "شَهَادَةُ أَنْ لَا إِلٰهَ إِلّا اللّهُ",
+      "options": [
+        "Khabar dari mubtada' yang dibuang (mahdzuf)",
+        "Fa'il",
+        "Mubtada' yang khabar-nya dibuang",
+        "Badal"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Kata \"شَهَادَةُ\" (persaksian) berkedudukan sebagai khabar (predikat), sedangkan mubtada'-nya dibuang/dihilangkan (mahdzuf) yang takdirannya adalah \"هي\" (rukun-rukun yang lima tersebut yaitu). Struktur lengkapnya: [هي] شَهَادَةُ. Pola ini umum dalam bahasa Arab ketika menjelaskan rincian sesuatu yang telah disebutkan sebelumnya."
     }
   ],
   "fullTranslation": "",
