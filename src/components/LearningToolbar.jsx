@@ -1,11 +1,12 @@
 import React from 'react';
 import DisplaySettings from './ui/DisplaySettings';
+import SettingToggle from './ui/SettingToggle'; // Import SettingToggle
 
-const LearningToolbar = ({ 
-  settings, 
-  updateSettings, 
-  onReset, 
-  isSettingsOpen, 
+const LearningToolbar = ({
+  settings,
+  updateSettings,
+  onReset,
+  isSettingsOpen,
   setSettingsOpen,
   lessonData,
   showFullTranslation,
@@ -14,7 +15,7 @@ const LearningToolbar = ({
 
   const handleHarakatModeToggle = () => {
     const newIsHarakatMode = !settings.isHarakatMode;
-    updateSettings({ 
+    updateSettings({
         isHarakatMode: newIsHarakatMode,
         showAllHarakat: newIsHarakatMode ? settings.showAllHarakat : false
     });
@@ -23,7 +24,7 @@ const LearningToolbar = ({
   const handleTranslationModeToggle = () => {
     updateSettings({ isTranslationMode: !settings.isTranslationMode });
   };
-  
+
   const handleToggleAllHarakat = () => {
     if (!settings.isHarakatMode) return;
     updateSettings({ showAllHarakat: !settings.showAllHarakat });
@@ -44,12 +45,12 @@ const LearningToolbar = ({
   return (
     <div className="flex justify-center items-center mb-8">
       <div className="inline-flex rounded-full shadow-sm border border-gray-200 dark:border-slate-700" role="group">
-        
+
         {/* Harakat Mode Toggle */}
-        <button 
-          onClick={handleHarakatModeToggle} 
-          type="button" 
-          title="Mode Harakat (Klik per kata)" 
+        <button
+          onClick={handleHarakatModeToggle}
+          type="button"
+          title="Mode Harakat (Klik per kata)"
           className={`${getButtonClass(settings.isHarakatMode)} rounded-l-full`}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" className="pointer-events-none">
@@ -58,10 +59,10 @@ const LearningToolbar = ({
         </button>
 
         {/* Translation Mode Toggle */}
-        <button 
-          onClick={handleTranslationModeToggle} 
-          type="button" 
-          title="Mode Terjemahan (Klik per kata)" 
+        <button
+          onClick={handleTranslationModeToggle}
+          type="button"
+          title="Mode Terjemahan (Klik per kata)"
           className={`${getButtonClass(settings.isTranslationMode)} border-l border-r border-gray-200 dark:border-slate-700`}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" className="pointer-events-none">
@@ -71,10 +72,10 @@ const LearningToolbar = ({
         </button>
 
         {/* Toggle All Harakat */}
-        <button 
-          onClick={handleToggleAllHarakat} 
-          type="button" 
-          title="Tampilkan/Sembunyikan Semua Harakat" 
+        <button
+          onClick={handleToggleAllHarakat}
+          type="button"
+          title="Tampilkan/Sembunyikan Semua Harakat"
           className={`${getButtonClass(settings.showAllHarakat, !settings.isHarakatMode)} border-r border-gray-200 dark:border-slate-700`}
         >
            <svg width="24" height="24" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" className="pointer-events-none">
@@ -83,11 +84,25 @@ const LearningToolbar = ({
           </svg>
         </button>
 
+        {/* Nga-logat Toggle */}
+        <button
+            onClick={() => updateSettings({ showNgaLogat: !settings.showNgaLogat })}
+            type="button"
+            title="Tampilkan Simbol Nga-logat"
+            className={`${getButtonClass(settings.showNgaLogat)} border-r border-gray-200 dark:border-slate-700`}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" className="pointer-events-none">
+              {/* Icon for nga-logat - Placeholder for now, maybe a custom icon later */}
+              <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fontWeight="bold" fontSize="16" fill="currentColor">ن</text>
+              {!settings.showNgaLogat && <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />}
+            </svg>
+          </button>
+
         {/* Full Translation Toggle */}
         {lessonData.fullTranslation && (
-          <button 
+          <button
             onClick={() => setShowFullTranslation(s => !s)}
-            type="button" 
+            type="button"
             title="Tampilkan Terjemahan Lengkap"
             className={`${getButtonClass(showFullTranslation)} border-r border-gray-200 dark:border-slate-700`}
           >
@@ -97,7 +112,6 @@ const LearningToolbar = ({
             </svg>
           </button>
         )}
-
         {/* Display Settings Toggle */}
         <div className="relative">
           <button 

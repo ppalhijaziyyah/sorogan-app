@@ -1,5 +1,6 @@
 import React, { createContext, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import ngalogatSymbolColors from '../data/ngalogat-symbol-colors.json'; // Import ngalogatSymbolColors
 
 export const AppContext = createContext();
 
@@ -12,7 +13,10 @@ const defaultSettings = {
   lineHeight: 2.5,
   wordSpacing: 0.25,
   tooltipSize: 0.875,
-  irabSize: 1.5, // New setting
+  irabSize: 1.5,
+  showNgaLogat: false,
+  useNgaLogatColorCoding: false, // New setting
+  ngaLogatSize: 1.0, // New setting
 };
 
 // Function to apply settings to the DOM
@@ -21,7 +25,8 @@ const applySettingsToDOM = (settings) => {
   document.documentElement.style.setProperty('--tooltip-font-size', `${settings.tooltipSize}rem`);
   document.documentElement.style.setProperty('--arabic-line-height', settings.lineHeight);
   document.documentElement.style.setProperty('--word-spacing', `${settings.wordSpacing}rem`);
-  document.documentElement.style.setProperty('--irab-font-size', `${settings.irabSize}rem`); // New setting applied
+  document.documentElement.style.setProperty('--irab-font-size', `${settings.irabSize}rem`);
+  document.documentElement.style.setProperty('--ngalogat-font-size', `${settings.ngaLogatSize}rem`); // New setting applied
 };
 
 export const AppProvider = ({ children }) => {
@@ -79,6 +84,7 @@ export const AppProvider = ({ children }) => {
     settings,
     updateSettings,
     resetSettings,
+    ngalogatSymbolColors, // Add this
   };
 
   return (

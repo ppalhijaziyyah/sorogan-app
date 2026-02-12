@@ -43,5 +43,14 @@
     "path": "data/1-ibtidai/dummy-lesson-with-link.json",
     "preview": "Ini adalah pelajaran dummy untuk menguji fitur link.",
     "lastModified": "2025-10-29T12:00:00.000Z"
+  },
+  {
+    "id": "ibt-dummy-ngalogat",
+    "title": "Dummy Pelajaran Ngologat",
+    "titleArabic": "درس تجريبي للوغات",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/dummy-lesson-ngalogat.json",
+    "preview": "Pelajaran percobaan dengan simbol nga-logat.",
+    "lastModified": "2025-10-30T12:00:00.000Z"
   }
 ]

@@ -4,6 +4,14 @@
   --arabic-line-height: 2.5;
   --word-spacing: 0.25rem;
   --irab-font-size: 1.5rem;
+  --ngalogat-font-size: 1rem; /* Default for new setting */
+
+  /* Default nga-logat text colors */
+  --text-color-ngalogat-default: #10B981; /* Tailwind green-500 or similar for light mode */
+}
+
+.dark {
+  --text-color-ngalogat-default: #34D399; /* Tailwind green-400 or similar for dark mode */
 }
 
 /* 1. Arahan dasar Tailwind */
