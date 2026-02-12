@@ -14,9 +14,10 @@ const defaultSettings = {
   wordSpacing: 0.25,
   tooltipSize: 0.875,
   irabSize: 1.5,
-  showNgaLogat: false,
-  useNgaLogatColorCoding: false, // New setting
-  ngaLogatSize: 1.0, // New setting
+  isNgaLogatMode: false, // Renamed from showNgaLogat
+  showAllNgaLogat: false, // New setting
+  useNgaLogatColorCoding: false,
+  ngaLogatSize: 1.0,
 };
 
 // Function to apply settings to the DOM

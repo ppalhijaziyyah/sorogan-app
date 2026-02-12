@@ -16,9 +16,9 @@ const getNgaLogatPositionStyle = (position) => {
   }
 };
 
-const Word = ({ wordData, isHarakatVisible, isTranslationVisible, onClick, onDoubleClick }) => {
+const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisible, onClick, onDoubleClick }) => {
   const { settings, ngalogatSymbolColors } = useContext(AppContext);
-  const { showNgaLogat, useNgaLogatColorCoding } = settings; // Access useNgaLogatColorCoding
+  const { useNgaLogatColorCoding } = settings; // No showNgaLogat here anymore
   const isPunctuation = /[.،؟:!()"«»]/.test(wordData.gundul) && wordData.gundul.length < 3;
   const displayText = isHarakatVisible ? wordData.berharakat : wordData.gundul;
 
@@ -74,7 +74,7 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, onClick, onDou
     >
       <span ref={wordRef}>{displayText}</span>
 
-      {showNgaLogat && wordData.nga_logat && wordData.nga_logat.map((logat, index) => {
+      {isNgaLogatVisible && wordData.nga_logat && wordData.nga_logat.map((logat, index) => {
         const symbolColor = useNgaLogatColorCoding
           ? (ngalogatSymbolColors[logat.symbol] || defaultNgaLogatColor)
           : defaultNgaLogatColor;

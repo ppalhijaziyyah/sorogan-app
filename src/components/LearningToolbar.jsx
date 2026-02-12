@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import DisplaySettings from './ui/DisplaySettings';
-import SettingToggle from './ui/SettingToggle'; // Import SettingToggle
+// import SettingToggle from './ui/SettingToggle'; // This import is not used here.
 
 const LearningToolbar = ({
   settings,
@@ -26,8 +26,15 @@ const LearningToolbar = ({
   };
 
   const handleToggleAllHarakat = () => {
+    // Bug fix: The button should be disabled, but also, if clicked, it should only proceed if the mode is on.
     if (!settings.isHarakatMode) return;
     updateSettings({ showAllHarakat: !settings.showAllHarakat });
+  };
+
+  const handleToggleAllNgaLogat = () => {
+    // Bug fix: The button should be disabled, but also, if clicked, it should only proceed if the mode is on.
+    if (!settings.isNgaLogatMode) return;
+    updateSettings({ showAllNgaLogat: !settings.showAllNgaLogat });
   };
 
   // Helper function for button classes
@@ -41,6 +48,27 @@ const LearningToolbar = ({
     }
     return `${base} bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700`;
   };
+
+  const hasNgaLogatData = useMemo(() => {
+    return lessonData.textData.some(paragraph =>
+      paragraph.some(wordData => wordData.nga_logat && wordData.nga_logat.length > 0)
+    );
+  }, [lessonData]);
+
+  // Determine the last button class dynamically for correct rounded corners
+  // This logic ensures 'rounded-r-full' is only applied to the very last visible button
+  // We need to check from right to left which is the last *visible* button to apply rounded-r-full.
+
+  const isLastButtonFullTranslation = lessonData.fullTranslation;
+  const isLastButtonNgaLogat = hasNgaLogatData && !isLastButtonFullTranslation;
+  const isLastButtonAllHarakat = !hasNgaLogatData && !isLastButtonFullTranslation; // If no ngaLogatData and no FullTranslation, AllHarakat is the last in its chain before DisplaySettings
+
+  // If Display Settings is the last item in the row, it will handle rounded-r-full
+  // Otherwise, if Full Translation is the last, it handles it.
+  // Otherwise, if All Nga-logat is the last, it handles it.
+  // Otherwise, if Nga-logat Mode is the last, it handles it. (This will not happen, All Nga-logat is always after)
+  // Otherwise, if All Harakat is the last, it handles it.
+
 
   return (
     <div className="flex justify-center items-center mb-8">
@@ -76,7 +104,10 @@ const LearningToolbar = ({
           onClick={handleToggleAllHarakat}
           type="button"
           title="Tampilkan/Sembunyikan Semua Harakat"
-          className={`${getButtonClass(settings.showAllHarakat, !settings.isHarakatMode)} border-r border-gray-200 dark:border-slate-700`}
+          className={`${getButtonClass(settings.showAllHarakat, !settings.isHarakatMode)} ${
+            hasNgaLogatData || lessonData.fullTranslation ? 'border-r border-gray-200 dark:border-slate-700' : ''
+          }`}
+          disabled={!settings.isHarakatMode}
         >
            <svg width="24" height="24" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" className="pointer-events-none">
               <path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 8a6 6 0 0 0-12 0c0 1 .3 2.2 1.5 3.5.7.7 1.2 1.5 1.5 2.5M9 18h6m-5 4h4" />
@@ -84,19 +115,37 @@ const LearningToolbar = ({
           </svg>
         </button>
 
-        {/* Nga-logat Toggle */}
-        <button
-            onClick={() => updateSettings({ showNgaLogat: !settings.showNgaLogat })}
-            type="button"
-            title="Tampilkan Simbol Nga-logat"
-            className={`${getButtonClass(settings.showNgaLogat)} border-r border-gray-200 dark:border-slate-700`}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" className="pointer-events-none">
-              {/* Icon for nga-logat - Placeholder for now, maybe a custom icon later */}
-              <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fontWeight="bold" fontSize="16" fill="currentColor">ن</text>
-              {!settings.showNgaLogat && <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />}
-            </svg>
-          </button>
+        {hasNgaLogatData && (
+          <>
+            {/* Nga-logat Mode Toggle */}
+            <button
+              onClick={() => updateSettings({ isNgaLogatMode: !settings.isNgaLogatMode, showAllNgaLogat: settings.isNgaLogatMode ? false : settings.showAllNgaLogat })}
+              type="button"
+              title="Mode Nga-logat (Klik per kata)"
+              className={`${getButtonClass(settings.isNgaLogatMode)} border-r border-gray-200 dark:border-slate-700`}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" className="pointer-events-none">
+                <text x="50%" y="17" textAnchor="middle" className="font-arabic" fontSize="1.5rem" fill="currentColor">{settings.isNgaLogatMode ? 'نَ' : 'ن'}</text>
+              </svg>
+            </button>
+
+            {/* Toggle All Nga-logat */}
+            <button
+              onClick={handleToggleAllNgaLogat}
+              type="button"
+              title="Tampilkan/Sembunyikan Semua Nga-logat"
+              className={`${getButtonClass(settings.showAllNgaLogat, !settings.isNgaLogatMode)} ${
+                lessonData.fullTranslation ? 'border-r border-gray-200 dark:border-slate-700' : ''
+              }`}
+              disabled={!settings.isNgaLogatMode}
+            >
+              <svg width="24" height="24" viewBox="-2 -4 28 28" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" className="pointer-events-none">
+                <text x="50%" y="17" textAnchor="middle" className="font-arabic" fontSize="1.5rem" fill="currentColor">ن</text>
+                {settings.showAllNgaLogat && <path d="M 12 -1 V -3 M 21 8 H 23 M 1 8 H 3 M 19 2 L 21 0 M 3 16 L 5 14 M 19 14 L 21 16 M 3 0 L 5 2" />}
+              </svg>
+            </button>
+          </>
+        )}
 
         {/* Full Translation Toggle */}
         {lessonData.fullTranslation && (
@@ -104,7 +153,9 @@ const LearningToolbar = ({
             onClick={() => setShowFullTranslation(s => !s)}
             type="button"
             title="Tampilkan Terjemahan Lengkap"
-            className={`${getButtonClass(showFullTranslation)} border-r border-gray-200 dark:border-slate-700`}
+            className={`${getButtonClass(showFullTranslation)} ${
+                hasNgaLogatData && lessonData.fullTranslation ? 'border-r border-gray-200 dark:border-slate-700' : ''
+            }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
               <path d="M2.5 0A2.5 2.5 0 0 0 0 2.5v11A2.5 2.5 0 0 0 2.5 16h11a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 13.5 0zM1 2.5A1.5 1.5 0 0 1 2.5 1h11A1.5 1.5 0 0 1 15 2.5v11a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 13.5z"/>
@@ -114,16 +165,15 @@ const LearningToolbar = ({
         )}
         {/* Display Settings Toggle */}
         <div className="relative">
-          <button 
-            onClick={() => setSettingsOpen(o => !o)} 
-            title="Pengaturan Tampilan" 
+          <button
+            onClick={() => setSettingsOpen(o => !o)}
+            title="Pengaturan Tampilan"
             className={`${getButtonClass(isSettingsOpen)} rounded-r-full`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path fillRule="evenodd" d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5M12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5M1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8m9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5m1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/></svg>
           </button>
           <DisplaySettings isOpen={isSettingsOpen} settings={settings} updateSettings={updateSettings} onReset={onReset} />
         </div>
-
       </div>
     </div>
   );

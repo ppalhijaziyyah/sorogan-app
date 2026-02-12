@@ -4,14 +4,18 @@ import { AppContext } from '../../contexts/AppContext';
 
 const LessonContent = ({ lessonData, setSliderState }) => {
   const { settings } = useContext(AppContext);
+  const { isNgaLogatMode, showAllNgaLogat } = settings; // Destructure new settings
+
   const [harakatStates, setHarakatStates] = useState({});
   const [translationStates, setTranslationStates] = useState({});
+  const [ngaLogatStates, setNgaLogatStates] = useState({}); // New state
   const [currentFocusParagraph, setCurrentFocusParagraph] = useState(0);
 
   // Reset states when lessonData changes
   useEffect(() => {
     setHarakatStates({});
     setTranslationStates({});
+    setNgaLogatStates({}); // Add this
     setCurrentFocusParagraph(0);
   }, [lessonData]);
 
@@ -24,6 +28,10 @@ const LessonContent = ({ lessonData, setSliderState }) => {
     setTranslationStates({});
   }, [settings.isTranslationMode]);
 
+  useEffect(() => {
+    setNgaLogatStates({}); // New useEffect
+  }, [isNgaLogatMode]);
+
   const handleWordClick = (pIndex, wIndex) => {
     const wordId = `${pIndex}-${wIndex}`;
     setCurrentFocusParagraph(pIndex);
@@ -33,6 +41,9 @@ const LessonContent = ({ lessonData, setSliderState }) => {
     }
     if (settings.isTranslationMode) {
       setTranslationStates(prev => ({ ...prev, [wordId]: !prev[wordId] }));
+    }
+    if (isNgaLogatMode) { // Conditionally toggle nga-logat visibility
+      setNgaLogatStates(prev => ({ ...prev, [wordId]: !prev[wordId] }));
     }
   };
 
@@ -51,15 +62,17 @@ const LessonContent = ({ lessonData, setSliderState }) => {
 
             const isHarakatVisible = settings.showAllHarakat || (settings.isHarakatMode && harakatStates[wordId]);
             const isTranslationVisible = settings.isTranslationMode && translationStates[wordId];
+            const isNgaLogatVisible = showAllNgaLogat || (isNgaLogatMode && ngaLogatStates[wordId]); // New calculation
 
             return (
-              <Word 
-                key={wIndex} 
+              <Word
+                key={wIndex}
                 wordData={wordData}
                 isHarakatVisible={isHarakatVisible}
                 isTranslationVisible={isTranslationVisible}
-                onClick={() => handleWordClick(pIndex, wIndex)} 
-                onDoubleClick={() => handleWordDoubleClick(wordData)} 
+                isNgaLogatVisible={isNgaLogatVisible} // New prop
+                onClick={() => handleWordClick(pIndex, wIndex)}
+                onDoubleClick={() => handleWordDoubleClick(wordData)}
               />
             );
           })}
@@ -68,5 +81,4 @@ const LessonContent = ({ lessonData, setSliderState }) => {
     </div>
   );
 };
-
 export default LessonContent;
