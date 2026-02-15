@@ -7,6 +7,7 @@ export const AppContext = createContext();
 const defaultSettings = {
   isHarakatMode: true,
   isTranslationMode: false,
+  showAllTranslations: false, // New setting
   showAllHarakat: false,
   isFocusMode: false,
   arabicSize: 1.875,
@@ -17,7 +18,6 @@ const defaultSettings = {
   isNgaLogatMode: false, // Renamed from showNgaLogat
   showAllNgaLogat: false, // New setting
   useNgaLogatColorCoding: false,
-  ngaLogatSize: 1.0,
 };
 
 // Function to apply settings to the DOM
@@ -27,7 +27,9 @@ const applySettingsToDOM = (settings) => {
   document.documentElement.style.setProperty('--arabic-line-height', settings.lineHeight);
   document.documentElement.style.setProperty('--word-spacing', `${settings.wordSpacing}rem`);
   document.documentElement.style.setProperty('--irab-font-size', `${settings.irabSize}rem`);
-  document.documentElement.style.setProperty('--ngalogat-font-size', `${settings.ngaLogatSize}rem`); // New setting applied
+  // Calculate nga-logat size proportional to arabic size (approx 55%)
+  const ngaLogatSize = settings.arabicSize * 0.55;
+  document.documentElement.style.setProperty('--ngalogat-font-size', `${ngaLogatSize}rem`);
 };
 
 export const AppProvider = ({ children }) => {
@@ -52,7 +54,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const toggleLessonComplete = (lessonId) => {
-    setCompletedLessons(prev => 
+    setCompletedLessons(prev =>
       prev.includes(lessonId) ? prev.filter(id => id !== lessonId) : [...prev, lessonId]
     );
   };
@@ -69,7 +71,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const updateSettings = (newSettings) => {
-    setSettings(prev => ({...prev, ...newSettings}));
+    setSettings(prev => ({ ...prev, ...newSettings }));
   };
 
   const resetSettings = () => {

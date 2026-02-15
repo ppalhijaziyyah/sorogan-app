@@ -52,5 +52,14 @@
     "path": "data/1-ibtidai/dummy-lesson-ngalogat.json",
     "preview": "Pelajaran percobaan dengan simbol nga-logat.",
     "lastModified": "2025-10-30T12:00:00.000Z"
+  },
+  {
+    "id": "dummy-all-features-v1",
+    "title": "Uji Coba Fitur Lengkap",
+    "titleArabic": "تجربة جميع الميزات",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/dummy-all-features.json",
+    "preview": "Ilmu itu cahaya... Contoh teks dengan fitur lengkap: harakat, nga-logat, terjemahan, dan kuis.",
+    "lastModified": "2025-11-01T12:00:00.000Z"
   }
 ]

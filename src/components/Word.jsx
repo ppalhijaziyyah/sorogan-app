@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect, useRef, useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
 
 const getNgaLogatPositionStyle = (position) => {
-  const baseOffset = '0.2em'; // Base offset from the word
+  const baseOffset = '0.1em'; // Base offset from the word
   const transformX = 'translateX(-50%)'; // For centering horizontally
 
   switch (position) {
@@ -69,8 +69,8 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
     <span
       onClick={() => !isPunctuation && onClick()}
       onDoubleClick={() => !isPunctuation && onDoubleClick()}
-      className={`relative inline-block transition-colors duration-150 px-1 ${isPunctuation ? '' : 'cursor-pointer hover:bg-teal-500/10 dark:hover:bg-teal-400/10 rounded'}`}
-      style={{ marginLeft: 'var(--word-spacing)' }}
+      className={`relative inline-flex justify-center transition-[min-width] duration-300 ease-in-out px-1 ${isPunctuation ? '' : 'cursor-pointer hover:bg-teal-500/10 dark:hover:bg-teal-400/10 rounded'}`}
+      style={{ marginLeft: 'var(--word-spacing)', verticalAlign: 'middle', minWidth: isTranslationVisible && tooltipStyle.width ? tooltipStyle.width : '0px' }}
     >
       <span ref={wordRef}>{displayText}</span>
 
@@ -83,7 +83,7 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
             key={index}
             className={`absolute whitespace-nowrap leading-none z-10`}
             style={{
-              fontSize: `var(--ngalogat-font-size)`, // Use ngalogat font size
+              fontSize: `var(--logat-font-size)`, // Use ngalogat font size
               color: symbolColor, // Apply conditional color
               ...getNgaLogatPositionStyle(logat.position), // Function to calculate position
             }}
