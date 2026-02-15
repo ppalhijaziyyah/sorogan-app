@@ -3,7 +3,7 @@ import Word from '../Word';
 import { AppContext } from '../../contexts/AppContext';
 
 const LessonContent = ({ lessonData, setSliderState }) => {
-  const { settings } = useContext(AppContext);
+  const { settings, lastReset } = useContext(AppContext);
   const { isNgaLogatMode, showAllNgaLogat } = settings; // Destructure new settings
 
   const [harakatStates, setHarakatStates] = useState({});
@@ -11,13 +11,13 @@ const LessonContent = ({ lessonData, setSliderState }) => {
   const [ngaLogatStates, setNgaLogatStates] = useState({}); // New state
   const [currentFocusParagraph, setCurrentFocusParagraph] = useState(0);
 
-  // Reset states when lessonData changes
+  // Reset states when lessonData changes or when settings are reset (lastReset change)
   useEffect(() => {
     setHarakatStates({});
     setTranslationStates({});
     setNgaLogatStates({}); // Add this
     setCurrentFocusParagraph(0);
-  }, [lessonData]);
+  }, [lessonData, lastReset]);
 
   // Reset individual states when their corresponding mode is toggled.
   useEffect(() => {

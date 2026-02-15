@@ -74,8 +74,12 @@ export const AppProvider = ({ children }) => {
     setSettings(prev => ({ ...prev, ...newSettings }));
   };
 
+  // Add a timestamp for reset event to trigger UI updates even if values don't change
+  const [lastReset, setLastReset] = React.useState(Date.now());
+
   const resetSettings = () => {
     setSettings(defaultSettings);
+    setLastReset(Date.now());
   }
 
   const value = {
@@ -87,6 +91,7 @@ export const AppProvider = ({ children }) => {
     settings,
     updateSettings,
     resetSettings,
+    lastReset, // Expose this
     ngalogatSymbolColors, // Add this
   };
 

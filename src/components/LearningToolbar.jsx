@@ -22,7 +22,11 @@ const LearningToolbar = ({
   };
 
   const handleTranslationModeToggle = () => {
-    updateSettings({ isTranslationMode: !settings.isTranslationMode });
+    const newIsTranslationMode = !settings.isTranslationMode;
+    updateSettings({
+      isTranslationMode: newIsTranslationMode,
+      showAllTranslations: newIsTranslationMode ? settings.showAllTranslations : false
+    });
   };
 
   // Helper function for button classes

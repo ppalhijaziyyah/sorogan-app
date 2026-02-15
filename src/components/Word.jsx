@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect, useRef, useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
 
 const getNgaLogatPositionStyle = (position) => {
-  const baseOffset = '0.1em'; // Base offset from the word
+  const baseOffset = '1.3em'; // Base offset from the word
   const transformX = 'translateX(-50%)'; // For centering horizontally
 
   switch (position) {
@@ -69,10 +69,14 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
     <span
       onClick={() => !isPunctuation && onClick()}
       onDoubleClick={() => !isPunctuation && onDoubleClick()}
-      className={`relative inline-flex justify-center transition-[min-width] duration-300 ease-in-out px-1 ${isPunctuation ? '' : 'cursor-pointer hover:bg-teal-500/10 dark:hover:bg-teal-400/10 rounded'}`}
-      style={{ marginLeft: 'var(--word-spacing)', verticalAlign: 'middle', minWidth: isTranslationVisible && tooltipStyle.width ? tooltipStyle.width : '0px' }}
+      className={`relative inline-flex justify-center transition-[min-width] duration-300 ease-in-out px-1 group ${isPunctuation ? '' : 'cursor-pointer rounded'}`}
+      style={{ marginLeft: 'var(--word-spacing)', verticalAlign: 'middle', minWidth: isTranslationVisible && tooltipStyle.width ? tooltipStyle.width : '0px', lineHeight: '1' }}
     >
-      <span ref={wordRef}>{displayText}</span>
+      {/* Custom hover background */}
+      {!isPunctuation && (
+        <span className="absolute left-0 right-0 -top-[10px] -bottom-[10px] bg-teal-500/10 dark:bg-teal-400/10 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-0" />
+      )}
+      <span ref={wordRef} className="relative z-10">{displayText}</span>
 
       {isNgaLogatVisible && wordData.nga_logat && wordData.nga_logat.map((logat, index) => {
         const symbolColor = useNgaLogatColorCoding
@@ -83,7 +87,7 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
             key={index}
             className={`absolute whitespace-nowrap leading-none z-10`}
             style={{
-              fontSize: `var(--logat-font-size)`, // Use ngalogat font size
+              fontSize: `var(--ngalogat-font-size)`, // Use ngalogat font size
               color: symbolColor, // Apply conditional color
               ...getNgaLogatPositionStyle(logat.position), // Function to calculate position
             }}
