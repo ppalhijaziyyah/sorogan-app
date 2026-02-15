@@ -9,9 +9,10 @@ import masterIndex from '../data/master-index.json';
 import { generateSlug } from '../lib/utils';
 import LessonHeader from './learning/LessonHeader';
 import LessonContent from './learning/LessonContent';
-import LessonActions from './learning/LessonActions'; // Import the new LessonActions
+import LessonActions from './learning/LessonActions';
 import LessonSkeleton from './skeletons/LessonSkeleton';
 import FullTranslation from './learning/FullTranslation';
+import TasykilMode from './learning/TasykilMode';
 
 const LearningPage = ({ setSliderState }) => {
   const { lessonSlug } = useParams();
@@ -43,13 +44,13 @@ const LearningPage = ({ setSliderState }) => {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <LessonHeader 
+      <LessonHeader
         titleArabic={lessonData.titleArabic}
         title={lessonData.title}
       />
 
       <main>
-        <LearningToolbar 
+        <LearningToolbar
           settings={settings}
           updateSettings={updateSettings}
           onReset={resetSettings}
@@ -59,17 +60,20 @@ const LearningPage = ({ setSliderState }) => {
           showFullTranslation={showFullTranslation}
           setShowFullTranslation={setShowFullTranslation}
         />
-        <LessonContent lessonData={lessonData} setSliderState={setSliderState} />
-        
+
+        {settings.isTasykilMode ? (
+          <TasykilMode lessonData={lessonData} />
+        ) : (
+          <LessonContent lessonData={lessonData} setSliderState={setSliderState} />
+        )}
+
         <FullTranslation text={lessonData.fullTranslation} isVisible={showFullTranslation} />
 
         {lessonData.reference && (
-            <div className="mt-6"><p className="text-sm italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 p-3 rounded-md border-l-4 border-teal-500"><strong>Sumber:</strong> {lessonData.reference}</p></div>
+          <div className="mt-6"><p className="text-sm italic text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 p-3 rounded-md border-l-4 border-teal-500"><strong>Sumber:</strong> {lessonData.reference}</p></div>
         )}
-        
-        {/* <div className="text-center mt-4 text-gray-600 dark:text-gray-400"><p><span className="font-semibold">Klik sekali</span> untuk mode aktif. <span className="font-semibold">Klik dua kali</span> untuk i'rab.</p></div> */}
 
-        <LessonActions 
+        <LessonActions
           lessonData={lessonData}
           lessonId={lessonId}
           setSliderState={setSliderState}

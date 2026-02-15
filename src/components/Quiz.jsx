@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
 import ConfirmationModal from './ui/ConfirmationModal'; // Import modal
+import useSoundEffect from '../hooks/useSoundEffect';
 
 // Helper function to shuffle an array
 const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5);
 
 const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
   const { toggleLessonComplete } = useContext(AppContext);
-  
+  const { playCorrect, playWrong } = useSoundEffect();
+
   // --- State Management ---
   const [mode, setMode] = useState('in_progress'); // in_progress, finished, review
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
@@ -37,7 +39,7 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
 
   // --- Event Handlers ---
   const handleAnswer = (option) => {
-    if (selectedAnswer) return; 
+    if (selectedAnswer) return;
 
     setSelectedAnswer(option);
     const correctAnswer = currentQuestion.options[currentQuestion.correctAnswer];
@@ -45,6 +47,9 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
 
     if (isCorrect) {
       setScore(prev => prev + 1);
+      playCorrect();
+    } else {
+      playWrong();
     }
 
     setUserAnswers(prev => [...prev, { ...currentQuestion, selectedAnswer: option, correctAnswer, isCorrect }]);
@@ -77,7 +82,7 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
 
   if (mode === 'review') {
     const reviewItem = userAnswers[currentIndex];
-    const kahootStyles = [ { color: 'bg-red-600', shape: '▲' }, { color: 'bg-blue-600', shape: '◆' }, { color: 'bg-yellow-500', shape: '●' }, { color: 'bg-green-600', shape: '■' } ];
+    const kahootStyles = [{ color: 'bg-red-600', shape: '▲' }, { color: 'bg-blue-600', shape: '◆' }, { color: 'bg-yellow-500', shape: '●' }, { color: 'bg-green-600', shape: '■' }];
 
     return (
       <div className="p-4 md:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-3xl mx-auto">
@@ -115,11 +120,11 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
   if (!currentQuestion) return <div className="text-center">Memuat kuis...</div>;
 
   const correctAnswerText = currentQuestion.options[currentQuestion.correctAnswer];
-  const kahootStyles = [ { color: 'bg-red-600', shape: '▲' }, { color: 'bg-blue-600', shape: '◆' }, { color: 'bg-yellow-500', shape: '●' }, { color: 'bg-green-600', shape: '■' } ];
+  const kahootStyles = [{ color: 'bg-red-600', shape: '▲' }, { color: 'bg-blue-600', shape: '◆' }, { color: 'bg-yellow-500', shape: '●' }, { color: 'bg-green-600', shape: '■' }];
 
   return (
     <>
-      <ConfirmationModal 
+      <ConfirmationModal
         isOpen={isExitModalOpen}
         message="Apakah Anda yakin ingin keluar dari kuis? Progres akan hilang."
         onConfirm={onFinishQuiz} // Go back to lesson page
@@ -134,7 +139,7 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
         {currentQuestion.context && <p className="font-arabic text-3xl text-center mb-6" dir="rtl">{currentQuestion.context}</p>}
         <div className="grid grid-cols-2 gap-3 md:gap-4">
           {currentQuestion.shuffledOptions.map((option, index) => (
-            <button 
+            <button
               key={index}
               onClick={() => handleAnswer(option)}
               disabled={!!selectedAnswer}

@@ -89,6 +89,18 @@ const LearningToolbar = ({
           </button>
         )}
 
+        {/* Tasykil Mode Toggle */}
+        <button
+          onClick={() => updateSettings({ isTasykilMode: !settings.isTasykilMode })}
+          type="button"
+          title="Mode Tasykil (Latihan Harakat)"
+          className={`${getButtonClass(settings.isTasykilMode)} border-r border-gray-200 dark:border-slate-700`}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" className="pointer-events-none">
+            <text x="50%" y="17" textAnchor="middle" className="font-arabic" fontSize="1.5rem" fill="currentColor">{settings.isTasykilMode ? 'شَ' : 'ش'}</text>
+          </svg>
+        </button>
+
         {/* Full Translation Toggle */}
         {lessonData.fullTranslation && (
           <button

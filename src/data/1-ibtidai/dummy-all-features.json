@@ -15,7 +15,11 @@
                         "position": "top-right"
                     }
                 ],
-                "link": "https://en.wikipedia.org/wiki/Knowledge"
+                "link": "https://en.wikipedia.org/wiki/Knowledge",
+                "tasykil_options": [
+                    "الْعَلَمُ",
+                    "الْعِلْمَ"
+                ]
             },
             {
                 "berharakat": "نُورٌ",
@@ -27,6 +31,10 @@
                         "symbol": "خ",
                         "position": "top-left"
                     }
+                ],
+                "tasykil_options": [
+                    "نُورًا",
+                    "نُورٍ"
                 ]
             }
         ],
@@ -41,6 +49,10 @@
                         "symbol": "فعل",
                         "position": "top"
                     }
+                ],
+                "tasykil_options": [
+                    "يُحِبَّ",
+                    "يُحِبْ"
                 ]
             },
             {
@@ -53,6 +65,10 @@
                         "symbol": "فا",
                         "position": "top-right"
                     }
+                ],
+                "tasykil_options": [
+                    "اللَّهَ",
+                    "اللَّهِ"
                 ]
             },
             {

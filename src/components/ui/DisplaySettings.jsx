@@ -57,6 +57,12 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset }) => {
                 />
                 <div className="border-t border-gray-300 dark:border-gray-600 pt-4">
                     <SettingToggle
+                        label="Efek Suara"
+                        id="sound-enabled-toggle"
+                        isChecked={settings.isSoundEnabled}
+                        onChange={(e) => updateSettings({ isSoundEnabled: e.target.checked })}
+                    />
+                    <SettingToggle
                         label="Mode Fokus"
                         id="focus-mode-toggle"
                         isChecked={settings.isFocusMode}
