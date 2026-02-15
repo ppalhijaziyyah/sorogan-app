@@ -5,22 +5,30 @@ const useSoundEffect = () => {
     const { settings } = useContext(AppContext);
 
     const playSound = useCallback((type) => {
-        if (!settings.isSoundEnabled) return;
+        // Default to true if undefined so sound plays for existing users
+        const isEnabled = settings.isSoundEnabled !== false;
+
+        if (!isEnabled) {
+            return;
+        }
+
+        const soundPath = (path) => `${import.meta.env.BASE_URL}${path.startsWith('/') ? path.slice(1) : path}`;
 
         let audioSrc;
         if (type === 'correct') {
-            audioSrc = '/sounds/correct.mp3';
+            audioSrc = soundPath('sounds/correct.mp3');
         } else if (type === 'wrong') {
-            audioSrc = '/sounds/wrong.mp3';
+            audioSrc = soundPath('sounds/wrong.mp3');
         }
 
         if (audioSrc) {
             const audio = new Audio(audioSrc);
-            audio.play().catch(error => {
-                console.warn(`Audio playback failed for ${type}:`, error);
-            });
+            audio.play()
+                .catch(error => {
+                    console.warn(`Audio playback failed for ${type}:`, error);
+                });
         }
-    }, []);
+    }, [settings.isSoundEnabled]);
 
     const playCorrect = useCallback(() => playSound('correct'), [playSound]);
     const playWrong = useCallback(() => playSound('wrong'), [playSound]);

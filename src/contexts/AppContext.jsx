@@ -51,6 +51,11 @@ export const AppProvider = ({ children }) => {
     applySettingsToDOM(settings);
   }, [settings]);
 
+  // Ensure new default settings (like isSoundEnabled) are merged for existing users
+  useEffect(() => {
+    setSettings(prev => ({ ...defaultSettings, ...prev }));
+  }, []);
+
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
