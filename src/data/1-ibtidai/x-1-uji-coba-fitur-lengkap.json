@@ -85,7 +85,7 @@
             }
         ]
     ],
-    "fullTranslation": "Ilmu itu adalah cahaya. (Dan) Allah mencintai orang-orang yang berbuat baik. Ini adalah contoh teks dengan fitur lengkap: harakat, terjemahan per kata, i'rab (klik ganda), nga-logat (pesantren), dan kuis di akhir.",
+    "fullTranslation": "Ilmu itu adalah cahaya.\n(Dan) Allah mencintai orang-orang yang berbuat baik.",
     "quizData": [
         {
             "question": "Apa arti kata 'Al-Ilmu'?",
@@ -112,5 +112,6 @@
             "explanation": "'Al-Muhsinin' (المحسنين) berarti orang-orang yang berbuat baik."
         }
     ],
-    "reference": "Contoh Buatan AI"
+    "reference": "Contoh Buatan AI",
+    "path": "data/1-ibtidai/x-1-uji-coba-fitur-lengkap.json"
 }

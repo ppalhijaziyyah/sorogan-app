@@ -1,48 +1,14 @@
 [
   {
-    "id": "dummy-12345",
-    "title": "Dummy Kuis Penjelasan",
-    "titleArabic": "مثال مع الشرح",
+    "id": "dummy-all-features-v1",
+    "title": "Uji Coba Fitur Lengkap",
+    "titleArabic": "تجربة جميع الميزات",
     "level": "Ibtida’i",
-    "path": "data/1-ibtidai/dummy-penjelasan.json",
-    "preview": "Contoh soal kuis yang memiliki penjelasan tambahan.",
-    "lastModified": "2025-10-08T10:00:00.000Z"
-  },
-  {
-    "id": "ibt-1759829127440",
-    "title": "Rukun Islam",
-    "titleArabic": "اركان الإسلام",
-    "level": "Mutawassit",
-    "path": "data/2-mutawassit/2-rukun-islam.json",
-    "preview": "(فصل) أركان الإسلام خمسة شهادة أن لا إلٰه إلا الله...",
-    "lastModified": "2025-10-07T09:26:12.951Z"
-  },
-  {
-    "id": "mut-1752317543429",
-    "title": "Materi 03",
-    "titleArabic": "العلم نور",
-    "level": "Mutaqaddim",
-    "path": "data/3-mutaqaddim/materi-03.json",
-    "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
-    "lastModified": "2025-07-12T10:52:23.429Z"
-  },
-  {
-    "id": "ibt-1760009440164",
-    "title": "Rukun Islam",
-    "titleArabic": "اركان الإسلام",
-    "level": "Ibtida’i",
-    "path": "data/1-ibtidai/1-1-rukun-islam.json",
-    "preview": "(فصل) أركان الإسلام خمسة شهادة أن لا إله إلّا اللّ...",
-    "lastModified": "2025-10-09T11:30:40.164Z"
-  },
-  {
-    "id": "ibt-dummy-link-123",
-    "title": "Dummy Pelajaran dengan Link",
-    "titleArabic": "درس تجريبي مع رابط",
-    "level": "Ibtida’i",
-    "path": "data/1-ibtidai/dummy-lesson-with-link.json",
-    "preview": "Ini adalah pelajaran dummy untuk menguji fitur link.",
-    "lastModified": "2025-10-29T12:00:00.000Z"
+    "path": "data/1-ibtidai/x-1-uji-coba-fitur-lengkap.json",
+    "preview": "Ilmu itu...",
+    "lastModified": "2026-02-16T02:44:27.753Z",
+    "chosen": false,
+    "selected": false
   },
   {
     "id": "ibt-dummy-ngalogat",
@@ -51,15 +17,63 @@
     "level": "Ibtida’i",
     "path": "data/1-ibtidai/dummy-lesson-ngalogat.json",
     "preview": "Pelajaran percobaan dengan simbol nga-logat.",
-    "lastModified": "2025-10-30T12:00:00.000Z"
+    "lastModified": "2025-10-30T12:00:00.000Z",
+    "chosen": false,
+    "selected": false
   },
   {
-    "id": "dummy-all-features-v1",
-    "title": "Uji Coba Fitur Lengkap",
-    "titleArabic": "تجربة جميع الميزات",
+    "id": "ibt-1760009440164",
+    "title": "Rukun Islam",
+    "titleArabic": "اركان الإسلام",
     "level": "Ibtida’i",
-    "path": "data/1-ibtidai/dummy-all-features.json",
-    "preview": "Ilmu itu cahaya... Contoh teks dengan fitur lengkap: harakat, nga-logat, terjemahan, dan kuis.",
-    "lastModified": "2025-11-01T12:00:00.000Z"
+    "path": "data/1-ibtidai/1-1-rukun-islam.json",
+    "preview": "(فصل) أركان الإسلام خمسة شهادة أن لا إله إلّا اللّ...",
+    "lastModified": "2025-10-09T11:30:40.164Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "ibt-dummy-link-123",
+    "title": "Dummy Pelajaran dengan Link",
+    "titleArabic": "درس تجريبي مع رابط",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/dummy-lesson-with-link.json",
+    "preview": "Ini adalah pelajaran dummy untuk menguji fitur link.",
+    "lastModified": "2025-10-29T12:00:00.000Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "dummy-12345",
+    "title": "Dummy Kuis Penjelasan",
+    "titleArabic": "مثال مع الشرح",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/dummy-penjelasan.json",
+    "preview": "Contoh soal kuis yang memiliki penjelasan tambahan.",
+    "lastModified": "2025-10-08T10:00:00.000Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "ibt-1759829127440",
+    "title": "Rukun Islam",
+    "titleArabic": "اركان الإسلام",
+    "level": "Mutawassit",
+    "path": "data/2-mutawassit/2-rukun-islam.json",
+    "preview": "(فصل) أركان الإسلام خمسة شهادة أن لا إلٰه إلا الله...",
+    "lastModified": "2025-10-07T09:26:12.951Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "mut-1752317543429",
+    "title": "Materi 03",
+    "titleArabic": "العلم نور",
+    "level": "Mutaqaddim",
+    "path": "data/3-mutaqaddim/materi-03.json",
+    "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
+    "lastModified": "2025-07-12T10:52:23.429Z",
+    "chosen": false,
+    "selected": false
   }
 ]

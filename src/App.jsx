@@ -12,6 +12,8 @@ import BottomSlider from './components/ui/BottomSlider';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
 import ScrollToTop from './components/ui/ScrollToTop';
 
+const StudioPage = React.lazy(() => import('./components/studio/StudioPage'));
+
 function App() {
   const [sliderState, setSliderState] = React.useState({ isOpen: false });
 
@@ -24,6 +26,7 @@ function App() {
             <ScrollToTop>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/studio" element={<StudioPage />} />
                 <Route path="/belajar/:lessonSlug" element={<LearningPage setSliderState={setSliderState} />} />
                 <Route path="/panduan-penggunaan" element={<HowToUsePage />} />
                 <Route path="/tentang-kami" element={<AboutUsPage />} />
@@ -33,14 +36,14 @@ function App() {
           </Suspense>
         </main>
         <Footer setSliderState={setSliderState} />
-        <BottomSlider 
-          sliderState={sliderState} 
+        <BottomSlider
+          sliderState={sliderState}
           onClose={() => {
             if (sliderState.onClose) {
               sliderState.onClose();
             }
             setSliderState({ isOpen: false });
-          }} 
+          }}
         />
         <ScrollToTopButton />
       </div>

@@ -125,7 +125,7 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                 className={`
                     fixed bottom-0 left-0 right-0 z-50 
                     bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-white/10 dark:border-slate-700/50
-                    rounded-t-2xl shadow-2xl overflow-hidden
+                    rounded-t-2xl shadow-2xl overflow-hidden flex flex-col
                     md:absolute md:top-full md:right-0 md:bottom-auto md:left-auto md:w-80 md:rounded-xl md:border md:dark:border-slate-700 md:max-h-[600px] md:h-auto
                     transition-all duration-300 ease-out transform
                 `}
@@ -144,7 +144,7 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                     <div className="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                 </div>
 
-                <div className="px-6 pb-6 overflow-y-auto h-full" style={{ paddingBottom: '80px' }}>
+                <div className="px-6 pb-6 overflow-y-auto flex-1 h-full min-h-0" style={{ paddingBottom: '80px' }}>
                     {/* Mobile Header with Close Button */}
                     <div className="flex justify-between items-center mb-4 md:hidden">
                         <h2 className="text-lg font-bold text-gray-900 dark:text-white">Pengaturan Tampilan</h2>
