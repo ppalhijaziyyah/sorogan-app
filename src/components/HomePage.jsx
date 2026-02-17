@@ -17,11 +17,10 @@ const levelsInOrder = ["Ibtida’i", "Mutawassit", "Mutaqaddim"];
 const FilterButtons = ({ selectedLevel, setSelectedLevel }) => {
   const getButtonClass = (level) => {
     const isActive = selectedLevel === level;
-    return `px-5 py-2 rounded-full text-sm font-medium transition-all transform ${
-      isActive
-        ? "text-white shadow-lg bg-gradient-to-r from-teal-400 to-sky-500 -translate-y-0.5"
-        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-    }`;
+    return `px-5 py-2 rounded-full text-sm font-medium transition-all transform ${isActive
+      ? "text-white shadow-lg bg-gradient-to-r from-teal-400 to-sky-500 -translate-y-0.5"
+      : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+      }`;
   };
 
   return (
@@ -48,10 +47,9 @@ const FilterButtons = ({ selectedLevel, setSelectedLevel }) => {
 const LessonCard = ({ lesson, isCompleted, onSelect }) => {
   return (
     <div
-      onClick={() => onSelect(lesson.slug)} // Use lesson.slug for navigation
-      className={`bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/20 rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-1 cursor-pointer transition-all relative overflow-hidden flex flex-col ${
-        isCompleted ? "opacity-70" : ""
-      }`}
+      onClick={() => onSelect(lesson.level, lesson.slug)} // Use lesson.slug and level for navigation
+      className={`bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/20 rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-1 cursor-pointer transition-all relative overflow-hidden flex flex-col ${isCompleted ? "opacity-70" : ""
+        }`}
     >
       {isCompleted && (
         <div
@@ -79,8 +77,8 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
         <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">
           {lesson.title}
         </p>
-        <p className="text-sm italic text-gray-500 dark:text-gray-400 mt-3">
-          "{lesson.preview || ""}"
+        <p className="text-md leading-relaxed text-gray-500 dark:text-gray-400 mt-3 font-arabic text-right line-clamp-2" dir="rtl">
+          {lesson.preview || ""}
         </p>
       </div>
     </div>
@@ -93,8 +91,10 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  const handleSelectLesson = (lessonSlug) => {
-    navigate(`/belajar/${lessonSlug}`);
+  const handleSelectLesson = (level, lessonSlug) => {
+    const levelMap = { 'Ibtida’i': 1, 'Mutawassit': 2, 'Mutaqaddim': 3 };
+    const levelId = levelMap[level] || 1;
+    navigate(`/belajar/${levelId}/${lessonSlug}`);
   };
 
   const lessonsWithSlugs = useMemo(() => {

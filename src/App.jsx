@@ -27,7 +27,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/studio" element={<StudioPage />} />
-                <Route path="/belajar/:lessonSlug" element={<LearningPage setSliderState={setSliderState} />} />
+                <Route path="/belajar/:levelId/:lessonSlug" element={<LearningPage setSliderState={setSliderState} />} />
                 <Route path="/panduan-penggunaan" element={<HowToUsePage />} />
                 <Route path="/tentang-kami" element={<AboutUsPage />} />
                 <Route path="/dukung-kami" element={<SupportUsPage />} />

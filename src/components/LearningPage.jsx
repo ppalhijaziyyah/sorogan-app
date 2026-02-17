@@ -15,12 +15,17 @@ import FullTranslation from './learning/FullTranslation';
 import TasykilMode from './learning/TasykilMode';
 
 const LearningPage = ({ setSliderState }) => {
-  const { lessonSlug } = useParams();
+  const { levelId, lessonSlug } = useParams();
 
   const lessonId = useMemo(() => {
-    const foundLesson = masterIndex.find(lesson => generateSlug(lesson.title) === lessonSlug);
+    const levelMap = { '1': 'Ibtida’i', '2': 'Mutawassit', '3': 'Mutaqaddim' };
+    const targetLevel = levelMap[levelId] || 'Ibtida’i'; // Fallback if undefined
+
+    const foundLesson = masterIndex.find(lesson =>
+      lesson.level === targetLevel && generateSlug(lesson.title) === lessonSlug
+    );
     return foundLesson ? foundLesson.id : null;
-  }, [lessonSlug]);
+  }, [levelId, lessonSlug]);
 
   const { lessonData, loading, error } = useLesson(lessonId);
   const { settings, updateSettings, resetSettings } = useContext(AppContext);
@@ -31,7 +36,7 @@ const LearningPage = ({ setSliderState }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [lessonSlug]);
+  }, [levelId, lessonSlug]);
 
   if (!lessonId) return <div className="text-center p-8 text-red-500">Pelajaran tidak ditemukan.</div>;
   if (loading) return <LessonSkeleton />;

@@ -153,7 +153,8 @@ const StudioDashboard = ({ masterIndex, onEdit, onCreate, onDelete, onUpdateOrde
                 title: "Imported Lesson",
                 titleArabic: "درس مستورد",
                 level: "Ibtida’i",
-                fullTranslation: ""
+                fullTranslation: "",
+                reference: ""
             };
 
             const infoSheet = workbook.Sheets['Info'];
@@ -164,8 +165,14 @@ const StudioDashboard = ({ masterIndex, onEdit, onCreate, onDelete, onUpdateOrde
                     const value = row[1] || '';
                     if (key.includes('judul latin')) lessonMetadata.title = value;
                     if (key.includes('judul arab')) lessonMetadata.titleArabic = value;
-                    if (key.includes('level')) lessonMetadata.level = value; // Needs validation/normalization
+                    if (key.includes('level')) {
+                        let level = value.toLowerCase().trim();
+                        if (level.includes('ibtida')) lessonMetadata.level = "Ibtida’i";
+                        else if (level.includes('mutawas')) lessonMetadata.level = "Mutawassit";
+                        else if (level.includes('mutaqad')) lessonMetadata.level = "Mutaqaddim";
+                    }
                     if (key.includes('terjemahan lengkap')) lessonMetadata.fullTranslation = value;
+                    if (key.includes('referensi') || key.includes('sumber') || key.includes('reference')) lessonMetadata.reference = value;
                 });
             }
 
@@ -503,7 +510,7 @@ const LessonCard = ({ lesson, levelInfo, onEdit, handleDeleteClick }) => {
                 </div>
                 <h3 className="text-lg font-bold text-right font-arabic mb-1 text-gray-800 dark:text-gray-100" dir="rtl">{lesson.titleArabic}</h3>
                 <h4 className="text-md font-semibold text-gray-700 dark:text-gray-300">{lesson.title}</h4>
-                <p className="text-sm text-gray-500 italic mt-2 line-clamp-2">"{lesson.preview}"</p>
+                <p className="text-sm text-gray-500 mt-2 line-clamp-2 font-arabic text-right leading-relaxed" dir="rtl">{lesson.preview || "Belum ada preview"}</p>
 
                 {/* Filename Preview */}
                 <p className="text-xs text-gray-400 mt-2 font-mono truncate">

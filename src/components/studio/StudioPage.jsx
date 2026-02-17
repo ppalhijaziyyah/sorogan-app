@@ -45,17 +45,45 @@ const StudioPage = () => {
     const [editingLessonId, setEditingLessonId] = useState(null);
     const [currentLessonData, setCurrentLessonData] = useState(null);
     const [localMasterIndex, setLocalMasterIndex] = useState(masterIndex);
+    const [toast, setToast] = useState({ show: false, message: '', type: 'info' });
 
     // Load all lesson data on mount using import.meta.glob (eager)
+    // Load all lesson data on mount using import.meta.glob (lazy/dynamic for better error handling)
     useEffect(() => {
-        const modules = import.meta.glob('/src/data/**/*.json', { eager: true });
-        const loadedLessons = {};
+        const loadLessons = async () => {
+            try {
+                // Remove { eager: true } to get factory functions
+                const modules = import.meta.glob('/src/data/**/*.json');
+                const keys = Object.keys(modules);
 
-        for (const path in modules) {
-            // Path example: /src/data/1-ibtidai/filename.json
-            loadedLessons[path] = modules[path].default || modules[path];
-        }
-        setLessonsMap(loadedLessons);
+                // Use Promise.all to load them in parallel
+                // Mapping to handle individual failures gracefully
+                const promises = keys.map(async (path) => {
+                    try {
+                        const mod = await modules[path]();
+                        return { path, data: mod.default || mod };
+                    } catch (error) {
+                        console.error(`Gagal memuat file: ${path}`, error);
+                        return null;
+                    }
+                });
+
+                const results = await Promise.all(promises);
+
+                const loadedLessons = {};
+                results.forEach(result => {
+                    if (result) {
+                        loadedLessons[result.path] = result.data;
+                    }
+                });
+
+                setLessonsMap(loadedLessons);
+            } catch (err) {
+                console.error("Critical error loading studio data:", err);
+            }
+        };
+
+        loadLessons();
     }, []);
 
     const handleEditLesson = (lessonId) => {
@@ -122,7 +150,7 @@ const StudioPage = () => {
             titleArabic: updatedData.titleArabic,
             level: updatedData.level,
             path: updatedData.path || `data/${updatedData.level === 'Ibtida’i' ? '1-ibtidai' : updatedData.level === 'Mutawassit' ? '2-mutawassit' : '3-mutaqaddim'}/${updatedData.fileNumber || 'x'}-${updatedData.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.json`,
-            preview: (updatedData.textData?.[0]?.[0]?.terjemahan || "").substring(0, 100) + "...",
+            preview: updatedData.preview || (updatedData.textData?.[0]?.[0]?.terjemahan || "").substring(0, 100) + "...",
             lastModified: new Date().toISOString()
         };
 
@@ -135,7 +163,6 @@ const StudioPage = () => {
         }
 
         // 3. Update In-Memory Cache (lessonsMap)
-        // This ensures that when we go back to dashboard and reopen, we get the updated data
         const fullPath = `/src/${metadata.path}`;
         setLessonsMap(prev => ({
             ...prev,
@@ -144,7 +171,15 @@ const StudioPage = () => {
 
         setCurrentLessonData(updatedData);
 
-        alert("Data tersimpan di memori browser. \n\nPENTING: Perubahan ini HANYA SEMENTARA di browser. \nSilakan 'Download JSON' untuk file materi dan 'Download Index' di Dashboard untuk menyimpan permanen.");
+        // Show Toast instead of Alert
+        setToast({
+            show: true,
+            message: "Data tersimpan sementara di browser! Jangan lupa download JSON & Index.",
+            type: 'success'
+        });
+
+        // Auto hide toast
+        setTimeout(() => setToast({ ...toast, show: false }), 4000);
     };
 
     return (
@@ -156,6 +191,15 @@ const StudioPage = () => {
                         <p className="text-sm text-gray-500 dark:text-gray-400">Internal Content Management System</p>
                     </div>
                 </header>
+
+                {/* Toast Notification */}
+                {toast.show && (
+                    <div className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full shadow-2xl flex items-center space-x-4 z-50 animate-bounce transition-all duration-300 ${toast.type === 'success' ? 'bg-green-600 text-white' :
+                        toast.type === 'warning' ? 'bg-orange-600 text-white' : 'bg-gray-800 text-white'
+                        }`}>
+                        <span className="font-medium">{toast.message}</span>
+                    </div>
+                )}
 
                 <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl min-h-[600px] border border-gray-200 dark:border-gray-700">
                     <ErrorBoundary>

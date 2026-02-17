@@ -86,7 +86,8 @@ const HelpImportExcel = ({ isOpen, onClose }) => {
                                     <tr className="border-b dark:border-gray-700"><td className="px-4 py-2 font-bold">Judul Latin</td><td className="px-4 py-2">Rukun Islam</td></tr>
                                     <tr className="border-b dark:border-gray-700"><td className="px-4 py-2 font-bold">Judul Arab</td><td className="px-4 py-2 font-arabic">أركان الإسلام</td></tr>
                                     <tr className="border-b dark:border-gray-700"><td className="px-4 py-2 font-bold">Level</td><td className="px-4 py-2">Ibtida'i / Mutawassit / Mutaqaddim</td></tr>
-                                    <tr><td className="px-4 py-2 font-bold">Terjemahan Lengkap</td><td className="px-4 py-2">Terjemahan lengkap paragraf...</td></tr>
+                                    <tr className="border-b dark:border-gray-700"><td className="px-4 py-2 font-bold">Terjemahan Lengkap</td><td className="px-4 py-2">Terjemahan lengkap paragraf...</td></tr>
+                                    <tr><td className="px-4 py-2 font-bold">Referensi / Sumber</td><td className="px-4 py-2">Kitab Safinatun Najah</td></tr>
                                 </tbody>
                             </table>
                         </div>

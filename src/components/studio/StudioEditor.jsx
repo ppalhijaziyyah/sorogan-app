@@ -16,19 +16,23 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
             path: ""
         };
 
+
         // Try to extract file number from path if not explicitly set
         // Format: data/1-ibtidai/1-1-judul.json -> extract "1" from "1-1"
         if (!data.fileNumber && data.path) {
             const filename = data.path.split('/').pop(); // "1-1-judul.json"
             const parts = filename.split('-');
-            if (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
-                // Assuming format: [LevelNum]-[FileNum]-[Title] OR [FileNum]-[LevelNum]-[Title]??
-                // User said: "1-1-judul.json berarti nomor 1 level 1"
-                // So it is [FileNum]-[LevelNum]-[Title].
-                data.fileNumber = parts[0];
+            const levelMap = { 'Ibtida’i': '1', 'Mutawassit': '2', 'Mutaqaddim': '3' };
+            const levelId = levelMap[data.level];
+
+            if (levelId && parts.length >= 2) {
+                // If the second part matches the level ID, the first part is the file number
+                // Example: "10-1-judul.json" (Level 1) -> parts[1] is "1", so parts[0] "10" is FileNum
+                if (parts[1] === levelId) {
+                    data.fileNumber = parts[0];
+                }
             }
         }
-
         return data;
     });
     const [fullTextRaw, setFullTextRaw] = useState('');
@@ -43,7 +47,21 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
 
     useEffect(() => {
         if (initialData) {
-            setLessonData(initialData);
+            const data = { ...initialData };
+            // Re-apply extraction logic when initialData updates (e.g. after save)
+            if (!data.fileNumber && data.path) {
+                const filename = data.path.split('/').pop();
+                const parts = filename.split('-');
+                const levelMap = { 'Ibtida’i': '1', 'Mutawassit': '2', 'Mutaqaddim': '3' };
+                const levelId = levelMap[data.level];
+
+                if (levelId && parts.length >= 2) {
+                    if (parts[1] === levelId) {
+                        data.fileNumber = parts[0];
+                    }
+                }
+            }
+            setLessonData(data);
         }
     }, [initialData]);
 
@@ -187,26 +205,50 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
 
     const handleCopyJSON = async () => {
         await copyToClipboard(JSON.stringify(lessonData, null, 2));
-        // Optional: show local toast or alert
+        alert("JSON pelajaran berhasil disalin ke clipboard!");
     };
 
     const getFilename = () => {
         const levelMap = { 'Ibtida’i': 1, 'Mutawassit': 2, 'Mutaqaddim': 3 };
-        const levelNum = levelMap[lessonData.level] || 0;
-        const fileNum = lessonData.fileNumber ? `${lessonData.fileNumber}-` : '';
+        const levelNum = levelMap[lessonData.level] || 1; // Default to 1 if not found
         const sanitizedTitle = lessonData.title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-');
-        return `${fileNum}${levelNum}-${sanitizedTitle}.json`;
+
+        if (lessonData.fileNumber) {
+            return `${lessonData.fileNumber}-${levelNum}-${sanitizedTitle}.json`;
+        }
+        return `${levelNum}-${sanitizedTitle}.json`;
     };
 
     const handleDownloadJSON = () => {
         const fileName = getFilename();
-        downloadJSON(lessonData, fileName);
+        // Remove fileNumber from the downloaded JSON content
+        const { fileNumber, ...cleanData } = lessonData;
+        downloadJSON(cleanData, fileName);
     };
 
     const handleSave = () => {
         const filename = getFilename();
+        // Remove fileNumber from the saved data structure
+        const { fileNumber, ...cleanData } = lessonData;
+
+        // Generate preview from textData (gundul)
+        let previewText = "";
+        if (lessonData.textData && lessonData.textData.length > 0) {
+            // Flatten all paragraphs and words, extract gundul text
+            const allWords = lessonData.textData.flatMap(paragraph => paragraph.map(word => word.gundul));
+            const fullText = allWords.join(' ');
+
+            // Truncate to ~150 chars, max 2 lines approx
+            if (fullText.length > 150) {
+                previewText = fullText.substring(0, 150) + "...";
+            } else {
+                previewText = fullText;
+            }
+        }
+
         const updatedLesson = {
-            ...lessonData,
+            ...cleanData,
+            preview: previewText, // Add preview field
             path: `data/${lessonData.level === 'Ibtida’i' ? '1-ibtidai' : lessonData.level === 'Mutawassit' ? '2-mutawassit' : '3-mutaqaddim'}/${filename}`
         };
 
@@ -301,17 +343,19 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
                                     <option>Mutaqaddim</option>
                                 </select>
                             </div>
+
                             <div>
-                                <label className="block text-sm font-bold mb-2 text-gray-700 dark:text-gray-300">Nomor Urut File</label>
+                                <label className="block text-sm font-bold mb-2 text-gray-700 dark:text-gray-300">Nomor Urut File (Opsional)</label>
                                 <input
                                     type="text"
                                     className="w-full border rounded-lg p-3 dark:bg-gray-700 dark:border-gray-600"
                                     value={lessonData.fileNumber || ''}
                                     onChange={(e) => handleChange('fileNumber', e.target.value)}
-                                    placeholder="Contoh: 1, 1a, 10"
+                                    placeholder="Contoh: 1, 10 (Kosongkan jika tidak perlu)"
                                 />
-                                <p className="text-xs text-gray-400 mt-1">Digunakan untuk penamaan file.</p>
+                                <p className="text-xs text-gray-400 mt-1">Hanya untuk penamaan file: [No]-[Level]-[Judul].json</p>
                             </div>
+
                             <div>
                                 <label className="block text-sm font-bold mb-2 text-gray-700 dark:text-gray-300">Preview Nama File</label>
                                 <div className="flex gap-2">
@@ -321,19 +365,28 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
                                         className="w-full border rounded-lg p-3 bg-gray-50 text-gray-500 text-sm font-mono dark:bg-gray-800 dark:border-gray-600"
                                         value={(() => {
                                             const levelMap = { 'Ibtida’i': 1, 'Mutawassit': 2, 'Mutaqaddim': 3 };
-                                            const levelNum = levelMap[lessonData.level] || 0;
-                                            const fileNum = lessonData.fileNumber ? `${lessonData.fileNumber}-` : '';
+                                            const levelNum = levelMap[lessonData.level] || 1;
                                             const sanitizedTitle = lessonData.title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-');
-                                            return `${fileNum}${levelNum}-${sanitizedTitle}.json`;
+
+                                            if (lessonData.fileNumber) {
+                                                return `${lessonData.fileNumber}-${levelNum}-${sanitizedTitle}.json`;
+                                            }
+                                            return `${levelNum}-${sanitizedTitle}.json`;
                                         })()}
                                     />
                                     <button
                                         onClick={() => {
                                             const levelMap = { 'Ibtida’i': 1, 'Mutawassit': 2, 'Mutaqaddim': 3 };
-                                            const levelNum = levelMap[lessonData.level] || 0;
-                                            const fileNum = lessonData.fileNumber ? `${lessonData.fileNumber}-` : '';
+                                            const levelNum = levelMap[lessonData.level] || 1;
                                             const sanitizedTitle = lessonData.title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-');
-                                            copyToClipboard(`${fileNum}${levelNum}-${sanitizedTitle}.json`);
+
+                                            let fileName;
+                                            if (lessonData.fileNumber) {
+                                                fileName = `${lessonData.fileNumber}-${levelNum}-${sanitizedTitle}.json`;
+                                            } else {
+                                                fileName = `${levelNum}-${sanitizedTitle}.json`;
+                                            }
+                                            copyToClipboard(fileName);
                                         }}
                                         className="bg-gray-200 hover:bg-gray-300 text-gray-600 px-3 rounded-lg dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-300"
                                         title="Copy Nama File"
