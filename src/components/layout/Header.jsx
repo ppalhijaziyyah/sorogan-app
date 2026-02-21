@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import ThemeToggle from './ui/ThemeToggle';
+import ThemeToggle from '../ui/ThemeToggle';
 
 const navLinks = [
   { path: '/#lessons-anchor', label: 'Pelajaran' },
@@ -41,8 +41,8 @@ const Header = () => {
 
   // Kelas untuk link navigasi (Desktop & Mobile)
   const getNavLinkClasses = (path, isActive, isMobile = false) => {
-    const baseClasses = isMobile 
-      ? 'block py-4 text-center text-xl transition-colors' 
+    const baseClasses = isMobile
+      ? 'block py-4 text-center text-xl transition-colors'
       : 'px-4 py-2 text-sm font-medium transition-colors duration-300';
 
     const activeClasses = isMobile
@@ -100,8 +100,8 @@ const Header = () => {
             </div>
 
             {/* Tombol Menu Mobile */}
-            <button 
-              className="md:hidden ml-2 p-2" 
+            <button
+              className="md:hidden ml-2 p-2"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Buka menu"
             >
@@ -115,11 +115,11 @@ const Header = () => {
 
       {/* Overlay Menu Mobile */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-lg animate-fade-in"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          <div 
+          <div
             className="absolute top-0 right-0 bottom-0 w-64 bg-white/95 dark:bg-slate-800/95 shadow-xl p-6 flex flex-col"
             onClick={e => e.stopPropagation()}
           >

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UserBadge from './ui/UserBadge';
+import UserBadge from '../components/ui/UserBadge';
 import data from '../data/sponsors-contributors.json';
 
 const SectionTitle = ({ children, id }) => (

@@ -2,17 +2,17 @@ import React, { useState, useContext, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useLesson } from '../hooks/useLesson';
 import { AppContext } from '../contexts/AppContext';
-import Quiz from './Quiz';
-import LearningToolbar from './LearningToolbar';
-import Tutorial from './ui/Tutorial';
+import Quiz from '../components/learning/Quiz';
+import LearningToolbar from '../components/learning/LearningToolbar';
+import Tutorial from '../components/ui/Tutorial';
 import masterIndex from '../data/master-index.json';
 import { generateSlug } from '../lib/utils';
-import LessonHeader from './learning/LessonHeader';
-import LessonContent from './learning/LessonContent';
-import LessonActions from './learning/LessonActions';
-import LessonSkeleton from './skeletons/LessonSkeleton';
-import FullTranslation from './learning/FullTranslation';
-import TasykilMode from './learning/TasykilMode';
+import LessonHeader from '../components/learning/LessonHeader';
+import LessonContent from '../components/learning/LessonContent';
+import LessonActions from '../components/learning/LessonActions';
+import LessonSkeleton from '../components/skeletons/LessonSkeleton';
+import FullTranslation from '../components/learning/FullTranslation';
+import TasykilMode from '../components/learning/TasykilMode';
 
 const LearningPage = ({ setSliderState }) => {
   const { levelId, lessonSlug } = useParams();

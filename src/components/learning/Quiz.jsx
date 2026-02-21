@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react';
-import { AppContext } from '../contexts/AppContext';
-import ConfirmationModal from './ui/ConfirmationModal'; // Import modal
-import useSoundEffect from '../hooks/useSoundEffect';
+import { AppContext } from '../../contexts/AppContext';
+import ConfirmationModal from '../ui/ConfirmationModal'; // Import modal
+import useSoundEffect from '../../hooks/useSoundEffect';
 
 // Helper function to shuffle an array
 const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5);

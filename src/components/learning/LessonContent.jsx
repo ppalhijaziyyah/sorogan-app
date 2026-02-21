@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Word from '../Word';
+import Word from './Word';
 import { AppContext } from '../../contexts/AppContext';
 
 const LessonContent = ({ lessonData, setSliderState }) => {

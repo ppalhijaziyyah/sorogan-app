@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect, useRef, useContext } from 'react';
-import { AppContext } from '../contexts/AppContext';
+import { AppContext } from '../../contexts/AppContext';
 
 const getNgaLogatPositionStyle = (position) => {
   const baseOffset = '1.3em'; // Base offset from the word

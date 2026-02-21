@@ -1,18 +1,18 @@
 import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Footer from './components/Footer';
-import Header from './components/Header';
-import HomePage from './components/HomePage';
-import LearningPage from './components/LearningPage';
-import AboutUsPage from './components/AboutUsPage';
-import SupportUsPage from './components/SupportUsPage';
-import HowToUsePage from './components/HowToUsePage';
+import Footer from './components/layout/Footer';
+import Header from './components/layout/Header';
+import HomePage from './pages/HomePage';
+import LearningPage from './pages/LearningPage';
+import AboutUsPage from './pages/AboutUsPage';
+import SupportUsPage from './pages/SupportUsPage';
+import HowToUsePage from './pages/HowToUsePage';
 import BottomSlider from './components/ui/BottomSlider';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
-import ScrollToTop from './components/ui/ScrollToTop';
+import ScrollToTop from './components/common/ScrollToTop';
 
-const StudioPage = React.lazy(() => import('./components/studio/StudioPage'));
+const StudioPage = React.lazy(() => import('./pages/studio/StudioPage'));
 
 function App() {
   const [sliderState, setSliderState] = React.useState({ isOpen: false });

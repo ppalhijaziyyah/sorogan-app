@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import DisplaySettings from './ui/DisplaySettings';
+import DisplaySettings from '../ui/DisplaySettings';
 // import SettingToggle from './ui/SettingToggle'; // This import is not used here.
 
 const LearningToolbar = ({

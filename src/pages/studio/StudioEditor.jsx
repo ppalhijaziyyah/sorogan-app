@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { removeHarakat, copyToClipboard, downloadJSON } from './utils';
-import ConfirmationModal from './ConfirmationModal';
+import { removeHarakat, copyToClipboard, downloadJSON } from '../../utils/studioUtils';
+import ConfirmationModal from '../../components/ui/ConfirmationModal';
 
 const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
     // State

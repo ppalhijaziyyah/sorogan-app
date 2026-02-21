@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ReactSortable } from "react-sortablejs";
-import { copyToClipboard, downloadJSON, readExcel, readWorkbook, sheetToJson, removeHarakat } from './utils';
-import HelpImportExcel from './HelpImportExcel';
-import ConfirmationModal from './ConfirmationModal';
+import { copyToClipboard, downloadJSON, readExcel, readWorkbook, sheetToJson, removeHarakat } from '../../utils/studioUtils';
+import HelpImportExcel from '../../components/studio/HelpImportExcel';
+import ConfirmationModal from '../../components/ui/ConfirmationModal';
 
 // Define levels and colors consistent with main app
 const levels = {

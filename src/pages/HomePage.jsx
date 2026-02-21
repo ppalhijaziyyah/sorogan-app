@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../contexts/AppContext";
 import masterIndex from "../data/master-index.json";
 import sponsorsAndContributors from "../data/sponsors-contributors.json";
-import UserBadge from "./ui/UserBadge";
+import UserBadge from "../components/ui/UserBadge";
 import { generateSlug } from "../lib/utils";
 
 const levelDetails = {

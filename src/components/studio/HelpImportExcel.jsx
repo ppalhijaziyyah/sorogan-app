@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { downloadFile } from './utils';
+import { downloadFile } from '../../utils/studioUtils';
 
 const HelpImportExcel = ({ isOpen, onClose }) => {
     const [activeTab, setActiveTab] = useState('materi');
