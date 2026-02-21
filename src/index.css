@@ -40,8 +40,8 @@
   /* text-sm */
   border-radius: 0.5rem;
   /* rounded-lg */
-  padding: 0.25rem 0.75rem;
-  /* py-1 px-3 */
+  padding: 0.5rem 0.75rem 0.4rem;
+  /* adjusted padding: top 8px, right/left 12px, bottom 6px to balance the arrow */
   z-index: 10;
   pointer-events: none;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -52,6 +52,18 @@
   /* Allow wrapping */
   text-align: center;
   line-height: 1.4;
+}
+
+.translation-tooltip::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background-color: #1f2937;
+  z-index: -1;
 }
 
 .paragraph-unfocused {

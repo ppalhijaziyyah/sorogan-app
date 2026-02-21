@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useContext, useMemo, useRef, useLayoutEffect } from 'react';
 import { AppContext } from '../../contexts/AppContext';
 import useSoundEffect from '../../hooks/useSoundEffect';
 import ConfirmationModal from '../ui/ConfirmationModal';
@@ -11,6 +11,10 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
     const [results, setResults] = useState({});
     const [showPopover, setShowPopover] = useState(false);
     const [isReviewing, setIsReviewing] = useState(false); // New state for Review Mode
+
+    // Store references to the word spans to calculate popover positions
+    const wordRefs = useRef({});
+    const [popoverPosition, setPopoverPosition] = useState({});
 
     // We only need to track the currently active interactive word for the progression
     // Flatten words to find interactive ones
@@ -60,29 +64,51 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
         return allOptions.sort(() => Math.random() - 0.5);
     }, [popoverTargetId, lessonData]);
 
+    // Calculate popover position independently of line-height
+    useLayoutEffect(() => {
+        if (showPopover && popoverTargetId && wordRefs.current[popoverTargetId]) {
+            const wordSpan = wordRefs.current[popoverTargetId];
+            const computedStyle = getComputedStyle(wordSpan);
+            const lineHeight = parseFloat(computedStyle.lineHeight);
+            const fontSize = parseFloat(computedStyle.fontSize);
+
+            // Calculate where the text actually ends visually
+            const spaceAbove = (lineHeight - fontSize) / 2;
+            const textBottomPosition = spaceAbove + fontSize;
+
+            // Set the top position in pixels + a little padding
+            const top = textBottomPosition + 8; // 8px buffer
+
+            setPopoverPosition({ top: `${top}px` });
+        }
+    }, [showPopover, popoverTargetId]);
+
     // Auto-scroll when popover opens or moves
     useEffect(() => {
         if (showPopover && popoverTargetId && !isReviewing) {
             // Give the DOM a tiny bit of time to render the popover before measuring
             setTimeout(() => {
                 const popoverEl = document.getElementById(`popover-${popoverTargetId}`);
-                if (popoverEl) {
+                const scrollContainer = document.getElementById('tasykil-scroll-container');
+                if (popoverEl && scrollContainer) {
                     const rect = popoverEl.getBoundingClientRect();
+                    const containerRect = scrollContainer.getBoundingClientRect();
+
                     // Check if popover bottom is cut off or too close to bottom edge
                     // Accounting for some bottom padding (e.g., 20px)
-                    if (rect.bottom > window.innerHeight - 20) {
-                        // We scroll the window so the bottom of the popover is visible
-                        const scrollAmount = rect.bottom - window.innerHeight + 40; // Add 40px buffer
-                        window.scrollBy({
+                    if (rect.bottom > containerRect.bottom - 20) {
+                        // We scroll the container so the bottom of the popover is visible
+                        const scrollAmount = rect.bottom - containerRect.bottom + 40; // Add 40px buffer
+                        scrollContainer.scrollBy({
                             top: scrollAmount,
                             behavior: 'smooth'
                         });
                     }
 
                     // Also check if cut off at the top (less likely, but possible)
-                    if (rect.top < 80) { // 80px to account for the sticky header
-                        const scrollAmount = rect.top - 100;
-                        window.scrollBy({
+                    if (rect.top < containerRect.top + 80) { // 80px to account for the sticky header
+                        const scrollAmount = rect.top - (containerRect.top + 100);
+                        scrollContainer.scrollBy({
                             top: scrollAmount,
                             behavior: 'smooth'
                         });
@@ -97,9 +123,6 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
 
         // Only interactive words can show the tasykil popover
         if (!isInteractive) return;
-
-        // Prevent opening popovers if in review mode (user should only see results)
-        if (isReviewing) return;
 
         // If clicking the currently active question or an already answered question
         if ((activeWord && clickedId === activeWord.id) || wordResult) {
@@ -199,7 +222,7 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
     };
 
     return (
-        <div className="fixed inset-0 z-[100] bg-[#f8fafc] dark:bg-slate-900 overflow-y-auto w-full h-full" onClick={handleContainerClick}>
+        <div id="tasykil-scroll-container" className="fixed inset-0 z-[100] bg-[#f8fafc] dark:bg-slate-900 overflow-y-auto w-full h-full" onClick={handleContainerClick}>
             <ConfirmationModal
                 isOpen={isExitModalOpen}
                 message="Apakah Anda yakin ingin keluar dari Mode Tasykil? Progres latihan akan hilang."
@@ -348,6 +371,7 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
                                             style={style}
                                         >
                                             <span
+                                                ref={(el) => (wordRefs.current[wordId] = el)}
                                                 className={boxClass}
                                                 onClick={(e) => {
                                                     e.stopPropagation();
@@ -365,13 +389,13 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
                                             {isPopoverTarget && (
                                                 <div
                                                     id={`popover-${wordId}`}
-                                                    // The style property `fontSize: '1rem'` ensures we reset the scale logic to match the arabic text
-                                                    // 1em of popover will equal the active font size of the parent arabic text
-                                                    className="absolute z-50 mt-[0.2em] bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-2xl p-[0.3em] w-max min-w-[3em] right-1/2 translate-x-1/2 transform transition-all text-center"
+                                                    // Remove mt-[0.2em] and use the calculated top pixel position
+                                                    className="absolute z-50 bg-slate-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-xl shadow-2xl p-[0.3em] w-max min-w-[3em] right-1/2 translate-x-1/2 transform transition-all text-center"
+                                                    style={popoverPosition}
                                                     onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside popover
                                                 >
                                                     {/* Pointer Triangle */}
-                                                    <div className="absolute -top-[0.2em] right-1/2 translate-x-1/2 w-[0.4em] h-[0.4em] bg-white dark:bg-slate-800 border-t border-l border-gray-200 dark:border-slate-700 transform rotate-45"></div>
+                                                    <div className="absolute -top-[0.2em] right-1/2 translate-x-1/2 w-[0.4em] h-[0.4em] bg-slate-50 dark:bg-slate-900 border-t border-l border-gray-300 dark:border-slate-600 transform rotate-45"></div>
 
                                                     <div className="relative z-10">
                                                         <div className="flex flex-col gap-[0.2em]">
