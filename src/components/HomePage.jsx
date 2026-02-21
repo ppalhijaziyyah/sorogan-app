@@ -77,7 +77,7 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
         <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">
           {lesson.title}
         </p>
-        <p className="text-md leading-relaxed text-gray-500 dark:text-gray-400 mt-3 font-arabic text-right line-clamp-2" dir="rtl">
+        <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mt-3 font-arabic text-right line-clamp-2" dir="rtl">
           {lesson.preview || ""}
         </p>
       </div>

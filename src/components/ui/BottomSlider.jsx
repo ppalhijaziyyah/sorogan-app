@@ -31,12 +31,12 @@ const BottomSlider = ({ sliderState, onClose }) => {
   const sizeStyle = type === 'irab' ? { fontSize: 'var(--irab-font-size)' } : {};
 
   return (
-    <div 
-      onClick={handleClose} 
-      className={`fixed inset-0 bg-black z-40 flex justify-center items-end transition-opacity duration-300 ease-in-out ${isShowing ? 'bg-opacity-50' : 'bg-opacity-0'}`}
+    <div
+      onClick={handleClose}
+      className={`fixed inset-0 bg-black z-[150] flex justify-center items-end transition-opacity duration-300 ease-in-out ${isShowing ? 'bg-opacity-50' : 'bg-opacity-0'}`}
     >
-      <div 
-        onClick={(e) => e.stopPropagation()} 
+      <div
+        onClick={(e) => e.stopPropagation()}
         className={`w-full max-w-4xl bg-white dark:bg-gray-800 rounded-t-2xl shadow-2xl p-6 transform transition-transform duration-300 ease-in-out ${isShowing ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className="flex justify-between items-center mb-4">

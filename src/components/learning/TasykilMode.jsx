@@ -1,16 +1,18 @@
-
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useEffect, useContext, useMemo, useRef } from 'react';
 import { AppContext } from '../../contexts/AppContext';
 import useSoundEffect from '../../hooks/useSoundEffect';
+import ConfirmationModal from '../ui/ConfirmationModal';
 
-const TasykilMode = ({ lessonData }) => {
-    const { settings } = useContext(AppContext);
+const TasykilMode = ({ lessonData, setSliderState }) => {
+    const { settings, updateSettings } = useContext(AppContext);
     const { playCorrect, playWrong } = useSoundEffect();
+    const [isExitModalOpen, setIsExitModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const [results, setResults] = useState({});
-    const [showPopup, setShowPopup] = useState(false);
-    const [popupWord, setPopupWord] = useState(null); // Explicit state for the word shown in popup
+    const [showPopover, setShowPopover] = useState(false);
+    const [isReviewing, setIsReviewing] = useState(false); // New state for Review Mode
 
+    // We only need to track the currently active interactive word for the progression
     // Flatten words to find interactive ones
     const interactiveWords = useMemo(() => {
         let words = [];
@@ -24,48 +26,92 @@ const TasykilMode = ({ lessonData }) => {
         return words;
     }, [lessonData]);
 
-    // Current active word for PROGRESSION (highlighting)
     const activeWord = interactiveWords[activeIndex];
     const totalInteractive = interactiveWords.length;
-    const progress = Math.round((Object.keys(results).length / totalInteractive) * 100);
+    const answeredCount = Object.keys(results).length;
 
-    // Helper to shuffle options
-    const getShuffledOptions = (word) => {
-        if (!word) return [];
-        const allOptions = [word.berharakat, ...word.tasykil_options];
-        // Simple shuffle
-        return allOptions.sort(() => Math.random() - 0.5);
-    };
+    // Accuracy logic: (Correct Answers / Total Questions) * 100
+    const correctCount = Object.values(results).filter(r => r.status === 'correct').length;
+    const progress = totalInteractive > 0 ? Math.round((correctCount / totalInteractive) * 100) : 0;
 
-    const [currentOptions, setCurrentOptions] = useState([]);
+    // Finished state definition
+    const isFinished = totalInteractive > 0 && answeredCount === totalInteractive;
 
-    // Update options when popup target changes
+    // This state holds the ID of the word that is currently showing the popover.
+    // Usually it's the activeWord.id, but it can be a previously answered word if clicked.
+    const [popoverTargetId, setPopoverTargetId] = useState(null);
+
+    // Setup initial popover on mount
     useEffect(() => {
-        if (popupWord) {
-            setCurrentOptions(getShuffledOptions(popupWord));
+        if (interactiveWords.length > 0 && !popoverTargetId) {
+            setPopoverTargetId(interactiveWords[0].id);
+            setShowPopover(true);
         }
-    }, [popupWord]);
+    }, [interactiveWords]);
 
-    const handleWordClick = (pIndex, wIndex) => {
+    // Update popover options when target changes
+    const currentOptions = useMemo(() => {
+        if (!popoverTargetId) return [];
+        const [pIdx, wIdx] = popoverTargetId.split('-').map(Number);
+        const wordData = lessonData.textData[pIdx][wIdx];
+        if (!wordData || !wordData.tasykil_options) return [];
+
+        const allOptions = [wordData.berharakat, ...wordData.tasykil_options];
+        return allOptions.sort(() => Math.random() - 0.5);
+    }, [popoverTargetId, lessonData]);
+
+    const handleWordClick = (pIndex, wIndex, isInteractive, wordResult) => {
         const clickedId = `${pIndex}-${wIndex}`;
-        const clickedWord = interactiveWords.find(w => w.id === clickedId);
 
-        const isCurrentActive = activeWord && clickedId === activeWord.id;
-        const isWrongAnswered = results[clickedId] && results[clickedId].status === 'wrong';
+        // Only interactive words can show the tasykil popover
+        if (!isInteractive) return;
 
-        if (clickedWord && (isCurrentActive || isWrongAnswered)) {
-            setPopupWord(clickedWord); // Set specific word for popup
-            setShowPopup(true);
+        // Prevent opening popovers if in review mode (user should only see results)
+        if (isReviewing) return;
+
+        // If clicking the currently active question or an already answered question
+        if ((activeWord && clickedId === activeWord.id) || wordResult) {
+            if (showPopover && popoverTargetId === clickedId) {
+                // Toggle off if clicking the same open popover
+                setShowPopover(false);
+                setPopoverTargetId(null);
+            } else {
+                // Open popover for this specific word
+                setPopoverTargetId(clickedId);
+                setShowPopover(true);
+            }
         }
     };
 
-    const handleOptionSelect = (option) => {
-        if (!popupWord) return;
+    const handleWordDoubleClick = (wordData, isInteractive, wordResult) => {
+        // Double click shows I'rab for ALL words.
+        // But for interactive words, it only shows if the word has been answered.
+        if (isInteractive && !wordResult) {
+            return; // Word is part of quiz but hasn't been answered yet
+        }
 
-        const isCorrect = option === popupWord.berharakat;
+        if (wordData.irab) {
+            setSliderState({
+                isOpen: true,
+                title: wordData.berharakat,
+                content: <p className="text-right leading-loose font-arabic" dir="rtl">{wordData.irab}</p>,
+                type: 'irab',
+                link: wordData.link
+            });
+        }
+    };
+
+    const handleOptionSelect = (option, e) => {
+        e.stopPropagation(); // Prevent bubbling to word click
+        if (!popoverTargetId) return;
+
+        const [pIdx, wIdx] = popoverTargetId.split('-').map(Number);
+        const wordData = lessonData.textData[pIdx][wIdx];
+
+        const isCorrect = option === wordData.berharakat;
         const newResults = {
             ...results,
-            [popupWord.id]: {
+            [popoverTargetId]: {
                 status: isCorrect ? 'correct' : 'wrong',
                 selectedOption: option
             }
@@ -74,163 +120,266 @@ const TasykilMode = ({ lessonData }) => {
 
         if (isCorrect) {
             playCorrect();
-            setShowPopup(false);
-            setPopupWord(null); // Clear popup word on correct answer
-            if (activeIndex < interactiveWords.length - 1) {
-                setActiveIndex(prev => prev + 1);
-            }
         } else {
             playWrong();
-            // If wrong, keep popup open (it will re-render as Review Mode)
+        }
+
+        // Auto advance logic for BOTH correct and wrong
+        if (activeWord && popoverTargetId === activeWord.id) {
+            if (activeIndex < interactiveWords.length - 1) {
+                const nextActiveWord = interactiveWords[activeIndex + 1];
+                setActiveIndex(activeIndex + 1);
+                setPopoverTargetId(nextActiveWord.id); // Move popover to next
+            } else {
+                // Quiz finished
+                setShowPopover(false);
+                setPopoverTargetId(null);
+            }
+        } else {
+            // We were reviewing a past answer, just close it
+            setShowPopover(false);
+            setPopoverTargetId(null);
         }
     };
 
-    const handleClosePopup = () => {
-        // If we are closing the popup for the CURRENT active word (which refers to the one we just got wrong),
-        // we should advance to the next word to allow "continued mode".
-        const isActiveIndexWord = activeWord && popupWord && activeWord.id === popupWord.id;
-        // Only advance if it was answered (wrong). If just closed without answering (e.g. clicked outside before picking), don't advance.
-        const isAnswered = results[popupWord?.id];
-
-        setShowPopup(false);
-        setPopupWord(null);
-
-        if (isActiveIndexWord && isAnswered) {
-            if (activeIndex < interactiveWords.length - 1) {
-                setActiveIndex(prev => prev + 1);
-            }
+    // Close popover when clicking outside (on the background container)
+    const handleContainerClick = (e) => {
+        // If clicking directly on the container (not its children), close popover
+        if (e.target.id === 'text-container') {
+            setShowPopover(false);
         }
+    };
+
+    const handleRestart = () => {
+        setResults({});
+        setActiveIndex(0);
+        setIsReviewing(false);
+        if (interactiveWords.length > 0) {
+            setPopoverTargetId(interactiveWords[0].id);
+            setShowPopover(true);
+        }
+    };
+
+    const handleReview = () => {
+        setIsReviewing(true);
+        setShowPopover(false);
+        setPopoverTargetId(null);
     };
 
     return (
-        <div className="flex flex-col gap-6">
-            {/* Progress Bar */}
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div className="bg-teal-600 h-2.5 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
-                <p className="text-xs text-right mt-1 text-gray-500">{Object.keys(results).length} / {totalInteractive} Kata Selesai</p>
-            </div>
+        <div className="fixed inset-0 z-[100] bg-[#f8fafc] dark:bg-slate-900 overflow-y-auto w-full h-full" onClick={handleContainerClick}>
+            <ConfirmationModal
+                isOpen={isExitModalOpen}
+                message="Apakah Anda yakin ingin keluar dari Mode Tasykil? Progres latihan akan hilang."
+                onConfirm={() => {
+                    setIsExitModalOpen(false);
+                    updateSettings({ isTasykilMode: false });
+                }}
+                onCancel={() => setIsExitModalOpen(false)}
+            />
 
-            {/* Main Text Container */}
-            <div id="text-container" className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-white/20 p-6 rounded-xl shadow-lg text-right leading-loose font-arabic select-none relative" dir="rtl" style={{ fontSize: 'var(--arabic-font-size)', lineHeight: 'var(--arabic-line-height)' }}>
+            {/* Finished Dialog */}
+            {isFinished && !isReviewing && (
+                <div className="fixed inset-0 z-[120] bg-black/60 flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl animate-fade-in relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-teal-600"></div>
+                        <h2 className="text-3xl font-bold mb-2 text-gray-800 dark:text-gray-100">Kuis Selesai!</h2>
+                        <p className="text-gray-500 dark:text-gray-400 mb-6">Berikut adalah hasil latihan Anda:</p>
 
-                {lessonData.textData.map((paragraph, pIndex) => (
-                    <p key={pIndex} className="mb-6">
-                        {paragraph.map((wordData, wIndex) => {
-                            const wordId = `${pIndex}-${wIndex}`;
-                            const isInteractive = wordData.tasykil_options && wordData.tasykil_options.length > 0;
-                            const result = results[wordId];
-                            const isActive = activeWord && activeWord.id === wordId;
-
-                            let displayText = wordData.berharakat;
-                            if (isInteractive) {
-                                if (!result) {
-                                    displayText = wordData.gundul;
-                                } else if (result.status === 'wrong') {
-                                    displayText = result.selectedOption;
-                                }
-                            }
-
-                            const canClick = isInteractive && (isActive || (result && result.status === 'wrong'));
-
-                            let boxClass = "inline-flex justify-center px-1 rounded transition-all duration-300 relative ";
-                            let style = { marginLeft: 'var(--word-spacing)' };
-
-                            if (isInteractive) {
-                                if (!result) {
-                                    // Unanswered state
-                                    boxClass += "border-2 border-dashed ";
-                                    if (isActive) {
-                                        boxClass += "border-teal-500 bg-teal-50 dark:bg-teal-900/30 cursor-pointer animate-pulse ";
-                                    } else {
-                                        boxClass += "border-gray-300 text-gray-400 ";
-                                    }
-                                } else if (result.status === 'correct') {
-                                    boxClass += "text-green-600 font-bold ";
-                                } else if (result.status === 'wrong') {
-                                    boxClass += "text-red-500 decoration-wavy decoration-red-500 cursor-pointer ";
-                                }
-                            }
-
-                            return (
-                                <span
-                                    key={wIndex}
-                                    className={boxClass}
-                                    style={style}
-                                    onClick={() => canClick && handleWordClick(pIndex, wIndex)}
-                                >
-                                    {displayText}
-                                </span>
-                            );
-                        })}
-                    </p>
-                ))}
-
-                {/* Tasykil Popup System */}
-                {showPopup && popupWord && (() => {
-                    const wordResult = results[popupWord.id];
-                    const isReviewMode = wordResult && wordResult.status === 'wrong';
-
-                    return (
-                        <div
-                            className="absolute inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-[1px] rounded-xl"
-                            onClick={(e) => {
-                                // Close if clicked on backdrop
-                                if (e.target === e.currentTarget) handleClosePopup();
-                            }}
-                        >
-                            <div className={`p-6 rounded-2xl shadow-2xl border-2 transform transition-all scale-100 max-w-sm w-full mx-4 ${isReviewMode ? 'bg-red-50 dark:bg-slate-800 border-red-200 dark:border-red-900' : 'bg-[#f0f4e8] dark:bg-slate-700 border-yellow-600/30'}`}>
-                                <div className="text-center mb-4">
-                                    <span className={`text-sm font-bold ${isReviewMode ? 'text-red-500' : 'text-gray-500'}`}>
-                                        {isReviewMode ? 'Jawaban Salah' : 'Pilih Harakat yang Benar:'}
-                                    </span>
-                                    <div className="text-3xl mt-2 font-bold font-arabic text-gray-800 dark:text-white border-b-2 border-dashed border-gray-300 pb-2 inline-block px-4">
-                                        {popupWord.gundul}
-                                    </div>
-                                </div>
-                                <div className="flex flex-col gap-3">
-                                    {currentOptions.map((option, idx) => {
-                                        let btnClass = "w-full py-3 px-4 border rounded-xl transition-all font-arabic text-2xl text-center shadow-sm ";
-
-                                        if (isReviewMode) {
-                                            btnClass += "cursor-default ";
-                                            if (option === popupWord.berharakat) {
-                                                // Correct Answer
-                                                btnClass += "bg-green-100 border-green-500 text-green-700 dark:bg-green-900/50 dark:text-green-300 dark:border-green-500 font-bold ";
-                                            } else if (option === wordResult.selectedOption) {
-                                                // Selected Wrong Answer
-                                                btnClass += "bg-red-100 border-red-500 text-red-700 dark:bg-red-900/50 dark:text-red-300 dark:border-red-500 ";
-                                            } else {
-                                                // Other Options
-                                                btnClass += "bg-gray-50 text-gray-400 border-gray-200 dark:bg-slate-800/50 dark:text-gray-600 dark:border-slate-700 opacity-50 ";
-                                            }
-                                        } else {
-                                            // Normal Mode
-                                            btnClass += "bg-white/50 hover:bg-white dark:bg-slate-600 dark:hover:bg-slate-500 border-gray-200 dark:border-slate-500 hover:shadow-md active:scale-95 cursor-pointer ";
-                                        }
-
-                                        return (
-                                            <button
-                                                key={idx}
-                                                onClick={() => !isReviewMode && handleOptionSelect(option)}
-                                                className={btnClass}
-                                                disabled={isReviewMode}
-                                            >
-                                                {option}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                                <button
-                                    onClick={handleClosePopup}
-                                    className="mt-6 text-xs text-gray-500 hover:text-gray-700 w-full text-center hover:underline"
-                                >
-                                    {isReviewMode ? 'Tutup' : 'Batal'}
-                                </button>
+                        <div className="flex justify-around items-center mb-8 bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl">
+                            <div>
+                                <div className="text-4xl font-black text-green-500">{Object.values(results).filter(r => r.status === 'correct').length}</div>
+                                <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mt-1">Benar</div>
+                            </div>
+                            <div className="w-px h-12 bg-gray-200 dark:bg-slate-600"></div>
+                            <div>
+                                <div className="text-4xl font-black text-red-500">{Object.values(results).filter(r => r.status === 'wrong').length}</div>
+                                <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase mt-1">Salah</div>
                             </div>
                         </div>
-                    );
-                })()}
 
+                        <div className="mb-8">
+                            <div className="text-6xl font-black text-teal-500 drop-shadow-sm">{progress}%</div>
+                            <div className="text-sm text-gray-500 dark:text-gray-400 mt-2 font-medium">Akurasi Keseluruhan</div>
+                        </div>
+
+                        <div className="flex flex-col gap-3">
+                            <button onClick={handleReview} className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
+                                Tinjau Jawaban
+                            </button>
+                            <button onClick={handleRestart} className="w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
+                                Ulangi Latihan
+                            </button>
+                            <button onClick={() => updateSettings({ isTasykilMode: false })} className="w-full py-3.5 bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-200 font-bold rounded-xl transition-all active:scale-95">
+                                Kembali ke Pelajaran
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <div className="flex flex-col min-h-screen">
+                {/* Sticky Header and Progress Bar */}
+                <div className="sticky top-0 z-40 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-slate-700">
+                    <div className="flex items-center justify-between p-4">
+                        <button
+                            onClick={() => setIsExitModalOpen(true)}
+                            className="w-10 h-10 flex items-center justify-center text-3xl pb-1 text-gray-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/40 rounded-full transition-colors"
+                            title="Keluar Mode Tasykil"
+                        >
+                            &times;
+                        </button>
+                        <div className="text-center flex-1">
+                            <h2 className="text-xl font-bold font-arabic text-teal-700 dark:text-teal-400" dir="rtl">{lessonData.titleArabic}</h2>
+                            <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300">{lessonData.title}</h3>
+                        </div>
+                        <div className="w-10 flex items-center justify-center">
+                            {isReviewing && (
+                                <button
+                                    onClick={() => setIsReviewing(false)}
+                                    className="px-3 py-1.5 bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300 rounded-lg text-sm font-bold shadow-sm"
+                                >
+                                    Skor
+                                </button>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Progress Bar inside sticky header */}
+                    <div className="px-4 pb-4">
+                        <div className="w-full max-w-5xl mx-auto flex items-center gap-4">
+                            <div className="flex-1 bg-gray-200 rounded-full h-2 dark:bg-gray-700 overflow-hidden">
+                                <div className="bg-gradient-to-r from-teal-400 to-teal-600 h-2 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+                            </div>
+                            <span className="text-xs font-bold text-teal-600 dark:text-teal-400 whitespace-nowrap min-w-[60px] text-right">
+                                {answeredCount} / {totalInteractive}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="container mx-auto max-w-5xl p-4 md:p-8 flex-1 flex flex-col gap-6" id="text-container">
+                    {/* Main Text Container */}
+                    <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-gray-100 dark:border-slate-700 p-6 md:p-10 lg:p-12 rounded-2xl shadow-xl text-right leading-loose font-arabic select-none transition-colors mt-2" dir="rtl" style={{ fontSize: 'var(--arabic-font-size)', lineHeight: 'var(--arabic-line-height)' }}>
+                        {lessonData.textData.map((paragraph, pIndex) => (
+                            <p key={pIndex} className="mb-8">
+                                {paragraph.map((wordData, wIndex) => {
+                                    const wordId = `${pIndex}-${wIndex}`;
+                                    const isInteractive = wordData.tasykil_options && wordData.tasykil_options.length > 0;
+                                    const wordResult = results[wordId];
+                                    const isActiveTarget = activeWord && activeWord.id === wordId;
+                                    const isPopoverTarget = showPopover && popoverTargetId === wordId;
+
+                                    let displayText = wordData.berharakat; // Default for non-interactive
+
+                                    if (isInteractive) {
+                                        if (!wordResult) {
+                                            displayText = wordData.gundul;
+                                        } else if (wordResult.status === 'wrong') {
+                                            displayText = wordResult.selectedOption;
+                                        }
+                                    }
+
+                                    // Styling Logic
+                                    let boxClass = "inline-flex justify-center px-1 rounded transition-all duration-300 relative border-2 ";
+                                    let style = { marginLeft: 'var(--word-spacing)' };
+
+                                    if (isInteractive) {
+                                        boxClass += "cursor-pointer ";
+                                        if (!wordResult) {
+                                            // Unanswered state - dashed border
+                                            boxClass += "border-dashed ";
+                                            if (isActiveTarget) {
+                                                boxClass += "border-teal-500 bg-teal-50 dark:bg-teal-900/40 animate-pulse text-teal-900 dark:text-teal-100 font-bold ";
+                                            } else {
+                                                boxClass += "border-gray-300 text-gray-400 dark:text-gray-500 border-opacity-50 dark:border-opacity-30 ";
+                                            }
+                                        } else if (wordResult.status === 'correct') {
+                                            // Correct answered state - solid border
+                                            boxClass += "border-solid text-green-600 dark:text-green-400 font-bold border-green-200 dark:border-green-900/40 bg-green-50/50 dark:bg-green-900/20 ";
+                                        } else if (wordResult.status === 'wrong') {
+                                            // Wrong answered state - solid border
+                                            boxClass += "border-solid text-red-500 dark:text-red-400 decoration-wavy decoration-red-500 border-red-200 dark:border-red-900/40 ";
+                                            if (isPopoverTarget) {
+                                                boxClass += "bg-red-50 dark:bg-red-900/30 ";
+                                            }
+                                        }
+                                    } else {
+                                        // Keep non-interactive words in their normal styling
+                                        boxClass += "border-transparent text-gray-800 dark:text-gray-200 cursor-default ";
+                                    }
+
+                                    return (
+                                        <span
+                                            key={wIndex}
+                                            className="relative inline-block" // Wrapper for positioning popover
+                                            style={style}
+                                        >
+                                            <span
+                                                className={boxClass}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleWordClick(pIndex, wIndex, isInteractive, wordResult);
+                                                }}
+                                                onDoubleClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleWordDoubleClick(wordData, isInteractive, wordResult);
+                                                }}
+                                            >
+                                                {displayText}
+                                            </span>
+
+                                            {/* Dynamic Popover */}
+                                            {isPopoverTarget && (
+                                                <div
+                                                    // The style property `fontSize: '1rem'` ensures we reset the scale logic to match the arabic text
+                                                    // 1em of popover will equal the active font size of the parent arabic text
+                                                    className="absolute z-50 mt-[0.2em] bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-2xl p-[0.3em] w-max min-w-[3em] right-1/2 translate-x-1/2 transform transition-all text-center"
+                                                    onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside popover
+                                                >
+                                                    {/* Pointer Triangle */}
+                                                    <div className="absolute -top-[0.2em] right-1/2 translate-x-1/2 w-[0.4em] h-[0.4em] bg-white dark:bg-slate-800 border-t border-l border-gray-200 dark:border-slate-700 transform rotate-45"></div>
+
+                                                    <div className="relative z-10">
+                                                        <div className="flex flex-col gap-[0.2em]">
+                                                            {currentOptions.map((option, idx) => {
+                                                                let btnClass = "w-full py-[0.1em] px-[0.2em] border rounded-lg transition-all font-arabic text-center leading-normal ";
+
+                                                                if (wordResult) {
+                                                                    btnClass += "cursor-default ";
+                                                                    if (option === wordData.berharakat) {
+                                                                        btnClass += "bg-green-100 border-green-500 text-green-700 dark:bg-green-900/50 dark:text-green-300 dark:border-green-500 font-bold ";
+                                                                    } else if (wordResult.status === 'wrong' && option === wordResult.selectedOption) {
+                                                                        btnClass += "bg-red-100 border-red-500 text-red-700 dark:bg-red-900/50 dark:text-red-300 dark:border-red-500 ";
+                                                                    } else {
+                                                                        btnClass += "bg-gray-50 text-gray-400 border-gray-100 dark:bg-slate-800/50 dark:text-gray-600 dark:border-slate-700 opacity-50 ";
+                                                                    }
+                                                                } else {
+                                                                    btnClass += "bg-gray-50 hover:bg-teal-50 dark:bg-slate-700 dark:hover:bg-teal-900/30 border-gray-200 dark:border-slate-600 hover:border-teal-300 active:scale-95 cursor-pointer text-gray-800 dark:text-gray-200 ";
+                                                                }
+
+                                                                return (
+                                                                    <button
+                                                                        key={idx}
+                                                                        onClick={(e) => !wordResult && handleOptionSelect(option, e)}
+                                                                        className={btnClass}
+                                                                        disabled={!!wordResult}
+                                                                    >
+                                                                        {option}
+                                                                    </button>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </span>
+                                    );
+                                })}
+                            </p>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );

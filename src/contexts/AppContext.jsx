@@ -80,21 +80,6 @@ export const AppProvider = ({ children }) => {
   const updateSettings = (newSettings) => {
     setSettings(prev => {
       const updated = { ...prev, ...newSettings };
-
-      // If entering Tasykil Mode, disable other modes
-      if (newSettings.isTasykilMode === true) {
-        updated.isHarakatMode = false;
-        updated.isTranslationMode = false;
-        updated.isNgaLogatMode = false;
-        updated.showAllHarakat = false;
-        updated.showAllTranslations = false;
-        updated.showAllNgaLogat = false;
-      }
-      // If entering other modes, disable Tasykil Mode
-      else if (newSettings.isHarakatMode === true || newSettings.isTranslationMode === true || newSettings.isNgaLogatMode === true) {
-        updated.isTasykilMode = false;
-      }
-
       return updated;
     });
   };

@@ -67,7 +67,7 @@ const LearningPage = ({ setSliderState }) => {
         />
 
         {settings.isTasykilMode ? (
-          <TasykilMode lessonData={lessonData} />
+          <TasykilMode lessonData={lessonData} setSliderState={setSliderState} />
         ) : (
           <LessonContent lessonData={lessonData} setSliderState={setSliderState} />
         )}
