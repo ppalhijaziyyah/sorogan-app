@@ -60,6 +60,38 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
         return allOptions.sort(() => Math.random() - 0.5);
     }, [popoverTargetId, lessonData]);
 
+    // Auto-scroll when popover opens or moves
+    useEffect(() => {
+        if (showPopover && popoverTargetId && !isReviewing) {
+            // Give the DOM a tiny bit of time to render the popover before measuring
+            setTimeout(() => {
+                const popoverEl = document.getElementById(`popover-${popoverTargetId}`);
+                if (popoverEl) {
+                    const rect = popoverEl.getBoundingClientRect();
+                    // Check if popover bottom is cut off or too close to bottom edge
+                    // Accounting for some bottom padding (e.g., 20px)
+                    if (rect.bottom > window.innerHeight - 20) {
+                        // We scroll the window so the bottom of the popover is visible
+                        const scrollAmount = rect.bottom - window.innerHeight + 40; // Add 40px buffer
+                        window.scrollBy({
+                            top: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Also check if cut off at the top (less likely, but possible)
+                    if (rect.top < 80) { // 80px to account for the sticky header
+                        const scrollAmount = rect.top - 100;
+                        window.scrollBy({
+                            top: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }, 50); // Small delay to ensure render
+        }
+    }, [showPopover, popoverTargetId, isReviewing]);
+
     const handleWordClick = (pIndex, wIndex, isInteractive, wordResult) => {
         const clickedId = `${pIndex}-${wIndex}`;
 
@@ -332,6 +364,7 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
                                             {/* Dynamic Popover */}
                                             {isPopoverTarget && (
                                                 <div
+                                                    id={`popover-${wordId}`}
                                                     // The style property `fontSize: '1rem'` ensures we reset the scale logic to match the arabic text
                                                     // 1em of popover will equal the active font size of the parent arabic text
                                                     className="absolute z-50 mt-[0.2em] bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-2xl p-[0.3em] w-max min-w-[3em] right-1/2 translate-x-1/2 transform transition-all text-center"
