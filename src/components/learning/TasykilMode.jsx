@@ -85,7 +85,7 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
 
     // Auto-scroll when popover opens or moves
     useEffect(() => {
-        if (showPopover && popoverTargetId && !isReviewing) {
+        if (showPopover && popoverTargetId) {
             // Give the DOM a tiny bit of time to render the popover before measuring
             setTimeout(() => {
                 const popoverEl = document.getElementById(`popover-${popoverTargetId}`);
@@ -116,7 +116,7 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
                 }
             }, 50); // Small delay to ensure render
         }
-    }, [showPopover, popoverTargetId, isReviewing]);
+    }, [showPopover, popoverTargetId]);
 
     const handleWordClick = (pIndex, wIndex, isInteractive, wordResult) => {
         const clickedId = `${pIndex}-${wIndex}`;
