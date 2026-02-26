@@ -36,7 +36,8 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
 
     // Accuracy logic: (Correct Answers / Total Questions) * 100
     const correctCount = Object.values(results).filter(r => r.status === 'correct').length;
-    const progress = totalInteractive > 0 ? Math.round((correctCount / totalInteractive) * 100) : 0;
+    const accuracy = totalInteractive > 0 ? Math.round((correctCount / totalInteractive) * 100) : 0;
+    const progress = totalInteractive > 0 ? Math.round((answeredCount / totalInteractive) * 100) : 0;
 
     // Finished state definition
     const isFinished = totalInteractive > 0 && answeredCount === totalInteractive;
@@ -254,7 +255,7 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
                         </div>
 
                         <div className="mb-8">
-                            <div className="text-6xl font-black text-teal-500 drop-shadow-sm">{progress}%</div>
+                            <div className="text-6xl font-black text-teal-500 drop-shadow-sm">{accuracy}%</div>
                             <div className="text-sm text-gray-500 dark:text-gray-400 mt-2 font-medium">Akurasi Keseluruhan</div>
                         </div>
 
