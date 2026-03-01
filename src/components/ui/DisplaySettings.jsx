@@ -98,14 +98,14 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
         // Reset transform
         dropdownRef.current.style.transform = '';
 
-        if (deltaY > 100) {
+        if (deltaY > 50) {
             // Dragged down significantly
             if (sheetHeight === 'auto') {
                 setSheetHeight('50vh');
             } else {
                 handleCloseWithAnimation();
             }
-        } else if (deltaY < -50 && sheetHeight === '50vh') {
+        } else if (deltaY < -30 && sheetHeight === '50vh') {
             // Dragged up from half height -> Expand
             setSheetHeight('auto');
         }

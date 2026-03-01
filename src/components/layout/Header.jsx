@@ -116,7 +116,7 @@ const Header = () => {
       {/* Overlay Menu Mobile */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-lg animate-fade-in"
+          className="fixed inset-0 z-[100] bg-slate-900/70 backdrop-blur-lg animate-fade-in"
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <div
