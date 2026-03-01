@@ -29,15 +29,6 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
     // Calculate style only when the tooltip is meant to be visible
     if (isTranslationVisible && wordData.terjemahan && wordRef.current) {
       const wordSpan = wordRef.current;
-
-      // --- Logic from vanilla app ---
-      const computedStyle = getComputedStyle(wordSpan);
-      const lineHeight = parseFloat(computedStyle.lineHeight);
-      const fontSize = parseFloat(computedStyle.fontSize);
-      const spaceAbove = (lineHeight - fontSize) / 2;
-      const textBottomPosition = spaceAbove + fontSize;
-      const top = textBottomPosition + 8;
-
       const arabicTextWidth = wordSpan.offsetWidth;
 
       // Use a temporary element to measure the longest word in the translation
@@ -59,7 +50,7 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
 
       const width = Math.max(arabicTextWidth, longestWordWidth) + 16; // Add some padding
 
-      setTooltipStyle({ top: `${top}px`, width: `${width}px` });
+      setTooltipStyle({ width: `${width}px` });
     }
   }, [isTranslationVisible, wordData.terjemahan]);
 
@@ -69,12 +60,17 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
     <span
       onClick={() => !isPunctuation && onClick()}
       onDoubleClick={() => !isPunctuation && onDoubleClick()}
-      className={`relative inline-flex justify-center transition-[min-width] duration-300 ease-in-out px-1 group ${isPunctuation ? '' : 'cursor-pointer rounded'}`}
-      style={{ marginLeft: 'var(--word-spacing)', verticalAlign: 'middle', minWidth: isTranslationVisible && tooltipStyle.width ? tooltipStyle.width : '0px', lineHeight: '1' }}
+      className={`relative inline-flex flex-col justify-start items-center transition-[min-width] duration-300 ease-in-out px-1 group ${isPunctuation ? '' : 'cursor-pointer rounded'}`}
+      style={{
+        marginLeft: 'var(--word-spacing)',
+        verticalAlign: 'top',
+        minWidth: isTranslationVisible && tooltipStyle.width ? tooltipStyle.width : '0px',
+        lineHeight: '1'
+      }}
     >
       {/* Custom hover background */}
       {!isPunctuation && (
-        <span className="absolute left-0 right-0 -top-[10px] -bottom-[10px] bg-teal-500/10 dark:bg-teal-400/10 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-0" />
+        <span className="absolute left-0 right-0 top-0 bottom-0 bg-teal-500/10 dark:bg-teal-400/10 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-0" />
       )}
       <span ref={wordRef} className="relative z-10">{displayText}</span>
 
@@ -96,12 +92,37 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
           </span>
         );
       })}
-      {isTranslationVisible && wordData.terjemahan && (
+      {/* Animated Translation Box in Document Flow */}
+      {wordData.terjemahan && (
         <div
-          className="translation-tooltip"
-          style={{ ...tooltipStyle, fontSize: 'var(--tooltip-font-size)' }}
+          className={`grid transition-all duration-300 ease-in-out w-full pointer-events-none`}
+          style={{
+            gridTemplateRows: isTranslationVisible ? '1fr' : '0fr',
+            opacity: isTranslationVisible ? 1 : 0,
+            marginBottom: isTranslationVisible ? 'var(--toast-margin-bottom)' : '0px',
+            maxWidth: isTranslationVisible ? '224px' : '0px'
+          }}
         >
-          {wordData.terjemahan}
+          <div
+            className="overflow-hidden flex justify-center min-h-0 w-full"
+            style={{ paddingTop: 'var(--toast-padding-top)' }}
+          >
+            <div
+              className="translation-tooltip"
+              dir="ltr"
+              style={{
+                fontSize: 'var(--tooltip-font-size)',
+                position: 'relative',  // use relative so ::before triangle anchors here
+                top: '0',              // override top: 100% from CSS
+                left: '0',             // override left: 50% from CSS
+                transform: 'none',     // override transform from CSS
+                margin: '0 auto',      // override top margin from CSS
+                width: tooltipStyle.width ? tooltipStyle.width : 'max-content'   // ensure wrapping happens properly relative to max-width
+              }}
+            >
+              {wordData.terjemahan}
+            </div>
+          </div>
         </div>
       )}
     </span>

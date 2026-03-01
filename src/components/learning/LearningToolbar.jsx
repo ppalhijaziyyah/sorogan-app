@@ -53,9 +53,13 @@ const LearningToolbar = ({
     );
   }, [lessonData]);
 
+  if (hasTasykilData) {
+    // Keep Tasykil check logic intact
+  }
+
   return (
-    <div className="flex justify-center items-center mb-8">
-      <div className="inline-flex rounded-full shadow-sm border border-gray-200 dark:border-slate-700" role="group">
+    <div className="relative z-50 flex justify-center items-center mb-8 animate-in fade-in slide-in-from-left-4 duration-300">
+      <div className="inline-flex rounded-full shadow-sm border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 backdrop-blur-sm" role="group">
 
         {/* Harakat Mode Toggle */}
         <button
@@ -141,6 +145,7 @@ const LearningToolbar = ({
             onClose={() => setSettingsOpen(false)}
           />
         </div>
+
       </div>
     </div>
   );

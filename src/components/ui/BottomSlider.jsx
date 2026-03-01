@@ -55,18 +55,28 @@ const BottomSlider = ({ sliderState, onClose }) => {
         <div className={`prose dark:prose-invert max-w-none ${fontClass}`} style={sizeStyle}>
           {content}
           {type === 'irab' && sliderState.link && (
-            <div className="mt-4 text-center">
-              <a
-                href={sliderState.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
-              >
-                Pelajari Lebih Lanjut
-                <svg className="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+            <div className="mt-6 font-sans">
+              <details className="group bg-teal-50 dark:bg-slate-700/50 rounded-xl overflow-hidden shadow-sm border border-teal-100 dark:border-slate-700 transition-all duration-300">
+                <summary
+                  className="flex items-center justify-between cursor-pointer px-4 py-3 font-semibold text-teal-800 dark:text-teal-300 bg-white/50 dark:bg-slate-800/50 hover:bg-teal-100/50 dark:hover:bg-slate-700/80 transition-colors"
+                  style={{ fontSize: 'var(--accordion-title-size, 18px)' }}
+                >
+                  <span className="flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Penjelasan Tambahan
+                  </span>
+                  <svg className="w-4 h-4 text-teal-600 dark:text-teal-400 transform transition-transform group-open:-rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div
+                  className="px-4 py-3 text-gray-700 dark:text-gray-300 border-t border-teal-100 dark:border-slate-700 leading-relaxed"
+                  style={{ fontSize: 'var(--accordion-content-size, 14px)' }}
+                  dangerouslySetInnerHTML={{ __html: sliderState.link }}
+                />
+              </details>
             </div>
           )}
         </div>

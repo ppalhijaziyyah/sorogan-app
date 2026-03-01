@@ -2,24 +2,13 @@ import React, { createContext, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import ngalogatSymbolColors from '../data/ngalogat-symbol-colors.json'; // Import ngalogatSymbolColors
 
+import { appConfig } from '../config/app-config';
+
 export const AppContext = createContext();
 
 const defaultSettings = {
-  isHarakatMode: true,
-  isTranslationMode: false,
-  showAllTranslations: false, // New setting
-  showAllHarakat: false,
-  isFocusMode: false,
-  arabicSize: 1.875,
-  lineHeight: 2.5,
-  wordSpacing: 0.25,
-  tooltipSize: 0.875,
-  irabSize: 1.5,
-  isNgaLogatMode: false, // Renamed from showNgaLogat
-  showAllNgaLogat: false, // New setting
-  useNgaLogatColorCoding: false,
-  isTasykilMode: false, // New mode
-  isSoundEnabled: true, // Helper sound toggle
+  ...appConfig.defaultFeatures,
+  ...appConfig.defaultTextSettings
 };
 
 // Function to apply settings to the DOM
@@ -32,6 +21,21 @@ const applySettingsToDOM = (settings) => {
   // Calculate nga-logat size proportional to arabic size (approx 55%)
   const ngaLogatSize = settings.arabicSize * 0.55;
   document.documentElement.style.setProperty('--ngalogat-font-size', `${ngaLogatSize}rem`);
+
+  // Accordion text sizes
+  document.documentElement.style.setProperty('--accordion-title-size', settings.accordionTitleSize);
+  document.documentElement.style.setProperty('--accordion-content-size', settings.accordionContentSize);
+
+  // Font Family
+  if (settings.arabicFontFamily) {
+    document.documentElement.style.setProperty('--arabic-font-family', settings.arabicFontFamily);
+  } else {
+    document.documentElement.style.setProperty('--arabic-font-family', '"Noto Naskh Arabic", serif');
+  }
+
+  // Layout Spacing (Toasts)
+  document.documentElement.style.setProperty('--toast-padding-top', appConfig.layout.pt_toast);
+  document.documentElement.style.setProperty('--toast-margin-bottom', appConfig.layout.mb_toast);
 };
 
 export const AppProvider = ({ children }) => {
@@ -50,6 +54,11 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     applySettingsToDOM(settings);
   }, [settings]);
+
+  // Set App Name to Document Title
+  useEffect(() => {
+    document.title = appConfig.appName;
+  }, []);
 
   // Ensure new default settings (like isSoundEnabled) are merged for existing users
   useEffect(() => {

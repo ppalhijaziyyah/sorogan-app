@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import SettingToggle from './SettingToggle';
 
 // Inline Icons for better performance and no external deps
@@ -45,21 +46,32 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
     const dropdownRef = useRef(null);
     const [sheetHeight, setSheetHeight] = useState('auto'); // 'auto' or '50vh'
     const [isDragging, setIsDragging] = useState(false);
+    const [isShowing, setIsShowing] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const startY = useRef(0);
     const currentY = useRef(0);
 
-    // Prevent scrolling when mobile drawer is open
     useEffect(() => {
-        if (isOpen && window.innerWidth < 768) {
-            document.body.style.overflow = 'hidden';
-            setSheetHeight('auto'); // Reset height on open
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Handle drawer open state
+    useEffect(() => {
+        if (isOpen) {
+            if (isMobile) {
+                setSheetHeight('auto'); // Reset height on open
+            }
+            // Trigger animation shortly after mount
+            const timer = setTimeout(() => setIsShowing(true), 10);
+            return () => {
+                clearTimeout(timer);
+            };
         } else {
-            document.body.style.overflow = 'unset';
+            setIsShowing(false);
         }
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, [isOpen]);
+    }, [isOpen, isMobile]);
 
     const handleTouchStart = (e) => {
         setIsDragging(true);
@@ -89,19 +101,9 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
         if (deltaY > 100) {
             // Dragged down significantly
             if (sheetHeight === 'auto') {
-                // If full height, snap to half height? Or close?
-                // User request: "drag to half screen" to calibrate
-                // Let's implement: Default is auto (full content). Drag down -> Close.
-                // BUT user wants to "geser ke bawah jadi setengah layar".
-                // So logic:
-                // If currently full/auto -> Drag down -> Snack to 50vh.
-                // If currently 50vh -> Drag down -> Close.
-
-                // However, detecting "auto" height is tricky. 
-                // Let's assume default is basically full content.
                 setSheetHeight('50vh');
             } else {
-                onClose();
+                handleCloseWithAnimation();
             }
         } else if (deltaY < -50 && sheetHeight === '50vh') {
             // Dragged up from half height -> Expand
@@ -109,14 +111,21 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
         }
     };
 
+    const handleCloseWithAnimation = () => {
+        setIsShowing(false);
+        setTimeout(() => {
+            onClose();
+        }, 300); // Wait for transition to finish
+    };
+
     if (!isOpen) return null;
 
-    return (
-        <>
+    const content = (
+        <div className="display-settings-container">
             {/* Backdrop for Mobile */}
             <div
-                className="fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity"
-                onClick={onClose}
+                className={`fixed inset-0 bg-black z-40 md:hidden transition-opacity duration-300 ease-in-out ${isShowing ? 'bg-opacity-50' : 'bg-opacity-0 pointer-events-none'}`}
+                onClick={handleCloseWithAnimation}
             />
 
             {/* Container: Bottom Sheet on Mobile, Dropdown on Desktop */}
@@ -127,11 +136,12 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                     bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-white/10 dark:border-slate-700/50
                     rounded-t-2xl shadow-2xl overflow-hidden flex flex-col
                     md:absolute md:top-full md:right-0 md:bottom-auto md:left-auto md:w-80 md:rounded-xl md:border md:dark:border-slate-700 md:max-h-[600px] md:h-auto
-                    transition-all duration-300 ease-out transform
+                    transition-all duration-300 ease-in-out transform
+                    ${isShowing ? 'translate-y-0 md:translate-y-2 opacity-100' : 'translate-y-full md:translate-y-0 opacity-0 pointer-events-none md:scale-95'}
                 `}
                 style={{
-                    height: window.innerWidth < 768 ? sheetHeight : 'auto',
-                    maxHeight: window.innerWidth < 768 && sheetHeight === 'auto' ? '85vh' : undefined
+                    height: isMobile ? sheetHeight : 'auto',
+                    maxHeight: isMobile && sheetHeight === 'auto' ? '85vh' : undefined
                 }}
             >
                 {/* Drag Handle for Mobile */}
@@ -148,7 +158,7 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                     {/* Mobile Header with Close Button */}
                     <div className="flex justify-between items-center mb-4 md:hidden">
                         <h2 className="text-lg font-bold text-gray-900 dark:text-white">Pengaturan Tampilan</h2>
-                        <button onClick={onClose} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                        <button onClick={handleCloseWithAnimation} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
                             <Icons.Close />
                         </button>
                     </div>
@@ -157,6 +167,29 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                         {/* Section: Tampilan Teks */}
                         <div>
                             <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Tampilan Teks</h3>
+
+                            <div className="mb-3">
+                                <label htmlFor="arabic-font-select" className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Gaya Huruf Arab
+                                </label>
+                                <div className="relative">
+                                    <select
+                                        id="arabic-font-select"
+                                        value={settings.arabicFontFamily || '"Noto Naskh Arabic", serif'}
+                                        onChange={(e) => updateSettings({ arabicFontFamily: e.target.value })}
+                                        className="w-full appearance-none bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm rounded-lg px-3 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-colors"
+                                    >
+                                        <option value='"Noto Naskh Arabic", serif'>Noto Naskh (Standar)</option>
+                                        <option value='"Amiri", serif'>Amiri (Klasik)</option>
+                                        <option value='"Lateef", serif'>Lateef (Lugas)</option>
+                                        <option value='"Scheherazade New", serif'>Scheherazade (Tebal)</option>
+                                    </select>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none text-slate-400">
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+
                             <SettingSlider
                                 label="Ukuran Teks Arab"
                                 id="arabic-font-slider"
@@ -178,26 +211,6 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                                 min="0.75" max="2" step="0.0625"
                                 value={settings.irabSize}
                                 onChange={(e) => updateSettings({ irabSize: parseFloat(e.target.value) })}
-                            />
-                        </div>
-
-                        {/* Section: Tata Letak */}
-                        <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
-                            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider my-3">Tata Letak</h3>
-                            <SettingSlider
-                                label="Jarak Antar Kata"
-                                id="word-spacing-slider"
-                                min="0" max="1" step="0.05"
-                                value={settings.wordSpacing}
-                                onChange={(e) => updateSettings({ wordSpacing: parseFloat(e.target.value) })}
-                                icon={<Icons.Spacing />}
-                            />
-                            <SettingSlider
-                                label="Jarak Antar Baris"
-                                id="line-height-slider"
-                                min="1.5" max="4.5" step="0.05"
-                                value={settings.lineHeight}
-                                onChange={(e) => updateSettings({ lineHeight: parseFloat(e.target.value) })}
                             />
                         </div>
 
@@ -248,6 +261,7 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                             />
                         </div>
 
+                        {/* Reset Button */}
                         <div className="pt-4 border-t border-gray-100 dark:border-gray-700">
                             <button
                                 onClick={onReset}
@@ -259,8 +273,10 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
+
+    return isMobile ? createPortal(content, document.body) : content;
 };
 
 export default DisplaySettings;

@@ -18,7 +18,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        arabic: ['"Noto Naskh Arabic"', 'serif'],
+        arabic: ['var(--arabic-font-family, "Noto Naskh Arabic")', 'serif'],
       },
       keyframes: {
         'fade-in': {
