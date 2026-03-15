@@ -7,7 +7,7 @@ import { AppProvider } from './contexts/AppContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/sorogan-app">
+    <BrowserRouter>
       <AppProvider>
         <App />
       </AppProvider>
