@@ -31,7 +31,7 @@ export async function onRequest(context) {
     // Capitalize words
     cleanSlug = cleanSlug.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     
-    title = `${cleanSlug} - Materi Sorogan`;
+    title = `Sorogan App: ${cleanSlug}`;
     imageUrl = `${url.origin}/thumbnail_chapter.png`;
   } else if (pathParts[0] === 'sponsors') {
     title = "Dukung Kami - Sorogan";
