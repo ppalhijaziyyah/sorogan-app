@@ -22,8 +22,8 @@ export async function onRequest(context) {
   // Check if the URL is a lesson page (e.g., /belajar/2-pasal-rukun-islam/1-utama)
   const pathParts = url.pathname.split('/').filter(Boolean);
   
-  if (pathParts[0] === 'belajar' && pathParts.length >= 2) {
-    let rawSlug = pathParts[1];
+  if (pathParts[0] === 'belajar' && pathParts.length >= 3) {
+    let rawSlug = pathParts[2];
     
     // Clean up the slug (e.g., "2-pasal-rukun-islam" -> "pasal rukun islam")
     let cleanSlug = rawSlug.replace(/^\d+-/, '').replace(/-/g, ' ');
