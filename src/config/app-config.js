@@ -73,5 +73,16 @@ export const appConfig = {
         useNgaLogatColorCoding: false, // Gunakan panduan warna-warni pada Nga-Logat
         isTasykilMode: false,          // Mode Tasykil layar penuh interaktif
         isSoundEnabled: true           // Umpan balik suara interaksi (efek klik)
+    },
+
+    // ---------------------------------------------------------
+    // 5. SETELAN FITUR PREVIEW
+    //    (Gunakan boolean: true atau false)
+    // ---------------------------------------------------------
+
+    previewFeatures: {
+        enableIbtidaiPreview: true,       // Aktifkan preview untuk level Ibtida'i
+        enableMutawassitPreview: false,    // Aktifkan preview untuk level Mutawassit
+        enableMutaqaddimPreview: false     // Aktifkan preview untuk level Mutaqaddim
     }
 };

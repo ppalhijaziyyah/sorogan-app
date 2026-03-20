@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import masterIndex from '../data/master-index.json';
+import { AppContext } from '../contexts/AppContext';
 
 // Vite's import.meta.glob provides a map of paths to dynamic import functions.
 // We use an absolute path from the project root to avoid ambiguity.
@@ -9,6 +10,7 @@ export function useLesson(lessonId) {
   const [lessonData, setLessonData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { previewLessons } = useContext(AppContext);
 
   useEffect(() => {
     if (!lessonId) {
@@ -22,6 +24,20 @@ export function useLesson(lessonId) {
       setLessonData(null);
 
       try {
+        if (lessonId.startsWith('preview-lesson-')) {
+          const levelId = lessonId.replace('preview-lesson-', '');
+          const levelMap = { '1': 'Ibtida’i', '2': 'Mutawassit', '3': 'Mutaqaddim' };
+          const levelName = levelMap[levelId];
+          const previewLesson = previewLessons[levelName];
+          
+          if (previewLesson) {
+            setLessonData({ ...previewLesson, id: lessonId });
+          } else {
+            throw new Error("Data materi pratinjau tidak memuat. Silakan upload ulang dari halaman depan.");
+          }
+          return;
+        }
+
         const lessonInfo = masterIndex.find(l => l.id === lessonId);
         if (!lessonInfo) {
           throw new Error(`Pelajaran dengan ID "${lessonId}" tidak ditemukan.`);

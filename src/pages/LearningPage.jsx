@@ -18,6 +18,8 @@ const LearningPage = ({ setSliderState }) => {
   const { levelId, lessonSlug } = useParams();
 
   const lessonId = useMemo(() => {
+    if (lessonSlug === 'preview-lesson') return `preview-lesson-${levelId}`;
+    
     const levelMap = { '1': 'Ibtida’i', '2': 'Mutawassit', '3': 'Mutaqaddim' };
     const targetLevel = levelMap[levelId] || 'Ibtida’i'; // Fallback if undefined
 

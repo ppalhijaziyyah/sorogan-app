@@ -5,6 +5,8 @@ import masterIndex from "../data/master-index.json";
 import sponsorsAndContributors from "../data/sponsors-contributors.json";
 import UserBadge from "../components/ui/UserBadge";
 import { generateSlug } from "../lib/utils";
+import { parseExcelToLesson } from '../utils/excelParser';
+import { appConfig } from '../config/app-config';
 
 const levelDetails = {
   "Ibtida’i": { title: "Tingkat Ibtida’i (Pemula)", color: "green" },
@@ -85,11 +87,97 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
   );
 };
 
+const PreviewLessonCard = ({ level }) => {
+  const { previewLessons, setPreviewLesson, clearPreviewLesson } = useContext(AppContext);
+  const fileInputRef = React.useRef(null);
+  const navigate = useNavigate();
+
+  const previewLesson = previewLessons[level];
+
+  const handleFileUpload = async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      const parsedData = await parseExcelToLesson(file);
+      // Ensure the generated lesson belongs to this level block for contextual display
+      parsedData.level = level; 
+      setPreviewLesson(level, parsedData);
+      event.target.value = ''; // reset input
+    } catch (err) {
+      console.error(err);
+      alert(err.message || 'Gagal memproses file Excel. Pastikan format sesuai dengan template.');
+    }
+  };
+
+  const handleStartPreview = () => {
+    const levelIdMap = { "Ibtida’i": '1', "Mutawassit": '2', "Mutaqaddim": '3' };
+    const currLevelId = levelIdMap[level] || '1';
+    navigate(`/belajar/${currLevelId}/preview-lesson`);
+  };
+
+  const showLoadedState = !!previewLesson;
+
+  return (
+        <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-2 border-dashed border-teal-400/50 hover:border-teal-500 rounded-lg shadow-sm p-6 flex flex-col items-center justify-center text-center transition-all min-h-[200px]">
+            <input 
+                type="file" 
+                accept=".xlsx, .xls" 
+                ref={fileInputRef} 
+                onChange={handleFileUpload} 
+                className="hidden" 
+            />
+            
+            {showLoadedState ? (
+                <div className="w-full flex-grow flex flex-col justify-between">
+                    <div>
+                        <h3 className="text-xl font-bold font-arabic text-gray-800 dark:text-gray-100">{previewLesson.titleArabic}</h3>
+                        <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">{previewLesson.title}</p>
+                        <p className="text-xs text-gray-400 mt-2">Mode Pratinjau Sementara</p>
+                    </div>
+                    <div className="mt-4 flex flex-col gap-2">
+                        <button onClick={handleStartPreview} className="bg-teal-500 hover:bg-teal-600 text-white rounded py-2 px-4 shadow font-bold text-sm transition">👉 Mulai Preview</button>
+                        <div className="flex gap-2">
+                            <button onClick={() => fileInputRef.current.click()} className="flex-1 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded py-1 px-2 text-xs font-bold transition">🔄 Ganti Materi</button>
+                            <button onClick={() => clearPreviewLesson(level)} className="flex-1 bg-red-100 dark:bg-red-900/30 hover:bg-red-200 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400 rounded py-1 px-2 text-xs font-bold transition">🗑️ Hapus</button>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                <div className="flex flex-col items-center justify-center space-y-3 h-full">
+                    <button 
+                        onClick={() => fileInputRef.current.click()}
+                        className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full flex items-center justify-center text-2xl hover:bg-teal-200 dark:hover:bg-teal-900/50 hover:scale-110 transition-transform shadow-sm"
+                        title="Upload Excel Materi"
+                    >
+                        +
+                    </button>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 mt-2 px-2">
+                        <p className="font-semibold text-gray-700 dark:text-gray-300">Coba Upload Materimu Sendiri!</p>
+                        <p className="text-xs mt-1 leading-relaxed">
+                            Tes file <span className="font-mono bg-gray-100 dark:bg-gray-700 px-1 rounded">.xlsx</span> buatanmu di sini. Jika tertarik menjadikan materimu permanen di aplikasi, hubungi <Link to="/tentang-kami" className="text-teal-500 hover:underline">Developer</Link>.
+                        </p>
+                        <a href="/1-sorogan-app-rukun-islam.xlsx" download className="text-teal-500 hover:text-teal-600 hover:underline text-xs mt-2 inline-block transition">⬇️ Download Template Ekspor</a>
+                    </div>
+                </div>
+            )}
+        </div>
+  );
+};
+
 const HomePage = () => {
   const { completedLessons } = useContext(AppContext);
   const [selectedLevel, setSelectedLevel] = useState("Semua");
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
+  const isPreviewEnabled = (level) => {
+    switch(level) {
+      case "Ibtida’i": return appConfig.previewFeatures?.enableIbtidaiPreview ?? true;
+      case "Mutawassit": return appConfig.previewFeatures?.enableMutawassitPreview ?? true;
+      case "Mutaqaddim": return appConfig.previewFeatures?.enableMutaqaddimPreview ?? true;
+      default: return false;
+    }
+  };
 
   const handleSelectLesson = (level, lessonSlug) => {
     const levelMap = { 'Ibtida’i': 1, 'Mutawassit': 2, 'Mutaqaddim': 3 };
@@ -195,6 +283,7 @@ const HomePage = () => {
                     onSelect={handleSelectLesson}
                   />
                 ))}
+                {isPreviewEnabled(level) && <PreviewLessonCard level={level} />}
               </div>
             </div>
           ))

@@ -101,6 +101,20 @@ export const AppProvider = ({ children }) => {
     setLastReset(Date.now());
   }
 
+  const [previewLessons, setPreviewLessonsState] = React.useState({});
+  
+  const setPreviewLesson = (level, data) => {
+    setPreviewLessonsState(prev => ({ ...prev, [level]: data }));
+  };
+  
+  const clearPreviewLesson = (level) => {
+    setPreviewLessonsState(prev => {
+      const newState = { ...prev };
+      delete newState[level];
+      return newState;
+    });
+  };
+
   const value = {
     theme,
     toggleTheme,
@@ -112,6 +126,9 @@ export const AppProvider = ({ children }) => {
     resetSettings,
     lastReset, // Expose this
     ngalogatSymbolColors, // Add this
+    previewLessons,
+    setPreviewLesson,
+    clearPreviewLesson
   };
 
   return (

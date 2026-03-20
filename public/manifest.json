@@ -1,0 +1,17 @@
+{
+  "name": "Sorogan App",
+  "short_name": "Sorogan",
+  "description": "Aplikasi Belajar Membaca dan Memahami Teks Arab Gundul",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/PWA_icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
