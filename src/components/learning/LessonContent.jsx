@@ -67,6 +67,7 @@ const LessonContent = ({ lessonData, setSliderState }) => {
             return (
               <Word
                 key={wIndex}
+                id={pIndex === 0 && wIndex === 0 ? "tour-first-word" : undefined}
                 wordData={wordData}
                 isHarakatVisible={isHarakatVisible}
                 isTranslationVisible={isTranslationVisible}

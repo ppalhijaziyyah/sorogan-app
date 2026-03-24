@@ -16,7 +16,7 @@ const getNgaLogatPositionStyle = (position) => {
   }
 };
 
-const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisible, onClick, onDoubleClick }) => {
+const Word = ({ id, wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisible, onClick, onDoubleClick }) => {
   const { settings, ngalogatSymbolColors } = useContext(AppContext);
   const { useNgaLogatColorCoding } = settings; // No showNgaLogat here anymore
   const isPunctuation = /[.،؟:!()"«»]/.test(wordData.gundul) && wordData.gundul.length < 3;
@@ -58,6 +58,7 @@ const Word = ({ wordData, isHarakatVisible, isTranslationVisible, isNgaLogatVisi
 
   return (
     <span
+      id={id}
       onClick={() => !isPunctuation && onClick()}
       onDoubleClick={() => !isPunctuation && onDoubleClick()}
       className={`relative inline-flex flex-col justify-start items-center transition-[min-width] duration-300 ease-in-out px-1 group ${isPunctuation ? '' : 'cursor-pointer rounded'}`}

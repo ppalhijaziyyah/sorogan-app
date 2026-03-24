@@ -63,6 +63,7 @@ const LearningToolbar = ({
 
         {/* Harakat Mode Toggle */}
         <button
+          id="tour-harakat"
           onClick={handleHarakatModeToggle}
           type="button"
           title="Mode Harakat (Klik per kata)"
@@ -75,6 +76,7 @@ const LearningToolbar = ({
 
         {/* Translation Mode Toggle */}
         <button
+          id="tour-translation"
           onClick={handleTranslationModeToggle}
           type="button"
           title="Mode Terjemahan (Klik per kata)"
@@ -88,13 +90,14 @@ const LearningToolbar = ({
 
         {hasNgaLogatData && (
           <button
+            id="tour-ngalogat"
             onClick={() => updateSettings({ isNgaLogatMode: !settings.isNgaLogatMode, showAllNgaLogat: settings.isNgaLogatMode ? false : settings.showAllNgaLogat })}
             type="button"
             title="Mode Nga-logat (Klik per kata)"
             className={`${getButtonClass(settings.isNgaLogatMode)} border-r border-gray-200 dark:border-slate-700`}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" className="pointer-events-none">
-              <text x="50%" y="17" textAnchor="middle" className="font-arabic" fontSize="1.5rem" fill="currentColor">{settings.isNgaLogatMode ? 'نَ' : 'ن'}</text>
+               <text x="50%" y="17" textAnchor="middle" className="font-arabic" fontSize="1.5rem" fill="currentColor">{settings.isNgaLogatMode ? 'نَ' : 'ن'}</text>
             </svg>
           </button>
         )}
@@ -102,6 +105,7 @@ const LearningToolbar = ({
         {/* Tasykil Mode Toggle */}
         {hasTasykilData && (
           <button
+            id="tour-tasykil"
             onClick={() => updateSettings({ isTasykilMode: !settings.isTasykilMode })}
             type="button"
             title="Mode Tasykil (Latihan Harakat)"
@@ -116,6 +120,7 @@ const LearningToolbar = ({
         {/* Full Translation Toggle */}
         {lessonData.fullTranslation && (
           <button
+            id="tour-show-all"
             onClick={() => setShowFullTranslation(s => !s)}
             type="button"
             title="Tampilkan Terjemahan Lengkap"
@@ -131,6 +136,7 @@ const LearningToolbar = ({
         {/* Display Settings Toggle */}
         <div className="relative">
           <button
+            id="tour-settings"
             onClick={() => setSettingsOpen(o => !o)}
             title="Pengaturan Tampilan"
             className={`${getButtonClass(isSettingsOpen)} rounded-r-full`}

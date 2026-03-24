@@ -81,8 +81,8 @@ export const appConfig = {
     // ---------------------------------------------------------
 
     previewFeatures: {
-        enableIbtidaiPreview: true,       // Aktifkan preview untuk level Ibtida'i
+        enableIbtidaiPreview: false,       // Aktifkan preview untuk level Ibtida'i
         enableMutawassitPreview: false,    // Aktifkan preview untuk level Mutawassit
-        enableMutaqaddimPreview: false     // Aktifkan preview untuk level Mutaqaddim
+        enableMutaqaddimPreview: true     // Aktifkan preview untuk level Mutaqaddim
     }
 };

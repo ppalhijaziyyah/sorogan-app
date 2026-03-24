@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SectionTitle = ({ children }) => (
   <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-cyan-500 mb-4 mt-8 first:mt-0">
@@ -21,6 +22,13 @@ const FeatureItem = ({ icon, title, children }) => (
 );
 
 const HowToUsePage = () => {
+  const navigate = useNavigate();
+
+  const handleStartTutorial = () => {
+    localStorage.setItem('hasSeenTutorial', 'false');
+    navigate('/belajar/1/rukun-islam');
+  };
+
   return (
     <div className="container mx-auto max-w-4xl py-6 px-4 md:py-12">
       <header className="mb-10 text-center md:text-left">
@@ -30,6 +38,13 @@ const HowToUsePage = () => {
         <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
           Pelajari cara memaksimalkan pengalaman belajar membaca kitab kuning dengan fitur-fitur interaktif Sorogan.
         </p>
+        <button 
+          onClick={handleStartTutorial}
+          className="mt-6 bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-transform hover:-translate-y-1 inline-flex items-center gap-2"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Buka Tutorial Interaktif
+        </button>
       </header>
 
       <div className="space-y-10">
@@ -56,19 +71,24 @@ const HowToUsePage = () => {
             <FeatureItem icon="👁️" title="Mode Baca">
               <p>Gunakan tombol di toolbar atas untuk bantuan visual:</p>
               <ul className="list-disc list-inside mt-2 ml-1 text-gray-500 dark:text-gray-400">
-                <li><strong>Mode Harakat (ح):</strong> Klik kata untuk melihat harakatnya.</li>
+                <li><strong>Mode Harakat (ح):</strong> Klik kata untk melihat harakatnya.</li>
                 <li><strong>Mode Terjemah (T):</strong> Klik kata untuk melihat artinya.</li>
-                <li><strong>Tampilkan Semua:</strong> Membuka semua harakat/terjemah sekaligus.</li>
+                <li><strong>Mode Nga-logat (ن):</strong> Menampilkan rumus/simbol pesantren per kata.</li>
+                <li><strong>Tampilkan Semua:</strong> Membuka semua fitur tersebut sekaligus di penjabaran lengkap.</li>
               </ul>
             </FeatureItem>
 
+            <FeatureItem icon="🎨" title="Pewarnaan Nga-logat">
+               <p>Di menu pengaturan, Anda bisa mengaktifkan <strong>"Gunakan Kode Warna Nga-logat"</strong>. Simbol gramatikal akan memiliki warna beda (misal merah untuk fa'il, hijau untuk mudhaf) agar mudah dihafal.</p>
+            </FeatureItem>
+
             <FeatureItem icon="⚙️" title="Kustomisasi">
-              <p>Klik ikon <strong>Gear</strong> di pojok kanan atas untuk:</p>
+              <p>Klik ikon <strong>Gear</strong> di pojok kanan atas toolbar belajar untuk:</p>
               <ul className="list-disc list-inside mt-2 ml-1 text-gray-500 dark:text-gray-400">
                 <li>Mengubah <strong>Ukuran Font</strong> (Arab & Latin).</li>
                 <li>Mengganti <strong>Jenis Font Arab</strong> (LPMQ, Amiri, dll).</li>
                 <li>Mengatur <strong>Spasi Antar Kata</strong>.</li>
-                <li>Mengaktifkan/menonaktifkan <strong>Transliterasi</strong>.</li>
+                <li>Mengaktifkan/menonaktifkan <strong>Mode Fokus</strong>.</li>
               </ul>
             </FeatureItem>
           </div>
