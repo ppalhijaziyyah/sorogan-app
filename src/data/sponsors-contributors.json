@@ -1,59 +1,50 @@
-
 [
   {
     "id": 1,
-    "name": "Sponsor Satu",
-    "avatar": "https://i.pravatar.cc/150?u=sponsor1",
-    "amount": 5000000,
+    "name": "PP Al-Hijaziyyah",
+    "avatar": "/icon.svg",
+    "amount": "Investor",
     "type": "sponsor",
     "profileUrl": "#"
   },
   {
     "id": 2,
-    "name": "Sponsor Dua",
-    "avatar": "https://i.pravatar.cc/150?u=sponsor2",
-    "amount": 2500000,
-    "type": "sponsor",
+    "name": "Umam D. Ka'bal",
+    "avatar": "🍉",
+    "contributionCount": 6,
+    "type": "contributor",
     "profileUrl": "#"
   },
   {
     "id": 3,
-    "name": "Kontributor Ahli",
-    "avatar": "https://i.pravatar.cc/150?u=contributor1",
-    "contributionCount": 12,
-    "type": "contributor",
-    "profileUrl": "#"
-  },
-  {
-    "id": 4,
-    "name": "Penyumbang Materi",
-    "avatar": "https://i.pravatar.cc/150?u=contributor2",
-    "contributionCount": 8,
-    "type": "contributor",
-    "profileUrl": "#"
-  },
-  {
-    "id": 5,
-    "name": "Sponsor Tiga",
-    "avatar": "https://i.pravatar.cc/150?u=sponsor3",
-    "amount": 1000000,
-    "type": "sponsor",
-    "profileUrl": "#"
-  },
-  {
-    "id": 6,
-    "name": "Aceng Alwi",
-    "avatar": "https://i.pravatar.cc/150?u=dev1",
+    "name": "Deden",
+    "avatar": "😎",
     "role": "Lead Developer & UI/UX",
     "type": "developer",
     "profileUrl": "#"
   },
   {
-    "id": 7,
-    "name": "Miftahul Khoer",
-    "avatar": "https://i.pravatar.cc/150?u=dev2",
+    "id": 4,
+    "name": "Ka'bal",
+    "avatar": "🕋",
     "role": "Content Researcher",
     "type": "developer",
     "profileUrl": "#"
+  },
+  {
+    "id": 5,
+    "name": "Umam",
+    "avatar": "👨‍💻",
+    "role": "Programmer",
+    "type": "developer",
+    "profileUrl": "#"
+  },
+  {
+    "id": 6,
+    "name": "Gemini",
+    "avatar": "🤖",
+    "role": "AI Assistant",
+    "type": "developer",
+    "profileUrl": "https://gemini.google.com/"
   }
 ]

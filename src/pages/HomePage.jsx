@@ -100,7 +100,7 @@ const PreviewLessonCard = ({ level }) => {
     try {
       const parsedData = await parseExcelToLesson(file);
       // Ensure the generated lesson belongs to this level block for contextual display
-      parsedData.level = level; 
+      parsedData.level = level;
       setPreviewLesson(level, parsedData);
       event.target.value = ''; // reset input
     } catch (err) {
@@ -118,49 +118,52 @@ const PreviewLessonCard = ({ level }) => {
   const showLoadedState = !!previewLesson;
 
   return (
-        <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-2 border-dashed border-teal-400/50 hover:border-teal-500 rounded-lg shadow-sm p-6 flex flex-col items-center justify-center text-center transition-all min-h-[200px]">
-            <input 
-                type="file" 
-                accept=".xlsx, .xls" 
-                ref={fileInputRef} 
-                onChange={handleFileUpload} 
-                className="hidden" 
-            />
-            
-            {showLoadedState ? (
-                <div className="w-full flex-grow flex flex-col justify-between">
-                    <div>
-                        <h3 className="text-xl font-bold font-arabic text-gray-800 dark:text-gray-100">{previewLesson.titleArabic}</h3>
-                        <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">{previewLesson.title}</p>
-                        <p className="text-xs text-gray-400 mt-2">Mode Pratinjau Sementara</p>
-                    </div>
-                    <div className="mt-4 flex flex-col gap-2">
-                        <button onClick={handleStartPreview} className="bg-teal-500 hover:bg-teal-600 text-white rounded py-2 px-4 shadow font-bold text-sm transition">👉 Mulai Preview</button>
-                        <div className="flex gap-2">
-                            <button onClick={() => fileInputRef.current.click()} className="flex-1 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded py-1 px-2 text-xs font-bold transition">🔄 Ganti Materi</button>
-                            <button onClick={() => clearPreviewLesson(level)} className="flex-1 bg-red-100 dark:bg-red-900/30 hover:bg-red-200 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400 rounded py-1 px-2 text-xs font-bold transition">🗑️ Hapus</button>
-                        </div>
-                    </div>
-                </div>
-            ) : (
-                <div className="flex flex-col items-center justify-center space-y-3 h-full">
-                    <button 
-                        onClick={() => fileInputRef.current.click()}
-                        className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full flex items-center justify-center text-2xl hover:bg-teal-200 dark:hover:bg-teal-900/50 hover:scale-110 transition-transform shadow-sm"
-                        title="Upload Excel Materi"
-                    >
-                        +
-                    </button>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 mt-2 px-2">
-                        <p className="font-semibold text-gray-700 dark:text-gray-300">Coba Upload Materimu Sendiri!</p>
-                        <p className="text-xs mt-1 leading-relaxed">
-                            Tes file <span className="font-mono bg-gray-100 dark:bg-gray-700 px-1 rounded">.xlsx</span> buatanmu di sini. Jika tertarik menjadikan materimu permanen di aplikasi, hubungi <Link to="/tentang-kami" className="text-teal-500 hover:underline">Developer</Link>.
-                        </p>
-                        <a href="/1-sorogan-app-rukun-islam.xlsx" download className="text-teal-500 hover:text-teal-600 hover:underline text-xs mt-2 inline-block transition">⬇️ Download Template Ekspor</a>
-                    </div>
-                </div>
-            )}
+    <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-2 border-dashed border-teal-400/50 hover:border-teal-500 rounded-lg shadow-sm p-6 flex flex-col items-center justify-center text-center transition-all min-h-[200px]">
+      <input
+        type="file"
+        accept=".xlsx, .xls"
+        ref={fileInputRef}
+        onChange={handleFileUpload}
+        className="hidden"
+      />
+
+      {showLoadedState ? (
+        <div className="w-full flex-grow flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-bold font-arabic text-gray-800 dark:text-gray-100">{previewLesson.titleArabic}</h3>
+            <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">{previewLesson.title}</p>
+            <p className="text-xs text-gray-400 mt-2">Mode Pratinjau Sementara</p>
+          </div>
+          <div className="mt-4 flex flex-col gap-2">
+            <button onClick={handleStartPreview} className="bg-teal-500 hover:bg-teal-600 text-white rounded py-2 px-4 shadow font-bold text-sm transition">👉 Mulai Preview</button>
+            <div className="flex gap-2">
+              <button onClick={() => fileInputRef.current.click()} className="flex-1 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded py-1 px-2 text-xs font-bold transition">🔄 Ganti Materi</button>
+              <button onClick={() => clearPreviewLesson(level)} className="flex-1 bg-red-100 dark:bg-red-900/30 hover:bg-red-200 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400 rounded py-1 px-2 text-xs font-bold transition">🗑️ Hapus</button>
+            </div>
+          </div>
         </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center space-y-3 h-full">
+          <button
+            onClick={() => fileInputRef.current.click()}
+            className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full flex items-center justify-center text-2xl hover:bg-teal-200 dark:hover:bg-teal-900/50 hover:scale-110 transition-transform shadow-sm"
+            title="Upload Excel Materi"
+          >
+            +
+          </button>
+          <div className="text-sm text-gray-500 dark:text-gray-400 mt-2 px-2">
+            <p className="font-semibold text-gray-700 dark:text-gray-300">Tes Materimu Sendiri!</p>
+            <p className="text-xs mt-1 leading-relaxed">
+              Unggah draf <span className="font-mono bg-gray-100 dark:bg-gray-700 px-1 rounded">.xlsx</span> Anda untuk dicoba di sini. Ingin rilis permanen ke publik? <Link to="/dukung-kami#contribute" className="text-teal-500 hover:text-teal-600 hover:underline font-bold transition-colors">Mulai Berkontribusi</Link>.
+            </p>
+            <a href="/1-sorogan-app-rukun-islam.xlsx" download className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/30 px-3 py-1.5 rounded-full text-xs font-medium mt-2 border border-teal-100 dark:border-teal-800/50 transition-all">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+              Unduh Template Excel
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
@@ -171,7 +174,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const isPreviewEnabled = (level) => {
-    switch(level) {
+    switch (level) {
       case "Ibtida’i": return appConfig.previewFeatures?.enableIbtidaiPreview ?? true;
       case "Mutawassit": return appConfig.previewFeatures?.enableMutawassitPreview ?? true;
       case "Mutaqaddim": return appConfig.previewFeatures?.enableMutaqaddimPreview ?? true;

@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserBadge from '../components/ui/UserBadge';
+import data from '../data/sponsors-contributors.json';
 
 const AboutUsPage = () => {
+  const developers = data.filter(user => user.type === 'developer');
+
   return (
     <div className="container mx-auto max-w-4xl py-6 px-4 md:py-12">
       <header className="mb-10 text-center md:text-left">
@@ -37,6 +41,28 @@ const AboutUsPage = () => {
         </section>
 
         <hr className="border-gray-100 dark:border-gray-800" />
+
+        {/* Bagian Pengembang */}
+        <section className="pt-4">
+          <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-cyan-500 mb-6">Tim Pengembang</h2>
+          <p className="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed text-lg">
+            Sorogan App dirancang, dibangun, dan dikelola oleh dedikasi tim kecil yang berkomitmen memajukan pelestarian literatur pesantren melalui teknologi digital.
+          </p>
+
+          {developers.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {developers.map(user => (
+                <UserBadge key={user.id} user={user} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center p-8 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700">
+              <p className="text-gray-500 dark:text-gray-400 italic">Belum ada profil pengembang.</p>
+            </div>
+          )}
+        </section>
+
+        <hr className="border-gray-100 dark:border-gray-800 mt-12 mb-8" />
 
         <div className="flex justify-center md:justify-start">
           <Link

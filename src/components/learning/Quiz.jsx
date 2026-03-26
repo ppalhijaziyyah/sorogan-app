@@ -78,7 +78,8 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
     const reviewItem = userAnswers[currentIndex];
 
     return (
-      <div className="p-4 md:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-3xl mx-auto">
+      <div className="fixed inset-0 z-[200] bg-gray-50 dark:bg-gray-900 overflow-y-auto flex flex-col justify-center items-center py-8 px-4 animate-in fade-in duration-300">
+        <div className="p-4 md:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-3xl">
         <p className="text-center font-semibold mb-4 text-lg">Meninjau Pertanyaan {currentIndex + 1}</p>
         <h2 className="text-xl md:text-2xl font-bold mb-4 text-center min-h-[6rem] flex items-center justify-center">{reviewItem.question}</h2>
         {reviewItem.context && <p className="font-arabic text-3xl text-center mb-6" dir="rtl">{reviewItem.context}</p>}
@@ -114,6 +115,7 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
           <button onClick={() => setMode('finished')} className="px-4 py-2 bg-teal-600 text-white font-bold rounded-lg">Kembali ke Skor</button>
           <button onClick={() => setCurrentIndex(i => i + 1)} disabled={currentIndex === userAnswers.length - 1} className="px-4 py-2 bg-gray-500 text-white font-bold rounded-lg disabled:opacity-50">Berikutnya</button>
         </div>
+        </div>
       </div>
     );
   }
@@ -128,7 +130,8 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
   const accuracy = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
 
   return (
-    <>
+    <div className="fixed inset-0 z-[200] bg-gray-50 dark:bg-gray-900 overflow-y-auto flex flex-col justify-center items-center py-8 px-4 animate-in zoom-in-95 duration-300">
+      <div className="w-full max-w-3xl relative">
       <ConfirmationModal
         isOpen={isExitModalOpen}
         message="Apakah Anda yakin ingin keluar dari kuis? Progres akan hilang."
@@ -219,7 +222,8 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
           )}
         </div>
       </div>
-    </>
+      </div>
+    </div>
   );
 };
 

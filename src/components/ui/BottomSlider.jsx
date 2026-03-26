@@ -37,7 +37,7 @@ const BottomSlider = ({ sliderState, onClose }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`w-full max-w-4xl bg-white dark:bg-gray-800 rounded-t-2xl shadow-2xl p-6 transform transition-transform duration-300 ease-in-out ${isShowing ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`w-full max-w-4xl h-[85vh] md:h-auto md:max-h-[85vh] overflow-y-auto overscroll-contain bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl p-6 transform transition-transform duration-300 ease-in-out flex flex-col ${isShowing ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className="flex justify-between items-center mb-4">
           {type === 'irab' ? (
@@ -52,10 +52,10 @@ const BottomSlider = ({ sliderState, onClose }) => {
             </>
           )}
         </div>
-        <div className={`prose dark:prose-invert max-w-none ${fontClass}`} style={sizeStyle}>
+        <div className={`prose dark:prose-invert max-w-none flex-grow ${fontClass}`} style={sizeStyle}>
           {content}
           {type === 'irab' && sliderState.link && (
-            <div className="mt-6 font-sans">
+            <div className="mt-6 mb-4 font-sans">
               <details className="group bg-teal-50 dark:bg-slate-700/50 rounded-xl overflow-hidden shadow-sm border border-teal-100 dark:border-slate-700 transition-all duration-300">
                 <summary
                   className="flex items-center justify-between cursor-pointer px-4 py-3 font-semibold text-teal-800 dark:text-teal-300 bg-white/50 dark:bg-slate-800/50 hover:bg-teal-100/50 dark:hover:bg-slate-700/80 transition-colors"

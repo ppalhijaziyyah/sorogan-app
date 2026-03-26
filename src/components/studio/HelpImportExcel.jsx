@@ -7,24 +7,12 @@ const HelpImportExcel = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     const handleDownloadSample = () => {
-        // Since we can't easily create a multi-sheet Excel in browser without a heavy library,
-        // we will provide instructions or a link to a hosted file if available.
-        // For now, let's alert the user or provide a CSV for the main 'Materi' sheet as a basic start.
-
-        const csvContent = "data:text/csv;charset=utf-8,"
-            + "berharakat,terjemahan,irab,nga_logat,tasykil_options\n"
-            + "الْعِلْمُ,Ilmu itu,Mubtada Marfu,utawi:top-right,الْعَلَمُ,الْعِلْمَ\n"
-            + "نُورٌ,Cahaya,Khobar Marfu,iku:top-left,نُورًا,نُورٍ";
-
-        const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "sample-materi.csv");
+        link.setAttribute("href", "/1-sorogan-app-rukun-islam.xlsx");
+        link.setAttribute("download", "1-sorogan-app-rukun-islam.xlsx");
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-
-        alert("Saat ini sample yang didownload hanya untuk sheet 'Materi' (CSV). Silakan buat file Excel (.xlsx) dengan 3 sheet: Info, Materi, Kuis sesuai panduan.");
     };
 
     const tabs = [
@@ -152,7 +140,7 @@ const HelpImportExcel = ({ isOpen, onClose }) => {
                         onClick={handleDownloadSample}
                         className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-gray-600"
                     >
-                        ⬇️ Download Contoh (Materi Only)
+                        ⬇️ Download Contoh File Excel (.xlsx)
                     </button>
                     <button
                         onClick={onClose}

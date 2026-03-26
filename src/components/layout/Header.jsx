@@ -116,11 +116,11 @@ const Header = () => {
       {/* Overlay Menu Mobile */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-[100] bg-slate-900/70 backdrop-blur-lg animate-fade-in"
+          className="fixed inset-0 z-[100] bg-slate-900/70 backdrop-blur-lg animate-in fade-in duration-[400ms] ease-out"
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <div
-            className="absolute top-0 right-0 bottom-0 w-64 bg-white/95 dark:bg-slate-800/95 shadow-xl p-6 flex flex-col"
+            className="absolute top-0 right-0 bottom-0 w-64 bg-white/95 dark:bg-slate-800/95 shadow-xl p-6 flex flex-col animate-in slide-in-from-right duration-[400ms] ease-out"
             onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-end mb-8">

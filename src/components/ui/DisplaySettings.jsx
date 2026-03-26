@@ -124,7 +124,7 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
         <div className="display-settings-container">
             {/* Backdrop for Mobile */}
             <div
-                className={`fixed inset-0 bg-black z-40 md:hidden transition-opacity duration-300 ease-in-out ${isShowing ? 'bg-opacity-50' : 'bg-opacity-0 pointer-events-none'}`}
+                className={`fixed inset-0 bg-black z-[100] md:hidden transition-opacity duration-300 ease-in-out ${isShowing ? 'bg-opacity-50' : 'bg-opacity-0 pointer-events-none'}`}
                 onClick={handleCloseWithAnimation}
             />
 
@@ -132,7 +132,7 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
             <div
                 ref={dropdownRef}
                 className={`
-                    fixed bottom-0 left-0 right-0 z-50 
+                    fixed bottom-0 left-0 right-0 z-[110] 
                     bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-white/10 dark:border-slate-700/50
                     rounded-t-2xl shadow-2xl overflow-hidden flex flex-col
                     md:absolute md:top-full md:right-0 md:bottom-auto md:left-auto md:w-80 md:rounded-xl md:border md:dark:border-slate-700 md:max-h-[600px] md:h-auto
@@ -166,7 +166,7 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                     <div className="space-y-6">
                         {/* Section: Tampilan Teks */}
                         <div>
-                            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Tampilan Teks</h3>
+                            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 mt-3">Tampilan Teks</h3>
 
                             <div className="mb-3">
                                 <label htmlFor="arabic-font-select" className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

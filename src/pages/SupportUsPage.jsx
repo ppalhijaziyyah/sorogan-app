@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UserBadge from '../components/ui/UserBadge';
+import HelpImportExcel from '../components/studio/HelpImportExcel';
 import data from '../data/sponsors-contributors.json';
 
 const SectionTitle = ({ children, id }) => (
@@ -11,8 +12,8 @@ const SectionTitle = ({ children, id }) => (
 
 const SupportUsPage = () => {
   const [isQrisOpen, setIsQrisOpen] = useState(false);
+  const [isFormatGuideOpen, setIsFormatGuideOpen] = useState(false);
   const sponsors = data.filter(user => user.type === 'sponsor').sort((a, b) => b.amount - a.amount);
-  const developers = data.filter(user => user.type === 'developer');
   const contributors = data.filter(user => user.type === 'contributor').sort((a, b) => (b.contributionCount || 0) - (a.contributionCount || 0));
 
   return (
@@ -32,9 +33,9 @@ const SupportUsPage = () => {
           <div className="bg-gradient-to-br from-teal-500 to-cyan-600 p-8 rounded-3xl text-white shadow-xl shadow-teal-500/20">
             <h2 className="text-2xl font-bold mb-4">Dukungan Anda Sangat Berarti</h2>
             <p className="text-lg opacity-90 leading-relaxed mb-6">
-              Aplikasi Sorogan App 100% gratis dan didedikasikan sepenuhnya untuk pendidikan. Kami percaya setiap pencari ilmu berhak mendapatkan kemudahan akses tanpa halangan biaya. 
+              Aplikasi Sorogan App 100% gratis dan didedikasikan sepenuhnya untuk pendidikan. Kami percaya setiap pencari ilmu berhak mendapatkan kemudahan akses tanpa halangan biaya.
               <br /><br />
-              Namun, operasional dan pengembangan aplikasi ini setiap bulannya membutuhkan dukungan (seperti biaya server, <i>hosting</i>, dan inovasi fitur). Jika Anda merasakan manfaat dari aplikasi ini dan memiliki kelapangan rezeki, kami dengan senang hati menerima donasi sukarela Anda. 
+              Jika Anda merasakan manfaat dari aplikasi ini dan memiliki kelapangan rezeki, Anda bisa mendukung kami dengan "mentraktir kopi" atau sekadar menambah uang jajan tim pengembang. Dukungan seikhlasnya dari Anda sangat berarti untuk memelihara semangat kami dalam berkarya, sekaligus membantu menjaga peladen (<i>server</i>) aplikasi ini tetap menyala!
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <button
@@ -70,26 +71,32 @@ const SupportUsPage = () => {
           )}
         </section>
 
-        <hr className="border-gray-100 dark:border-gray-800" />
-
-        {/* Bagian Pengembang */}
+        {/* Bagian Kontribusi Materi */}
         <section>
-          <SectionTitle id="developers">Tim Pengembang</SectionTitle>
-          <p className="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed">
-            Sorogan App dirancang, dibangun, dan dikelola oleh dedikasi tim kecil yang berkomitmen memajukan pelestarian literatur pesantren melalui teknologi digital.
-          </p>
-
-          {developers.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {developers.map(user => (
-                <UserBadge key={user.id} user={user} />
-              ))}
+          <SectionTitle id="contribute">Mulai Berkontribusi Materi</SectionTitle>
+          <div className="bg-white dark:bg-gray-800/50 p-6 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-sm">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              Aplikasi Sorogan App sangat terbuka untuk kontribusi materi pelajaran dari siapa pun. Jika Anda memiliki materi bahasa Arab (kitab kuning) yang ingin disusun secara digital agar bisa dipelajari oleh banyak orang, Anda bisa menyusunnya menggunakan format Excel sederhana.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <button
+                onClick={() => setIsFormatGuideOpen(true)}
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 font-semibold rounded-xl hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-colors border border-teal-200 dark:border-teal-800/50"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                Lihat Panduan Format Excel
+              </button>
             </div>
-          ) : (
-            <div className="text-center p-8 bg-gray-50 dark:bg-gray-800/50 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700">
-              <p className="text-gray-500 dark:text-gray-400 italic">Belum ada profil pengembang.</p>
+            <div className="bg-teal-500/10 dark:bg-teal-500/5 p-4 rounded-xl border border-teal-500/20">
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                Kirimkan file materi bahasa Arab Anda yang sudah disusun (format .xlsx) ke alamat email tim kami:{' '}
+                <a href="mailto:ppalhijaziyyah@gmail.com" className="font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
+                  ppalhijaziyyah@gmail.com
+                </a>
+                . Tim kami akan meninjau dan mengunggahnya secara permanen di dalam aplikasi ini!
+              </p>
             </div>
-          )}
+          </div>
         </section>
 
         <hr className="border-gray-100 dark:border-gray-800" />
@@ -124,17 +131,23 @@ const SupportUsPage = () => {
         </div>
       </div>
 
+      {/* Format Guide Modal */}
+      <HelpImportExcel 
+        isOpen={isFormatGuideOpen} 
+        onClose={() => setIsFormatGuideOpen(false)} 
+      />
+
       {/* QRIS Modal */}
       {isQrisOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-[150] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200"
           onClick={() => setIsQrisOpen(false)}
         >
-          <div 
+          <div
             className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden max-w-sm w-full relative transform transition-all animate-in zoom-in-95 duration-200"
             onClick={e => e.stopPropagation()}
           >
-            <button 
+            <button
               onClick={() => setIsQrisOpen(false)}
               className="absolute top-4 right-4 bg-black/10 hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center text-gray-800 dark:text-gray-200 transition-colors z-10"
               aria-label="Tutup"
@@ -142,18 +155,18 @@ const SupportUsPage = () => {
               &times;
             </button>
             <div className="p-6 pb-2 text-center bg-gray-50 dark:bg-gray-800/50">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Pindai QRIS</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Terima kasih banyak atas dukungan tulus Anda untuk proyek pendidikan ini.</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Traktir Kami Kopi ☕</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Terima kasih banyak atas traktiran dan dukungan tulus Anda untuk tim pengembang!</p>
             </div>
             <div className="p-6 flex justify-center bg-white dark:bg-gray-900">
-              <img 
-                src="/QRIS-Hijaz-Dev.png" 
-                alt="QRIS Hijaz Developer" 
+              <img
+                src="/QRIS-Hijaz-Dev.png"
+                alt="QRIS Hijaz Developer"
                 className="w-full max-w-[280px] h-auto object-contain rounded-xl shadow-sm border border-gray-100 dark:border-gray-800"
               />
             </div>
             <div className="p-4 bg-gray-50 dark:bg-gray-800/50 text-center border-t border-gray-100 dark:border-gray-800">
-              <button 
+              <button
                 onClick={() => setIsQrisOpen(false)}
                 className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
