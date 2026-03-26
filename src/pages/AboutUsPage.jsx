@@ -24,9 +24,9 @@ const AboutUsPage = () => {
               Aplikasi ini lahir dari kebutuhan untuk menjembatani metode pembelajaran tradisional dengan teknologi digital masa kini. Kami ingin membantu para santri, mahasiswa, dan peminat ilmu keislaman di seluruh dunia agar dapat belajar dengan lebih mudah, efisien, serta dapat diakses di mana saja dan kapan saja.
             </p>
 
-            <div className="bg-teal-50 dark:bg-teal-900/10 p-6 rounded-2xl border border-teal-100 dark:border-teal-800/30 my-8">
-              <p className="m-0 italic">
-                "Proyek ini adalah eksperimen open-source yang dikembangkan dengan visi melestarikan dan menyebarkan ilmu pengetahuan tradisional melalui kekuatan teknologi kecerdasan buatan dan platform digital."
+            <div className="bg-teal-50 dark:bg-teal-900/10 p-6 rounded-2xl border border-teal-100 dark:border-teal-800/30 my-8 space-y-4">
+              <p className="m-0 italic text-center font-medium">
+                "Kami mendedikasikan aplikasi ini sepenuhnya untuk tujuan pendidikan. Sorogan App disediakan secara gratis (non-komersial) agar akses terhadap ilmu pengetahuan agama semakin terbuka lebar bagi siapa saja yang ingin mempelajarinya."
               </p>
             </div>
 

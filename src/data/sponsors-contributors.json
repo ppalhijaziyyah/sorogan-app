@@ -39,5 +39,21 @@
     "amount": 1000000,
     "type": "sponsor",
     "profileUrl": "#"
+  },
+  {
+    "id": 6,
+    "name": "Aceng Alwi",
+    "avatar": "https://i.pravatar.cc/150?u=dev1",
+    "role": "Lead Developer & UI/UX",
+    "type": "developer",
+    "profileUrl": "#"
+  },
+  {
+    "id": 7,
+    "name": "Miftahul Khoer",
+    "avatar": "https://i.pravatar.cc/150?u=dev2",
+    "role": "Content Researcher",
+    "type": "developer",
+    "profileUrl": "#"
   }
 ]
