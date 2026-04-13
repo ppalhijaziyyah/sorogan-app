@@ -26,10 +26,10 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
             const levelId = levelMap[data.level];
 
             if (levelId && parts.length >= 2) {
-                // If the second part matches the level ID, the first part is the file number
-                // Example: "10-1-judul.json" (Level 1) -> parts[1] is "1", so parts[0] "10" is FileNum
-                if (parts[1] === levelId) {
-                    data.fileNumber = parts[0];
+                // If the first part matches the level ID, the second part might be the file number
+                // Example: "1-10-judul.json" (Level 1) -> parts[0] is "1", so parts[1] "10" is FileNum
+                if (parts[0] === levelId && !isNaN(parts[1])) {
+                    data.fileNumber = parts[1];
                 }
             }
         }
@@ -56,8 +56,8 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
                 const levelId = levelMap[data.level];
 
                 if (levelId && parts.length >= 2) {
-                    if (parts[1] === levelId) {
-                        data.fileNumber = parts[0];
+                    if (parts[0] === levelId && !isNaN(parts[1])) {
+                        data.fileNumber = parts[1];
                     }
                 }
             }
@@ -214,7 +214,7 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
         const sanitizedTitle = lessonData.title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-');
 
         if (lessonData.fileNumber) {
-            return `${lessonData.fileNumber}-${levelNum}-${sanitizedTitle}.json`;
+            return `${levelNum}-${lessonData.fileNumber}-${sanitizedTitle}.json`;
         }
         return `${levelNum}-${sanitizedTitle}.json`;
     };
@@ -353,7 +353,7 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
                                     onChange={(e) => handleChange('fileNumber', e.target.value)}
                                     placeholder="Contoh: 1, 10 (Kosongkan jika tidak perlu)"
                                 />
-                                <p className="text-xs text-gray-400 mt-1">Hanya untuk penamaan file: [No]-[Level]-[Judul].json</p>
+                                <p className="text-xs text-gray-400 mt-1">Hanya untuk penamaan file: [Level]-[No]-[Judul].json</p>
                             </div>
 
                             <div>
@@ -369,7 +369,7 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
                                             const sanitizedTitle = lessonData.title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-');
 
                                             if (lessonData.fileNumber) {
-                                                return `${lessonData.fileNumber}-${levelNum}-${sanitizedTitle}.json`;
+                                                return `${levelNum}-${lessonData.fileNumber}-${sanitizedTitle}.json`;
                                             }
                                             return `${levelNum}-${sanitizedTitle}.json`;
                                         })()}
@@ -382,7 +382,7 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
 
                                             let fileName;
                                             if (lessonData.fileNumber) {
-                                                fileName = `${lessonData.fileNumber}-${levelNum}-${sanitizedTitle}.json`;
+                                                fileName = `${levelNum}-${lessonData.fileNumber}-${sanitizedTitle}.json`;
                                             } else {
                                                 fileName = `${levelNum}-${sanitizedTitle}.json`;
                                             }

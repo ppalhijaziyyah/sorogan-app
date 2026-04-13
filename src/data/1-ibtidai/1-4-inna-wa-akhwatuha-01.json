@@ -1,0 +1,614 @@
+{
+    "id": "import-1776090924542",
+    "title": "Inna wa Akhwatuha 01",
+    "titleArabic": "إِنَّ وَأَخَوَاتُهَا (01)",
+    "level": "Ibtida’i",
+    "fullTranslation": "1. إِنَّ الْعِلْمَ نُوْرٌ — Sesungguhnya ilmu adalah cahaya.\r\n2. أَنَّ الصِّدْقَ فَضِيْلَةٌ — Bahwa kejujuran adalah keutamaan.\r\n3. لَكِنَّ الْكَسُوْلَ خَاسِرٌ — Akan tetapi orang malas itu merugi.\r\n4. كَأَنَّ الْقَمَرَ مِصْبَاحٌ — Seolah-olah bulan itu adalah lampu.\r\n5. لَيْتَ الشَّبَابَ يَعُوْدُ — Semoga masa muda itu kembali.\r\n6. لَعَلَّ الْمَرِيْضَ يَشْفَى — Mudah-mudahan orang sakit itu sembuh.\r\n7. إِنَّ الْأُمَّ رَحِيْمَةٌ — Sesungguhnya ibu itu penyayang.\r\n8. كَأَنَّ السَّمَاءَ مِرْآةٌ — Seolah-olah langit itu adalah cermin.\r\n9. لَيْتَ الْأَيَّامَ تَعُوْدُ — Semoga hari-hari itu kembali.\r\n10. إِنَّ الْمُؤْمِنِيْنَ إِخْوَةٌ — Sesungguhnya orang-orang beriman itu bersaudara.",
+    "reference": "",
+    "textData": [
+        [
+            {
+                "berharakat": "(1)",
+                "gundul": "(1)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "إِنَّ",
+                "gundul": "إنّ",
+                "terjemahan": "sesungguhnya",
+                "irab": "حَرْفُ تَوْكِيْدٍ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْعِلْمَ",
+                "gundul": "العلم",
+                "terjemahan": "ilmu",
+                "irab": "اسْمُ إِنَّ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْعِلْمُ",
+                    "الْعِلْمِ"
+                ]
+            },
+            {
+                "berharakat": "نُوْرٌ",
+                "gundul": "نور",
+                "terjemahan": "(adalah) cahaya",
+                "irab": "خَبَرُ إِنَّ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "نُوْرًا",
+                    "نُوْرٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(2)",
+                "gundul": "(2)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَنَّ",
+                "gundul": "أنّ",
+                "terjemahan": "bahwa",
+                "irab": "حَرْفُ مَصْدَرِيٌّ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الصِّدْقَ",
+                "gundul": "الصّدق",
+                "terjemahan": "kejujuran",
+                "irab": "اسْمُ أَنَّ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الصِّدْقُ",
+                    "الصِّدْقِ"
+                ]
+            },
+            {
+                "berharakat": "فَضِيْلَةٌ",
+                "gundul": "فضيلة",
+                "terjemahan": "(adalah) keutamaan",
+                "irab": "خَبَرُ أَنَّ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "فَضِيْلَةً",
+                    "فَضِيْلَةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(3)",
+                "gundul": "(3)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "لَكِنَّ",
+                "gundul": "لكنّ",
+                "terjemahan": "akan tetapi",
+                "irab": "حَرْفُ اسْتِدْرَاكٍ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْكَسُوْلَ",
+                "gundul": "الكسول",
+                "terjemahan": "orang malas itu",
+                "irab": "اسْمُ لَكِنَّ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْكَسُوْلُ",
+                    "الْكَسُوْلِ"
+                ]
+            },
+            {
+                "berharakat": "خَاسِرٌ",
+                "gundul": "خاسر",
+                "terjemahan": "(adalah) merugi / rugi",
+                "irab": "خَبَرُ لَكِنَّ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "خَاسِرًا",
+                    "خَاسِرٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(4)",
+                "gundul": "(4)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كَأَنَّ",
+                "gundul": "كأنّ",
+                "terjemahan": "seolah-olah",
+                "irab": "حَرْفُ تَشْبِيْهٍ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْقَمَرَ",
+                "gundul": "القمر",
+                "terjemahan": "bulan itu",
+                "irab": "اسْمُ كَأَنَّ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْقَمَرُ",
+                    "الْقَمَرِ"
+                ]
+            },
+            {
+                "berharakat": "مِصْبَاحٌ",
+                "gundul": "مصباح",
+                "terjemahan": "(adalah) lampu",
+                "irab": "خَبَرُ كَأَنَّ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مِصْبَاحًا",
+                    "مِصْبَاحٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(5)",
+                "gundul": "(5)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "لَيْتَ",
+                "gundul": "ليت",
+                "terjemahan": "semoga / andai saja",
+                "irab": "حَرْفُ تَمَنٍّ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الشَّبَابَ",
+                "gundul": "الشّباب",
+                "terjemahan": "masa muda itu",
+                "irab": "اسْمُ لَيْتَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الشَّبَابُ",
+                    "الشَّبَابِ"
+                ]
+            },
+            {
+                "berharakat": "يَعُوْدُ",
+                "gundul": "يعود",
+                "terjemahan": "kembali",
+                "irab": "خَبَرُ لَيْتَ مَرْفُوْعٌ (فِعْلٌ مُضَارِعٌ)",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": []
+            }
+        ],
+        [
+            {
+                "berharakat": "(6)",
+                "gundul": "(6)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "لَعَلَّ",
+                "gundul": "لعلّ",
+                "terjemahan": "mudah-mudahan / semoga",
+                "irab": "حَرْفُ تَرَجٍّ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْمَرِيْضَ",
+                "gundul": "المريض",
+                "terjemahan": "orang sakit itu",
+                "irab": "اسْمُ لَعَلَّ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمَرِيْضُ",
+                    "الْمَرِيْضِ"
+                ]
+            },
+            {
+                "berharakat": "يَشْفَى",
+                "gundul": "يشفى",
+                "terjemahan": "sembuh",
+                "irab": "خَبَرُ لَعَلَّ مَرْفُوْعٌ بِالضَّمَّةِ الْمُقَدَّرَةِ (فِعْلٌ مُضَارِعٌ)",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": []
+            }
+        ],
+        [
+            {
+                "berharakat": "(7)",
+                "gundul": "(7)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "إِنَّ",
+                "gundul": "إنّ",
+                "terjemahan": "sesungguhnya",
+                "irab": "حَرْفُ تَوْكِيْدٍ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْأُمَّ",
+                "gundul": "الأمّ",
+                "terjemahan": "ibu itu",
+                "irab": "اسْمُ إِنَّ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأُمُّ",
+                    "الْأُمِّ"
+                ]
+            },
+            {
+                "berharakat": "رَحِيْمَةٌ",
+                "gundul": "رحيمة",
+                "terjemahan": "(adalah) penyayang",
+                "irab": "خَبَرُ إِنَّ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "رَحِيْمَةً",
+                    "رَحِيْمَةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(8)",
+                "gundul": "(8)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كَأَنَّ",
+                "gundul": "كأنّ",
+                "terjemahan": "seolah-olah",
+                "irab": "حَرْفُ تَشْبِيْهٍ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "السَّمَاءَ",
+                "gundul": "السّماء",
+                "terjemahan": "langit itu",
+                "irab": "اسْمُ كَأَنَّ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "السَّمَاءُ",
+                    "السَّمَاءِ"
+                ]
+            },
+            {
+                "berharakat": "مِرْآةٌ",
+                "gundul": "مرآة",
+                "terjemahan": "(adalah) cermin",
+                "irab": "خَبَرُ كَأَنَّ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مِرْآةً",
+                    "مِرْآةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(9)",
+                "gundul": "(9)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "لَيْتَ",
+                "gundul": "ليت",
+                "terjemahan": "semoga / andai saja",
+                "irab": "حَرْفُ تَمَنٍّ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْأَيَّامَ",
+                "gundul": "الأيّام",
+                "terjemahan": "hari-hari itu",
+                "irab": "اسْمُ لَيْتَ مَنْصُوْبٌ بِالْفَتْحَةِ (جَمْعُ تَكْسِيْر)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَيَّامُ",
+                    "الْأَيَّامِ"
+                ]
+            },
+            {
+                "berharakat": "تَعُوْدُ",
+                "gundul": "تعود",
+                "terjemahan": "kembali",
+                "irab": "خَبَرُ لَيْتَ مَرْفُوْعٌ (فِعْلٌ مُضَارِعٌ)",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": []
+            }
+        ],
+        [
+            {
+                "berharakat": "(10)",
+                "gundul": "(10)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "إِنَّ",
+                "gundul": "إنّ",
+                "terjemahan": "sesungguhnya",
+                "irab": "حَرْفُ تَوْكِيْدٍ وَنَصْبٍ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْمُؤْمِنِيْنَ",
+                "gundul": "المؤمنين",
+                "terjemahan": "orang-orang beriman",
+                "irab": "اسْمُ إِنَّ مَنْصُوْبٌ بِالْيَاءِ (جَمْعُ مُذَكَّرٍ سَالِمٌ)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمُؤْمِنُوْنَ",
+                    "الْمُؤْمِنِيْنَ"
+                ]
+            },
+            {
+                "berharakat": "إِخْوَةٌ",
+                "gundul": "إخوة",
+                "terjemahan": "(adalah) bersaudara / saudara-saudara",
+                "irab": "خَبَرُ إِنَّ مَرْفُوْعٌ بِالضَّمَّةِ (جَمْعُ تَكْسِيْر)",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "إِخْوَةً",
+                    "إِخْوَةٍ"
+                ]
+            }
+        ]
+    ],
+    "quizData": [
+        {
+            "question": "Apa terjemahan yang tepat dari kalimat \"إِنَّ الْعِلْمَ نُوْرٌ\"?",
+            "context": "إِنَّ الْعِلْمَ نُوْرٌ",
+            "options": [
+                "Ilmu adalah kegelapan",
+                "Sesungguhnya cahaya adalah ilmu",
+                "Sesungguhnya ilmu adalah cahaya",
+                "Ilmu itu bukan cahaya"
+            ],
+            "correctAnswer": 3,
+            "explanation": "إِنَّ adalah huruf taukid (penegasan) yang bermakna 'sesungguhnya'. Ia menashabkan isimnya (الْعِلْمَ) dan merafa'kan khabarnya (نُوْرٌ). Terjemahan yang tepat: \"Sesungguhnya ilmu adalah cahaya.\""
+        },
+        {
+            "question": "Apa kedudukan kata \"الصِّدْقَ\" dalam kalimat \"أَنَّ الصِّدْقَ فَضِيْلَةٌ\"?",
+            "context": "أَنَّ الصِّدْقَ فَضِيْلَةٌ",
+            "options": [
+                "Mubtada' marfu'",
+                "Isim أَنَّ manshub",
+                "Khabar أَنَّ marfu'",
+                "Fa'il marfu'"
+            ],
+            "correctAnswer": 2,
+            "explanation": "الصِّدْقَ berkedudukan sebagai isim أَنَّ yang manshub dengan tanda fathah. Kaidah إِنَّ وَأَخَوَاتُهَا: menashabkan isim dan merafa'kan khabar — kebalikan dari jumlah ismiyyah biasa. أَنَّ bermakna 'bahwa' dan biasa digunakan setelah fi'il atau dalam konstruksi mashdar."
+        },
+        {
+            "question": "Apa makna khusus huruf \"لَكِنَّ\" dalam kalimat \"لَكِنَّ الْكَسُوْلَ خَاسِرٌ\"?",
+            "context": "لَكِنَّ الْكَسُوْلَ خَاسِرٌ",
+            "options": [
+                "Penegasan (taukid)",
+                "Penyerupaan (tasybih)",
+                "Pengharapan (taraji)",
+                "Pengecualian / pembetulan (istidrak)"
+            ],
+            "correctAnswer": 4,
+            "explanation": "لَكِنَّ adalah huruf istidrak yang bermakna 'akan tetapi'. Ia berfungsi untuk membetulkan atau mengecualikan sesuatu dari pernyataan sebelumnya. Contoh penggunaan: 'Dia bekerja keras, akan tetapi orang malas itu merugi.' لَكِنَّ menashabkan isim dan merafa'kan khabar."
+        },
+        {
+            "question": "Apa makna huruf \"كَأَنَّ\" dalam kalimat \"كَأَنَّ الْقَمَرَ مِصْبَاحٌ\"?",
+            "context": "كَأَنَّ الْقَمَرَ مِصْبَاحٌ",
+            "options": [
+                "Sesungguhnya",
+                "Semoga",
+                "Seolah-olah / bagaikan",
+                "Akan tetapi"
+            ],
+            "correctAnswer": 3,
+            "explanation": "كَأَنَّ adalah huruf tasybih yang bermakna 'seolah-olah' atau 'bagaikan'. Ia digunakan untuk menyerupakan sesuatu dengan yang lain. Dalam kalimat ini, bulan diserupakan dengan lampu. كَأَنَّ juga menashabkan isimnya (الْقَمَرَ) dan merafa'kan khabarnya (مِصْبَاحٌ)."
+        },
+        {
+            "question": "Apa tanda nashab isim \"لَيْتَ\" pada kata \"الشَّبَابَ\" dalam \"لَيْتَ الشَّبَابَ يَعُوْدُ\"?",
+            "context": "لَيْتَ الشَّبَابَ يَعُوْدُ",
+            "options": [
+                "Dhammah",
+                "Kasrah",
+                "Ya'",
+                "Fathah"
+            ],
+            "correctAnswer": 4,
+            "explanation": "الشَّبَابَ adalah isim لَيْتَ yang manshub. Karena ia isim mufrad, tanda nashabnya adalah fathah (ـَ). لَيْتَ adalah huruf tamanni (pengharapan mustahil/sulit) bermakna 'semoga' atau 'andai saja'. Khabarnya (يَعُوْدُ) berupa fi'il mudhori' yang marfu'."
+        },
+        {
+            "question": "Apa perbedaan makna antara \"لَيْتَ\" dan \"لَعَلَّ\"?",
+            "context": "لَيْتَ الشَّبَابَ يَعُوْدُ / لَعَلَّ الْمَرِيْضَ يَشْفَى",
+            "options": [
+                "Keduanya bermakna pengharapan yang pasti terjadi",
+                "لَيْتَ untuk hal mustahil/sulit, لَعَلَّ untuk hal yang mungkin terjadi",
+                "لَيْتَ untuk masa depan, لَعَلَّ untuk masa lalu",
+                "Tidak ada perbedaan makna"
+            ],
+            "correctAnswer": 2,
+            "explanation": "لَيْتَ adalah huruf tamanni yang digunakan untuk mengharapkan sesuatu yang mustahil atau sangat sulit terjadi (seperti masa muda yang tidak mungkin kembali). Sedangkan لَعَلَّ adalah huruf taraji yang digunakan untuk mengharapkan sesuatu yang mungkin terjadi (seperti kesembuhan orang sakit). Keduanya menashabkan isim dan merafa'kan khabar."
+        },
+        {
+            "question": "Apa tanda nashab pada \"الْأُمَّ\" dalam kalimat \"إِنَّ الْأُمَّ رَحِيْمَةٌ\"?",
+            "context": "إِنَّ الْأُمَّ رَحِيْمَةٌ",
+            "options": [
+                "Kasrah",
+                "Dhammah",
+                "Fathah",
+                "Ya'"
+            ],
+            "correctAnswer": 3,
+            "explanation": "الْأُمَّ adalah isim إِنَّ yang manshub. Karena ia isim mufrad, tanda nashabnya adalah fathah (ـَ). Perhatikan bahwa dalam jumlah ismiyyah biasa (tanpa إِنَّ), kata الْأُمُّ akan marfu' dengan dhammah sebagai mubtada'. Hadirnya إِنَّ mengubah isimnya menjadi manshub."
+        },
+        {
+            "question": "Mengapa khabar \"يَشْفَى\" dalam \"لَعَلَّ الْمَرِيْضَ يَشْفَى\" disebut marfu' dengan dhammah muqaddarah?",
+            "context": "لَعَلَّ الْمَرِيْضَ يَشْفَى",
+            "options": [
+                "Karena kata ini jamak",
+                "Karena fi'il mudhori' selalu majzum",
+                "Karena diakhiri alif maqshurah yang tidak dapat menerima harakat tampak",
+                "Karena kata ini isim"
+            ],
+            "correctAnswer": 3,
+            "explanation": "يَشْفَى diakhiri alif maqshurah (ى) yang tidak dapat menerima harakat yang tampak. Oleh karena itu, dhammah sebagai tanda rafa' pada fi'il mudhori' ini bersifat muqaddarah (tersembunyi/dikira-kirakan). Ini sama dengan fenomena yang terjadi pada isim yang berakhiran alif maqshurah."
+        },
+        {
+            "question": "Apa tanda nashab pada \"الْأَيَّامَ\" dalam \"لَيْتَ الْأَيَّامَ تَعُوْدُ\"? Dan apa jenis isimnya?",
+            "context": "لَيْتَ الْأَيَّامَ تَعُوْدُ",
+            "options": [
+                "Fathah — isim mufrad",
+                "Ya' — jamak mudzakkar salim",
+                "Kasrah — jamak muannats salim",
+                "Fathah — jamak taksir"
+            ],
+            "correctAnswer": 4,
+            "explanation": "الْأَيَّامَ adalah jamak taksir (جمع تكسير) dari يَوْم (hari). Jamak taksir dinashabkan dengan fathah, sama seperti isim mufrad. Ini berbeda dengan jamak mudzakkar salim (nashab dengan ya') dan jamak muannats salim (nashab dengan kasrah). الْأَيَّامَ di sini adalah isim لَيْتَ yang manshub."
+        },
+        {
+            "question": "Apa tanda nashab pada \"الْمُؤْمِنِيْنَ\" dalam \"إِنَّ الْمُؤْمِنِيْنَ إِخْوَةٌ\"?",
+            "context": "إِنَّ الْمُؤْمِنِيْنَ إِخْوَةٌ",
+            "options": [
+                "Fathah — karena isim mufrad",
+                "Kasrah — karena jamak muannats salim",
+                "Ya' — karena jamak mudzakkar salim",
+                "Alif — karena isim tatsniyah"
+            ],
+            "correctAnswer": 3,
+            "explanation": "الْمُؤْمِنِيْنَ adalah jamak mudzakkar salim (جمع مذكر سالم) yang berkedudukan sebagai isim إِنَّ (manshub). Tanda nashab jamak mudzakkar salim adalah ya' (ي) dan nun di akhir. Bentuk rafa'nya adalah الْمُؤْمِنُوْنَ. Khabarnya إِخْوَةٌ (jamak taksir) marfu' dengan dhammah."
+        }
+    ],
+    "path": ""
+}

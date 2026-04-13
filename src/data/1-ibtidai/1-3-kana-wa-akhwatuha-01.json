@@ -1,0 +1,622 @@
+{
+    "id": "import-1776090036965",
+    "title": "Kana wa Akhwatuha 01",
+    "titleArabic": "كَانَ وَأَخَوَاتُهَا (01)",
+    "level": "Ibtida’i",
+    "fullTranslation": "1. كَانَ الْوَلَدُ مَرِيْضًا — Anak itu (dulu) sakit.\r\n2. أَصْبَحَ الْجَوُّ بَارِدًا — Cuaca menjadi dingin.\r\n3. لَيْسَ الْكَذِبُ مَحْمُوْدًا — Bohong itu tidak terpuji.\r\n4. كَانَتِ الْمَدْرَسَةُ بَعِيْدَةً — Sekolah itu (dulu) jauh.\r\n5. أَمْسَى الطَّالِبُ تَعِبًا — Murid itu menjadi lelah di sore hari.\r\n6. صَارَ الصَّغِيْرُ كَبِيْرًا — Anak kecil itu menjadi besar.\r\n7. كَانَ الْعُلَمَاءُ مُحْتَرَمِيْنَ — Para ulama itu (dulu) dihormati.\r\n8. لَيْسَتِ الدُّنْيَا دَائِمَةً — Dunia itu tidak abadi.\r\n9. أَضْحَى الْفَقِيْرُ غَنِيًّا — Orang miskin itu menjadi kaya di pagi hari.\r\n10. كَانَ الطَّقْسُ جَمِيْلًا — Cuaca itu (dulu) indah.",
+    "reference": "",
+    "textData": [
+        [
+            {
+                "berharakat": "(1)",
+                "gundul": "(1)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كَانَ",
+                "gundul": "كان",
+                "terjemahan": "adalah (lampau) / (dulu)",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْوَلَدُ",
+                "gundul": "الولد",
+                "terjemahan": "anak itu",
+                "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْوَلَدَ",
+                    "الْوَلَدِ"
+                ]
+            },
+            {
+                "berharakat": "مَرِيْضًا",
+                "gundul": "مريضا",
+                "terjemahan": "(adalah) sakit",
+                "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مَرِيْضٌ",
+                    "مَرِيْضٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(2)",
+                "gundul": "(2)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَصْبَحَ",
+                "gundul": "أصبح",
+                "terjemahan": "menjadi (di pagi hari)",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْجَوُّ",
+                "gundul": "الجوّ",
+                "terjemahan": "cuaca",
+                "irab": "اسْمُ أَصْبَحَ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْجَوَّ",
+                    "الْجَوِّ"
+                ]
+            },
+            {
+                "berharakat": "بَارِدًا",
+                "gundul": "باردا",
+                "terjemahan": "(menjadi) dingin",
+                "irab": "خَبَرُ أَصْبَحَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "بَارِدٌ",
+                    "بَارِدٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(3)",
+                "gundul": "(3)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "لَيْسَ",
+                "gundul": "ليس",
+                "terjemahan": "tidak / bukan",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْكَذِبُ",
+                "gundul": "الكذب",
+                "terjemahan": "bohong / dusta",
+                "irab": "اسْمُ لَيْسَ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْكَذِبَ",
+                    "الْكَذِبِ"
+                ]
+            },
+            {
+                "berharakat": "مَحْمُوْدًا",
+                "gundul": "محمودا",
+                "terjemahan": "(adalah) terpuji",
+                "irab": "خَبَرُ لَيْسَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مَحْمُوْدٌ",
+                    "مَحْمُوْدٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(4)",
+                "gundul": "(4)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كَانَتِ",
+                "gundul": "كانت",
+                "terjemahan": "adalah (lampau) - muannats",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ لِلْمُؤَنَّثِ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْمَدْرَسَةُ",
+                "gundul": "المدرسة",
+                "terjemahan": "sekolah itu",
+                "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمَدْرَسَةَ",
+                    "الْمَدْرَسَةِ"
+                ]
+            },
+            {
+                "berharakat": "بَعِيْدَةً",
+                "gundul": "بعيدة",
+                "terjemahan": "(adalah) jauh",
+                "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "بَعِيْدَةٌ",
+                    "بَعِيْدَةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(5)",
+                "gundul": "(5)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَمْسَى",
+                "gundul": "أمسى",
+                "terjemahan": "menjadi (di sore hari)",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الطَّالِبُ",
+                "gundul": "الطّالب",
+                "terjemahan": "murid itu",
+                "irab": "اسْمُ أَمْسَى مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الطَّالِبَ",
+                    "الطَّالِبِ"
+                ]
+            },
+            {
+                "berharakat": "تَعِبًا",
+                "gundul": "تعبا",
+                "terjemahan": "(menjadi) lelah",
+                "irab": "خَبَرُ أَمْسَى مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "تَعِبٌ",
+                    "تَعِبٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(6)",
+                "gundul": "(6)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "صَارَ",
+                "gundul": "صار",
+                "terjemahan": "menjadi / berubah menjadi",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الصَّغِيْرُ",
+                "gundul": "الصّغير",
+                "terjemahan": "anak kecil itu / yang kecil",
+                "irab": "اسْمُ صَارَ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الصَّغِيْرَ",
+                    "الصَّغِيْرِ"
+                ]
+            },
+            {
+                "berharakat": "كَبِيْرًا",
+                "gundul": "كبيرا",
+                "terjemahan": "(menjadi) besar / dewasa",
+                "irab": "خَبَرُ صَارَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "كَبِيْرٌ",
+                    "كَبِيْرٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(7)",
+                "gundul": "(7)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كَانَ",
+                "gundul": "كان",
+                "terjemahan": "adalah (lampau)",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْعُلَمَاءُ",
+                "gundul": "العلماء",
+                "terjemahan": "para ulama",
+                "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ (جَمْعُ تَكْسِيْر)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْعُلَمَاءَ",
+                    "الْعُلَمَاءِ"
+                ]
+            },
+            {
+                "berharakat": "مُحْتَرَمِيْنَ",
+                "gundul": "محترمين",
+                "terjemahan": "(adalah) dihormati",
+                "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْيَاءِ (جَمْعُ مُذَكَّرٍ سَالِمٌ)",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مُحْتَرَمُوْنَ",
+                    "مُحْتَرَمِيْنَ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(8)",
+                "gundul": "(8)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "لَيْسَتِ",
+                "gundul": "ليست",
+                "terjemahan": "tidak / bukan - muannats",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ لِلْمُؤَنَّثِ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الدُّنْيَا",
+                "gundul": "الدّنيا",
+                "terjemahan": "dunia",
+                "irab": "اسْمُ لَيْسَ مَرْفُوْعٌ بِالضَّمَّةِ الْمُقَدَّرَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الدُّنْيَا"
+                ]
+            },
+            {
+                "berharakat": "دَائِمَةً",
+                "gundul": "دائمة",
+                "terjemahan": "(adalah) abadi / kekal",
+                "irab": "خَبَرُ لَيْسَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "دَائِمَةٌ",
+                    "دَائِمَةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(9)",
+                "gundul": "(9)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَضْحَى",
+                "gundul": "أضحى",
+                "terjemahan": "menjadi (di waktu dhuha)",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْفَقِيْرُ",
+                "gundul": "الفقير",
+                "terjemahan": "orang miskin itu",
+                "irab": "اسْمُ أَضْحَى مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْفَقِيْرَ",
+                    "الْفَقِيْرِ"
+                ]
+            },
+            {
+                "berharakat": "غَنِيًّا",
+                "gundul": "غنيّا",
+                "terjemahan": "(menjadi) kaya",
+                "irab": "خَبَرُ أَضْحَى مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "غَنِيٌّ",
+                    "غَنِيٍّ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(10)",
+                "gundul": "(10)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كَانَ",
+                "gundul": "كان",
+                "terjemahan": "adalah (lampau)",
+                "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الطَّقْسُ",
+                "gundul": "الطّقس",
+                "terjemahan": "cuaca itu",
+                "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الطَّقْسَ",
+                    "الطَّقْسِ"
+                ]
+            },
+            {
+                "berharakat": "جَمِيْلًا",
+                "gundul": "جميلا",
+                "terjemahan": "(adalah) indah",
+                "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "جَمِيْلٌ",
+                    "جَمِيْلٍ"
+                ]
+            }
+        ]
+    ],
+    "quizData": [
+        {
+            "question": "Apa terjemahan yang tepat dari kalimat \"كَانَ الْوَلَدُ مَرِيْضًا\"?",
+            "context": "كَانَ الْوَلَدُ مَرِيْضًا",
+            "options": [
+                "Anak itu sedang sakit sekarang",
+                "Anak itu (dulu) sakit",
+                "Anak itu akan sakit",
+                "Sakit itu menimpa anak"
+            ],
+            "correctAnswer": 2,
+            "explanation": "كَانَ adalah fi'il madhi naqish yang menunjukkan keadaan lampau. الْوَلَدُ adalah isim كَانَ (subjek) dan مَرِيْضًا adalah khabar كَانَ (predikat) yang manshub. Terjemahan yang tepat: \"Anak itu (dulu) sakit.\""
+        },
+        {
+            "question": "Apa kedudukan kata \"الْجَوُّ\" dalam kalimat \"أَصْبَحَ الْجَوُّ بَارِدًا\"?",
+            "context": "أَصْبَحَ الْجَوُّ بَارِدًا",
+            "options": [
+                "Khabar أَصْبَحَ manshub",
+                "Fa'il marfu'",
+                "Isim أَصْبَحَ marfu'",
+                "Mubtada' marfu'"
+            ],
+            "correctAnswer": 3,
+            "explanation": "الْجَوُّ berkedudukan sebagai isim أَصْبَحَ (اسم أصبح) yang marfu' dengan tanda dhammah. Dalam susunan كان وأخواتها, isimnya tetap marfu' sedangkan khabarnya manshub. أَصْبَحَ adalah saudara كَانَ yang bermakna 'menjadi di pagi hari'."
+        },
+        {
+            "question": "Mengapa \"لَيْسَ\" termasuk dalam kelompok كَانَ وَأَخَوَاتُهَا?",
+            "context": "لَيْسَ الْكَذِبُ مَحْمُوْدًا",
+            "options": [
+                "Karena ia fi'il mudhori'",
+                "Karena ia huruf nafi'",
+                "Karena ia fi'il naqish yang merafa'kan isim dan menashabkan khabar",
+                "Karena ia selalu diikuti isim nakirah"
+            ],
+            "correctAnswer": 3,
+            "explanation": "لَيْسَ adalah fi'il madhi naqish (tidak sempurna) yang termasuk أخوات كان. Disebut naqish karena tidak sempurna maknanya tanpa khabar. لَيْسَ merafa'kan isimnya dan menashabkan khabarnya, sama seperti كَانَ. Maknanya: 'tidak/bukan'."
+        },
+        {
+            "question": "Apa tanda nashab pada khabar كَانَ dalam kalimat \"كَانَتِ الْمَدْرَسَةُ بَعِيْدَةً\"?",
+            "context": "كَانَتِ الْمَدْرَسَةُ بَعِيْدَةً",
+            "options": [
+                "Dhammah",
+                "Kasrah",
+                "Fathah",
+                "Wawu"
+            ],
+            "correctAnswer": 3,
+            "explanation": "بَعِيْدَةً adalah khabar كَانَ yang manshub. Karena kata ini isim mufrad muannats, tanda nashabnya adalah fathah (ـً). Perlu diperhatikan bahwa كَانَتِ menggunakan ta' ta'nits karena isimnya (الْمَدْرَسَةُ) adalah muannats."
+        },
+        {
+            "question": "Manakah yang merupakan perbedaan makna antara أَصْبَحَ dan أَمْسَى?",
+            "context": "أَصْبَحَ الْجَوُّ بَارِدًا / أَمْسَى الطَّالِبُ تَعِبًا",
+            "options": [
+                "أَصْبَحَ berarti di malam hari, أَمْسَى di pagi hari",
+                "Keduanya bermakna sama persis",
+                "أَصْبَحَ berarti menjadi di pagi hari, أَمْسَى menjadi di sore hari",
+                "أَصْبَحَ untuk mudzakkar, أَمْسَى untuk muannats"
+            ],
+            "correctAnswer": 3,
+            "explanation": "أَصْبَحَ berasal dari kata الصُّبْحُ (pagi) sehingga bermakna 'menjadi di waktu pagi'. أَمْسَى berasal dari المَسَاءُ (sore) sehingga bermakna 'menjadi di waktu sore'. Keduanya adalah أخوات كان yang menashabkan khabar."
+        },
+        {
+            "question": "Dalam kalimat \"صَارَ الصَّغِيْرُ كَبِيْرًا\", apakah makna خاص yang dimiliki صَارَ?",
+            "context": "صَارَ الصَّغِيْرُ كَبِيْرًا",
+            "options": [
+                "Menunjukkan keadaan yang terus-menerus",
+                "Menunjukkan perubahan dari satu keadaan ke keadaan lain",
+                "Menunjukkan penafian (negasi)",
+                "Menunjukkan keadaan di waktu malam"
+            ],
+            "correctAnswer": 2,
+            "explanation": "صَارَ memiliki makna khusus yaitu 'berubah menjadi / menjadi'. Ia menunjukkan perubahan kondisi atau transformasi dari satu keadaan ke keadaan lain. Dalam contoh ini: anak kecil berubah menjadi besar/dewasa. صَارَ adalah fi'il naqish yang merafa'kan isim dan menashabkan khabar."
+        },
+        {
+            "question": "Apa tanda nashab pada \"مُحْتَرَمِيْنَ\" dalam \"كَانَ الْعُلَمَاءُ مُحْتَرَمِيْنَ\"?",
+            "context": "كَانَ الْعُلَمَاءُ مُحْتَرَمِيْنَ",
+            "options": [
+                "Fathah — karena isim mufrad",
+                "Kasrah — karena jamak muannats salim",
+                "Ya' — karena jamak mudzakkar salim",
+                "Alif — karena isim tatsniyah"
+            ],
+            "correctAnswer": 3,
+            "explanation": "مُحْتَرَمِيْنَ adalah jamak mudzakkar salim (جمع مذكر سالم) yang berkedudukan sebagai khabar كَانَ (manshub). Tanda nashab jamak mudzakkar salim adalah ya' (ي) dengan nun di akhir. Bentuk rafa'nya adalah مُحْتَرَمُوْنَ."
+        },
+        {
+            "question": "Mengapa rafa' pada \"الدُّنْيَا\" dalam \"لَيْسَتِ الدُّنْيَا دَائِمَةً\" disebut dhammah muqaddarah?",
+            "context": "لَيْسَتِ الدُّنْيَا دَائِمَةً",
+            "options": [
+                "Karena kata ini jamak",
+                "Karena diakhiri alif maqshurah yang tidak dapat menerima harakat tampak",
+                "Karena ia fi'il",
+                "Karena kata ini manshub"
+            ],
+            "correctAnswer": 2,
+            "explanation": "الدُّنْيَا diakhiri alif maqshurah (ى). Alif ini tidak dapat menerima harakat yang tampak, sehingga dhammah sebagai tanda rafa' disebut muqaddarah (tersembunyi/dikira-kirakan). Kata ini adalah isim لَيْسَ yang seharusnya marfu'."
+        },
+        {
+            "question": "Apa makna فعل أَضْحَى dalam kalimat \"أَضْحَى الْفَقِيْرُ غَنِيًّا\"?",
+            "context": "أَضْحَى الْفَقِيْرُ غَنِيًّا",
+            "options": [
+                "Menjadi di waktu malam",
+                "Menjadi di waktu sore",
+                "Menjadi di waktu dhuha/pagi menjelang siang",
+                "Tidak menjadi"
+            ],
+            "correctAnswer": 3,
+            "explanation": "أَضْحَى berasal dari الضُّحَى (waktu dhuha, antara pagi dan tengah hari). Maknanya adalah 'menjadi di waktu dhuha'. Ia adalah salah satu أخوات كان yang merafa'kan isimnya (الْفَقِيْرُ) dan menashabkan khabarnya (غَنِيًّا)."
+        },
+        {
+            "question": "Manakah kalimat yang BENAR menggunakan كَانَ وَأَخَوَاتُهَا?",
+            "context": "كَانَ الطَّقْسُ جَمِيْلًا",
+            "options": [
+                "كَانَ الطَّقْسَ جَمِيْلٌ",
+                "كَانَ الطَّقْسُ جَمِيْلًا",
+                "كَانَ الطَّقْسِ جَمِيْلًا",
+                "كَانَ الطَّقْسُ جَمِيْلٌ"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Kaidah كَانَ: isimnya marfu' (الطَّقْسُ dengan dhammah) dan khabarnya manshub (جَمِيْلًا dengan fathah tanwin). Pilihan (A) salah karena isimnya manshub. Pilihan (C) salah karena isimnya majrur. Pilihan (D) salah karena khabarnya marfu'. Jawaban benar: كَانَ الطَّقْسُ جَمِيْلًا."
+        }
+    ],
+    "path": ""
+}

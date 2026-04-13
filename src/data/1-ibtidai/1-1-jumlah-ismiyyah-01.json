@@ -1,0 +1,773 @@
+{
+    "id": "import-1775312119501",
+    "title": "Jumlah Ismiyyah 01",
+    "titleArabic": "الجملة الاسمية (01)",
+    "level": "Ibtida’i",
+    "fullTranslation": "1. الْعِلْمُ نُوْرٌ — Ilmu adalah cahaya.\r\n2. الصِّدْقُ فَضِيْلَةٌ — Kejujuran adalah keutamaan.\r\n3. الْوَلَدُ مُجْتَهِدٌ — Anak itu rajin.\r\n4. الْبَيْتُ كَبِيْرٌ — Rumah itu besar.\r\n5. الْعَالِمُ مُحْتَرَمٌ — Orang berilmu itu dihormati.\r\n6. الصَّلَاةُ عِمَادُ الدِّيْنِ — Salat adalah tiang agama.\r\n7. الْأُمُّ مَدْرَسَةٌ — Ibu adalah madrasah.\r\n8. الطَّالِبُ نَشِيْطٌ — Murid itu semangat.\r\n9. الْمَاءُ طَاهِرٌ — Air itu suci.\r\n10. الصَّبْرُ جَمِيْلٌ — Sabar itu indah.\r\n11. الْكِتَابُ مُفِيْدٌ — Buku itu bermanfaat.\r\n12. اللَّيْلُ طَوِيْلٌ — Malam itu panjang.\r\n13. الدُّنْيَا فَانِيَةٌ — Dunia itu fana.\r\n14. الْمُؤْمِنُ قَوِيٌّ — Mukmin itu kuat.\r\n15. الْحَقُّ مَنْصُوْرٌ — Kebenaran itu pasti ditolong.",
+    "reference": "",
+    "textData": [
+        [
+            {
+                "berharakat": "(1)",
+                "gundul": "(1)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْعِلْمُ",
+                "gundul": "العلم",
+                "terjemahan": "Ilmu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْعِلْمَ",
+                    "الْعِلْمِ"
+                ]
+            },
+            {
+                "berharakat": "نُوْرٌ",
+                "gundul": "نور",
+                "terjemahan": "(adalah) cahaya",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "نُوْرًا",
+                    "نُوْرٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(2)",
+                "gundul": "(2)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الصِّدْقُ",
+                "gundul": "الصّدق",
+                "terjemahan": "Kejujuran",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الصِّدْقَ",
+                    "الصِّدْقِ"
+                ]
+            },
+            {
+                "berharakat": "فَضِيْلَةٌ",
+                "gundul": "فضيلة",
+                "terjemahan": "(adalah) keutamaan",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "فَضِيْلَةً",
+                    "فَضِيْلَةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(3)",
+                "gundul": "(3)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْوَلَدُ",
+                "gundul": "الولد",
+                "terjemahan": "Anak itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْوَلَدَ",
+                    "الْوَلَدِ"
+                ]
+            },
+            {
+                "berharakat": "مُجْتَهِدٌ",
+                "gundul": "مجتهد",
+                "terjemahan": "(adalah) rajin",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مُجْتَهِدًا",
+                    "مُجْتَهِدٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(4)",
+                "gundul": "(4)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْبَيْتُ",
+                "gundul": "البيت",
+                "terjemahan": "Rumah itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْبَيْتَ",
+                    "الْبَيْتِ"
+                ]
+            },
+            {
+                "berharakat": "كَبِيْرٌ",
+                "gundul": "كبير",
+                "terjemahan": "(adalah) besar",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "كَبِيْرًا",
+                    "كَبِيْرٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(5)",
+                "gundul": "(5)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْعَالِمُ",
+                "gundul": "العالم",
+                "terjemahan": "Orang berilmu itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْعَالِمَ",
+                    "الْعَالِمِ"
+                ]
+            },
+            {
+                "berharakat": "مُحْتَرَمٌ",
+                "gundul": "محترم",
+                "terjemahan": "(adalah) dihormati",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مُحْتَرَمًا",
+                    "مُحْتَرَمٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(6)",
+                "gundul": "(6)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الصَّلَاةُ",
+                "gundul": "الصّلاة",
+                "terjemahan": "Salat",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الصَّلَاةَ",
+                    "الصَّلَاةِ"
+                ]
+            },
+            {
+                "berharakat": "عِمَادُ",
+                "gundul": "عماد",
+                "terjemahan": "(adalah) tiang",
+                "irab": "خَبَرٌ مَرْفُوْعٌ بِالضَّمَّةِ وهو مضاف",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "عِمَادَ",
+                    "عِمَادِ"
+                ]
+            },
+            {
+                "berharakat": "الدِّيْنِ",
+                "gundul": "الدّين",
+                "terjemahan": "agama",
+                "irab": "مُضَافٌ إِلَيْهِ مَجْرُوْرٌ بِالْكَسْرَةِ ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الدِّيْنَ",
+                    "الدِّيْنُ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(7)",
+                "gundul": "(7)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْأُمُّ",
+                "gundul": "الأمّ",
+                "terjemahan": "Ibu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْأُمَّ",
+                    "الْأُمِّ"
+                ]
+            },
+            {
+                "berharakat": "مَدْرَسَةٌ",
+                "gundul": "مدرسة",
+                "terjemahan": "(adalah) madrasah/ sekolah",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مَدْرَسَةً",
+                    "مَدْرَسَةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(8)",
+                "gundul": "(8)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الطَّالِبُ",
+                "gundul": "الطّالب",
+                "terjemahan": "Murid itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الطَّالِبَ",
+                    "الطَّالِبِ"
+                ]
+            },
+            {
+                "berharakat": "نَشِيْطٌ",
+                "gundul": "نشيط",
+                "terjemahan": "(adalah) semangat/ giat",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "نَشِيْطًا",
+                    "نَشِيْطٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(9)",
+                "gundul": "(9)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْمَاءُ",
+                "gundul": "الماء",
+                "terjemahan": "Air itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْمَاءَ",
+                    "الْمَاءِ"
+                ]
+            },
+            {
+                "berharakat": "طَاهِرٌ",
+                "gundul": "طاهر",
+                "terjemahan": "(adalah) suci",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "طَاهِرًا",
+                    "طَاهِرٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(10)",
+                "gundul": "(10)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الصَّبْرُ",
+                "gundul": "الصّبر",
+                "terjemahan": "Sabar itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الصَّبْرَ",
+                    "الصَّبْرِ"
+                ]
+            },
+            {
+                "berharakat": "جَمِيْلٌ",
+                "gundul": "جميل",
+                "terjemahan": "(adalah) indah",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "جَمِيْلًا",
+                    "جَمِيْلٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(11)",
+                "gundul": "(11)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْكِتَابُ",
+                "gundul": "الكتاب",
+                "terjemahan": "Buku itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْكِتَابَ",
+                    "الْكِتَابِ"
+                ]
+            },
+            {
+                "berharakat": "مُفِيْدٌ",
+                "gundul": "مفيد",
+                "terjemahan": "(adalah) bermanfaat",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مُفِيْدًا",
+                    "مُفِيْدٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(12)",
+                "gundul": "(12)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "اللَّيْلُ",
+                "gundul": "اللّيل",
+                "terjemahan": "Malam itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "اللَّيْلَ",
+                    "اللَّيْلِ"
+                ]
+            },
+            {
+                "berharakat": "طَوِيْلٌ",
+                "gundul": "طويل",
+                "terjemahan": "(adalah) panjang",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "طَوِيْلًا",
+                    "طَوِيْلٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(13)",
+                "gundul": "(13)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الدُّنْيَا",
+                "gundul": "الدّنيا",
+                "terjemahan": "Dunia itu",
+                "irab": "مُبْتَدأٌ مَرْفُوعٌ بِالضَّمَّةِ الْمُقَدَّرَةِ عَلَى الْأَلِفِ لِلتَّعَذُّرِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الدُّنْيَا"
+                ]
+            },
+            {
+                "berharakat": "فَانِيَةٌ",
+                "gundul": "فانية",
+                "terjemahan": "(adalah) fana/ sementara",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "فَانِيَةً",
+                    "فَانِيَةٍ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(14)",
+                "gundul": "(14)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْمُؤْمِنُ",
+                "gundul": "المؤمن",
+                "terjemahan": "Mukmin itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْمُؤْمِنَ",
+                    "الْمُؤْمِنِ"
+                ]
+            },
+            {
+                "berharakat": "قَوِيٌّ",
+                "gundul": "قويّ",
+                "terjemahan": "(adalah) kuat",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "قَوِيًّا",
+                    "قَوِيٍّ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(15)",
+                "gundul": "(15)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْحَقُّ",
+                "gundul": "الحقّ",
+                "terjemahan": "Kebenaran itu",
+                "irab": "مُبْتَدَأٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "م",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْحَقَّ",
+                    "الْحَقِّ"
+                ]
+            },
+            {
+                "berharakat": "مَنْصُوْرٌ",
+                "gundul": "منصور",
+                "terjemahan": "(pasti) ditolong",
+                "irab": "خَبَرٌ الْمُبْتَدَإِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "خ",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "مَنْصُوْرًا",
+                    "مَنْصُوْرٍ"
+                ]
+            }
+        ]
+    ],
+    "quizData": [
+        {
+            "question": "Apa terjemahan yang tepat dari kalimat \"الْعِلْمُ نُوْرٌ\"?",
+            "context": "الْعِلْمُ نُوْرٌ",
+            "options": [
+                "Ilmu adalah kekuatan",
+                "Ilmu adalah cahaya",
+                "Cahaya adalah ilmu",
+                "Ilmu adalah keindahan"
+            ],
+            "correctAnswer": 1,
+            "explanation": "الْعِلْمُ artinya 'ilmu' dan نُوْرٌ artinya 'cahaya'. Kalimat ini adalah jumlah ismiyyah dengan الْعِلْمُ sebagai mubtada' dan نُوْرٌ sebagai khabar, sehingga terjemahannya adalah \"Ilmu adalah cahaya.\""
+        },
+        {
+            "question": "Apa i'rab kata \"الصِّدْقُ\" dalam kalimat \"الصِّدْقُ فَضِيْلَةٌ\"?",
+            "context": "الصِّدْقُ فَضِيْلَةٌ",
+            "options": [
+                "Khabar marfu' bish-dhammah",
+                "Mubtada' marfu' bish-dhammah",
+                "Mudhaf ilaih majrur bil-kasrah",
+                "Maf'ul bih manshub bil-fathah"
+            ],
+            "correctAnswer": 1,
+            "explanation": "الصِّدْقُ (kejujuran) adalah mubtada' (مبتدأ) yang marfu' dengan tanda dhammah karena isim mufrad. فَضِيْلَةٌ adalah khabarnya. Artinya: \"Kejujuran adalah keutamaan.\""
+        },
+        {
+            "question": "Kata \"مُجْتَهِدٌ\" dalam \"الْوَلَدُ مُجْتَهِدٌ\" berkedudukan sebagai apa?",
+            "context": "الْوَلَدُ مُجْتَهِدٌ",
+            "options": [
+                "Mubtada'",
+                "Fa'il",
+                "Khabar",
+                "Na'at"
+            ],
+            "correctAnswer": 2,
+            "explanation": "مُجْتَهِدٌ (rajin) berkedudukan sebagai khabar (خبر), yaitu predikat dari mubtada' الْوَلَدُ. Khabar ini berupa isim mufrad nakirah (tanpa alif lam) yang marfu' bish-dhammah. Artinya: \"Anak itu (adalah) rajin.\""
+        },
+        {
+            "question": "Apa tanda rafa' yang digunakan pada mubtada' dan khabar dalam kalimat \"الْبَيْتُ كَبِيْرٌ\"?",
+            "context": "الْبَيْتُ كَبِيْرٌ",
+            "options": [
+                "Alif — karena isim tatsniyah",
+                "Wawu — karena jamak mudzakkar salim",
+                "Dhammah — karena isim mufrad",
+                "Nun — karena af'alul khamsah"
+            ],
+            "correctAnswer": 2,
+            "explanation": "الْبَيْتُ dan كَبِيْرٌ keduanya isim mufrad, sehingga tanda rafa'nya berupa dhammah (ـُ) di akhir kata. Ini adalah kaidah dasar: isim mufrad dirafa'kan dengan dhammah."
+        },
+        {
+            "question": "Manakah kata yang menjadi mubtada' dalam kalimat \"الْأُمُّ مَدْرَسَةٌ\"?",
+            "context": "الْأُمُّ مَدْرَسَةٌ",
+            "options": [
+                "مَدْرَسَةٌ",
+                "الْأُمُّ",
+                "Keduanya mubtada'",
+                "Tidak ada mubtada'"
+            ],
+            "correctAnswer": 1,
+            "explanation": "الْأُمُّ (ibu) adalah mubtada' (مبتدأ), yaitu isim ma'rifah (definit) dengan alif lam yang berkedudukan sebagai subjek. مَدْرَسَةٌ adalah khabar (predikat). Jumlah ismiyyah ini bermakna \"Ibu adalah madrasah/sekolah.\""
+        },
+        {
+            "question": "Mengapa rafa' pada kata \"الدُّنْيَا\" dalam \"الدُّنْيَا فَانِيَةٌ\" disebut dhammah muqaddarah?",
+            "context": "الدُّنْيَا فَانِيَةٌ",
+            "options": [
+                "Karena diakhiri dengan wawu",
+                "Karena diakhiri dengan alif maqshurah yang tidak dapat menerima harakat tampak",
+                "Karena kata ini jamak",
+                "Karena kata ini manshub"
+            ],
+            "correctAnswer": 1,
+            "explanation": "الدُّنْيَا diakhiri dengan alif maqshurah (ى). Alif maqshurah tidak dapat menerima harakat yang tampak (dhammah, fathah, kasrah), sehingga tanda rafa'nya berupa dhammah muqaddarah (مقدرة), yaitu dhammah yang tersembunyi/dikira-kirakan."
+        }
+    ],
+    "path": "data/1-ibtidai/1-1-jumlah-ismiyyah-01.json",
+    "preview": "(1) العلم نور (2) الصّدق فضيلة (3) الولد مجتهد (4) البيت كبير (5) العالم محترم (6) الصّلاة عماد الدّين (7) الأمّ مدرسة (8) الطّالب نشيط (9) الماء طاهر...",
+    "fileNumber": "1"
+}

@@ -1,12 +1,45 @@
 [
   {
-    "id": "dummy-all-features-v1",
-    "title": "Uji Coba Fitur Lengkap",
-    "titleArabic": "تجربة جميع الميزات",
+    "id": "lesson-1775312147332",
+    "title": "Jumlah Ismiyyah 01",
+    "titleArabic": "الجملة الاسمية (01)",
     "level": "Ibtida’i",
-    "path": "data/1-ibtidai/x-1-uji-coba-fitur-lengkap.json",
-    "preview": "Ilmu itu...",
-    "lastModified": "2026-02-16T02:44:27.753Z",
+    "path": "data/1-ibtidai/1-1-jumlah-ismiyyah-01.json",
+    "preview": "(1) العلم نور (2) الصّدق فضيلة (3) الولد مجتهد (4) البيت كبير (5) العالم محترم (6) الصّلاة عماد الدّين (7) الأمّ مدرسة (8) الطّالب نشيط (9) الماء طاهر...",
+    "lastModified": "2026-04-04T14:15:47.332Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "lesson-1775318138247",
+    "title": "Jumlah Fi'liyyah 01",
+    "titleArabic": "الجملة الفعليّة (01)",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/1-2-jumlah-filiyyah-01.json",
+    "preview": "(1) ذهب الطّالب (2) جلست المعلّمة (3) ينام الولد (4) تبكي البنت (5) رجع الأب (6) شرب الطّفل الحليب (7) فتحت الأمّ الباب (8) يحمل الرّجل الكتاب (9) تغس...",
+    "lastModified": "2026-04-13T14:33:33.566Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "lesson-1776090138408",
+    "title": "Kana wa Akhwatuha 01",
+    "titleArabic": "كَانَ وَأَخَوَاتُهَا (01)",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/1-3-kana-wa-akhwatuha-01.json",
+    "preview": "(1) كان الولد مريضا (2) أصبح الجوّ باردا (3) ليس الكذب محمودا (4) كانت المدرسة بعيدة (5) أمسى الطّالب تعبا (6) صار الصّغير كبيرا (7) كان العلماء محترم...",
+    "lastModified": "2026-04-13T14:34:14.512Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "lesson-1776090947350",
+    "title": "Inna wa Akhwatuha 01",
+    "titleArabic": "إِنَّ وَأَخَوَاتُهَا (01)",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/1-4-inna-wa-akhwatuha-01.json",
+    "preview": "(1) إنّ العلم نور (2) أنّ الصّدق فضيلة (3) لكنّ الكسول خاسر (4) كأنّ القمر مصباح (5) ليت الشّباب يعود (6) لعلّ المريض يشفى (7) إنّ الأمّ رحيمة (8) كأن...",
+    "lastModified": "2026-04-13T14:36:30.364Z",
     "chosen": false,
     "selected": false
   },
@@ -15,20 +48,9 @@
     "title": "Rukun Islam",
     "titleArabic": "اركان الإسلام",
     "level": "Ibtida’i",
-    "path": "data/1-ibtidai/2-1-rukun-islam.json",
+    "path": "data/1-ibtidai/1-9-rukun-islam.json",
     "preview": "(فصل) أركان الإسلام خمسة شهادة أن لا إله إلّا اللّه وأنّ محمّدا رسول اللّه وإقام الصّلاة وإيتاء الزّكاة وصوم رمضان وحجّ البيت من استطاع إليه سبيلا",
-    "lastModified": "2026-02-17T16:36:53.012Z",
-    "chosen": false,
-    "selected": false
-  },
-  {
-    "id": "lesson-1771332864011",
-    "title": "NEW Rukun Islam",
-    "titleArabic": "اركان الإسلام",
-    "level": "Mutawassit",
-    "path": "data/2-mutawassit/2-2-new-rukun-islam.json",
-    "preview": "Pasal...",
-    "lastModified": "2026-02-17T12:54:24.011Z",
+    "lastModified": "2026-04-13T14:32:34.491Z",
     "chosen": false,
     "selected": false
   },
@@ -51,17 +73,6 @@
     "path": "data/3-mutaqaddim/materi-03.json",
     "preview": "مررت  ليلة  أمس  برجل  بائس  فرأيته  واضعا  يده  ع...",
     "lastModified": "2025-07-12T10:52:23.429Z",
-    "chosen": false,
-    "selected": false
-  },
-  {
-    "id": "lesson-1771339284080",
-    "title": "Rukun Islam",
-    "titleArabic": "اركان الإسلام",
-    "level": "Mutaqaddim",
-    "path": "data/3-mutaqaddim/2-3-rukun-islam.json",
-    "preview": "Pasal...",
-    "lastModified": "2026-02-17T14:41:24.081Z",
     "chosen": false,
     "selected": false
   }

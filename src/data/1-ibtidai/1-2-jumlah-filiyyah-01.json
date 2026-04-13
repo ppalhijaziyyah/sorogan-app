@@ -1,0 +1,694 @@
+{
+    "id": "import-1775318126350",
+    "title": "Jumlah Fi'liyyah 01",
+    "titleArabic": "الجملة الفعليّة (01)",
+    "level": "Ibtida’i",
+    "fullTranslation": "1. ذَهَبَ الطَّالِبُ — Pelajar itu pergi.\r\n2. جَلَسَتِ الْمُعَلِّمَةُ — Guru perempuan itu duduk.\r\n3. يَنَامُ الْوَلَدُ — Anak laki-laki itu tidur.\r\n4. تَبْكِي الْبِنْتُ — Anak perempuan itu menangis.\r\n5. رَجَعَ الْأَبُ — Ayah itu pulang.\r\n6. شَرِبَ الطِّفْلُ الْحَلِيْبَ — Anak kecil itu minum susu.\r\n7. فَتَحَتِ الْأُمُّ الْبَابَ — Ibu membuka pintu.\r\n8. يَحْمِلُ الرَّجُلُ الْكِتَابَ — Laki-laki itu membawa buku.\r\n9. تَغْسِلُ الْمَرْأَةُ الثَّوْبَ — Perempuan itu mencuci baju.\r\n10. أَكَلَ الْمُسَافِرُ الطَّعَامَ — Musafir itu makan makanan.\r\n11. كُسِرَ الْقَلَمُ — Malam itu panjang.\r\n12. كُتِبَتِ الرِّسَالَةُ — Surat itu ditulis.\r\n13. يُفْتَحُ الْبَابُ — Pintu itu dibuka.\r\n14. تُدَرَّسُ اللُّغَةُ الْعَرَبِيَّةُ — Bahasa Arab itu diajarkan.\r\n15. نُشِرَ الْخَبَرُ — Berita itu disebarkan.",
+    "reference": "",
+    "textData": [
+        [
+            {
+                "berharakat": "(1)",
+                "gundul": "(1)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "ذَهَبَ",
+                "gundul": "ذهب",
+                "terjemahan": "pergi",
+                "irab": "فِعْلٌ مَاضٍ مَبْنِيٌّ عَلَى الْفَتْحِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "ذَهَبَ"
+                ]
+            },
+            {
+                "berharakat": "الطَّالِبُ",
+                "gundul": "الطّالب",
+                "terjemahan": "pelajar itu",
+                "irab": "فَاعِلٌ مَرْفُوعٌ بِـالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الطَّالِبَ، الطَّالِبِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(2)",
+                "gundul": "(2)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "جَلَسَتْ",
+                "gundul": "جلست",
+                "terjemahan": "duduk",
+                "irab": "فِعْلٌ مَاضٍ مَبْنِيٌّ عَلَى الْفَتْحِ، وَالتَّاءُ لِلتَّأْنِيْثِ حَرْفٌ مَبْنِيٌّ عَلَى السُّكُوْنِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "جَلَسَتْ"
+                ]
+            },
+            {
+                "berharakat": "الْمُعَلِّمَةُ",
+                "gundul": "المعلّمة",
+                "terjemahan": "guru perempuan itu",
+                "irab": "فاعل مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمُعَلِّمَةَ، الْمُعَلِّمَةِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(3)",
+                "gundul": "(3)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "يَنَامُ",
+                "gundul": "ينام",
+                "terjemahan": "tidur / sedang tidur",
+                "irab": "فِعْلٌ مُضَارِعٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يَنَامُ"
+                ]
+            },
+            {
+                "berharakat": "الْوَلَدُ",
+                "gundul": "الولد",
+                "terjemahan": "anak laki-laki itu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْوَلَدَ، الْوَلَدِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(4)",
+                "gundul": "(4)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "تَبْكِي",
+                "gundul": "تبكي",
+                "terjemahan": "menangis / sedang menangis",
+                "irab": "فِعْلٌ مُضَارِعٌ مَرْفُوْعٌ بِالضَّمَّةِ المُقَدَّرَةِ عَلَى الْيَاءِ مَنَعَ مِنْ ظُهُوْرِهَا الثِّقَالُ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "تَبْكِي"
+                ]
+            },
+            {
+                "berharakat": "الْبِنْتُ",
+                "gundul": "البنت",
+                "terjemahan": "anak perempuan itu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْبِنْتَ، الْبِنْتِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(5)",
+                "gundul": "(5)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "رَجَعَ",
+                "gundul": "رجع",
+                "terjemahan": "pulang / kembali",
+                "irab": "فِعْلُ مَاضٍٍ مَبْنِيٌّ عَلَى الْفَتْحِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "رَجَعَ"
+                ]
+            },
+            {
+                "berharakat": "الْأَبُ",
+                "gundul": "الأب",
+                "terjemahan": "ayah itu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَبَ، الْأَبِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(6)",
+                "gundul": "(6)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "شَرِبَ",
+                "gundul": "شرب",
+                "terjemahan": "minum",
+                "irab": "فِعْلُ مَاضٍٍ مَبْنِيٌّ عَلَى الْفَتْحِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "شَرِبَ"
+                ]
+            },
+            {
+                "berharakat": "الطِّفْلُ",
+                "gundul": "الطّفل",
+                "terjemahan": "anak kecil itu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الطِّفْلَ، الطِّفْلِ"
+                ]
+            },
+            {
+                "berharakat": "الْحَلِيْبَ",
+                "gundul": "الحليب",
+                "terjemahan": "susu",
+                "irab": "مَفْعُولٌ بِهِ مَنْصُوبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْحَلِيْبُ، الْحَلِيْبِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(7)",
+                "gundul": "(7)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "فَتَحَتْ",
+                "gundul": "فتحت",
+                "terjemahan": "membuka",
+                "irab": "فِعْلٌ مَاضٍ مَبْنِيٌّ عَلَى الْفَتْحِ، وَالتَّاءُ لِلتَّأْنِيْثِ حَرْفٌ مَبْنِيٌّ عَلَى السُّكُوْنِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَتَحَتْ"
+                ]
+            },
+            {
+                "berharakat": "الْأُمُّ",
+                "gundul": "الأمّ",
+                "terjemahan": "ibu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأُمَّ، الْأُمِّ"
+                ]
+            },
+            {
+                "berharakat": "الْبَابَ",
+                "gundul": "الباب",
+                "terjemahan": "pintu itu",
+                "irab": "مَفْعُولٌ بِهِ مَنْصُوبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْبَابُ، الْبَابِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(8)",
+                "gundul": "(8)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "يَحْمِلُ",
+                "gundul": "يحمل",
+                "terjemahan": "membawa / sedang membawa",
+                "irab": "فِعْلٌ مُضَارِعٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يَحْمِلُ"
+                ]
+            },
+            {
+                "berharakat": "الرَّجُلُ",
+                "gundul": "الرّجل",
+                "terjemahan": "laki-laki itu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الرَّجُلَ، الرَّجُلِ"
+                ]
+            },
+            {
+                "berharakat": "الْكِتَابَ",
+                "gundul": "الكتاب",
+                "terjemahan": "buku itu",
+                "irab": "مَفْعُولٌ بِهِ مَنْصُوبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْكِتَابُ، الْكِتَابِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(9)",
+                "gundul": "(9)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "تَغْسِلُ",
+                "gundul": "تغسل",
+                "terjemahan": "mencuci / sedang mencuci",
+                "irab": "فِعْلٌ مُضَارِعٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "تَغْسِلُ"
+                ]
+            },
+            {
+                "berharakat": "الْمَرْأَةُ",
+                "gundul": "المرأة",
+                "terjemahan": "perempuan itu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمَرْأَةَ، الْمَرْأَةِ"
+                ]
+            },
+            {
+                "berharakat": "الثَّوْبَ",
+                "gundul": "الثّوب",
+                "terjemahan": "baju itu",
+                "irab": "مَفْعُولٌ بِهِ مَنْصُوبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الثَّوْبُ، الثَّوْبِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(10)",
+                "gundul": "(10)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَكَلَ",
+                "gundul": "أكل",
+                "terjemahan": "makan",
+                "irab": "فِعْلُ مَاضٍٍ مَبْنِيٌّ عَلَى الْفَتْحِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "أَكَلَ"
+                ]
+            },
+            {
+                "berharakat": "الْمُسَافِرُ",
+                "gundul": "المسافر",
+                "terjemahan": "musafir itu",
+                "irab": "فَاعِلٌ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمُسَافِرَ، الْمُسَافِرِ"
+                ]
+            },
+            {
+                "berharakat": "الطَّعَامَ",
+                "gundul": "الطّعام",
+                "terjemahan": "makanan itu",
+                "irab": "مَفْعُولٌ بِهِ مَنْصُوبٌ بِالْفَتْحَةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الطَّعَامُ، الطَّعَامِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(11)",
+                "gundul": "(11)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كُسِرَ",
+                "gundul": "كسر",
+                "terjemahan": "dipatahkan / terpatah",
+                "irab": "فِعْلٌ مَاضٍ لِلْمَجْهُوْلِ مَبْنِيٌّ عَلَى الْفَتْحِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "كُسِرَ"
+                ]
+            },
+            {
+                "berharakat": "الْقَلَمُ",
+                "gundul": "القلم",
+                "terjemahan": "pena itu",
+                "irab": "نَائِبُ فَاعِلٍ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْقَلَمَ، الْقَلَمِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(12)",
+                "gundul": "(12)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كُتِبَتْ",
+                "gundul": "كتبت",
+                "terjemahan": "ditulis",
+                "irab": "فِعْلٌ مَاضٍ لِلْمَجْهُوْلِ مَبْنِيٌّ عَلَى الْفَتْحِ، وَالتَّاءُ لِلتَّأْنِيْثِ حَرْفٌ مَبْنِيٌّ عَلَى السُّكُوْنِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "كُتِبَتْ"
+                ]
+            },
+            {
+                "berharakat": "الرِّسَالَةُ",
+                "gundul": "الرّسالة",
+                "terjemahan": "surat itu",
+                "irab": "نَائِبُ فَاعِلٍ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الرِّسَالَةَ، الرِّسَالَةِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(13)",
+                "gundul": "(13)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "يُفْتَحُ",
+                "gundul": "يفتح",
+                "terjemahan": "dibuka / sedang dibuka",
+                "irab": "فِعْلٌ مُضَارِعٌ لِلْمَجْهُوْلِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يُفْتَحُ"
+                ]
+            },
+            {
+                "berharakat": "الْبَابُ",
+                "gundul": "الباب",
+                "terjemahan": "pintu itu",
+                "irab": "نَائِبُ فَاعِلٍ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْبَابَ، الْبَابِ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "(14)",
+                "gundul": "(14)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "تُدَرَّسُ",
+                "gundul": "تدرّس",
+                "terjemahan": "diajarkan / sedang diajarkan",
+                "irab": "فِعْلٌ مُضَارِعٌ لِلْمَجْهُوْلِ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "تُدَرَّسُ"
+                ]
+            },
+            {
+                "berharakat": "اللُّغَةُ",
+                "gundul": "اللّغة",
+                "terjemahan": "bahasa",
+                "irab": "نَائِبُ فَاعِلٍ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "اللُّغَةَ الْعَرَبِيَّةَ"
+                ]
+            },
+            {
+                "berharakat": "الْعَرَبِيَّةُ",
+                "gundul": "العربيّة",
+                "terjemahan": "Arab",
+                "irab": "نَعْتٌ لِلنَّائِبِ فَاعِلِ مَرْفُوعٌ بِـالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            }
+        ],
+        [
+            {
+                "berharakat": "(15)",
+                "gundul": "(15)",
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "نُشِرَ",
+                "gundul": "نشر",
+                "terjemahan": "disebarkan",
+                "irab": "فِعْلٌ مَاضٍ لِلْمَجْهُوْلِ مَبْنِيٌّ عَلَى الْفَتْحِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "نُشِرَ"
+                ]
+            },
+            {
+                "berharakat": "الْخَبَرُ",
+                "gundul": "الخبر",
+                "terjemahan": "berita itu",
+                "irab": "نَائِبُ فَاعِلٍ مَرْفُوْعٌ بِالضَّمَّةِ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْخَبَرَ، الْخَبَرِ"
+                ]
+            }
+        ]
+    ],
+    "quizData": [
+        {
+            "question": "Apa tanda i'rab (harakat akhir) kata الطَّالِبُ dalam kalimat \"ذَهَبَ الطَّالِبُ\"? Mengapa demikian?",
+            "context": "ذَهَبَ الطَّالِبُ",
+            "options": [
+                "Fathah — karena maf'ul bih",
+                "Kasrah — karena majrur",
+                "Dhammah — karena fa'il marfu'",
+                "Sukun — karena mabni"
+            ],
+            "correctAnswer": 2,
+            "explanation": "الطَّالِبُ berharakat dhammah karena ia adalah fa'il (فاعل). Fa'il selalu marfu' (رفع), dan tanda rafa' isim mufrad adalah dhammah (ـُ). Kaidah: الفاعل مرفوع دائمًا."
+        },
+        {
+            "question": "Mengapa fi'il dalam kalimat \"جَلَسَتْ الْمُعَلِّمَةُ\" menggunakan تْ di akhirnya?",
+            "context": "جَلَسَتْ الْمُعَلِّمَةُ",
+            "options": [
+                "Karena fi'ilnya fi'il mudhari'",
+                "Karena fa'ilnya isim mu'annats (perempuan), sehingga fi'il wajib menerima ta' ta'nits sakinah",
+                "Karena kalimatnya pertanyaan",
+                "Karena fi'ilnya mabni majhul"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Apabila fa'il berupa isim mufrad mu'annats, fi'il madhi wajib ditambah تْ (ta' ta'nits sakinah) di akhirnya. Ini adalah kaidah muthobaqah (مطابقة) antara fi'il dan fa'il dalam hal jenis: mudzakkar — tanpa تْ; mu'annats — dengan تْ."
+        },
+        {
+            "question": "Dalam kalimat \"يَنَامُ الْوَلَدُ\", huruf apa yang menunjukkan bahwa fi'il ini mudhari' untuk subjek laki-laki tunggal?",
+            "context": "يَنَامُ الْوَلَدُ",
+            "options": [
+                "Huruf نـ di awal",
+                "Huruf يـ di awal — tanda mudhari' untuk mudzakkar ghaib (orang ketiga laki-laki)",
+                "Huruf مـ di awal",
+                "Huruf أ di awal"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Fi'il mudhari' diawali salah satu dari أ، ن، ي، ت (أنيت). Huruf يـ menunjukkan pelaku orang ketiga laki-laki tunggal (مذكر غائب). Sedangkan تـ untuk perempuan (مؤنث غائبة) atau laki-laki yang diajak bicara."
+        },
+        {
+            "question": "Apa perbedaan antara \"ذَهَبَ الطَّالِبُ\" dan \"تَبْكِي الْبِنْتُ\" dari sisi bentuk fi'ilnya?",
+            "context": "ذَهَبَ الطَّالِبُ — تَبْكِي الْبِنْتُ",
+            "options": [
+                "Tidak ada perbedaan, keduanya sama",
+                "ذَهَبَ adalah fi'il madhi (lampau); تَبْكِي adalah fi'il mudhari' (sedang/akan)",
+                "ذَهَبَ adalah fi'il amr; تَبْكِي adalah fi'il madhi",
+                "Keduanya fi'il madhi"
+            ],
+            "correctAnswer": 1,
+            "explanation": "ذَهَبَ adalah fi'il madhi — menunjukkan pekerjaan yang telah terjadi, mabni pada fathah. تَبْكِي adalah fi'il mudhari' — menunjukkan pekerjaan yang sedang atau akan terjadi, marfu' dengan dhammah muqaddarah di atas ya'."
+        },
+        {
+            "question": "Dalam kalimat \"شَرِبَ الطِّفْلُ الْحَلِيْبَ\", mengapa الْحَلِيْبَ berharakat fathah di akhirnya?",
+            "context": "شَرِبَ الطِّفْلُ الْحَلِيْبَ",
+            "options": [
+                "Karena ia fa'il marfu'",
+                "Karena ia maf'ul bih (objek) yang manshub, tanda nashab isim mufrad adalah fathah",
+                "Karena ia mubtada'",
+                "Karena ia mabni"
+            ],
+            "correctAnswer": 1,
+            "explanation": "الْحَلِيْبَ adalah maf'ul bih (مفعول به) — objek yang dikenai pekerjaan. Maf'ul bih selalu manshub (نصب). Tanda nashab isim mufrad adalah fathah (ـَ). Bedakan: fa'il الطِّفْلُ berdhammah (رفع), maf'ul bih الْحَلِيْبَ berfathah (نصب)."
+        },
+        {
+            "question": "Identifikasi fi'il, fa'il, dan maf'ul bih dalam kalimat \"يَحْمِلُ الرَّجُلُ الْكِتَابَ\".",
+            "context": "يَحْمِلُ الرَّجُلُ الْكِتَابَ",
+            "options": [
+                "Fi'il: الرَّجُلُ — Fa'il: يَحْمِلُ — Maf'ul: الْكِتَابَ",
+                "Fi'il: يَحْمِلُ — Fa'il: الرَّجُلُ — Maf'ul bih: الْكِتَابَ",
+                "Fi'il: يَحْمِلُ — Fa'il: الْكِتَابَ — Maf'ul bih: الرَّجُلُ",
+                "Ketiganya adalah fa'il"
+            ],
+            "correctAnswer": 1,
+            "explanation": "يَحْمِلُ = fi'il mudhari' (kata kerja). الرَّجُلُ = fa'il marfu' bish-dhammah (pelaku). الْكِتَابَ = maf'ul bih manshub bil-fathah (objek). Urutan standar jumlah fi'liyyah: fi'il → fa'il → maf'ul bih."
+        },
+        {
+            "question": "Dalam kalimat \"تَغْسِلُ الْمَرْأَةُ الثَّوْبَ\", huruf تـ di awal fi'il menunjukkan apa?",
+            "context": "تَغْسِلُ الْمَرْأَةُ الثَّوْبَ",
+            "options": [
+                "Fa'ilnya laki-laki tunggal",
+                "Fa'ilnya perempuan tunggal (مؤنث غائبة) — huruf تـ adalah tanda mudhari' untuk mu'annats ghaib",
+                "Fi'ilnya fi'il madhi",
+                "Fi'ilnya fi'il amr"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Dalam fi'il mudhari', huruf تـ di awal bisa berarti: (1) fa'il perempuan tunggal غائبة (orang ketiga) — seperti تَغْسِلُ di sini, atau (2) fa'il laki-laki yang diajak bicara (مذكر مخاطب). Karena fa'ilnya الْمَرْأَةُ (orang ketiga perempuan), maka تـ di sini menunjukkan مؤنث غائبة."
+        },
+        {
+            "question": "Apa yang dimaksud dengan fi'il mabni majhul (مبني للمجهول)? Pilih penjelasan yang paling tepat.",
+            "context": "كُسِرَ الْقَلَمُ — يُفْتَحُ الْبَابُ",
+            "options": [
+                "Fi'il yang fa'ilnya disebutkan dengan jelas",
+                "Fi'il yang fa'ilnya tidak disebutkan (dirahasiakan/tidak diketahui), sehingga maf'ul bih naik menggantikan posisi fa'il",
+                "Fi'il yang tidak memiliki maf'ul bih",
+                "Fi'il yang digunakan untuk perintah"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Fi'il mabni majhul (فعل مبني للمجهول) adalah fi'il yang pelakunya (fa'il) tidak disebutkan. Akibatnya, maf'ul bih naik posisi menjadi نائب فاعل (pengganti fa'il) dan i'rabnya berubah dari nashab menjadi rafa'. Contoh: كَسَرَ الطَّالِبُ الْقَلَمَ → كُسِرَ الْقَلَمُ."
+        },
+        {
+            "question": "Bagaimana cara membentuk fi'il madhi majhul dari fi'il ma'lum كَتَبَ?",
+            "context": "كُتِبَتِ الرِّسَالَةُ",
+            "options": [
+                "Tambahkan تْ di akhir: كَتَبَتْ",
+                "Dhammah huruf pertama dan kasrah huruf sebelum terakhir: كُتِبَ",
+                "Kasrah semua huruf: كِتِبِ",
+                "Fathah semua huruf: كَتَبَ (tidak berubah)"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Kaidah membentuk fi'il madhi majhul: (1) dhammah huruf pertama, (2) kasrah huruf sebelum terakhir. كَتَبَ → كُتِبَ. Untuk madhi lebih dari tiga huruf, semua huruf tengah dikasrah kecuali huruf pertama yang didhammah."
+        },
+        {
+            "question": "Dalam kalimat \"يُفْتَحُ الْبَابُ\", apa kedudukan dan i'rab kata الْبَابُ?",
+            "context": "يُفْتَحُ الْبَابُ",
+            "options": [
+                "Maf'ul bih manshub bish-fathah",
+                "Mubtada' mabni",
+                "نائب فاعل مرفوع بالضمة — menggantikan posisi fa'il karena fi'ilnya majhul",
+                "Khabar marfu' bish-dhammah"
+            ],
+            "correctAnswer": 2,
+            "explanation": "الْبَابُ adalah نائب فاعل (pengganti fa'il). Asalnya ia maf'ul bih (الْبَابَ — fathah), namun karena fi'ilnya majhul dan fa'ilnya dihilangkan, ia naik posisi menjadi naibul fa'il dengan i'rab marfu' bish-dhammah. Kaidah: نائب الفاعل مرفوع دائمًا."
+        }
+    ],
+    "path": "data/1-ibtidai/2-1-jumlah-filiyyah-01.json",
+    "preview": "(1) ذهب الطّالب (2) جلست المعلّمة (3) ينام الولد (4) تبكي البنت (5) رجع الأب (6) شرب الطّفل الحليب (7) فتحت الأمّ الباب (8) يحمل الرّجل الكتاب (9) تغس...",
+    "fileNumber": "2"
+}
