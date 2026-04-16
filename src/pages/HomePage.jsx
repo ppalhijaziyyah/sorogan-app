@@ -72,7 +72,7 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
           </svg>
         </div>
       )}
-      <div className="flex-grow">
+      <div className="flex-grow flex flex-col pt-1">
         <h3 className="text-xl font-bold font-arabic text-right text-gray-800 dark:text-gray-100">
           {lesson.titleArabic || ""}
         </h3>
@@ -82,6 +82,23 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
         <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mt-3 font-arabic text-right line-clamp-2" dir="rtl">
           {lesson.preview || ""}
         </p>
+        
+        <div className="mt-auto">
+          {(lesson.hasIrab || lesson.hasQuiz) && (
+            <div className="flex gap-2 mt-4 justify-end pt-3 border-t border-gray-100 dark:border-gray-700/50">
+              {lesson.hasIrab && (
+                <span className="px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 text-xs font-bold ring-1 ring-teal-500/30">
+                  I'rab
+                </span>
+              )}
+              {lesson.hasQuiz && (
+                <span className="px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400 text-xs font-bold ring-1 ring-sky-500/30">
+                  Kuis
+                </span>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -133,6 +150,23 @@ const PreviewLessonCard = ({ level }) => {
             <h3 className="text-xl font-bold font-arabic text-gray-800 dark:text-gray-100">{previewLesson.titleArabic}</h3>
             <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">{previewLesson.title}</p>
             <p className="text-xs text-gray-400 mt-2">Mode Pratinjau Sementara</p>
+
+            <div className="mt-auto">
+              {(previewLesson.hasIrab || previewLesson.hasQuiz) && (
+                <div className="flex gap-2 mt-4 justify-center pt-3 border-t border-gray-100 dark:border-gray-700/50">
+                  {previewLesson.hasIrab && (
+                    <span className="px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 text-xs font-bold ring-1 ring-teal-500/30">
+                      I'rab
+                    </span>
+                  )}
+                  {previewLesson.hasQuiz && (
+                    <span className="px-2 py-0.5 rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400 text-xs font-bold ring-1 ring-sky-500/30">
+                      Kuis
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
           <div className="mt-4 flex flex-col gap-2">
             <button onClick={handleStartPreview} className="bg-teal-500 hover:bg-teal-600 text-white rounded py-2 px-4 shadow font-bold text-sm transition">👉 Mulai Preview</button>

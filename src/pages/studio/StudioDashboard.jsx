@@ -268,6 +268,8 @@ const StudioDashboard = ({ masterIndex, onEdit, onCreate, onDelete, onUpdateOrde
                 ...lessonMetadata,
                 textData: textData,
                 quizData: quizData,
+                hasIrab: textData.some(paragraph => paragraph.some(word => !!(word.irab && word.irab.trim()))),
+                hasQuiz: quizData.length > 0,
                 path: '' // Will be set on save
             };
 

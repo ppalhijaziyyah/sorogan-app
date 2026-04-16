@@ -249,6 +249,8 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
         const updatedLesson = {
             ...cleanData,
             preview: previewText, // Add preview field
+            hasIrab: (lessonData.textData || []).some(paragraph => paragraph.some(word => !!(word.irab && word.irab.trim()))),
+            hasQuiz: (lessonData.quizData || []).length > 0,
             path: `data/${lessonData.level === 'Ibtida’i' ? '1-ibtidai' : lessonData.level === 'Mutawassit' ? '2-mutawassit' : '3-mutaqaddim'}/${filename}`
         };
 
