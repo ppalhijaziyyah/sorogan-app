@@ -1,0 +1,1021 @@
+{
+    "id": "import-1776309973817",
+    "title": "Kedermawanan di Kalangan Bangsa Arab",
+    "titleArabic": "الْمُرُوءَةُ عِنْدَ الْعَرَبِ",
+    "level": "Mutawassit",
+    "fullTranslation": "Kedermawanan di Kalangan Bangsa Arab\r\nDahulu ada seorang penunggang kuda dari bangsa Arab yang sedang melintasi padang pasir dengan kudanya. Saat itu cuaca sangat panas dan pasir terasa membara. Di tengah perjalanannya, ia bertemu dengan seorang pria yang berjalan kaki. Pria itu tampak sangat kesakitan karena panasnya pasir yang menyengat. Si penunggang kuda merasa iba, lalu ia turun dari kudanya dan membantu pria tersebut untuk naik agar pria itu bisa beristirahat sejenak.\r\n\r\nNamun, ketika pria itu sudah berada di atas kuda, ia segera memacu hewan tersebut dengan cepat dan melarikan diri. Sang pemilik kuda kemudian memanggilnya dan berkata kepadanya.\r\n\r\n\"Sungguh aku telah memberikan kuda itu kepadamu, dan aku tidak akan menanyakannya lagi setelah hari ini. Akan tetapi, aku memohon satu hal darimu, tolong rahasiakan kejadian ini dari orang lain. Aku khawatir jika kabar ini tersebar di antara suku-suku Arab, orang yang kuat tidak akan mau lagi menolong yang lemah, dan orang yang berkendara tidak akan lagi merasa iba kepada pejalan kaki. Jika hal itu terjadi, maka keluhuran budi akan lenyap dari padang pasir ini.\"\r\n\r\nKetika pencuri tersebut mendengar perkataan itu, ia menyadari betapa pentingnya menjaga keluhuran budi di padang pasir. Ia pun merasa sangat malu dan segera mengembalikan kuda tersebut kepada pemiliknya.",
+    "reference": "",
+    "textData": [
+        [
+            {
+                "berharakat": "الْمُرُوءَةُ",
+                "gundul": "المروءة",
+                "terjemahan": "Kedermawanan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمُرُوءَةَ",
+                    "الْمُرُوءَةِ"
+                ]
+            },
+            {
+                "berharakat": "عِنْدَ الْعَرَبِ",
+                "gundul": "عند العرب",
+                "terjemahan": "Di kalangan bangsa Arab",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "عِنْدَ الْعَرَبَ",
+                    "عِنْدَ الْعَرَبُ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "كَانَ",
+                "gundul": "كان",
+                "terjemahan": "Ada",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "فَارِسٌ",
+                "gundul": "فارس",
+                "terjemahan": "seorang penunggang kuda",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَارِسٍ",
+                    "فَارِسُ",
+                    "فَارِسَ"
+                ]
+            },
+            {
+                "berharakat": "مِنَ الْعَرَبِ",
+                "gundul": "من العرب",
+                "terjemahan": "dari bangsa Arab",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "مِنَ الْعَرَبُ",
+                    "مِنَ الْعَرَبَ"
+                ]
+            },
+            {
+                "berharakat": "يَقْطَعُ",
+                "gundul": "يقطع",
+                "terjemahan": "sedang melintasi",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يُقْطَعُ",
+                    "يَقْطَعِ"
+                ]
+            },
+            {
+                "berharakat": "الصَّحْرَاءَ",
+                "gundul": "الصّحراء",
+                "terjemahan": "padang pasir",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الصَّحْرَاءُ",
+                    "الصَّحْرَاءِ"
+                ]
+            },
+            {
+                "berharakat": "عَلَى جَوَادِهِ،",
+                "gundul": "على جواده،",
+                "terjemahan": "di atas kudanya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "عَلَى جَوَادُهُ",
+                    "عَلَى جَوَادَهُ"
+                ]
+            },
+            {
+                "berharakat": "وَقَدِ اشْتَدَّ",
+                "gundul": "وقد اشتدّ",
+                "terjemahan": "Dan sungguh telah memuncak",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَقَدِ اشْتَدُّ",
+                    "وَقَدِ اشْتَدِّ"
+                ]
+            },
+            {
+                "berharakat": "الْحَرُّ",
+                "gundul": "الحرّ",
+                "terjemahan": "[suhu] panas",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "ف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْحَرِّ",
+                    "الْحَرَّ"
+                ]
+            },
+            {
+                "berharakat": "وَالْتَهَبَتْ",
+                "gundul": "والتهبت",
+                "terjemahan": "dan telah membara",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَالْتَهَبَتٌ"
+                ]
+            },
+            {
+                "berharakat": "الرِّمَالُ.",
+                "gundul": "الرّمال.",
+                "terjemahan": "pasir-pasir",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "ف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الرِّمَالَ",
+                    "الرِّمَالِ"
+                ]
+            },
+            {
+                "berharakat": "فَلَقِيَ",
+                "gundul": "فلقي",
+                "terjemahan": "maka dia bertemu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَلَقِيٌ",
+                    "فَلَقِيِ"
+                ]
+            },
+            {
+                "berharakat": "فِي طَرِيقِهِ",
+                "gundul": "في طريقه",
+                "terjemahan": "di perjalanannya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فِي طَرِيقِهُ",
+                    "فِي طَرِيقُهُ"
+                ]
+            },
+            {
+                "berharakat": "رَجُلًا",
+                "gundul": "رجلا",
+                "terjemahan": "seorang pria",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "رِجَلًا",
+                    "رِجْلًا"
+                ]
+            },
+            {
+                "berharakat": "يَمْشِي",
+                "gundul": "يمشي",
+                "terjemahan": "yang berjalan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يَمُشِي",
+                    "يُمْشِي"
+                ]
+            },
+            {
+                "berharakat": "عَلَى قَدَمَيْهِ",
+                "gundul": "على قدميه",
+                "terjemahan": "di atas kedua kakinya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "عَلَى قَدَمَيُهُ",
+                    "عَلَى قَدْمَيْهِ"
+                ]
+            },
+            {
+                "berharakat": "وَيَتَأَلَّمُ",
+                "gundul": "ويتألّم",
+                "terjemahan": "dan dia merasa kesakitan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَيَتَأَلَّمٌ",
+                    "وَيَتَأَلَّمِ"
+                ]
+            },
+            {
+                "berharakat": "مِنْ شِدَّةِ",
+                "gundul": "من شدّة",
+                "terjemahan": "karena dahsyatnya ",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "مِنْ شِدَّةُ",
+                    "مِنْ شِدَّةَ"
+                ]
+            },
+            {
+                "berharakat": "الرِّمَالِ",
+                "gundul": "الرّمال",
+                "terjemahan": "pasir",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الرِّمَالَ",
+                    "الرِّمَالُ"
+                ]
+            },
+            {
+                "berharakat": "الْحَارَّةِ،",
+                "gundul": "الحارّة،",
+                "terjemahan": "yang panas itu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْحَارَّةُ",
+                    "الْحَارَّةَ"
+                ]
+            },
+            {
+                "berharakat": "فَأَشْفَقَ",
+                "gundul": "فأشفق",
+                "terjemahan": "Maka merasa iba",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَأَشْفَقٌ",
+                    "فَأَشْفَقِ"
+                ]
+            },
+            {
+                "berharakat": "عَلَيْهِ",
+                "gundul": "عليه",
+                "terjemahan": "kepadanya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْفَارِسُ،",
+                "gundul": "الفارس،",
+                "terjemahan": "Si penunggang kuda tersebut",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "فا",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْفَارِسَ",
+                    "الْفَارِسِ"
+                ]
+            },
+            {
+                "berharakat": "فَنَزَلَ",
+                "gundul": "فنزل",
+                "terjemahan": "Lalu dia turun",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَنُزَلُ",
+                    "فَنَزَلٌ"
+                ]
+            },
+            {
+                "berharakat": "عَنْ جَوَادِهِ",
+                "gundul": "عن جواده",
+                "terjemahan": "dari kudanya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "عَنْ جَوَادُهُ",
+                    "عَنْ جُوْادِهِ"
+                ]
+            },
+            {
+                "berharakat": "وَأَرْكَبَ",
+                "gundul": "وأركب",
+                "terjemahan": "dan menaikkan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَأَرْكَبِ",
+                    "وَأَرْكَبُ"
+                ]
+            },
+            {
+                "berharakat": "الرَّجُلَ",
+                "gundul": "الرّجل",
+                "terjemahan": "pria itu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الرَّجُلِ",
+                    "الرَّجُلُ"
+                ]
+            },
+            {
+                "berharakat": "عَلَيْهِ",
+                "gundul": "عليه",
+                "terjemahan": "di atas kuda tersebut",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "لِيَسْتَرِيحَ",
+                "gundul": "ليستريح",
+                "terjemahan": "agar dia bisa beristirahat",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "لِيَسْتَرِيحِ"
+                ]
+            },
+            {
+                "berharakat": "قَلِيلًا.",
+                "gundul": "قليلا.",
+                "terjemahan": "sejenak",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "قُلَيلًا"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "وَعِنْدَمَا",
+                "gundul": "وعندما",
+                "terjemahan": "Dan ketika",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "رَكِبَ",
+                "gundul": "ركب",
+                "terjemahan": "telah naik",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "رَكِبٌ",
+                    "رُكَبِ"
+                ]
+            },
+            {
+                "berharakat": "الرَّجُلُ",
+                "gundul": "الرّجل",
+                "terjemahan": "Pria itu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "فا",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الرَّجُلِ",
+                    "الرَّجُلَ"
+                ]
+            },
+            {
+                "berharakat": "الْجَوَادَ",
+                "gundul": "الجواد",
+                "terjemahan": "ke atas kuda",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْجَوَادِ",
+                    "الْجَوَادُ"
+                ]
+            },
+            {
+                "berharakat": "انْدَفَعَ بِهِ",
+                "gundul": "اندفع به",
+                "terjemahan": "dia membawanya lari dengan cepat",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "اَنِدَفَعُ بِهِ",
+                    "اُنْدُفِعَ بِهِ"
+                ]
+            },
+            {
+                "berharakat": "وَهَرَبَ،",
+                "gundul": "وهرب،",
+                "terjemahan": "dan dia melarikan diri",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَهَرَبٌ",
+                    "وَهَرِبَ"
+                ]
+            },
+            {
+                "berharakat": "فَنَادَاهُ",
+                "gundul": "فناداه",
+                "terjemahan": "maka memanggilnya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "صَاحِبُ",
+                "gundul": "صاحب",
+                "terjemahan": "pemilik",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "فا",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "صَاحِبِ",
+                    "صَاحِبَ"
+                ]
+            },
+            {
+                "berharakat": "الْجَوَادِ",
+                "gundul": "الجواد",
+                "terjemahan": "kuda tersebut",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْجَوَادُ",
+                    "الْجَوَادَ"
+                ]
+            },
+            {
+                "berharakat": "وَقَالَ لَهُ:",
+                "gundul": "وقال له:",
+                "terjemahan": "Dan berkata kepadanya:",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            }
+        ],
+        [
+            {
+                "berharakat": "لَقَدْ وَهَبْتُ",
+                "gundul": "لقد وهبت",
+                "terjemahan": "Sungguh aku telah memberikan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "لَقَدْ وَهَبَتْ",
+                    "لَقَدْ وَهَبَتَ"
+                ]
+            },
+            {
+                "berharakat": "لَكَ",
+                "gundul": "لك",
+                "terjemahan": "untukmu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْجَوَادَ",
+                "gundul": "الجواد",
+                "terjemahan": "kuda ini",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْجَوَادِ",
+                    "الْجَوَادُ"
+                ]
+            },
+            {
+                "berharakat": "وَلَنْ أَسْأَلَ",
+                "gundul": "ولن أسأل",
+                "terjemahan": "dan aku tidak akan bertanya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَلَنْ أَسْأَلِ",
+                    "وَلَنْ أَسْأَلُ"
+                ]
+            },
+            {
+                "berharakat": "عَنْهُ",
+                "gundul": "عنه",
+                "terjemahan": "mengenainya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "بَعْدَ الْيَوْمِ،",
+                "gundul": "بعد اليوم،",
+                "terjemahan": "setelah hari ini",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "بَعْدَ الْيَوْمَ",
+                    "بَعْدَ الْيَوْمُ"
+                ]
+            },
+            {
+                "berharakat": "وَلَكِنَّنِي",
+                "gundul": "ولكنّني",
+                "terjemahan": "akan tetapi",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَطْلُبُ",
+                "gundul": "أطلب",
+                "terjemahan": "aku meminta",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "أَطْلُبِ",
+                    "أَطَلَبُ"
+                ]
+            },
+            {
+                "berharakat": "مِنْكَ",
+                "gundul": "منك",
+                "terjemahan": "darimu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَنْ تَكْتُمَ",
+                "gundul": "أن تكتم",
+                "terjemahan": "agar kamu menyembunyikan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "أَنْ تَكْتُمِ",
+                    "أَنْ تَكْتُمُ"
+                ]
+            },
+            {
+                "berharakat": "هَذَا",
+                "gundul": "هذا",
+                "terjemahan": "ini",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْأَمْرَ",
+                "gundul": "الأمر",
+                "terjemahan": "kejadian",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَمْرِ",
+                    "الْأَمْرُ"
+                ]
+            },
+            {
+                "berharakat": "عَنِ النَّاسِ،",
+                "gundul": "عن النّاس،",
+                "terjemahan": "dari orang-orang",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "عَنِ النَّاسَ",
+                    "عَنِ النَّاسُ"
+                ]
+            },
+            {
+                "berharakat": "لِئَلَّا يَنْتَشِرَ",
+                "gundul": "لئلّا ينتشر",
+                "terjemahan": "agar tidak tersebar (berita ini)",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "لِئَلَّا يَنْتَشِرُ"
+                ]
+            },
+            {
+                "berharakat": "بَيْنَ قَبَائِلِ",
+                "gundul": "بين قبائل",
+                "terjemahan": "di antara suku-suku",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "بَيْنَ قَبَائِلَ",
+                    "بَيْنَ قَبَائِلُ"
+                ]
+            },
+            {
+                "berharakat": "الْعَرَبِ،",
+                "gundul": "العرب،",
+                "terjemahan": "Arab",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْعَرَبَ",
+                    "الْعَرَبُ"
+                ]
+            },
+            {
+                "berharakat": "فَلَا يُسَاعِدَ",
+                "gundul": "فلا يساعد",
+                "terjemahan": "sehingga tidak menolong",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَلَا يُسَاعِدُ"
+                ]
+            },
+            {
+                "berharakat": "الْقَوِيُّ",
+                "gundul": "القويّ",
+                "terjemahan": "yang kuat",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "فا",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْقَوِيٌّ",
+                    "الْقَوِيِّ"
+                ]
+            },
+            {
+                "berharakat": "الضَّعِيفَ",
+                "gundul": "الضّعيف",
+                "terjemahan": "kepada yang lemah",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الضَّعِيفُ",
+                    "الضَّعِيفِ"
+                ]
+            },
+            {
+                "berharakat": "وَلَا يَشْفَقَ",
+                "gundul": "ولا يشفق",
+                "terjemahan": "dan tidak iba",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَلَا يَشْفَقِ"
+                ]
+            },
+            {
+                "berharakat": "الرَّاكِبُ",
+                "gundul": "الرّاكب",
+                "terjemahan": "[orang] yang berkendara",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "فا",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الرَّاكِبِ",
+                    "الرَّاكِبَ"
+                ]
+            },
+            {
+                "berharakat": "عَلَى الْمَاشِي",
+                "gundul": "على الماشي",
+                "terjemahan": "kepada pejalan kaki",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "عَلَى الْمَاشَي"
+                ]
+            },
+            {
+                "berharakat": "فَتَزُولَ",
+                "gundul": "فتزول",
+                "terjemahan": "maka akan hilang",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَتَزُولِ",
+                    "فَتُزَوِلَ"
+                ]
+            },
+            {
+                "berharakat": "الْمُرُوءَةُ",
+                "gundul": "المروءة",
+                "terjemahan": "sifat kedermawanan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "ف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْمُرُوءَةِ",
+                    "الْمُرُوءَةَ"
+                ]
+            },
+            {
+                "berharakat": "مِنْ هَذِهِ",
+                "gundul": "من هذه",
+                "terjemahan": "dari ini",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الصَّحْرَاءِ.",
+                "gundul": "الصّحراء.",
+                "terjemahan": "padang pasir",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الصَّحْرَاءَ",
+                    "الصَّحْرَاءُ"
+                ]
+            }
+        ],
+        [
+            {
+                "berharakat": "فَلَمَّا",
+                "gundul": "فلمّا",
+                "terjemahan": "Maka ketika",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "سَمِعَ",
+                "gundul": "سمع",
+                "terjemahan": "mendengar",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "سَمِعُ",
+                    "سُمِعَ"
+                ]
+            },
+            {
+                "berharakat": "اللِّصُّ",
+                "gundul": "اللّصّ",
+                "terjemahan": "pencuri itu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "فا",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "اللِّصِّ",
+                    "اللِّصَّ"
+                ]
+            },
+            {
+                "berharakat": "هَذَا",
+                "gundul": "هذا",
+                "terjemahan": "pada ini",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْقَوْلَ",
+                "gundul": "القول",
+                "terjemahan": "perkataan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْقَوْلِ",
+                    "الْقَوْلُ"
+                ]
+            },
+            {
+                "berharakat": "فَهِمَ",
+                "gundul": "فهم",
+                "terjemahan": "Dia memahami",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فَهَمَ",
+                    "فُهِمَ"
+                ]
+            },
+            {
+                "berharakat": "أَهَمِّيَّةَ",
+                "gundul": "أهمّيّة",
+                "terjemahan": "pentingnya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "أَهَمِّيَّةِ",
+                    "أَهَمِّيَّةُ"
+                ]
+            },
+            {
+                "berharakat": "الْمُرُوءَةِ",
+                "gundul": "المروءة",
+                "terjemahan": "kedermawanan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْمُرُوءَةَ",
+                    "الْمُرُوءَةُ"
+                ]
+            },
+            {
+                "berharakat": "وَأَعَادَ",
+                "gundul": "وأعاد",
+                "terjemahan": "dan dia mengembalikan",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "وَأَعَادِ",
+                    "وَأَعَادُ"
+                ]
+            },
+            {
+                "berharakat": "الْجَوَادَ",
+                "gundul": "الجواد",
+                "terjemahan": "kuda itu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مف",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "الْجَوَادِ",
+                    "الْجَوَادُ"
+                ]
+            },
+            {
+                "berharakat": "إِلَى صَاحِبِهِ",
+                "gundul": "إلى صاحبه",
+                "terjemahan": "kepada pemiliknya",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "إِلَى صَاحِبُهُ",
+                    "إِلَى صَاحَبَهُ"
+                ]
+            },
+            {
+                "berharakat": "خَجَلًا.",
+                "gundul": "خجلا.",
+                "terjemahan": "karena merasa malu",
+                "irab": "",
+                "link": "",
+                "nga_logat": [
+                    {
+                        "symbol": "مل",
+                        "position": "top-right"
+                    }
+                ],
+                "tasykil_options": [
+                    "خُجُلًا",
+                    "خِجِلًا"
+                ]
+            }
+        ]
+    ],
+    "quizData": [],
+    "hasIrab": false,
+    "hasQuiz": false,
+    "path": "data/2-mutawassit/2-4-kedermawanan-di-kalangan-bangsa-arab.json",
+    "preview": "المروءة عند العرب كان فارس من العرب يقطع الصّحراء على جواده، وقد اشتدّ الحرّ والتهبت الرّمال. فلقي في طريقه رجلا يمشي على قدميه ويتألّم من شدّة الرّما...",
+    "fileNumber": "4"
+}

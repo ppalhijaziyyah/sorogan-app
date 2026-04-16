@@ -65,6 +65,17 @@
     "hasQuiz": true
   },
   {
+    "id": "lesson-1776309569440",
+    "title": "Kedermawanan di Kalangan Bangsa Arab",
+    "titleArabic": "الْمُرُوءَةُ عِنْدَ الْعَرَبِ",
+    "level": "Mutawassit",
+    "path": "data/2-mutawassit/2-4-kedermawanan-di-kalangan-bangsa-arab.json",
+    "preview": "المروءة عند العرب كان فارس من العرب يقطع الصّحراء على جواده وقد اشتدّ الحرّ والتهبت الرّمال فلقي في طريقه رجلا يمشي على قدميه ويتألّم من شدّة الرّمال ...",
+    "lastModified": "2026-04-16T03:20:04.442Z",
+    "chosen": false,
+    "selected": false
+  },
+  {
     "id": "lesson-1771345418960",
     "title": "Rukun Islam",
     "titleArabic": "اركان الإسلام",
