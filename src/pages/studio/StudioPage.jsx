@@ -151,7 +151,9 @@ const StudioPage = () => {
             level: updatedData.level,
             path: updatedData.path || `data/${updatedData.level === 'Ibtida’i' ? '1-ibtidai' : updatedData.level === 'Mutawassit' ? '2-mutawassit' : '3-mutaqaddim'}/${updatedData.fileNumber || 'x'}-${updatedData.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.json`,
             preview: updatedData.preview || (updatedData.textData?.[0]?.[0]?.terjemahan || "").substring(0, 100) + "...",
-            lastModified: new Date().toISOString()
+            lastModified: new Date().toISOString(),
+            hasIrab: updatedData.hasIrab,
+            hasQuiz: updatedData.hasQuiz
         };
 
         // 2. Update Master Index State

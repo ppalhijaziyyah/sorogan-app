@@ -79,7 +79,7 @@ const LessonCard = ({ lesson, isCompleted, onSelect }) => {
         <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">
           {lesson.title}
         </p>
-        <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mt-3 font-arabic text-right line-clamp-2" dir="rtl">
+        <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mt-3 font-arabic text-right line-clamp-1" dir="rtl">
           {lesson.preview || ""}
         </p>
         
@@ -149,6 +149,9 @@ const PreviewLessonCard = ({ level }) => {
           <div>
             <h3 className="text-xl font-bold font-arabic text-gray-800 dark:text-gray-100">{previewLesson.titleArabic}</h3>
             <p className="text-md font-semibold mt-1 text-teal-600 dark:text-teal-400">{previewLesson.title}</p>
+            <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 mt-3 font-arabic text-right line-clamp-1" dir="rtl">
+              {previewLesson.preview || ""}
+            </p>
             <p className="text-xs text-gray-400 mt-2">Mode Pratinjau Sementara</p>
 
             <div className="mt-auto">

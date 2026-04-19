@@ -46,6 +46,14 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
     // Usually it's the activeWord.id, but it can be a previously answered word if clicked.
     const [popoverTargetId, setPopoverTargetId] = useState(null);
 
+    // Lock body scroll when mode is active
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
+
     // Setup initial popover on mount
     useEffect(() => {
         if (interactiveWords.length > 0 && !popoverTargetId) {
@@ -318,7 +326,7 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
                     {/* Main Text Container */}
                     <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-gray-100 dark:border-slate-700 p-6 md:p-10 lg:p-12 rounded-2xl shadow-xl text-right leading-loose font-arabic select-none transition-colors mt-2" dir="rtl" style={{ fontSize: 'var(--arabic-font-size)', lineHeight: 'var(--arabic-line-height)' }}>
                         {lessonData.textData.map((paragraph, pIndex) => (
-                            <p key={pIndex} className="mb-8">
+                            <div key={pIndex} className="mb-6">
                                 {paragraph.map((wordData, wIndex) => {
                                     const wordId = `${pIndex}-${wIndex}`;
                                     const isInteractive = wordData.tasykil_options && wordData.tasykil_options.length > 0;
@@ -366,75 +374,77 @@ const TasykilMode = ({ lessonData, setSliderState }) => {
                                     }
 
                                     return (
-                                        <span
-                                            key={wIndex}
-                                            className="relative inline-block" // Wrapper for positioning popover
-                                            style={style}
-                                        >
+                                        <React.Fragment key={wIndex}>
+                                            {wordData.isNewLine && <div className="w-full h-0" aria-hidden="true" />}
                                             <span
-                                                ref={(el) => (wordRefs.current[wordId] = el)}
-                                                className={boxClass}
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handleWordClick(pIndex, wIndex, isInteractive, wordResult);
-                                                }}
-                                                onDoubleClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handleWordDoubleClick(wordData, isInteractive, wordResult);
-                                                }}
+                                                className="relative inline-block" // Wrapper for positioning popover
+                                                style={style}
                                             >
-                                                {displayText}
-                                            </span>
-
-                                            {/* Dynamic Popover */}
-                                            {isPopoverTarget && (
-                                                <div
-                                                    id={`popover-${wordId}`}
-                                                    // Remove mt-[0.2em] and use the calculated top pixel position
-                                                    className="absolute z-50 bg-slate-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-xl shadow-2xl p-[0.3em] w-max min-w-[3em] right-1/2 translate-x-1/2 transform transition-all text-center"
-                                                    style={popoverPosition}
-                                                    onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside popover
+                                                <span
+                                                    ref={(el) => (wordRefs.current[wordId] = el)}
+                                                    className={boxClass}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        handleWordClick(pIndex, wIndex, isInteractive, wordResult);
+                                                    }}
+                                                    onDoubleClick={(e) => {
+                                                        e.stopPropagation();
+                                                        handleWordDoubleClick(wordData, isInteractive, wordResult);
+                                                    }}
                                                 >
-                                                    {/* Pointer Triangle */}
-                                                    <div className="absolute -top-[0.2em] right-1/2 translate-x-1/2 w-[0.4em] h-[0.4em] bg-slate-50 dark:bg-slate-900 border-t border-l border-gray-300 dark:border-slate-600 transform rotate-45"></div>
+                                                    {displayText}
+                                                </span>
 
-                                                    <div className="relative z-10">
-                                                        <div className="flex flex-col gap-[0.2em]">
-                                                            {currentOptions.map((option, idx) => {
-                                                                let btnClass = "w-full py-[0.1em] px-[0.2em] border rounded-lg transition-all font-arabic text-center leading-normal ";
+                                                {/* Dynamic Popover */}
+                                                {isPopoverTarget && (
+                                                    <div
+                                                        id={`popover-${wordId}`}
+                                                        // Remove mt-[0.2em] and use the calculated top pixel position
+                                                        className="absolute z-50 bg-slate-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-xl shadow-2xl p-[0.3em] w-max min-w-[3em] right-1/2 translate-x-1/2 transform transition-all text-center"
+                                                        style={popoverPosition}
+                                                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside popover
+                                                    >
+                                                        {/* Pointer Triangle */}
+                                                        <div className="absolute -top-[0.2em] right-1/2 translate-x-1/2 w-[0.4em] h-[0.4em] bg-slate-50 dark:bg-slate-900 border-t border-l border-gray-300 dark:border-slate-600 transform rotate-45"></div>
 
-                                                                if (wordResult) {
-                                                                    btnClass += "cursor-default ";
-                                                                    if (option === wordData.berharakat) {
-                                                                        btnClass += "bg-green-100 border-green-500 text-green-700 dark:bg-green-900/50 dark:text-green-300 dark:border-green-500 font-bold ";
-                                                                    } else if (wordResult.status === 'wrong' && option === wordResult.selectedOption) {
-                                                                        btnClass += "bg-red-100 border-red-500 text-red-700 dark:bg-red-900/50 dark:text-red-300 dark:border-red-500 ";
+                                                        <div className="relative z-10">
+                                                            <div className="flex flex-col gap-[0.2em]">
+                                                                {currentOptions.map((option, idx) => {
+                                                                    let btnClass = "w-full py-[0.1em] px-[0.2em] border rounded-lg transition-all font-arabic text-center leading-normal ";
+
+                                                                    if (wordResult) {
+                                                                        btnClass += "cursor-default ";
+                                                                        if (option === wordData.berharakat) {
+                                                                            btnClass += "bg-green-100 border-green-500 text-green-700 dark:bg-green-900/50 dark:text-green-300 dark:border-green-500 font-bold ";
+                                                                        } else if (wordResult.status === 'wrong' && option === wordResult.selectedOption) {
+                                                                            btnClass += "bg-red-100 border-red-500 text-red-700 dark:bg-red-900/50 dark:text-red-300 dark:border-red-500 ";
+                                                                        } else {
+                                                                            btnClass += "bg-gray-50 text-gray-400 border-gray-100 dark:bg-slate-800/50 dark:text-gray-600 dark:border-slate-700 opacity-50 ";
+                                                                        }
                                                                     } else {
-                                                                        btnClass += "bg-gray-50 text-gray-400 border-gray-100 dark:bg-slate-800/50 dark:text-gray-600 dark:border-slate-700 opacity-50 ";
+                                                                        btnClass += "bg-gray-50 hover:bg-teal-50 dark:bg-slate-700 dark:hover:bg-teal-900/30 border-gray-200 dark:border-slate-600 hover:border-teal-300 active:scale-95 cursor-pointer text-gray-800 dark:text-gray-200 ";
                                                                     }
-                                                                } else {
-                                                                    btnClass += "bg-gray-50 hover:bg-teal-50 dark:bg-slate-700 dark:hover:bg-teal-900/30 border-gray-200 dark:border-slate-600 hover:border-teal-300 active:scale-95 cursor-pointer text-gray-800 dark:text-gray-200 ";
-                                                                }
 
-                                                                return (
-                                                                    <button
-                                                                        key={idx}
-                                                                        onClick={(e) => !wordResult && handleOptionSelect(option, e)}
-                                                                        className={btnClass}
-                                                                        disabled={!!wordResult}
-                                                                    >
-                                                                        {option}
-                                                                    </button>
-                                                                );
-                                                            })}
+                                                                    return (
+                                                                        <button
+                                                                            key={idx}
+                                                                            onClick={(e) => !wordResult && handleOptionSelect(option, e)}
+                                                                            className={btnClass}
+                                                                            disabled={!!wordResult}
+                                                                        >
+                                                                            {option}
+                                                                        </button>
+                                                                    );
+                                                                })}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            )}
-                                        </span>
+                                                )}
+                                            </span>
+                                        </React.Fragment>
                                     );
                                 })}
-                            </p>
+                            </div>
                         ))}
                     </div>
                 </div>

@@ -23,6 +23,14 @@ const Quiz = ({ lessonData, onFinishQuiz, lessonId }) => {
 
   // --- Initialization ---
   useEffect(() => {
+    // Lock body scroll when quiz is active
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
+  useEffect(() => {
     if (lessonData.quizData) {
       setShuffledQuestions(shuffleArray(lessonData.quizData));
     }

@@ -1,0 +1,703 @@
+{
+    "id": "import-1776566251069",
+    "title": "Kisah Nabi Ibrahim (01)",
+    "titleArabic": "بائع الأصنام",
+    "level": "Ibtida’i",
+    "fullTranslation": "1- Penjual Berhala\r\nDahulu kala, sudah sangat lama sekali. Di sebuah desa terdapat seorang lelaki yang sangat terkenal. Nama lelaki ini adalah Azar. Azar dahulu menjual berhala-berhala.\r\nDi desa ini terdapat sebuah rumah yang sangat besar. Di dalam rumah ini ada banyak berhala, berhala yang jumlahnya sangat banyak sekali. Orang-orang dahulu bersujud kepada berhala-berhala ini. Azar pun bersujud kepada berhala-berhala ini. Dan Azar menyembah berhala-berhala tersebut.",
+    "reference": "قصص النبيين للأطفال - أبو الحسن الندوي",
+    "textData": [
+        [
+            {
+                "berharakat": "1 - ",
+                "gundul": "1 - ",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "بَائِعُ",
+                "gundul": "بائع",
+                "isNewLine": false,
+                "terjemahan": "Penjual",
+                "irab": "خبر لمبتدأ محذوف وهو مضاف",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "بَائِعَ",
+                    "بَائِعِ"
+                ]
+            },
+            {
+                "berharakat": "الْأَصْنَامِ",
+                "gundul": "الأصنام",
+                "isNewLine": false,
+                "terjemahan": "Berhala-berhala",
+                "irab": "مضاف إليه مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَصْنَامَ",
+                    "الْأَصْنَامُ"
+                ]
+            },
+            {
+                "berharakat": "قَبْلَ",
+                "gundul": "قبل",
+                "isNewLine": true,
+                "terjemahan": "Sebelum (dahulu)",
+                "irab": "ظرف زمان منصوب",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "قَبْلُ",
+                    "قَبْلِ"
+                ]
+            },
+            {
+                "berharakat": "أَيَّامٍ",
+                "gundul": "أيّام",
+                "isNewLine": false,
+                "terjemahan": "hari-hari",
+                "irab": "مضاف إليه مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "أَيَّامٌ"
+                ]
+            },
+            {
+                "berharakat": "كَثِيْرَةٍ",
+                "gundul": "كثيرة",
+                "isNewLine": false,
+                "terjemahan": "banyak",
+                "irab": "نعت (صفة) مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "كَثِيْرَةٌ"
+                ]
+            },
+            {
+                "berharakat": "كَثِيْرَةٍ",
+                "gundul": "كثيرة",
+                "isNewLine": false,
+                "terjemahan": "banyak",
+                "irab": "توكيد لفظي مجرور وعلامة جره الكسرة الظاهرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "كَثِيْرَةٌ",
+                    "كَثِيْرَةً"
+                ]
+            },
+            {
+                "berharakat": "جِدًّا ",
+                "gundul": "جدّا ",
+                "isNewLine": false,
+                "terjemahan": "sekali/ sangat",
+                "irab": "مفعول مطلق منصوب",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "كَانَ",
+                "gundul": "كان",
+                "isNewLine": true,
+                "terjemahan": "Ada",
+                "irab": "فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "فِي قَرْيَةٍ",
+                "gundul": "في قرية",
+                "isNewLine": false,
+                "terjemahan": "di sebuah desa",
+                "irab": "جار ومجرور (خبر كان مقدم)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "فِي قَرْيَةٌ"
+                ]
+            },
+            {
+                "berharakat": "رَجُلٌ",
+                "gundul": "رجل",
+                "isNewLine": false,
+                "terjemahan": "seorang lelaki",
+                "irab": "اسم كان مؤخر مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "رَجُلٍ"
+                ]
+            },
+            {
+                "berharakat": "مَشْهُورٌ",
+                "gundul": "مشهور",
+                "isNewLine": false,
+                "terjemahan": "yang terkenal",
+                "irab": "نعت مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "مَشْهُورٍ"
+                ]
+            },
+            {
+                "berharakat": "جِدًّا ",
+                "gundul": "جدّا ",
+                "isNewLine": false,
+                "terjemahan": "sekali",
+                "irab": "مفعول مطلق منصوب",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "وَكَانَ",
+                "gundul": "وكان",
+                "isNewLine": true,
+                "terjemahan": "Adapun",
+                "irab": "(وَ) حرف استئناف مبني على الفتح (كَانَ) فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "اسْمُ",
+                "gundul": "اسم",
+                "isNewLine": false,
+                "terjemahan": "nama",
+                "irab": "اسم كان مرفوع وهو مضاف",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "اسْمَ",
+                    "اسْمِ"
+                ]
+            },
+            {
+                "berharakat": "هَذَا",
+                "gundul": "هذا",
+                "isNewLine": false,
+                "terjemahan": "ini",
+                "irab": "اسم إشارة في محل جر مضاف إليه",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الرَّجُلِ",
+                "gundul": "الرّجل",
+                "isNewLine": false,
+                "terjemahan": "lelaki",
+                "irab": "بدل مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الرَّجُلُ",
+                    "الرَّجُلَ"
+                ]
+            },
+            {
+                "berharakat": "آزَرَ",
+                "gundul": "آزر",
+                "isNewLine": false,
+                "terjemahan": "[adalah] Azar",
+                "irab": "خبر كان منصوب بالفتحة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "آزَرُ",
+                    "آزَرِ"
+                ]
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "وَكَانَ",
+                "gundul": "وكان",
+                "isNewLine": true,
+                "terjemahan": "Adapun",
+                "irab": "(وَ) حرف استئناف مبني على الفتح (كَانَ) فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "آزَرُ",
+                "gundul": "آزر",
+                "isNewLine": false,
+                "terjemahan": "Azar",
+                "irab": "اسم كان مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "آزَرَ",
+                    "آزَرِ"
+                ]
+            },
+            {
+                "berharakat": "يَبِيْعُ",
+                "gundul": "يبيع",
+                "isNewLine": false,
+                "terjemahan": "menjual",
+                "irab": "فعل مضارع مرفوع (والجملة خبر كان)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يَبِيْعَ",
+                    "يُبِيْعُ"
+                ]
+            },
+            {
+                "berharakat": "الْأَصْنَامَ",
+                "gundul": "الأصنام",
+                "isNewLine": false,
+                "terjemahan": "berhala-berhala",
+                "irab": "مفعول به منصوب بالفتحة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَصْنَامِ",
+                    "الْأَصْنَامُ"
+                ]
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "وَكَانَ",
+                "gundul": "وكان",
+                "isNewLine": true,
+                "terjemahan": "Ada",
+                "irab": "(وَ) حرف استئناف مبني على الفتح (كَانَ) فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "فِي هَذِهِ",
+                "gundul": "في هذه",
+                "isNewLine": false,
+                "terjemahan": "di ini",
+                "irab": "جار ومجرور (خبر كان مقدم)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْقَرْيَةِ",
+                "gundul": "القرية",
+                "isNewLine": false,
+                "terjemahan": "Desa",
+                "irab": "بدل مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْقَرْيَةُ",
+                    "الْقَرْيَةَ"
+                ]
+            },
+            {
+                "berharakat": "بَيْتٌ",
+                "gundul": "بيت",
+                "isNewLine": false,
+                "terjemahan": "[sebuah] rumah",
+                "irab": "اسم كان مؤخر مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "بَيْتٍ"
+                ]
+            },
+            {
+                "berharakat": "كَبِيْرٌ",
+                "gundul": "كبير",
+                "isNewLine": false,
+                "terjemahan": "yang besar",
+                "irab": "نعت مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "كَبِيْرٍ"
+                ]
+            },
+            {
+                "berharakat": "جِدًّا ",
+                "gundul": "جدّا ",
+                "isNewLine": false,
+                "terjemahan": "sekali",
+                "irab": "مفعول مطلق منصوب",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "وَكَانَ",
+                "gundul": "وكان",
+                "isNewLine": true,
+                "terjemahan": "Dan ada",
+                "irab": "(وَ) حرف عطف مبني على الفتح (كَانَ) فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "فِي هَذَا",
+                "gundul": "في هذا",
+                "isNewLine": false,
+                "terjemahan": "di ini",
+                "irab": "جار ومجرور (خبر كان مقدم)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْبَيْتِ",
+                "gundul": "البيت",
+                "isNewLine": false,
+                "terjemahan": "rumah",
+                "irab": "بدل مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْبَيْتُ",
+                    "الْبَيْتَ"
+                ]
+            },
+            {
+                "berharakat": "أَصْنَامٌ",
+                "gundul": "أصنام",
+                "isNewLine": false,
+                "terjemahan": "berhala-berhala",
+                "irab": "اسم كان مؤخر مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "أَصْنَامٍ",
+                    "أَصْنَامُ"
+                ]
+            },
+            {
+                "berharakat": "،",
+                "gundul": "،",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "أَصْنَامٌ",
+                "gundul": "أصنام",
+                "isNewLine": false,
+                "terjemahan": "berhala",
+                "irab": "بَدَلٌ مَرْفُوعٌ وَعَلَامَةُ رَفْعِهِ الضَّمَّةُ الظَّاهِرَةُ",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "أَصْنَامٍ",
+                    "أَصْنَامُ"
+                ]
+            },
+            {
+                "berharakat": "كَثِيْرَةٌ",
+                "gundul": "كثيرة",
+                "isNewLine": false,
+                "terjemahan": "yang banyak",
+                "irab": "نعت مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "كَثِيْرَةً",
+                    "كَثِيْرَةٍ"
+                ]
+            },
+            {
+                "berharakat": "جِدًّا ",
+                "gundul": "جدّا ",
+                "isNewLine": false,
+                "terjemahan": "sekali",
+                "irab": "مفعول مطلق منصوب",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "وَكَانَ",
+                "gundul": "وكان",
+                "isNewLine": true,
+                "terjemahan": "Ada",
+                "irab": "(وَ) حرف استئناف مبني على الفتح (كَانَ) فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "النَّاسُ",
+                "gundul": "النّاس",
+                "isNewLine": false,
+                "terjemahan": "manusia",
+                "irab": "اسم كان مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "النَّاسَ",
+                    "النَّاسِ"
+                ]
+            },
+            {
+                "berharakat": "يَسْجُدُونَ",
+                "gundul": "يسجدون",
+                "isNewLine": false,
+                "terjemahan": "yang bersujud",
+                "irab": "فعل مضارع مرفوع بثبوت النون (والجملة خبر كان)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يُسْجِدُونَ",
+                    "يَسْجُدَونُ"
+                ]
+            },
+            {
+                "berharakat": "لِهَذِهِ",
+                "gundul": "لهذه",
+                "isNewLine": false,
+                "terjemahan": "pada ini",
+                "irab": "جار ومجرور",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْأَصْنَامِ",
+                "gundul": "الأصنام",
+                "isNewLine": false,
+                "terjemahan": "berhala-berhala",
+                "irab": "بدل مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَصْنَامَ",
+                    "الْأَصْنَامُ"
+                ]
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "وَكَانَ",
+                "gundul": "وكان",
+                "isNewLine": true,
+                "terjemahan": "Adapun",
+                "irab": "(وَ) حرف استئناف مبني على الفتح (كَانَ) فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "آزَرُ",
+                "gundul": "آزر",
+                "isNewLine": false,
+                "terjemahan": "Azar",
+                "irab": "اسم كان مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "آزَرِ",
+                    "آزَرَ"
+                ]
+            },
+            {
+                "berharakat": "يَسْجُدُ",
+                "gundul": "يسجد",
+                "isNewLine": false,
+                "terjemahan": "[juga] bersujud",
+                "irab": "فعل مضارع مرفوع (والجملة خبر كان)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يُسْجِدُ",
+                    "يَسْجُدَ"
+                ]
+            },
+            {
+                "berharakat": "لِهَذِهِ",
+                "gundul": "لهذه",
+                "isNewLine": false,
+                "terjemahan": "pada ini",
+                "irab": "جار ومجرور",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الْأَصْنَامِ ",
+                "gundul": "الأصنام ",
+                "isNewLine": false,
+                "terjemahan": "berhala-berhala",
+                "irab": "بدل مجرور بالكسرة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَصْنَامَ",
+                    "الْأَصْنَامُ"
+                ]
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "وَكَانَ",
+                "gundul": "وكان",
+                "isNewLine": true,
+                "terjemahan": "Adapun",
+                "irab": "(وَ) حرف استئناف مبني على الفتح (كَانَ) فعل ماض ناقص",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "آزَرُ",
+                "gundul": "آزر",
+                "isNewLine": false,
+                "terjemahan": "Azar",
+                "irab": "اسم كان مرفوع بالضمة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "آزَرِ",
+                    "آزَرَ"
+                ]
+            },
+            {
+                "berharakat": "يَعْبُدُ",
+                "gundul": "يعبد",
+                "isNewLine": false,
+                "terjemahan": "menyembah",
+                "irab": "فعل مضارع مرفوع (والجملة خبر كان)",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "يَعْبُدَ",
+                    "يُعْبِدُ"
+                ]
+            },
+            {
+                "berharakat": "هَذِهِ",
+                "gundul": "هذه",
+                "isNewLine": false,
+                "terjemahan": "ini",
+                "irab": "اسم إشارة في محل نصب مفعول به",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            },
+            {
+                "berharakat": "الأَصْنَامَ ",
+                "gundul": "الأصنام ",
+                "isNewLine": false,
+                "terjemahan": "berhala-berhala",
+                "irab": "بدل منصوب بالفتحة",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": [
+                    "الْأَصْنَامِ",
+                    "الْأَصْنَامُ"
+                ]
+            },
+            {
+                "berharakat": ".",
+                "gundul": ".",
+                "isNewLine": false,
+                "terjemahan": "",
+                "irab": "",
+                "link": "",
+                "nga_logat": [],
+                "tasykil_options": []
+            }
+        ]
+    ],
+    "quizData": [],
+    "hasIrab": true,
+    "hasQuiz": false,
+    "path": "",
+    "fileNumber": "8-1"
+}

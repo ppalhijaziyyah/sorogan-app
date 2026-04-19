@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { removeHarakat, copyToClipboard, downloadJSON } from '../../utils/studioUtils';
+import { removeHarakat, copyToClipboard, downloadJSON, generatePreview, checkHasFeatures } from '../../utils/studioUtils';
 import ConfirmationModal from '../../components/ui/ConfirmationModal';
 
 const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
@@ -75,17 +75,27 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
     const handleProcessText = () => {
         if (!fullTextRaw.trim()) return;
 
-        const paragraphs = fullTextRaw.split(/\n\s*\n/).filter(p => p.trim());
-        const newTextData = paragraphs.map(p => {
-            return p.trim().split(/\s+/).map(word => ({
-                berharakat: word,
-                gundul: removeHarakat(word),
-                terjemahan: '',
-                irab: '',
-                link: '',
-                nga_logat: [],
-                tasykil_options: []
-            }));
+        // Split by 2 or more newlines to determine paragraphs
+        const paragraphBlocks = fullTextRaw.split(/\n\s*\n/).filter(p => p.trim());
+        const newTextData = paragraphBlocks.map(block => {
+            const lines = block.split('\n').filter(l => l.trim());
+            const wordsInParagraph = [];
+            lines.forEach((line, lineIdx) => {
+                const words = line.trim().split(/\s+/).filter(Boolean);
+                words.forEach((word, wordIdx) => {
+                    wordsInParagraph.push({
+                        berharakat: word,
+                        gundul: removeHarakat(word),
+                        isNewLine: lineIdx > 0 && wordIdx === 0,
+                        terjemahan: '',
+                        irab: '',
+                        link: '',
+                        nga_logat: [],
+                        tasykil_options: []
+                    });
+                });
+            });
+            return wordsInParagraph;
         });
 
         setLessonData(prev => ({
@@ -115,7 +125,7 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
         if (!newData[pIndex]) return;
 
         newData[pIndex].splice(wIndex + 1, 0, {
-            berharakat: "", gundul: "", terjemahan: "", irab: "", link: "", nga_logat: [], tasykil_options: []
+            berharakat: "", gundul: "", isNewLine: false, terjemahan: "", irab: "", link: "", nga_logat: [], tasykil_options: []
         });
         setLessonData(prev => ({ ...prev, textData: newData }));
     };
@@ -231,26 +241,10 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
         // Remove fileNumber from the saved data structure
         const { fileNumber, ...cleanData } = lessonData;
 
-        // Generate preview from textData (gundul)
-        let previewText = "";
-        if (lessonData.textData && lessonData.textData.length > 0) {
-            // Flatten all paragraphs and words, extract gundul text
-            const allWords = lessonData.textData.flatMap(paragraph => paragraph.map(word => word.gundul));
-            const fullText = allWords.join(' ');
-
-            // Truncate to ~150 chars, max 2 lines approx
-            if (fullText.length > 150) {
-                previewText = fullText.substring(0, 150) + "...";
-            } else {
-                previewText = fullText;
-            }
-        }
-
         const updatedLesson = {
             ...cleanData,
-            preview: previewText, // Add preview field
-            hasIrab: (lessonData.textData || []).some(paragraph => paragraph.some(word => !!(word.irab && word.irab.trim()))),
-            hasQuiz: (lessonData.quizData || []).length > 0,
+            preview: generatePreview(lessonData.textData),
+            ...checkHasFeatures(lessonData.textData, lessonData.quizData),
             path: `data/${lessonData.level === 'Ibtida’i' ? '1-ibtidai' : lessonData.level === 'Mutawassit' ? '2-mutawassit' : '3-mutaqaddim'}/${filename}`
         };
 
@@ -580,6 +574,21 @@ const StudioEditor = ({ initialData, lessonId, onBack, onSave }) => {
                                                 <p className="text-[10px] text-gray-400 mt-1">
                                                     Masukkan jawaban pengecoh untuk mode kuis tasykil. Jawaban benar diambil dari teks asli.
                                                 </p>
+                                            </div>
+
+                                            {/* New line toggle */}
+                                            <div className="md:col-span-2 flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/20 p-2 rounded-lg">
+                                                <input
+                                                    type="checkbox"
+                                                    id={`newline-${pIndex}-${wIndex}`}
+                                                    checked={!!word.isNewLine}
+                                                    onChange={(e) => handleWordChange(pIndex, wIndex, 'isNewLine', e.target.checked)}
+                                                    className="w-4 h-4 text-blue-600 focus:ring-blue-500 rounded"
+                                                />
+                                                <label htmlFor={`newline-${pIndex}-${wIndex}`} className="text-xs font-bold text-blue-700 dark:text-blue-400 cursor-pointer">
+                                                    Pindah ke Baris Baru
+                                                </label>
+                                                {word.isNewLine && <span className="text-[10px] bg-blue-200 text-blue-800 px-1.5 py-0.5 rounded ml-auto">↩ Baris Baru</span>}
                                             </div>
                                         </div>
 

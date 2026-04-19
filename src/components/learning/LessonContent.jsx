@@ -65,16 +65,18 @@ const LessonContent = ({ lessonData, setSliderState }) => {
             const isNgaLogatVisible = showAllNgaLogat || (isNgaLogatMode && ngaLogatStates[wordId]); // New calculation
 
             return (
-              <Word
-                key={wIndex}
-                id={pIndex === 0 && wIndex === 0 ? "tour-first-word" : undefined}
-                wordData={wordData}
-                isHarakatVisible={isHarakatVisible}
-                isTranslationVisible={isTranslationVisible}
-                isNgaLogatVisible={isNgaLogatVisible} // New prop
-                onClick={() => handleWordClick(pIndex, wIndex)}
-                onDoubleClick={() => handleWordDoubleClick(wordData)}
-              />
+              <React.Fragment key={wIndex}>
+                {wordData.isNewLine && <div className="w-full h-0" aria-hidden="true" />}
+                <Word
+                  id={pIndex === 0 && wIndex === 0 ? "tour-first-word" : undefined}
+                  wordData={wordData}
+                  isHarakatVisible={isHarakatVisible}
+                  isTranslationVisible={isTranslationVisible}
+                  isNgaLogatVisible={isNgaLogatVisible} // New prop
+                  onClick={() => handleWordClick(pIndex, wIndex)}
+                  onDoubleClick={() => handleWordDoubleClick(wordData)}
+                />
+              </React.Fragment>
             );
           })}
         </div>

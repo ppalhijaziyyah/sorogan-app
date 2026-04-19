@@ -1,5 +1,5 @@
 {
-    "id": "import-1776090036965",
+    "id": "import-1776566670842",
     "title": "Kana wa Akhwatuha 01",
     "titleArabic": "كَانَ وَأَخَوَاتُهَا (01)",
     "level": "Ibtida’i",
@@ -10,6 +10,7 @@
             {
                 "berharakat": "(1)",
                 "gundul": "(1)",
+                "isNewLine": false,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -19,6 +20,7 @@
             {
                 "berharakat": "كَانَ",
                 "gundul": "كان",
+                "isNewLine": false,
                 "terjemahan": "adalah (lampau) / (dulu)",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -28,6 +30,7 @@
             {
                 "berharakat": "الْوَلَدُ",
                 "gundul": "الولد",
+                "isNewLine": false,
                 "terjemahan": "anak itu",
                 "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -40,6 +43,7 @@
             {
                 "berharakat": "مَرِيْضًا",
                 "gundul": "مريضا",
+                "isNewLine": false,
                 "terjemahan": "(adalah) sakit",
                 "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -53,12 +57,11 @@
                     "مَرِيْضٌ",
                     "مَرِيْضٍ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(2)",
                 "gundul": "(2)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -68,6 +71,7 @@
             {
                 "berharakat": "أَصْبَحَ",
                 "gundul": "أصبح",
+                "isNewLine": false,
                 "terjemahan": "menjadi (di pagi hari)",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -77,6 +81,7 @@
             {
                 "berharakat": "الْجَوُّ",
                 "gundul": "الجوّ",
+                "isNewLine": false,
                 "terjemahan": "cuaca",
                 "irab": "اسْمُ أَصْبَحَ مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -89,6 +94,7 @@
             {
                 "berharakat": "بَارِدًا",
                 "gundul": "باردا",
+                "isNewLine": false,
                 "terjemahan": "(menjadi) dingin",
                 "irab": "خَبَرُ أَصْبَحَ مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -102,12 +108,11 @@
                     "بَارِدٌ",
                     "بَارِدٍ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(3)",
                 "gundul": "(3)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -117,6 +122,7 @@
             {
                 "berharakat": "لَيْسَ",
                 "gundul": "ليس",
+                "isNewLine": false,
                 "terjemahan": "tidak / bukan",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -126,6 +132,7 @@
             {
                 "berharakat": "الْكَذِبُ",
                 "gundul": "الكذب",
+                "isNewLine": false,
                 "terjemahan": "bohong / dusta",
                 "irab": "اسْمُ لَيْسَ مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -138,6 +145,7 @@
             {
                 "berharakat": "مَحْمُوْدًا",
                 "gundul": "محمودا",
+                "isNewLine": false,
                 "terjemahan": "(adalah) terpuji",
                 "irab": "خَبَرُ لَيْسَ مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -151,12 +159,11 @@
                     "مَحْمُوْدٌ",
                     "مَحْمُوْدٍ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(4)",
                 "gundul": "(4)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -166,6 +173,7 @@
             {
                 "berharakat": "كَانَتِ",
                 "gundul": "كانت",
+                "isNewLine": false,
                 "terjemahan": "adalah (lampau) - muannats",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ لِلْمُؤَنَّثِ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -175,6 +183,7 @@
             {
                 "berharakat": "الْمَدْرَسَةُ",
                 "gundul": "المدرسة",
+                "isNewLine": false,
                 "terjemahan": "sekolah itu",
                 "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -187,6 +196,7 @@
             {
                 "berharakat": "بَعِيْدَةً",
                 "gundul": "بعيدة",
+                "isNewLine": false,
                 "terjemahan": "(adalah) jauh",
                 "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -200,12 +210,11 @@
                     "بَعِيْدَةٌ",
                     "بَعِيْدَةٍ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(5)",
                 "gundul": "(5)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -215,6 +224,7 @@
             {
                 "berharakat": "أَمْسَى",
                 "gundul": "أمسى",
+                "isNewLine": false,
                 "terjemahan": "menjadi (di sore hari)",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -224,6 +234,7 @@
             {
                 "berharakat": "الطَّالِبُ",
                 "gundul": "الطّالب",
+                "isNewLine": false,
                 "terjemahan": "murid itu",
                 "irab": "اسْمُ أَمْسَى مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -236,6 +247,7 @@
             {
                 "berharakat": "تَعِبًا",
                 "gundul": "تعبا",
+                "isNewLine": false,
                 "terjemahan": "(menjadi) lelah",
                 "irab": "خَبَرُ أَمْسَى مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -249,12 +261,11 @@
                     "تَعِبٌ",
                     "تَعِبٍ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(6)",
                 "gundul": "(6)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -264,6 +275,7 @@
             {
                 "berharakat": "صَارَ",
                 "gundul": "صار",
+                "isNewLine": false,
                 "terjemahan": "menjadi / berubah menjadi",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -273,6 +285,7 @@
             {
                 "berharakat": "الصَّغِيْرُ",
                 "gundul": "الصّغير",
+                "isNewLine": false,
                 "terjemahan": "anak kecil itu / yang kecil",
                 "irab": "اسْمُ صَارَ مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -285,6 +298,7 @@
             {
                 "berharakat": "كَبِيْرًا",
                 "gundul": "كبيرا",
+                "isNewLine": false,
                 "terjemahan": "(menjadi) besar / dewasa",
                 "irab": "خَبَرُ صَارَ مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -298,12 +312,11 @@
                     "كَبِيْرٌ",
                     "كَبِيْرٍ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(7)",
                 "gundul": "(7)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -313,6 +326,7 @@
             {
                 "berharakat": "كَانَ",
                 "gundul": "كان",
+                "isNewLine": false,
                 "terjemahan": "adalah (lampau)",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -322,6 +336,7 @@
             {
                 "berharakat": "الْعُلَمَاءُ",
                 "gundul": "العلماء",
+                "isNewLine": false,
                 "terjemahan": "para ulama",
                 "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ (جَمْعُ تَكْسِيْر)",
                 "link": "",
@@ -334,6 +349,7 @@
             {
                 "berharakat": "مُحْتَرَمِيْنَ",
                 "gundul": "محترمين",
+                "isNewLine": false,
                 "terjemahan": "(adalah) dihormati",
                 "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْيَاءِ (جَمْعُ مُذَكَّرٍ سَالِمٌ)",
                 "link": "",
@@ -347,12 +363,11 @@
                     "مُحْتَرَمُوْنَ",
                     "مُحْتَرَمِيْنَ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(8)",
                 "gundul": "(8)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -362,6 +377,7 @@
             {
                 "berharakat": "لَيْسَتِ",
                 "gundul": "ليست",
+                "isNewLine": false,
                 "terjemahan": "tidak / bukan - muannats",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ لِلْمُؤَنَّثِ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -371,6 +387,7 @@
             {
                 "berharakat": "الدُّنْيَا",
                 "gundul": "الدّنيا",
+                "isNewLine": false,
                 "terjemahan": "dunia",
                 "irab": "اسْمُ لَيْسَ مَرْفُوْعٌ بِالضَّمَّةِ الْمُقَدَّرَةِ",
                 "link": "",
@@ -382,6 +399,7 @@
             {
                 "berharakat": "دَائِمَةً",
                 "gundul": "دائمة",
+                "isNewLine": false,
                 "terjemahan": "(adalah) abadi / kekal",
                 "irab": "خَبَرُ لَيْسَ مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -395,12 +413,11 @@
                     "دَائِمَةٌ",
                     "دَائِمَةٍ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(9)",
                 "gundul": "(9)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -410,6 +427,7 @@
             {
                 "berharakat": "أَضْحَى",
                 "gundul": "أضحى",
+                "isNewLine": false,
                 "terjemahan": "menjadi (di waktu dhuha)",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -419,6 +437,7 @@
             {
                 "berharakat": "الْفَقِيْرُ",
                 "gundul": "الفقير",
+                "isNewLine": false,
                 "terjemahan": "orang miskin itu",
                 "irab": "اسْمُ أَضْحَى مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -431,6 +450,7 @@
             {
                 "berharakat": "غَنِيًّا",
                 "gundul": "غنيّا",
+                "isNewLine": false,
                 "terjemahan": "(menjadi) kaya",
                 "irab": "خَبَرُ أَضْحَى مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -444,12 +464,11 @@
                     "غَنِيٌّ",
                     "غَنِيٍّ"
                 ]
-            }
-        ],
-        [
+            },
             {
                 "berharakat": "(10)",
                 "gundul": "(10)",
+                "isNewLine": true,
                 "terjemahan": "",
                 "irab": "",
                 "link": "",
@@ -459,6 +478,7 @@
             {
                 "berharakat": "كَانَ",
                 "gundul": "كان",
+                "isNewLine": false,
                 "terjemahan": "adalah (lampau)",
                 "irab": "فِعْلٌ مَاضٍ نَاقِصٌ مِنْ أَخَوَاتِ كَانَ",
                 "link": "",
@@ -468,6 +488,7 @@
             {
                 "berharakat": "الطَّقْسُ",
                 "gundul": "الطّقس",
+                "isNewLine": false,
                 "terjemahan": "cuaca itu",
                 "irab": "اسْمُ كَانَ مَرْفُوْعٌ بِالضَّمَّةِ",
                 "link": "",
@@ -480,6 +501,7 @@
             {
                 "berharakat": "جَمِيْلًا",
                 "gundul": "جميلا",
+                "isNewLine": false,
                 "terjemahan": "(adalah) indah",
                 "irab": "خَبَرُ كَانَ مَنْصُوْبٌ بِالْفَتْحَةِ",
                 "link": "",
@@ -618,5 +640,8 @@
             "explanation": "Kaidah كَانَ: isimnya marfu' (الطَّقْسُ dengan dhammah) dan khabarnya manshub (جَمِيْلًا dengan fathah tanwin). Pilihan (A) salah karena isimnya manshub. Pilihan (C) salah karena isimnya majrur. Pilihan (D) salah karena khabarnya marfu'. Jawaban benar: كَانَ الطَّقْسُ جَمِيْلًا."
         }
     ],
-    "path": ""
+    "hasIrab": true,
+    "hasQuiz": true,
+    "path": "",
+    "fileNumber": "3"
 }

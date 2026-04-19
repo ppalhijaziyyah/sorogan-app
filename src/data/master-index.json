@@ -1,55 +1,68 @@
 [
   {
-    "id": "lesson-1775312147332",
+    "id": "lesson-1776566449543",
     "title": "Jumlah Ismiyyah 01",
     "titleArabic": "الجملة الاسمية (01)",
     "level": "Ibtida’i",
     "path": "data/1-ibtidai/1-1-jumlah-ismiyyah-01.json",
     "preview": "(1) العلم نور (2) الصّدق فضيلة (3) الولد مجتهد (4) البيت كبير (5) العالم محترم (6) الصّلاة عماد الدّين (7) الأمّ مدرسة (8) الطّالب نشيط (9) الماء طاهر...",
-    "lastModified": "2026-04-04T14:15:47.332Z",
-    "chosen": false,
-    "selected": false,
+    "lastModified": "2026-04-19T02:40:49.543Z",
     "hasIrab": true,
-    "hasQuiz": true
+    "hasQuiz": true,
+    "chosen": false,
+    "selected": false
   },
   {
-    "id": "lesson-1775318138247",
+    "id": "lesson-1776566558949",
     "title": "Jumlah Fi'liyyah 01",
     "titleArabic": "الجملة الفعليّة (01)",
     "level": "Ibtida’i",
     "path": "data/1-ibtidai/1-2-jumlah-filiyyah-01.json",
     "preview": "(1) ذهب الطّالب (2) جلست المعلّمة (3) ينام الولد (4) تبكي البنت (5) رجع الأب (6) شرب الطّفل الحليب (7) فتحت الأمّ الباب (8) يحمل الرّجل الكتاب (9) تغس...",
-    "lastModified": "2026-04-13T14:33:33.566Z",
-    "chosen": false,
-    "selected": false,
+    "lastModified": "2026-04-19T02:42:38.949Z",
     "hasIrab": true,
-    "hasQuiz": true
+    "hasQuiz": true,
+    "chosen": false,
+    "selected": false
   },
   {
-    "id": "lesson-1776090138408",
+    "id": "lesson-1776566689086",
     "title": "Kana wa Akhwatuha 01",
     "titleArabic": "كَانَ وَأَخَوَاتُهَا (01)",
     "level": "Ibtida’i",
     "path": "data/1-ibtidai/1-3-kana-wa-akhwatuha-01.json",
     "preview": "(1) كان الولد مريضا (2) أصبح الجوّ باردا (3) ليس الكذب محمودا (4) كانت المدرسة بعيدة (5) أمسى الطّالب تعبا (6) صار الصّغير كبيرا (7) كان العلماء محترم...",
-    "lastModified": "2026-04-13T14:34:14.512Z",
-    "chosen": false,
-    "selected": false,
+    "lastModified": "2026-04-19T02:44:49.086Z",
     "hasIrab": true,
-    "hasQuiz": true
+    "hasQuiz": true,
+    "chosen": false,
+    "selected": false
   },
   {
-    "id": "lesson-1776090947350",
+    "id": "lesson-1776566802260",
     "title": "Inna wa Akhwatuha 01",
     "titleArabic": "إِنَّ وَأَخَوَاتُهَا (01)",
     "level": "Ibtida’i",
     "path": "data/1-ibtidai/1-4-inna-wa-akhwatuha-01.json",
     "preview": "(1) إنّ العلم نور (2) أنّ الصّدق فضيلة (3) لكنّ الكسول خاسر (4) كأنّ القمر مصباح (5) ليت الشّباب يعود (6) لعلّ المريض يشفى (7) إنّ الأمّ رحيمة (8) كأن...",
-    "lastModified": "2026-04-13T14:36:30.364Z",
+    "lastModified": "2026-04-19T02:46:42.260Z",
+    "hasIrab": true,
+    "hasQuiz": true,
+    "chosen": false,
+    "selected": false
+  },
+  {
+    "id": "lesson-1776565270495",
+    "title": "Kisah Nabi Ibrahim (01)",
+    "titleArabic": "بائع الأصنام",
+    "level": "Ibtida’i",
+    "path": "data/1-ibtidai/1-8-1-kisah-nabi-ibrahim-01.json",
+    "preview": "1 -  بائع الأصنام قبل أيّام كثيرة كثيرة جدّا  . كان في قرية رجل مشهور جدّا  . وكان اسم هذا الرّجل آزر . وكان آزر يبيع الأصنام . وكان في هذه القرية بيت...",
+    "lastModified": "2026-04-19T02:21:19.056Z",
     "chosen": false,
     "selected": false,
     "hasIrab": true,
-    "hasQuiz": true
+    "hasQuiz": false
   },
   {
     "id": "lesson-1771346213012",
@@ -74,19 +87,6 @@
     "lastModified": "2026-04-16T03:20:04.442Z",
     "chosen": false,
     "selected": false
-  },
-  {
-    "id": "lesson-1771345418960",
-    "title": "Rukun Islam",
-    "titleArabic": "اركان الإسلام",
-    "level": "Mutawassit",
-    "path": "data/2-mutawassit/3-2-rukun-islam.json",
-    "preview": "Pasal...",
-    "lastModified": "2026-02-17T16:23:38.961Z",
-    "chosen": false,
-    "selected": false,
-    "hasIrab": true,
-    "hasQuiz": true
   },
   {
     "id": "mut-1752317543429",

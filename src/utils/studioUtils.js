@@ -66,3 +66,26 @@ export const readWorkbook = async (file) => {
 export const sheetToJson = (sheet) => {
     return XLSX.utils.sheet_to_json(sheet, { header: 1 });
 };
+
+export const generatePreview = (textData) => {
+    if (!textData || textData.length === 0) return "";
+    
+    // Flatten all paragraphs and words, extract gundul text
+    const allWords = textData.flatMap(paragraph => paragraph.map(word => word.gundul));
+    const fullText = allWords.join(' ');
+
+    // Truncate to ~70 chars (approx 1 line on most cards)
+    if (fullText.length > 70) {
+        return fullText.substring(0, 70) + "...";
+    }
+    return fullText;
+};
+
+export const checkHasFeatures = (textData, quizData) => {
+    const hasIrab = (textData || []).some(paragraph => 
+        paragraph.some(word => !!(word.irab && word.irab.trim()))
+    );
+    const hasQuiz = (quizData || []).length > 0;
+    
+    return { hasIrab, hasQuiz };
+};

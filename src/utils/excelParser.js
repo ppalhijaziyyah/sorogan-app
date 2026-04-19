@@ -1,4 +1,4 @@
-import { sheetToJson, readWorkbook, removeHarakat } from './studioUtils';
+import { sheetToJson, readWorkbook, removeHarakat, generatePreview, checkHasFeatures } from './studioUtils';
 
 export const parseExcelToLesson = async (file) => {
     const workbook = await readWorkbook(file);
@@ -48,25 +48,26 @@ export const parseExcelToLesson = async (file) => {
         }
 
         // Skip header (row 0)
+        let emptyRowCount = 0;
         for (let i = 1; i < rows.length; i++) {
             const row = rows[i];
-            // Empty row = new paragraph
-            if (!row || row.length === 0) {
-                if (currentParagraph.length > 0) {
-                    textData.push(currentParagraph);
-                    currentParagraph = [];
-                }
+            const arabic = (row && row[0]) || "";
+
+            if (!arabic) {
+                emptyRowCount++;
                 continue;
             }
 
-            const arabic = row[0] || "";
-            if (!arabic) {
+            // If we have content and we found 2+ empty rows before it, start a new paragraph
+            if (emptyRowCount >= 2) {
                 if (currentParagraph.length > 0) {
                     textData.push(currentParagraph);
                     currentParagraph = [];
                 }
-                continue;
             }
+
+            const isNewLine = emptyRowCount === 1 && (textData.length > 0 || currentParagraph.length > 0);
+            emptyRowCount = 0;
 
             const translation = row[1] || "";
             const irab = row[2] || "";
@@ -91,6 +92,7 @@ export const parseExcelToLesson = async (file) => {
             currentParagraph.push({
                 berharakat: typeof arabic === 'string' ? arabic : arabic.toString(),
                 gundul: removeHarakat(typeof arabic === 'string' ? arabic : arabic.toString()),
+                isNewLine: isNewLine,
                 terjemahan: translation,
                 irab: irab,
                 link: '',
@@ -131,11 +133,16 @@ export const parseExcelToLesson = async (file) => {
         }
     }
 
+    const { hasIrab, hasQuiz } = checkHasFeatures(textData, quizData);
+
     return {
         id: `import-${Date.now()}`,
         ...lessonMetadata,
         textData: textData,
         quizData: quizData,
+        preview: generatePreview(textData),
+        hasIrab,
+        hasQuiz,
         path: '' // Will be set on save if needed
     };
 };

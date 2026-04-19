@@ -183,26 +183,27 @@ const StudioDashboard = ({ masterIndex, onEdit, onCreate, onDelete, onUpdateOrde
 
             if (materiSheet) {
                 const rows = sheetToJson(materiSheet);
+                let emptyRowCount = 0;
                 // Skip header (row 0)
                 for (let i = 1; i < rows.length; i++) {
                     const row = rows[i];
-                    // Empty row = new paragraph
-                    if (!row || row.length === 0) {
-                        if (currentParagraph.length > 0) {
-                            textData.push(currentParagraph);
-                            currentParagraph = [];
-                        }
+                    const arabic = (row && row[0]) || "";
+
+                    if (!arabic) {
+                        emptyRowCount++;
                         continue;
                     }
 
-                    const arabic = row[0] || "";
-                    if (!arabic) {
+                    // If we have content and we found 2+ empty rows before it, start a new paragraph
+                    if (emptyRowCount >= 2) {
                         if (currentParagraph.length > 0) {
                             textData.push(currentParagraph);
                             currentParagraph = [];
                         }
-                        continue;
                     }
+
+                    const isNewLine = emptyRowCount === 1 && (textData.length > 0 || currentParagraph.length > 0);
+                    emptyRowCount = 0;
 
                     const translation = row[1] || "";
                     const irab = row[2] || "";
@@ -227,6 +228,7 @@ const StudioDashboard = ({ masterIndex, onEdit, onCreate, onDelete, onUpdateOrde
                     currentParagraph.push({
                         berharakat: arabic,
                         gundul: removeHarakat(arabic),
+                        isNewLine: isNewLine,
                         terjemahan: translation,
                         irab: irab,
                         link: '',
