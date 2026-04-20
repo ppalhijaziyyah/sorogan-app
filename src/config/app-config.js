@@ -72,7 +72,9 @@ export const appConfig = {
         showAllNgaLogat: false,        // Buka semua mode Nga-Logat sekaligus
         useNgaLogatColorCoding: false, // Gunakan panduan warna-warni pada Nga-Logat
         isTasykilMode: false,          // Mode Tasykil layar penuh interaktif
-        isSoundEnabled: true           // Umpan balik suara interaksi (efek klik)
+        isSoundEnabled: true,          // Umpan balik suara interaksi (efek klik)
+        enable3DFlashcard: true,       // Animasi balik kartu Flashcard 3D
+        isBookmarkMode: true           // Mode Bookmark memunculkan bintang
     },
 
     // ---------------------------------------------------------

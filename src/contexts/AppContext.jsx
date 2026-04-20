@@ -42,6 +42,7 @@ export const AppProvider = ({ children }) => {
   const [theme, setTheme] = useLocalStorage('theme', 'light');
   const [completedLessons, setCompletedLessons] = useLocalStorage('completedLessons', []);
   const [settings, setSettings] = useLocalStorage('soroganAppSettings', defaultSettings);
+  const [flashcards, setFlashcards] = useLocalStorage('soroganFlashcards', []);
 
   // Apply theme on initial load and when it changes
   useEffect(() => {
@@ -115,6 +116,23 @@ export const AppProvider = ({ children }) => {
     });
   };
 
+  const addFlashcard = (card) => {
+    setFlashcards(prev => {
+      if (prev.some(c => c.id === card.id)) return prev;
+      return [...prev, card];
+    });
+  };
+
+  const removeFlashcard = (cardId) => {
+    setFlashcards(prev => prev.filter(c => c.id !== cardId));
+  };
+
+  const updateFlashcard = (cardId, updatedMetrics) => {
+    setFlashcards(prev => prev.map(c => 
+      c.id === cardId ? { ...c, ...updatedMetrics } : c
+    ));
+  };
+
   const value = {
     theme,
     toggleTheme,
@@ -124,11 +142,16 @@ export const AppProvider = ({ children }) => {
     settings,
     updateSettings,
     resetSettings,
-    lastReset, // Expose this
-    ngalogatSymbolColors, // Add this
+    lastReset,
+    ngalogatSymbolColors,
     previewLessons,
     setPreviewLesson,
-    clearPreviewLesson
+    clearPreviewLesson,
+    flashcards,
+    setFlashcards,
+    addFlashcard,
+    removeFlashcard,
+    updateFlashcard
   };
 
   return (

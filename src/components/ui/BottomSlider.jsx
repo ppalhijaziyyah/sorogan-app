@@ -37,7 +37,7 @@ const BottomSlider = ({ sliderState, onClose }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`w-full max-w-4xl h-[85vh] md:h-auto md:max-h-[85vh] overflow-y-auto overscroll-contain bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl p-6 transform transition-transform duration-300 ease-in-out flex flex-col ${isShowing ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`w-full max-w-4xl ${type === 'irab' ? 'h-auto max-h-[85vh]' : 'h-[85vh] md:h-auto md:max-h-[85vh]'} overflow-y-auto overscroll-contain bg-white dark:bg-gray-800 rounded-t-3xl shadow-2xl p-6 transform transition-transform duration-300 ease-in-out flex flex-col ${isShowing ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className="flex justify-between items-center mb-4">
           {type === 'irab' ? (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import Word from './Word';
 import { AppContext } from '../../contexts/AppContext';
 
@@ -8,8 +9,20 @@ const LessonContent = ({ lessonData, setSliderState }) => {
 
   const [harakatStates, setHarakatStates] = useState({});
   const [translationStates, setTranslationStates] = useState({});
-  const [ngaLogatStates, setNgaLogatStates] = useState({}); // New state
+  const [ngaLogatStates, setNgaLogatStates] = useState({}); 
   const [currentFocusParagraph, setCurrentFocusParagraph] = useState(0);
+  const [activeBookmarkWordId, setActiveBookmarkWordId] = useState(null);
+
+  // Auto-close bookmark popup when clicking outside any word
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!e.target.closest('.word-container')) {
+        setActiveBookmarkWordId(null);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, []);
 
   // Reset states when lessonData changes or when settings are reset (lastReset change)
   useEffect(() => {
@@ -29,12 +42,49 @@ const LessonContent = ({ lessonData, setSliderState }) => {
   }, [settings.isTranslationMode]);
 
   useEffect(() => {
-    setNgaLogatStates({}); // New useEffect
+    setNgaLogatStates({}); 
   }, [isNgaLogatMode]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const focusWordId = params.get('focusWord');
+    if (focusWordId) {
+      // focusWordId format: lessonId-pIndex-wIndex
+      const parts = focusWordId.split('-');
+      if (parts.length >= 3) {
+        const pIndex = parseInt(parts[parts.length - 2]);
+        const wIndex = parseInt(parts[parts.length - 1]);
+        const wordId = `${pIndex}-${wIndex}`;
+        
+        setCurrentFocusParagraph(pIndex);
+        setTranslationStates(prev => ({ ...prev, [wordId]: true })); // Buka terjemahannya (ini juga men-trigger popup bookmark bintang)
+        setActiveBookmarkWordId(wordId);
+
+        const timer = setTimeout(() => {
+          const el = document.getElementById(`word-${focusWordId}`);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Efek berkedip atau menyorot tambahan untuk kata tersebut
+            el.style.backgroundColor = 'rgba(251, 191, 36, 0.4)'; // amber-400 warna kuning transparan
+            el.style.borderRadius = '0.25rem';
+            el.style.transition = 'background-color 2s ease-in-out';
+            setTimeout(() => {
+              el.style.backgroundColor = 'transparent';
+            }, 5000);
+          }
+        }, 300); // Waktu jeda biarkan React memuat DOM
+
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [location.search, lessonData]);
 
   const handleWordClick = (pIndex, wIndex) => {
     const wordId = `${pIndex}-${wIndex}`;
     setCurrentFocusParagraph(pIndex);
+    setActiveBookmarkWordId(wordId);
 
     if (settings.isHarakatMode) {
       setHarakatStates(prev => ({ ...prev, [wordId]: !prev[wordId] }));
@@ -62,7 +112,8 @@ const LessonContent = ({ lessonData, setSliderState }) => {
 
             const isHarakatVisible = settings.showAllHarakat || (settings.isHarakatMode && harakatStates[wordId]);
             const isTranslationVisible = settings.showAllTranslations || (settings.isTranslationMode && translationStates[wordId]);
-            const isNgaLogatVisible = showAllNgaLogat || (isNgaLogatMode && ngaLogatStates[wordId]); // New calculation
+            const isNgaLogatVisible = showAllNgaLogat || (isNgaLogatMode && ngaLogatStates[wordId]);
+            const contextSentence = paragraph.map(w => w.berharakat || w.gundul).join(' ');
 
             return (
               <React.Fragment key={wIndex}>
@@ -70,11 +121,17 @@ const LessonContent = ({ lessonData, setSliderState }) => {
                 <Word
                   id={pIndex === 0 && wIndex === 0 ? "tour-first-word" : undefined}
                   wordData={wordData}
+                  wordId={`${lessonData.id}-${pIndex}-${wIndex}`}
+                  lessonId={lessonData.id}
+                  lessonTitle={lessonData.title}
+                  contextSentence={contextSentence}
                   isHarakatVisible={isHarakatVisible}
                   isTranslationVisible={isTranslationVisible}
-                  isNgaLogatVisible={isNgaLogatVisible} // New prop
+                  isNgaLogatVisible={isNgaLogatVisible}
                   onClick={() => handleWordClick(pIndex, wIndex)}
                   onDoubleClick={() => handleWordDoubleClick(wordData)}
+                  isFocused={harakatStates[wordId] || translationStates[wordId] || ngaLogatStates[wordId]}
+                  showBookmarkPopup={activeBookmarkWordId === wordId}
                 />
               </React.Fragment>
             );

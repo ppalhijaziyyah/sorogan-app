@@ -4,6 +4,7 @@ import ThemeToggle from '../ui/ThemeToggle';
 
 const navLinks = [
   { path: '/#lessons-anchor', label: 'Pelajaran' },
+  { path: '/flashcard', label: 'Flashcard' },
   { path: '/panduan-penggunaan', label: 'Panduan' },
   { path: '/tentang-kami', label: 'Tentang Kami' },
   { path: '/dukung-kami', label: 'Dukung Kami' },

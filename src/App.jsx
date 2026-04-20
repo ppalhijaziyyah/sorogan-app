@@ -13,6 +13,7 @@ import ScrollToTopButton from './components/ui/ScrollToTopButton';
 import ScrollToTop from './components/common/ScrollToTop';
 
 const StudioPage = React.lazy(() => import('./pages/studio/StudioPage'));
+const FlashcardPage = React.lazy(() => import('./pages/FlashcardPage'));
 
 function App() {
   const [sliderState, setSliderState] = React.useState({ isOpen: false });
@@ -27,6 +28,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/studio" element={<StudioPage />} />
+                <Route path="/flashcard" element={<FlashcardPage />} />
                 <Route path="/belajar/:levelId/:lessonSlug" element={<LearningPage setSliderState={setSliderState} />} />
                 <Route path="/panduan-penggunaan" element={<HowToUsePage />} />
                 <Route path="/tentang-kami" element={<AboutUsPage />} />

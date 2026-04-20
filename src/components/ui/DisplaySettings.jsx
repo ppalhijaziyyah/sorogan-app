@@ -236,6 +236,12 @@ const DisplaySettings = ({ isOpen, settings, updateSettings, onReset, onClose })
                                 isChecked={settings.useNgaLogatColorCoding}
                                 onChange={(e) => updateSettings({ useNgaLogatColorCoding: e.target.checked })}
                             />
+                            <SettingToggle
+                                label="Tampilkan Tombol Bookmark"
+                                id="bookmark-mode-toggle"
+                                isChecked={settings.isBookmarkMode !== false} // Default true
+                                onChange={(e) => updateSettings({ isBookmarkMode: e.target.checked })}
+                            />
                         </div>
 
                         {/* Section: Opsi Tampil Semua */}
