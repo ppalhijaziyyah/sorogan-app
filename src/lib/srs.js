@@ -82,3 +82,30 @@ export const updateCardMetrics = (metrics, rating) => {
         nextReviewDate: nextReviewDate.toISOString()
     };
 };
+
+/**
+ * Pratinjau label interval berikutnya untuk setiap pilihan rating
+ * Digunakan agar tombol rating menampilkan waktu yang akurat.
+ * @param {Object} metrics - { repetitions, interval, easeFactor }
+ * @param {number} rating - Nilai dari enum RATING
+ * @returns {string} - Label yang mudah dibaca manusia, misal "5m", "1h", "6h", dll.
+ */
+export const previewNextInterval = (metrics, rating) => {
+    const result = updateCardMetrics(metrics, rating);
+    const now = new Date();
+    const next = new Date(result.nextReviewDate);
+    const diffMs = next - now;
+    const diffMinutes = Math.max(0, Math.round(diffMs / 60000));
+
+    if (diffMinutes < 1) return '<1m';
+    if (diffMinutes < 60) return `${diffMinutes}m`;
+
+    const diffHours = Math.round(diffMinutes / 60);
+    if (diffHours < 24) return `${diffHours}j`;
+
+    const diffDays = Math.round(diffHours / 24);
+    if (diffDays < 30) return `${diffDays}h`;
+
+    const diffMonths = Math.round(diffDays / 30);
+    return `${diffMonths}bln`;
+};
